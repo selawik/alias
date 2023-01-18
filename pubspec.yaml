@@ -28,6 +28,7 @@ dependencies:
   freezed: ^2.1.0+1
   freezed_annotation: ^2.1.0
   go_router: ^6.0.0
+  auto_route: ^5.0.4
 
 dev_dependencies:
   flutter_test:
@@ -36,6 +37,7 @@ dev_dependencies:
   flutter_lints: ^2.0.0
   bloc_test: ^9.1.0
   build_runner: ^2.1.5
+  auto_route_generator: ^5.0.2
 
 flutter:
   uses-material-design: true
