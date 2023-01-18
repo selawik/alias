@@ -17,10 +17,10 @@ class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
-    CategoryViewRoute.name: (routeData) {
+    CategoryPageRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const CategoriesView(),
+        child: const HomePage(),
       );
     }
   };
@@ -28,20 +28,24 @@ class _$AppRouter extends RootStackRouter {
   @override
   List<RouteConfig> get routes => [
         RouteConfig(
-          CategoryViewRoute.name,
-          path: '/categories-view',
-        )
+          CategoryPageRoute.name,
+          path: '/',
+        ),
+        RouteConfig(
+          CategoryPageRoute.name,
+          path: '/',
+        ),
       ];
 }
 
 /// generated route for
-/// [CategoriesView]
-class CategoryViewRoute extends PageRouteInfo<void> {
-  const CategoryViewRoute()
+/// [HomePage]
+class CategoryPageRoute extends PageRouteInfo<void> {
+  const CategoryPageRoute()
       : super(
-          CategoryViewRoute.name,
-          path: '/categories-view',
+          CategoryPageRoute.name,
+          path: '/',
         );
 
-  static const String name = 'CategoryViewRoute';
+  static const String name = 'CategoryPageRoute';
 }
