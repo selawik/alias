@@ -17,16 +17,22 @@ class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    HomePageRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const HomePage(),
+      );
+    },
     CategoryPageRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
         routeData: routeData,
         child: const CategoriesPage(),
       );
     },
-    HomePageRoute.name: (routeData) {
+    SettingsPageRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const HomePage(),
+        child: const SettingsPage(),
       );
     },
   };
@@ -34,26 +40,18 @@ class _$AppRouter extends RootStackRouter {
   @override
   List<RouteConfig> get routes => [
         RouteConfig(
-          CategoryPageRoute.name,
+          HomePageRoute.name,
           path: '/',
         ),
         RouteConfig(
-          HomePageRoute.name,
-          path: '/home-page',
+          CategoryPageRoute.name,
+          path: '/categories-page',
+        ),
+        RouteConfig(
+          SettingsPageRoute.name,
+          path: '/settings-page',
         ),
       ];
-}
-
-/// generated route for
-/// [CategoriesPage]
-class CategoryPageRoute extends PageRouteInfo<void> {
-  const CategoryPageRoute()
-      : super(
-          CategoryPageRoute.name,
-          path: '/',
-        );
-
-  static const String name = 'CategoryPageRoute';
 }
 
 /// generated route for
@@ -62,8 +60,32 @@ class HomePageRoute extends PageRouteInfo<void> {
   const HomePageRoute()
       : super(
           HomePageRoute.name,
-          path: '/home-page',
+          path: '/',
         );
 
   static const String name = 'HomePageRoute';
+}
+
+/// generated route for
+/// [CategoriesPage]
+class CategoryPageRoute extends PageRouteInfo<void> {
+  const CategoryPageRoute()
+      : super(
+          CategoryPageRoute.name,
+          path: '/categories-page',
+        );
+
+  static const String name = 'CategoryPageRoute';
+}
+
+/// generated route for
+/// [SettingsPage]
+class SettingsPageRoute extends PageRouteInfo<void> {
+  const SettingsPageRoute()
+      : super(
+          SettingsPageRoute.name,
+          path: '/settings-page',
+        );
+
+  static const String name = 'SettingsPageRoute';
 }
