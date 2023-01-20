@@ -10,8 +10,12 @@ class CategoriesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Категории'),
+      ),
       body: BlocProvider(
-        create: (context) => di.locator.get<CategoriesBloc>(),
+        create: (context) =>
+            di.locator.get<CategoriesBloc>()..add(LoadCategoriesEvent()),
         child: const CategoriesView(),
       ),
     );

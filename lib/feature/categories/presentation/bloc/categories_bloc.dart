@@ -15,5 +15,16 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     on<LoadCategoriesEvent>(_onLoadCategories);
   }
 
-  void _onLoadCategories(LoadCategoriesEvent event, Emitter emit) {}
+  void _onLoadCategories(LoadCategoriesEvent event, Emitter emit) async {
+    emit(CategoriesIsLoading());
+
+    final result = await loadCategories.execute();
+
+    result.fold(
+      (failure) => null,
+      (data) => emit(
+        CategoriesLoaded(categories: data),
+      ),
+    );
+  }
 }
