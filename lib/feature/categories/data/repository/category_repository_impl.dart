@@ -3,7 +3,9 @@ import 'package:alias/feature/categories/data/data_source/category_data_source.d
 import 'package:alias/feature/categories/data/models/category.dart';
 import 'package:alias/feature/categories/domain/repository/category_repository.dart';
 import 'package:dartz/dartz.dart';
+import 'package:injectable/injectable.dart';
 
+@Injectable(as: CategoryRepository)
 class CategoryRepositoryImpl implements CategoryRepository {
   final CategoryDataSource dataSource;
 

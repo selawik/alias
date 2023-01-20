@@ -1,11 +1,13 @@
 import 'package:alias/feature/categories/data/models/category.dart';
 import 'package:alias/feature/categories/domain/usercases/load_categories.dart';
 import 'package:bloc/bloc.dart';
+import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
 
 part 'categories_event.dart';
 part 'categories_state.dart';
 
+@injectable
 class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
   final LoadCategories loadCategories;
 

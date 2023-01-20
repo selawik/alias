@@ -11,7 +11,7 @@ class CategoriesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Категории'),
+        title: const Text('Категории'),
       ),
       body: BlocProvider(
         create: (context) =>

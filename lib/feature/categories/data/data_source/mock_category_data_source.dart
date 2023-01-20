@@ -1,6 +1,8 @@
 import 'package:alias/feature/categories/data/data_source/category_data_source.dart';
 import 'package:alias/feature/categories/data/models/category.dart';
+import 'package:injectable/injectable.dart';
 
+@Injectable(as: CategoryDataSource)
 class MockCategoryDataSource implements CategoryDataSource {
   MockCategoryDataSource();
 
