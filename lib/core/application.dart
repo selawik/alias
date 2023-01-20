@@ -18,6 +18,7 @@ class Application extends StatelessWidget {
           NavigatorObserver(),
         ],
       ),
+      routeInformationParser: router.defaultRouteParser(),
     );
   }
 }

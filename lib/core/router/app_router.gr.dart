@@ -20,9 +20,15 @@ class _$AppRouter extends RootStackRouter {
     CategoryPageRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
         routeData: routeData,
+        child: const CategoriesPage(),
+      );
+    },
+    HomePageRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
         child: const HomePage(),
       );
-    }
+    },
   };
 
   @override
@@ -32,14 +38,14 @@ class _$AppRouter extends RootStackRouter {
           path: '/',
         ),
         RouteConfig(
-          CategoryPageRoute.name,
-          path: '/',
+          HomePageRoute.name,
+          path: '/home-page',
         ),
       ];
 }
 
 /// generated route for
-/// [HomePage]
+/// [CategoriesPage]
 class CategoryPageRoute extends PageRouteInfo<void> {
   const CategoryPageRoute()
       : super(
@@ -48,4 +54,16 @@ class CategoryPageRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'CategoryPageRoute';
+}
+
+/// generated route for
+/// [HomePage]
+class HomePageRoute extends PageRouteInfo<void> {
+  const HomePageRoute()
+      : super(
+          HomePageRoute.name,
+          path: '/home-page',
+        );
+
+  static const String name = 'HomePageRoute';
 }
