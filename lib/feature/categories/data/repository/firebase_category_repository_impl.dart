@@ -3,13 +3,14 @@ import 'package:alias/feature/categories/data/data_source/category_data_source.d
 import 'package:alias/feature/categories/data/models/category.dart';
 import 'package:alias/feature/categories/domain/repository/category_repository.dart';
 import 'package:dartz/dartz.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable(as: CategoryRepository)
-class CategoryRepositoryImpl implements CategoryRepository {
+class FirebaseCategoryRepositoryImpl implements CategoryRepository {
   final CategoryDataSource dataSource;
 
-  CategoryRepositoryImpl({required this.dataSource});
+  FirebaseCategoryRepositoryImpl({required this.dataSource});
 
   @override
   Future<Either<Failure, List<Category>>> loadCategories() async {
@@ -20,7 +21,17 @@ class CategoryRepositoryImpl implements CategoryRepository {
         return const Left(NoDataFailure('There is no categories'));
       }
 
-      return Right(result);
+      var categories = result.map(
+        (category) async {
+          var imageUrl = await FirebaseStorage.instance
+              .ref()
+              .child(category.fileName)
+              .getDownloadURL();
+          return category.copyWith(fileName: imageUrl);
+        },
+      ).toList();
+
+      return Right(await Future.wait(categories));
     } catch (e) {
       return const Left(ServerFailure('Error'));
     }

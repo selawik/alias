@@ -8,6 +8,8 @@ class Category with _$Category {
   const factory Category({
     required int categoryId,
     required String name,
+    required String fileName,
+    String? fileUrl,
   }) = _Category;
 
   factory Category.fromJson(Map<String, dynamic> json) =>

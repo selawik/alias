@@ -22,6 +22,8 @@ Category _$CategoryFromJson(Map<String, dynamic> json) {
 mixin _$Category {
   int get categoryId => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
+  String get fileName => throw _privateConstructorUsedError;
+  String? get fileUrl => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +36,7 @@ abstract class $CategoryCopyWith<$Res> {
   factory $CategoryCopyWith(Category value, $Res Function(Category) then) =
       _$CategoryCopyWithImpl<$Res, Category>;
   @useResult
-  $Res call({int categoryId, String name});
+  $Res call({int categoryId, String name, String fileName, String? fileUrl});
 }
 
 /// @nodoc
@@ -52,6 +54,8 @@ class _$CategoryCopyWithImpl<$Res, $Val extends Category>
   $Res call({
     Object? categoryId = null,
     Object? name = null,
+    Object? fileName = null,
+    Object? fileUrl = freezed,
   }) {
     return _then(_value.copyWith(
       categoryId: null == categoryId
@@ -62,6 +66,14 @@ class _$CategoryCopyWithImpl<$Res, $Val extends Category>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      fileName: null == fileName
+          ? _value.fileName
+          : fileName // ignore: cast_nullable_to_non_nullable
+              as String,
+      fileUrl: freezed == fileUrl
+          ? _value.fileUrl
+          : fileUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -73,7 +85,7 @@ abstract class _$$_CategoryCopyWith<$Res> implements $CategoryCopyWith<$Res> {
       __$$_CategoryCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int categoryId, String name});
+  $Res call({int categoryId, String name, String fileName, String? fileUrl});
 }
 
 /// @nodoc
@@ -89,6 +101,8 @@ class __$$_CategoryCopyWithImpl<$Res>
   $Res call({
     Object? categoryId = null,
     Object? name = null,
+    Object? fileName = null,
+    Object? fileUrl = freezed,
   }) {
     return _then(_$_Category(
       categoryId: null == categoryId
@@ -99,6 +113,14 @@ class __$$_CategoryCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      fileName: null == fileName
+          ? _value.fileName
+          : fileName // ignore: cast_nullable_to_non_nullable
+              as String,
+      fileUrl: freezed == fileUrl
+          ? _value.fileUrl
+          : fileUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -106,7 +128,11 @@ class __$$_CategoryCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Category implements _Category {
-  const _$_Category({required this.categoryId, required this.name});
+  const _$_Category(
+      {required this.categoryId,
+      required this.name,
+      required this.fileName,
+      this.fileUrl});
 
   factory _$_Category.fromJson(Map<String, dynamic> json) =>
       _$$_CategoryFromJson(json);
@@ -115,10 +141,14 @@ class _$_Category implements _Category {
   final int categoryId;
   @override
   final String name;
+  @override
+  final String fileName;
+  @override
+  final String? fileUrl;
 
   @override
   String toString() {
-    return 'Category(categoryId: $categoryId, name: $name)';
+    return 'Category(categoryId: $categoryId, name: $name, fileName: $fileName, fileUrl: $fileUrl)';
   }
 
   @override
@@ -128,12 +158,16 @@ class _$_Category implements _Category {
             other is _$_Category &&
             (identical(other.categoryId, categoryId) ||
                 other.categoryId == categoryId) &&
-            (identical(other.name, name) || other.name == name));
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.fileName, fileName) ||
+                other.fileName == fileName) &&
+            (identical(other.fileUrl, fileUrl) || other.fileUrl == fileUrl));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, categoryId, name);
+  int get hashCode =>
+      Object.hash(runtimeType, categoryId, name, fileName, fileUrl);
 
   @JsonKey(ignore: true)
   @override
@@ -152,7 +186,9 @@ class _$_Category implements _Category {
 abstract class _Category implements Category {
   const factory _Category(
       {required final int categoryId,
-      required final String name}) = _$_Category;
+      required final String name,
+      required final String fileName,
+      final String? fileUrl}) = _$_Category;
 
   factory _Category.fromJson(Map<String, dynamic> json) = _$_Category.fromJson;
 
@@ -160,6 +196,10 @@ abstract class _Category implements Category {
   int get categoryId;
   @override
   String get name;
+  @override
+  String get fileName;
+  @override
+  String? get fileUrl;
   @override
   @JsonKey(ignore: true)
   _$$_CategoryCopyWith<_$_Category> get copyWith =>
