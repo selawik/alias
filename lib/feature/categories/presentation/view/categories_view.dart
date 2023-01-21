@@ -30,21 +30,40 @@ class CategoriesView extends StatelessWidget {
   }
 
   Widget _buildCategoriesList(BuildContext context, List<Category> categories) {
-    return Padding(
-      padding: const EdgeInsets.all(16),
-      child: SingleChildScrollView(
-        child: Wrap(
-          spacing: 12,
-          runSpacing: 12,
-          children: [
-            for (var item in categories) _buildListItem(context, item),
-          ],
-        ),
+    return GridView.builder(
+      padding: EdgeInsets.all(16),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        mainAxisSpacing: 16,
+        crossAxisSpacing: 16,
       ),
+      itemBuilder: (context, index) {
+        var item = categories[index];
+
+        return _buildListItem(context, item);
+      },
+      itemCount: categories.length,
     );
   }
 
   Widget _buildListItem(BuildContext context, Category category) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(22),
+        color: Colors.red,
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.network(
+            category.fileName,
+            width: 120,
+          ),
+          const SizedBox(height: 16),
+          Text(category.name),
+        ],
+      ),
+    );
     return ElevatedButton(
       onPressed: () => _onListItemTap(context, category),
       style: ButtonStyle(
@@ -54,9 +73,7 @@ class CategoriesView extends StatelessWidget {
           ),
         ),
       ),
-      child: Text(
-        category.name,
-      ),
+      child: Text('123'),
     );
   }
 
