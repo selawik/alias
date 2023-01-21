@@ -8,7 +8,7 @@
 import 'package:alias/core/router/app_router.dart' as _i3;
 import 'package:alias/feature/categories/data/data_source/category_data_source.dart'
     as _i4;
-import 'package:alias/feature/categories/data/data_source/mock_category_data_source.dart'
+import 'package:alias/feature/categories/data/data_source/firebase_category_data_source.dart'
     as _i5;
 import 'package:alias/feature/categories/data/repository/category_repository_impl.dart'
     as _i7;
@@ -35,7 +35,7 @@ extension GetItInjectableX on _i1.GetIt {
       environmentFilter,
     );
     gh.singleton<_i3.AppRouter>(_i3.AppRouter());
-    gh.factory<_i4.CategoryDataSource>(() => _i5.MockCategoryDataSource());
+    gh.factory<_i4.CategoryDataSource>(() => _i5.FirebaseCategoryDataSource());
     gh.factory<_i6.CategoryRepository>(() =>
         _i7.CategoryRepositoryImpl(dataSource: gh<_i4.CategoryDataSource>()));
     gh.factory<_i8.LoadCategories>(
