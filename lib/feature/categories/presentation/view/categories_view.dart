@@ -52,28 +52,20 @@ class CategoriesView extends StatelessWidget {
         borderRadius: BorderRadius.circular(22),
         color: Colors.red,
       ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.network(
-            category.fileName,
-            width: 120,
-          ),
-          const SizedBox(height: 16),
-          Text(category.name),
-        ],
-      ),
-    );
-    return ElevatedButton(
-      onPressed: () => _onListItemTap(context, category),
-      style: ButtonStyle(
-        shape: MaterialStateProperty.all(
-          RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(22),
-          ),
+      child: GestureDetector(
+        onTap: () => _onListItemTap(context, category),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.network(
+              category.fileName,
+              width: 120,
+            ),
+            const SizedBox(height: 16),
+            Text(category.name),
+          ],
         ),
       ),
-      child: Text('123'),
     );
   }
 
