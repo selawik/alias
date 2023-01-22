@@ -49,7 +49,8 @@ class CommandsBloc extends Bloc<CommandsEvent, CommandsState> {
   void _onRemoveCommand(_RemoveCommand event, Emitter emit) async {
     _allCommands.add(event.command);
 
-    List<Command> addedCommands = List.from(_addedCommands)..remove(event.command);
+    List<Command> addedCommands = List.from(_addedCommands)
+      ..remove(event.command);
 
     _addedCommands = addedCommands;
 

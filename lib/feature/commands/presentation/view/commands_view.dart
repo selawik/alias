@@ -36,7 +36,7 @@ class CommandsView extends StatelessWidget {
       builder: (context, state) {
         return state.when(
           initial: () => Container(),
-          loading: () => const CircularProgressIndicator(),
+          loading: () => const Center(child: CircularProgressIndicator()),
           loaded: (addedCommands) => _buildCommandsList(context, addedCommands),
         );
       },
