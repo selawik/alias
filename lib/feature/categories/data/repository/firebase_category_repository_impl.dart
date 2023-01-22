@@ -32,7 +32,9 @@ class FirebaseCategoryRepositoryImpl implements CategoryRepository {
       ).toList();
 
       return Right(await Future.wait(categories));
-    } catch (e) {
+    } catch (e, stacktrace) {
+      print(e.toString());
+      print(stacktrace);
       return const Left(ServerFailure('Error'));
     }
   }
