@@ -15,11 +15,15 @@ import 'package:alias/feature/categories/data/repository/firebase_category_repos
 import 'package:alias/feature/categories/domain/repository/category_repository.dart'
     as _i6;
 import 'package:alias/feature/categories/domain/usercases/load_categories.dart'
-    as _i9;
-import 'package:alias/feature/categories/presentation/bloc/categories_bloc.dart'
-    as _i10;
-import 'package:alias/feature/commands/presentation/bloc/commands_bloc.dart'
     as _i8;
+import 'package:alias/feature/categories/presentation/bloc/categories_bloc.dart'
+    as _i11;
+import 'package:alias/feature/commands/domain/repository/commands_repository.dart'
+    as _i10;
+import 'package:alias/feature/commands/domain/usercases/load_commands.dart'
+    as _i9;
+import 'package:alias/feature/commands/presentation/bloc/commands_bloc.dart'
+    as _i12;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
@@ -40,11 +44,14 @@ extension GetItInjectableX on _i1.GetIt {
     gh.factory<_i4.CategoryDataSource>(() => _i5.FirebaseCategoryDataSource());
     gh.factory<_i6.CategoryRepository>(() => _i7.FirebaseCategoryRepositoryImpl(
         dataSource: gh<_i4.CategoryDataSource>()));
-    gh.factory<_i8.CommandsBloc>(() => _i8.CommandsBloc());
-    gh.factory<_i9.LoadCategories>(
-        () => _i9.LoadCategories(repository: gh<_i6.CategoryRepository>()));
-    gh.factory<_i10.CategoriesBloc>(
-        () => _i10.CategoriesBloc(loadCategories: gh<_i9.LoadCategories>()));
+    gh.factory<_i8.LoadCategories>(
+        () => _i8.LoadCategories(repository: gh<_i6.CategoryRepository>()));
+    gh.factory<_i9.LoadCommands>(
+        () => _i9.LoadCommands(repository: gh<_i10.CommandsRepository>()));
+    gh.factory<_i11.CategoriesBloc>(
+        () => _i11.CategoriesBloc(loadCategories: gh<_i8.LoadCategories>()));
+    gh.factory<_i12.CommandsBloc>(
+        () => _i12.CommandsBloc(gh<_i9.LoadCommands>()));
     return this;
   }
 }
