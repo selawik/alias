@@ -63,10 +63,10 @@ class CommandsView extends StatelessWidget {
     var currentState = bloc.state;
     //var textStyle = Theme.of(context).textTheme.headline2;
 
-    var listItem = Container(
+    return Container(
       alignment: Alignment.centerLeft,
       padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
+      decoration: BoxDecoration(color: Colors.red
           //color: AppColors.lavender,
           //borderRadius: ThemeBuilder.defaultBorderRadius,
           ),
@@ -85,29 +85,19 @@ class CommandsView extends StatelessWidget {
                     onTap: () => bloc.add(
                       CommandsEvent.removeCommand(command: item),
                     ),
-                    child: const Icon(Icons.remove),
+                    child: const Icon(
+                      Icons.remove,
+                      size: 20,
+                    ),
                   );
                 }
                 return null;
               }) ??
-              Container(),
+              Container(
+                height: 20,
+              ),
         ],
       ),
-    );
-
-    return listItem;
-  }
-
-  Widget _wrapItemIntoDismissible(
-    BuildContext context, {
-    required Widget child,
-    required void Function() callback,
-    required Command item,
-  }) {
-    return Dismissible(
-      onDismissed: (direction) => callback(),
-      key: UniqueKey(),
-      child: child,
     );
   }
 
