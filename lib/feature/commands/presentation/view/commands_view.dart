@@ -1,3 +1,5 @@
+import 'package:alias/core/constants/app_colors.dart';
+import 'package:alias/core/theme/theme_builder.dart';
 import 'package:alias/feature/commands/data/models/command.dart';
 import 'package:alias/feature/commands/presentation/bloc/commands_bloc.dart';
 import 'package:flutter/material.dart';
@@ -50,6 +52,7 @@ class CommandsView extends StatelessWidget {
     return ListView.separated(
       shrinkWrap: true,
       controller: _scrollController,
+      physics: const BouncingScrollPhysics(),
       padding: const EdgeInsets.symmetric(horizontal: 16),
       itemBuilder: (context, index) =>
           _buildListItem(context, addedCommands[index]),
@@ -60,26 +63,25 @@ class CommandsView extends StatelessWidget {
 
   Widget _buildListItem(BuildContext context, Command item) {
     var bloc = BlocProvider.of<CommandsBloc>(context);
-    var currentState = bloc.state;
-    //var textStyle = Theme.of(context).textTheme.headline2;
+    var textStyle = Theme.of(context).textTheme.headline2;
 
     return Container(
       alignment: Alignment.centerLeft,
       padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(color: Colors.red
-          //color: AppColors.lavender,
-          //borderRadius: ThemeBuilder.defaultBorderRadius,
-          ),
+      decoration: BoxDecoration(
+        color: AppColors.lavender,
+        borderRadius: ThemeBuilder.defaultBorderRadius,
+      ),
       child: Row(
         children: [
           Expanded(
             child: Text(
               item.name,
-              //style: textStyle?.copyWith(color: AppColors.black),
+              style: textStyle?.copyWith(color: AppColors.black),
             ),
           ),
           const SizedBox(width: 8),
-          currentState.whenOrNull(loaded: (addedCommands) {
+          bloc.state.whenOrNull(loaded: (addedCommands) {
                 if (addedCommands.length > 1) {
                   return GestureDetector(
                     onTap: () => bloc.add(
@@ -109,7 +111,7 @@ class CommandsView extends StatelessWidget {
           //HapticFeedback.mediumImpact();
           _onAddPressed(context);
         },
-        //style: ThemeBuilder.orangeButtonStyle,
+        style: ThemeBuilder.orangeButtonStyle,
         child: const Icon(
           Icons.add,
           size: 40,
