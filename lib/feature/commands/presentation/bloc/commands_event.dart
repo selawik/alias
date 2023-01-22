@@ -4,8 +4,7 @@ part of 'commands_bloc.dart';
 class CommandsEvent with _$CommandsEvent {
   const factory CommandsEvent.loadCommands() = _LoadCommands;
 
-  const factory CommandsEvent.addCommand({required Command command}) =
-      _AddCommand;
+  const factory CommandsEvent.addCommand() = _AddCommand;
 
   const factory CommandsEvent.removeCommand({required Command command}) =
       _RemoveCommand;
