@@ -37,8 +37,7 @@ class CommandsView extends StatelessWidget {
         return state.when(
           initial: () => Container(),
           loading: () => const CircularProgressIndicator(),
-          loaded: (allCommands, addedCommands) =>
-              _buildCommandsList(context, addedCommands, addedCommands),
+          loaded: (addedCommands) => _buildCommandsList(context, addedCommands),
         );
       },
     );
@@ -46,7 +45,6 @@ class CommandsView extends StatelessWidget {
 
   Widget _buildCommandsList(
     BuildContext context,
-    List<Command> allCommands,
     List<Command> addedCommands,
   ) {
     return ListView.separated(
@@ -63,7 +61,7 @@ class CommandsView extends StatelessWidget {
   Widget _buildListItem(BuildContext context, Command item) {
     var bloc = BlocProvider.of<CommandsBloc>(context);
     var currentState = bloc.state;
-    var textStyle = Theme.of(context).textTheme.headline2;
+    //var textStyle = Theme.of(context).textTheme.headline2;
 
     var listItem = Container(
       alignment: Alignment.centerLeft,
@@ -81,7 +79,7 @@ class CommandsView extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 8),
-          currentState.whenOrNull(loaded: (allCommands, addedCommands) {
+          currentState.whenOrNull(loaded: (addedCommands) {
                 if (addedCommands.length > 1) {
                   return GestureDetector(
                     onTap: () => bloc.add(
@@ -90,6 +88,7 @@ class CommandsView extends StatelessWidget {
                     child: const Icon(Icons.remove),
                   );
                 }
+                return null;
               }) ??
               Container(),
         ],

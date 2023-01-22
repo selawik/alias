@@ -452,25 +452,21 @@ mixin _$CommandsState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            List<Command> allCommands, List<Command> addedCommand)
-        loaded,
+    required TResult Function(List<Command> addedCommands) loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Command> allCommands, List<Command> addedCommand)?
-        loaded,
+    TResult? Function(List<Command> addedCommands)? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Command> allCommands, List<Command> addedCommand)?
-        loaded,
+    TResult Function(List<Command> addedCommands)? loaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -555,9 +551,7 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            List<Command> allCommands, List<Command> addedCommand)
-        loaded,
+    required TResult Function(List<Command> addedCommands) loaded,
   }) {
     return initial();
   }
@@ -567,8 +561,7 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Command> allCommands, List<Command> addedCommand)?
-        loaded,
+    TResult? Function(List<Command> addedCommands)? loaded,
   }) {
     return initial?.call();
   }
@@ -578,8 +571,7 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Command> allCommands, List<Command> addedCommand)?
-        loaded,
+    TResult Function(List<Command> addedCommands)? loaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -666,9 +658,7 @@ class _$_Loading implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            List<Command> allCommands, List<Command> addedCommand)
-        loaded,
+    required TResult Function(List<Command> addedCommands) loaded,
   }) {
     return loading();
   }
@@ -678,8 +668,7 @@ class _$_Loading implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Command> allCommands, List<Command> addedCommand)?
-        loaded,
+    TResult? Function(List<Command> addedCommands)? loaded,
   }) {
     return loading?.call();
   }
@@ -689,8 +678,7 @@ class _$_Loading implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Command> allCommands, List<Command> addedCommand)?
-        loaded,
+    TResult Function(List<Command> addedCommands)? loaded,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -743,7 +731,7 @@ abstract class _$$_LoadedCopyWith<$Res> {
   factory _$$_LoadedCopyWith(_$_Loaded value, $Res Function(_$_Loaded) then) =
       __$$_LoadedCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<Command> allCommands, List<Command> addedCommand});
+  $Res call({List<Command> addedCommands});
 }
 
 /// @nodoc
@@ -756,17 +744,12 @@ class __$$_LoadedCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? allCommands = null,
-    Object? addedCommand = null,
+    Object? addedCommands = null,
   }) {
     return _then(_$_Loaded(
-      allCommands: null == allCommands
-          ? _value._allCommands
-          : allCommands // ignore: cast_nullable_to_non_nullable
-              as List<Command>,
-      addedCommand: null == addedCommand
-          ? _value._addedCommand
-          : addedCommand // ignore: cast_nullable_to_non_nullable
+      addedCommands: null == addedCommands
+          ? _value._addedCommands
+          : addedCommands // ignore: cast_nullable_to_non_nullable
               as List<Command>,
     ));
   }
@@ -775,29 +758,19 @@ class __$$_LoadedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Loaded implements _Loaded {
-  const _$_Loaded(
-      {required final List<Command> allCommands,
-      required final List<Command> addedCommand})
-      : _allCommands = allCommands,
-        _addedCommand = addedCommand;
+  const _$_Loaded({required final List<Command> addedCommands})
+      : _addedCommands = addedCommands;
 
-  final List<Command> _allCommands;
+  final List<Command> _addedCommands;
   @override
-  List<Command> get allCommands {
+  List<Command> get addedCommands {
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_allCommands);
-  }
-
-  final List<Command> _addedCommand;
-  @override
-  List<Command> get addedCommand {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_addedCommand);
+    return EqualUnmodifiableListView(_addedCommands);
   }
 
   @override
   String toString() {
-    return 'CommandsState.loaded(allCommands: $allCommands, addedCommand: $addedCommand)';
+    return 'CommandsState.loaded(addedCommands: $addedCommands)';
   }
 
   @override
@@ -806,16 +779,12 @@ class _$_Loaded implements _Loaded {
         (other.runtimeType == runtimeType &&
             other is _$_Loaded &&
             const DeepCollectionEquality()
-                .equals(other._allCommands, _allCommands) &&
-            const DeepCollectionEquality()
-                .equals(other._addedCommand, _addedCommand));
+                .equals(other._addedCommands, _addedCommands));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_allCommands),
-      const DeepCollectionEquality().hash(_addedCommand));
+      runtimeType, const DeepCollectionEquality().hash(_addedCommands));
 
   @JsonKey(ignore: true)
   @override
@@ -828,11 +797,9 @@ class _$_Loaded implements _Loaded {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            List<Command> allCommands, List<Command> addedCommand)
-        loaded,
+    required TResult Function(List<Command> addedCommands) loaded,
   }) {
-    return loaded(allCommands, addedCommand);
+    return loaded(addedCommands);
   }
 
   @override
@@ -840,10 +807,9 @@ class _$_Loaded implements _Loaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Command> allCommands, List<Command> addedCommand)?
-        loaded,
+    TResult? Function(List<Command> addedCommands)? loaded,
   }) {
-    return loaded?.call(allCommands, addedCommand);
+    return loaded?.call(addedCommands);
   }
 
   @override
@@ -851,12 +817,11 @@ class _$_Loaded implements _Loaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Command> allCommands, List<Command> addedCommand)?
-        loaded,
+    TResult Function(List<Command> addedCommands)? loaded,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(allCommands, addedCommand);
+      return loaded(addedCommands);
     }
     return orElse();
   }
@@ -897,12 +862,10 @@ class _$_Loaded implements _Loaded {
 }
 
 abstract class _Loaded implements CommandsState {
-  const factory _Loaded(
-      {required final List<Command> allCommands,
-      required final List<Command> addedCommand}) = _$_Loaded;
+  const factory _Loaded({required final List<Command> addedCommands}) =
+      _$_Loaded;
 
-  List<Command> get allCommands;
-  List<Command> get addedCommand;
+  List<Command> get addedCommands;
   @JsonKey(ignore: true)
   _$$_LoadedCopyWith<_$_Loaded> get copyWith =>
       throw _privateConstructorUsedError;

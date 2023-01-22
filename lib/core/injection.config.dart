@@ -15,15 +15,21 @@ import 'package:alias/feature/categories/data/repository/firebase_category_repos
 import 'package:alias/feature/categories/domain/repository/category_repository.dart'
     as _i6;
 import 'package:alias/feature/categories/domain/usercases/load_categories.dart'
-    as _i8;
+    as _i12;
 import 'package:alias/feature/categories/presentation/bloc/categories_bloc.dart'
+    as _i14;
+import 'package:alias/feature/commands/data/data_source/commands_data_source.dart'
+    as _i8;
+import 'package:alias/feature/commands/data/data_source/firebase_commands_data_source.dart'
+    as _i9;
+import 'package:alias/feature/commands/data/repository/commands_repository_impl.dart'
     as _i11;
 import 'package:alias/feature/commands/domain/repository/commands_repository.dart'
     as _i10;
 import 'package:alias/feature/commands/domain/usercases/load_commands.dart'
-    as _i9;
+    as _i13;
 import 'package:alias/feature/commands/presentation/bloc/commands_bloc.dart'
-    as _i12;
+    as _i15;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
@@ -44,14 +50,17 @@ extension GetItInjectableX on _i1.GetIt {
     gh.factory<_i4.CategoryDataSource>(() => _i5.FirebaseCategoryDataSource());
     gh.factory<_i6.CategoryRepository>(() => _i7.FirebaseCategoryRepositoryImpl(
         dataSource: gh<_i4.CategoryDataSource>()));
-    gh.factory<_i8.LoadCategories>(
-        () => _i8.LoadCategories(repository: gh<_i6.CategoryRepository>()));
-    gh.factory<_i9.LoadCommands>(
-        () => _i9.LoadCommands(repository: gh<_i10.CommandsRepository>()));
-    gh.factory<_i11.CategoriesBloc>(
-        () => _i11.CategoriesBloc(loadCategories: gh<_i8.LoadCategories>()));
-    gh.factory<_i12.CommandsBloc>(
-        () => _i12.CommandsBloc(gh<_i9.LoadCommands>()));
+    gh.factory<_i8.CommandsDataSource>(() => _i9.FirebaseCommandsDataSource());
+    gh.factory<_i10.CommandsRepository>(() =>
+        _i11.CommandsRepositoryImpl(dataSource: gh<_i8.CommandsDataSource>()));
+    gh.factory<_i12.LoadCategories>(
+        () => _i12.LoadCategories(repository: gh<_i6.CategoryRepository>()));
+    gh.factory<_i13.LoadCommands>(
+        () => _i13.LoadCommands(repository: gh<_i10.CommandsRepository>()));
+    gh.factory<_i14.CategoriesBloc>(
+        () => _i14.CategoriesBloc(loadCategories: gh<_i12.LoadCategories>()));
+    gh.factory<_i15.CommandsBloc>(
+        () => _i15.CommandsBloc(gh<_i13.LoadCommands>()));
     return this;
   }
 }
