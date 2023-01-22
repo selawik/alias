@@ -17,6 +17,7 @@ class CommandsBloc extends Bloc<CommandsEvent, CommandsState> {
   ) : super(const CommandsState.initial()) {
     on<_LoadCommands>(_onLoadCommands);
     on<_AddCommand>(_onAddCommand);
+    on<_RemoveCommand>(_onRemoveCommand);
   }
 
   List<Command> _allCommands = [];
@@ -43,6 +44,16 @@ class CommandsBloc extends Bloc<CommandsEvent, CommandsState> {
 
       emit(CommandsState.loaded(addedCommands: _addedCommands));
     }
+  }
+
+  void _onRemoveCommand(_RemoveCommand event, Emitter emit) async {
+    _allCommands.add(event.command);
+
+    List<Command> addedCommands = List.from(_addedCommands)..remove(event.command);
+
+    _addedCommands = addedCommands;
+
+    emit(CommandsState.loaded(addedCommands: _addedCommands));
   }
 
   void _addCommand() {
