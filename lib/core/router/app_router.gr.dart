@@ -35,6 +35,12 @@ class _$AppRouter extends RootStackRouter {
         child: const SettingsPage(),
       );
     },
+    CommandPageRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const CommandsPage(),
+      );
+    },
   };
 
   @override
@@ -50,6 +56,10 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(
           SettingsPageRoute.name,
           path: '/settings-page',
+        ),
+        RouteConfig(
+          CommandPageRoute.name,
+          path: '/commands-page',
         ),
       ];
 }
@@ -88,4 +98,16 @@ class SettingsPageRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'SettingsPageRoute';
+}
+
+/// generated route for
+/// [CommandsPage]
+class CommandPageRoute extends PageRouteInfo<void> {
+  const CommandPageRoute()
+      : super(
+          CommandPageRoute.name,
+          path: '/commands-page',
+        );
+
+  static const String name = 'CommandPageRoute';
 }
