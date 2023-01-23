@@ -6,14 +6,14 @@ import 'package:flutter/material.dart';
 class CommandMoveTimeSelector extends StatelessWidget {
   CommandMoveTimeSelector({Key? key}) : super(key: key);
 
-  CommandMoveTimeEnum selectedItem = CommandMoveTimeEnum.halfOfMinute;
+  CommandMoveTimeEnum selectedItem = CommandMoveTimeEnum.minute;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        const Text('Время на ход'),
+        Text('Время на ход', style: Theme.of(context).textTheme.headline1),
         const SizedBox(height: 16),
         _buildTypesList(context),
       ],
@@ -24,9 +24,13 @@ class CommandMoveTimeSelector extends StatelessWidget {
     return Wrap(
       spacing: 12,
       children: CommandMoveTimeEnum.values
-          .map((element) => CommandMoveItem(
-                type: element,
-              ))
+          .map(
+            (element) => CommandMoveItem(
+              type: element,
+              isSelected: element == selectedItem,
+              onTap: (moveTime) {},
+            ),
+          )
           .toList(),
     );
   }
@@ -49,12 +53,28 @@ class CommandMoveItem extends StatelessWidget {
     return GestureDetector(
       onTap: () => onTap(type),
       child: Container(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         decoration: BoxDecoration(
           borderRadius: ThemeBuilder.defaultBorderRadius,
-          color: isSelected ? AppColors.lavender : AppColors.buttonColor,
+          border: isSelected
+              ? Border.all(color: AppColors.appBackgroundDark)
+              : null,
+          color: isSelected ? AppColors.buttonColor : AppColors.white,
+          boxShadow: [
+            BoxShadow(
+              offset: const Offset(2, 3),
+              blurRadius: 5,
+              color: AppColors.black.withOpacity(0.4),
+            ),
+          ],
         ),
-        child: Text(type.toString()),
+        child: Text(
+          type.toString(),
+          style: Theme.of(context).textTheme.button?.copyWith(
+                color: isSelected ? null : AppColors.black,
+                fontWeight: FontWeight.w500,
+              ),
+        ),
       ),
     );
   }
