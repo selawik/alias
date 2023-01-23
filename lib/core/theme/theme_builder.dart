@@ -40,7 +40,7 @@ class ThemeBuilder {
         ),
         button: TextStyle(
           fontFamily: 'Roboto',
-          fontSize: 16,
+          fontSize: 20,
           color: AppColors.white,
           fontWeight: FontWeight.normal,
         ),

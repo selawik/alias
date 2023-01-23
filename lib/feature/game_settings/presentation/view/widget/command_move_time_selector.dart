@@ -1,11 +1,11 @@
-import 'package:alias/feature/game_settings/domain/model/command_move_time_enum.dart';
+import 'package:alias/feature/game_settings/domain/model/command_move_selector_type.dart';
 import 'package:alias/feature/game_settings/presentation/view/widget/base_selector_item.dart';
 import 'package:flutter/material.dart';
 
 class CommandMoveTimeSelector extends StatelessWidget {
   CommandMoveTimeSelector({Key? key}) : super(key: key);
 
-  CommandMoveTimeEnum selectedItem = CommandMoveTimeEnum.minute;
+  CommandMoveSelectorType selectedItem = CommandMoveSelectorType.minute;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class CommandMoveTimeSelector extends StatelessWidget {
   Widget _buildTypesList(BuildContext context) {
     return Wrap(
       spacing: 12,
-      children: CommandMoveTimeEnum.values
+      children: CommandMoveSelectorType.values
           .map(
             (element) => BaseSelectorItem(
               onTap: () {},

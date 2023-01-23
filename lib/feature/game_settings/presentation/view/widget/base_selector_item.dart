@@ -36,7 +36,7 @@ class BaseSelectorItem extends StatelessWidget {
         ),
         child: Text(
           title,
-          style: Theme.of(context).textTheme.button?.copyWith(
+          style: Theme.of(context).textTheme.headline4?.copyWith(
                 color: isSelected ? null : AppColors.black,
                 fontWeight: FontWeight.w500,
               ),

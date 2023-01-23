@@ -10,15 +10,28 @@ class GameSettingsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+      child: Stack(
         children: [
-          const SizedBox(height: 16),
-          CommandMoveTimeSelector(),
-          const SizedBox(height: 16),
-          const LastWordSelector(),
-          const SizedBox(height: 16),
-          const PenaltySelector(),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const SizedBox(height: 16),
+              CommandMoveTimeSelector(),
+              const SizedBox(height: 24),
+              LastWordSelector(),
+              const SizedBox(height: 24),
+              PenaltySelector(),
+            ],
+          ),
+          Positioned(
+            bottom: MediaQuery.of(context).padding.bottom + 16,
+            left: 0,
+            right: 0,
+            child: ElevatedButton(
+              child: const Text('Продолжить'),
+              onPressed: () {},
+            ),
+          ),
         ],
       ),
     );

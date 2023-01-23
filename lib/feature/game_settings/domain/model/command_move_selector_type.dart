@@ -1,4 +1,4 @@
-enum CommandMoveTimeEnum {
+enum CommandMoveSelectorType {
   halfOfMinute,
   minute,
   minuteAndHalf;
@@ -6,11 +6,11 @@ enum CommandMoveTimeEnum {
   @override
   String toString() {
     switch (this) {
-      case CommandMoveTimeEnum.halfOfMinute:
+      case CommandMoveSelectorType.halfOfMinute:
         return '30 сек';
-      case CommandMoveTimeEnum.minute:
+      case CommandMoveSelectorType.minute:
         return '60 сек';
-      case CommandMoveTimeEnum.minuteAndHalf:
+      case CommandMoveSelectorType.minuteAndHalf:
         return '90 сек';
     }
   }
