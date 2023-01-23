@@ -1,4 +1,5 @@
 import 'package:alias/core/injection.dart' as di;
+import 'package:alias/core/widget/custom_app_bar.dart';
 import 'package:alias/feature/commands/presentation/bloc/commands_bloc.dart';
 import 'package:alias/feature/commands/presentation/view/commands_view.dart';
 import 'package:flutter/material.dart';
@@ -13,9 +14,7 @@ class CommandsPage extends StatelessWidget {
       create: (context) => di.locator.get<CommandsBloc>()
         ..add(const CommandsEvent.loadCommands()),
       child: Scaffold(
-        appBar: AppBar(
-          title: const Text('Команды'),
-        ),
+        appBar: const CustomAppBar(title: 'Команды'),
         body: CommandsView(),
       ),
     );
