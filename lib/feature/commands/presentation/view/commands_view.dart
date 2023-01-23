@@ -1,8 +1,12 @@
 import 'package:alias/core/constants/app_colors.dart';
+import 'package:alias/core/injection.dart' as di;
+import 'package:alias/core/router/app_router.dart';
 import 'package:alias/core/theme/theme_builder.dart';
 import 'package:alias/feature/commands/data/models/command.dart';
 import 'package:alias/feature/commands/presentation/bloc/commands_bloc.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CommandsView extends StatelessWidget {
@@ -83,13 +87,12 @@ class CommandsView extends StatelessWidget {
           const SizedBox(width: 8),
           bloc.state.whenOrNull(loaded: (addedCommands) {
                 if (addedCommands.length > 1) {
-                  return GestureDetector(
-                    onTap: () => bloc.add(
+                  return CupertinoButton(
+                    onPressed: () => bloc.add(
                       CommandsEvent.removeCommand(command: item),
                     ),
                     child: const Icon(
                       Icons.remove,
-                      size: 20,
                     ),
                   );
                 }
@@ -108,7 +111,7 @@ class CommandsView extends StatelessWidget {
       padding: const EdgeInsets.only(left: 16, right: 16),
       child: ElevatedButton(
         onPressed: () {
-          //HapticFeedback.mediumImpact();
+          HapticFeedback.mediumImpact();
           _onAddPressed(context);
         },
         style: ThemeBuilder.orangeButtonStyle,
@@ -135,15 +138,10 @@ class CommandsView extends StatelessWidget {
   }
 
   void _onContinuePressed(BuildContext context) {
-    var commandsBloc = BlocProvider.of<CommandsBloc>(context);
-    //var aliasBloc = BlocProvider.of<AliasBloc>(context);
-    var state = commandsBloc.state;
+    HapticFeedback.mediumImpact();
+    var router = di.locator.get<AppRouter>();
 
-    // HapticFeedback.mediumImpact();
-    //
-    // if (state is AddCommands) {
-    //   aliasBloc.add(CommandsFormedEvent(commands: state.addedCommands));
-    // }
+    router.push(const GameSettingsPageRoute());
   }
 
   void _onAddPressed(BuildContext context) {
