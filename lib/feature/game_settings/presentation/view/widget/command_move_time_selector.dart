@@ -3,9 +3,12 @@ import 'package:alias/feature/game_settings/presentation/view/widget/base_select
 import 'package:flutter/material.dart';
 
 class CommandMoveTimeSelector extends StatelessWidget {
-  CommandMoveTimeSelector({Key? key}) : super(key: key);
+  const CommandMoveTimeSelector({
+    Key? key,
+    required this.selectedItem,
+  }) : super(key: key);
 
-  CommandMoveSelectorType selectedItem = CommandMoveSelectorType.minute;
+  final CommandMoveModeSelector selectedItem;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +25,7 @@ class CommandMoveTimeSelector extends StatelessWidget {
   Widget _buildTypesList(BuildContext context) {
     return Wrap(
       spacing: 12,
-      children: CommandMoveSelectorType.values
+      children: CommandMoveModeSelector.values
           .map(
             (element) => BaseSelectorItem(
               onTap: () {},

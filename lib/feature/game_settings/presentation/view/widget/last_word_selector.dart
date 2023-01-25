@@ -3,9 +3,9 @@ import 'package:alias/feature/game_settings/presentation/view/widget/base_select
 import 'package:flutter/material.dart';
 
 class LastWordSelector extends StatelessWidget {
-  LastWordSelector({Key? key}) : super(key: key);
+  const LastWordSelector({Key? key, required this.selectedItem}) : super(key: key);
 
-  BinarySelectorType selectedItem = BinarySelectorType.enabled;
+  final BinarySelectorMode selectedItem;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class LastWordSelector extends StatelessWidget {
   Widget _buildValuesList(BuildContext context) {
     return Wrap(
       spacing: 12,
-      children: BinarySelectorType.values
+      children: BinarySelectorMode.values
           .map(
             (element) => BaseSelectorItem(
               onTap: () {},
