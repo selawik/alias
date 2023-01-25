@@ -19,7 +19,7 @@ mixin _$GameSettingsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(CommandMoveTimeSelector moveTime) moveTimeChanged,
+    required TResult Function(CommandMoveMode moveTime) moveTimeChanged,
     required TResult Function(BinarySelectorMode mode) lastWordModeChanged,
     required TResult Function(BinarySelectorMode mode) penaltyModeChanged,
   }) =>
@@ -27,7 +27,7 @@ mixin _$GameSettingsEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(CommandMoveTimeSelector moveTime)? moveTimeChanged,
+    TResult? Function(CommandMoveMode moveTime)? moveTimeChanged,
     TResult? Function(BinarySelectorMode mode)? lastWordModeChanged,
     TResult? Function(BinarySelectorMode mode)? penaltyModeChanged,
   }) =>
@@ -35,7 +35,7 @@ mixin _$GameSettingsEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(CommandMoveTimeSelector moveTime)? moveTimeChanged,
+    TResult Function(CommandMoveMode moveTime)? moveTimeChanged,
     TResult Function(BinarySelectorMode mode)? lastWordModeChanged,
     TResult Function(BinarySelectorMode mode)? penaltyModeChanged,
     required TResult orElse(),
@@ -124,7 +124,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(CommandMoveTimeSelector moveTime) moveTimeChanged,
+    required TResult Function(CommandMoveMode moveTime) moveTimeChanged,
     required TResult Function(BinarySelectorMode mode) lastWordModeChanged,
     required TResult Function(BinarySelectorMode mode) penaltyModeChanged,
   }) {
@@ -135,7 +135,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(CommandMoveTimeSelector moveTime)? moveTimeChanged,
+    TResult? Function(CommandMoveMode moveTime)? moveTimeChanged,
     TResult? Function(BinarySelectorMode mode)? lastWordModeChanged,
     TResult? Function(BinarySelectorMode mode)? penaltyModeChanged,
   }) {
@@ -146,7 +146,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(CommandMoveTimeSelector moveTime)? moveTimeChanged,
+    TResult Function(CommandMoveMode moveTime)? moveTimeChanged,
     TResult Function(BinarySelectorMode mode)? lastWordModeChanged,
     TResult Function(BinarySelectorMode mode)? penaltyModeChanged,
     required TResult orElse(),
@@ -205,7 +205,7 @@ abstract class _$$_MoveTimeChangedCopyWith<$Res> {
           _$_MoveTimeChanged value, $Res Function(_$_MoveTimeChanged) then) =
       __$$_MoveTimeChangedCopyWithImpl<$Res>;
   @useResult
-  $Res call({CommandMoveTimeSelector moveTime});
+  $Res call({CommandMoveMode moveTime});
 }
 
 /// @nodoc
@@ -225,7 +225,7 @@ class __$$_MoveTimeChangedCopyWithImpl<$Res>
       null == moveTime
           ? _value.moveTime
           : moveTime // ignore: cast_nullable_to_non_nullable
-              as CommandMoveTimeSelector,
+              as CommandMoveMode,
     ));
   }
 }
@@ -236,7 +236,7 @@ class _$_MoveTimeChanged implements _MoveTimeChanged {
   const _$_MoveTimeChanged(this.moveTime);
 
   @override
-  final CommandMoveTimeSelector moveTime;
+  final CommandMoveMode moveTime;
 
   @override
   String toString() {
@@ -265,7 +265,7 @@ class _$_MoveTimeChanged implements _MoveTimeChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(CommandMoveTimeSelector moveTime) moveTimeChanged,
+    required TResult Function(CommandMoveMode moveTime) moveTimeChanged,
     required TResult Function(BinarySelectorMode mode) lastWordModeChanged,
     required TResult Function(BinarySelectorMode mode) penaltyModeChanged,
   }) {
@@ -276,7 +276,7 @@ class _$_MoveTimeChanged implements _MoveTimeChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(CommandMoveTimeSelector moveTime)? moveTimeChanged,
+    TResult? Function(CommandMoveMode moveTime)? moveTimeChanged,
     TResult? Function(BinarySelectorMode mode)? lastWordModeChanged,
     TResult? Function(BinarySelectorMode mode)? penaltyModeChanged,
   }) {
@@ -287,7 +287,7 @@ class _$_MoveTimeChanged implements _MoveTimeChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(CommandMoveTimeSelector moveTime)? moveTimeChanged,
+    TResult Function(CommandMoveMode moveTime)? moveTimeChanged,
     TResult Function(BinarySelectorMode mode)? lastWordModeChanged,
     TResult Function(BinarySelectorMode mode)? penaltyModeChanged,
     required TResult orElse(),
@@ -337,10 +337,10 @@ class _$_MoveTimeChanged implements _MoveTimeChanged {
 }
 
 abstract class _MoveTimeChanged implements GameSettingsEvent {
-  const factory _MoveTimeChanged(final CommandMoveTimeSelector moveTime) =
+  const factory _MoveTimeChanged(final CommandMoveMode moveTime) =
       _$_MoveTimeChanged;
 
-  CommandMoveTimeSelector get moveTime;
+  CommandMoveMode get moveTime;
   @JsonKey(ignore: true)
   _$$_MoveTimeChangedCopyWith<_$_MoveTimeChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -412,7 +412,7 @@ class _$_LastWordModeChanged implements _LastWordModeChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(CommandMoveTimeSelector moveTime) moveTimeChanged,
+    required TResult Function(CommandMoveMode moveTime) moveTimeChanged,
     required TResult Function(BinarySelectorMode mode) lastWordModeChanged,
     required TResult Function(BinarySelectorMode mode) penaltyModeChanged,
   }) {
@@ -423,7 +423,7 @@ class _$_LastWordModeChanged implements _LastWordModeChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(CommandMoveTimeSelector moveTime)? moveTimeChanged,
+    TResult? Function(CommandMoveMode moveTime)? moveTimeChanged,
     TResult? Function(BinarySelectorMode mode)? lastWordModeChanged,
     TResult? Function(BinarySelectorMode mode)? penaltyModeChanged,
   }) {
@@ -434,7 +434,7 @@ class _$_LastWordModeChanged implements _LastWordModeChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(CommandMoveTimeSelector moveTime)? moveTimeChanged,
+    TResult Function(CommandMoveMode moveTime)? moveTimeChanged,
     TResult Function(BinarySelectorMode mode)? lastWordModeChanged,
     TResult Function(BinarySelectorMode mode)? penaltyModeChanged,
     required TResult orElse(),
@@ -559,7 +559,7 @@ class _$_PenaltyModeChanged implements _PenaltyModeChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(CommandMoveTimeSelector moveTime) moveTimeChanged,
+    required TResult Function(CommandMoveMode moveTime) moveTimeChanged,
     required TResult Function(BinarySelectorMode mode) lastWordModeChanged,
     required TResult Function(BinarySelectorMode mode) penaltyModeChanged,
   }) {
@@ -570,7 +570,7 @@ class _$_PenaltyModeChanged implements _PenaltyModeChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(CommandMoveTimeSelector moveTime)? moveTimeChanged,
+    TResult? Function(CommandMoveMode moveTime)? moveTimeChanged,
     TResult? Function(BinarySelectorMode mode)? lastWordModeChanged,
     TResult? Function(BinarySelectorMode mode)? penaltyModeChanged,
   }) {
@@ -581,7 +581,7 @@ class _$_PenaltyModeChanged implements _PenaltyModeChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(CommandMoveTimeSelector moveTime)? moveTimeChanged,
+    TResult Function(CommandMoveMode moveTime)? moveTimeChanged,
     TResult Function(BinarySelectorMode mode)? lastWordModeChanged,
     TResult Function(BinarySelectorMode mode)? penaltyModeChanged,
     required TResult orElse(),
@@ -642,27 +642,27 @@ abstract class _PenaltyModeChanged implements GameSettingsEvent {
 
 /// @nodoc
 mixin _$GameSettingsState {
-  CommandMoveModeSelector get time => throw _privateConstructorUsedError;
+  CommandMoveMode get time => throw _privateConstructorUsedError;
   BinarySelectorMode get lastWordMode => throw _privateConstructorUsedError;
   BinarySelectorMode get penaltyMode => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(CommandMoveModeSelector time,
+    required TResult Function(CommandMoveMode time,
             BinarySelectorMode lastWordMode, BinarySelectorMode penaltyMode)
         ready,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CommandMoveModeSelector time,
-            BinarySelectorMode lastWordMode, BinarySelectorMode penaltyMode)?
+    TResult? Function(CommandMoveMode time, BinarySelectorMode lastWordMode,
+            BinarySelectorMode penaltyMode)?
         ready,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CommandMoveModeSelector time,
-            BinarySelectorMode lastWordMode, BinarySelectorMode penaltyMode)?
+    TResult Function(CommandMoveMode time, BinarySelectorMode lastWordMode,
+            BinarySelectorMode penaltyMode)?
         ready,
     required TResult orElse(),
   }) =>
@@ -696,7 +696,7 @@ abstract class $GameSettingsStateCopyWith<$Res> {
       _$GameSettingsStateCopyWithImpl<$Res, GameSettingsState>;
   @useResult
   $Res call(
-      {CommandMoveModeSelector time,
+      {CommandMoveMode time,
       BinarySelectorMode lastWordMode,
       BinarySelectorMode penaltyMode});
 }
@@ -722,7 +722,7 @@ class _$GameSettingsStateCopyWithImpl<$Res, $Val extends GameSettingsState>
       time: null == time
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
-              as CommandMoveModeSelector,
+              as CommandMoveMode,
       lastWordMode: null == lastWordMode
           ? _value.lastWordMode
           : lastWordMode // ignore: cast_nullable_to_non_nullable
@@ -743,7 +743,7 @@ abstract class _$$_ReadyCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {CommandMoveModeSelector time,
+      {CommandMoveMode time,
       BinarySelectorMode lastWordMode,
       BinarySelectorMode penaltyMode});
 }
@@ -766,7 +766,7 @@ class __$$_ReadyCopyWithImpl<$Res>
       null == time
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
-              as CommandMoveModeSelector,
+              as CommandMoveMode,
       null == lastWordMode
           ? _value.lastWordMode
           : lastWordMode // ignore: cast_nullable_to_non_nullable
@@ -785,7 +785,7 @@ class _$_Ready implements _Ready {
   const _$_Ready(this.time, this.lastWordMode, this.penaltyMode);
 
   @override
-  final CommandMoveModeSelector time;
+  final CommandMoveMode time;
   @override
   final BinarySelectorMode lastWordMode;
   @override
@@ -820,7 +820,7 @@ class _$_Ready implements _Ready {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(CommandMoveModeSelector time,
+    required TResult Function(CommandMoveMode time,
             BinarySelectorMode lastWordMode, BinarySelectorMode penaltyMode)
         ready,
   }) {
@@ -830,8 +830,8 @@ class _$_Ready implements _Ready {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CommandMoveModeSelector time,
-            BinarySelectorMode lastWordMode, BinarySelectorMode penaltyMode)?
+    TResult? Function(CommandMoveMode time, BinarySelectorMode lastWordMode,
+            BinarySelectorMode penaltyMode)?
         ready,
   }) {
     return ready?.call(time, lastWordMode, penaltyMode);
@@ -840,8 +840,8 @@ class _$_Ready implements _Ready {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CommandMoveModeSelector time,
-            BinarySelectorMode lastWordMode, BinarySelectorMode penaltyMode)?
+    TResult Function(CommandMoveMode time, BinarySelectorMode lastWordMode,
+            BinarySelectorMode penaltyMode)?
         ready,
     required TResult orElse(),
   }) {
@@ -882,12 +882,12 @@ class _$_Ready implements _Ready {
 
 abstract class _Ready implements GameSettingsState {
   const factory _Ready(
-      final CommandMoveModeSelector time,
+      final CommandMoveMode time,
       final BinarySelectorMode lastWordMode,
       final BinarySelectorMode penaltyMode) = _$_Ready;
 
   @override
-  CommandMoveModeSelector get time;
+  CommandMoveMode get time;
   @override
   BinarySelectorMode get lastWordMode;
   @override

@@ -1,6 +1,8 @@
 import 'package:alias/feature/game_settings/domain/model/command_move_selector_type.dart';
+import 'package:alias/feature/game_settings/presentation/bloc/game_settings_bloc.dart';
 import 'package:alias/feature/game_settings/presentation/view/widget/base_selector_item.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CommandMoveTimeSelector extends StatelessWidget {
   const CommandMoveTimeSelector({
@@ -8,7 +10,7 @@ class CommandMoveTimeSelector extends StatelessWidget {
     required this.selectedItem,
   }) : super(key: key);
 
-  final CommandMoveModeSelector selectedItem;
+  final CommandMoveMode selectedItem;
 
   @override
   Widget build(BuildContext context) {
@@ -25,15 +27,21 @@ class CommandMoveTimeSelector extends StatelessWidget {
   Widget _buildTypesList(BuildContext context) {
     return Wrap(
       spacing: 12,
-      children: CommandMoveModeSelector.values
+      children: CommandMoveMode.values
           .map(
-            (element) => BaseSelectorItem(
-              onTap: () {},
-              isSelected: element == selectedItem,
-              title: element.toString(),
+            (mode) => BaseSelectorItem(
+              onTap: () => _onCommandMoveTap(context, mode),
+              isSelected: mode == selectedItem,
+              title: mode.toString(),
             ),
           )
           .toList(),
     );
+  }
+
+  void _onCommandMoveTap(BuildContext context, CommandMoveMode mode) {
+    var bloc = BlocProvider.of<GameSettingsBloc>(context);
+
+    bloc.add(GameSettingsEvent.moveTimeChanged(mode));
   }
 }
