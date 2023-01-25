@@ -222,7 +222,7 @@ class __$$_MoveTimeChangedCopyWithImpl<$Res>
     Object? moveTime = null,
   }) {
     return _then(_$_MoveTimeChanged(
-      null == moveTime
+      moveTime: null == moveTime
           ? _value.moveTime
           : moveTime // ignore: cast_nullable_to_non_nullable
               as CommandMoveMode,
@@ -233,7 +233,7 @@ class __$$_MoveTimeChangedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_MoveTimeChanged implements _MoveTimeChanged {
-  const _$_MoveTimeChanged(this.moveTime);
+  const _$_MoveTimeChanged({required this.moveTime});
 
   @override
   final CommandMoveMode moveTime;
@@ -337,7 +337,7 @@ class _$_MoveTimeChanged implements _MoveTimeChanged {
 }
 
 abstract class _MoveTimeChanged implements GameSettingsEvent {
-  const factory _MoveTimeChanged(final CommandMoveMode moveTime) =
+  const factory _MoveTimeChanged({required final CommandMoveMode moveTime}) =
       _$_MoveTimeChanged;
 
   CommandMoveMode get moveTime;
@@ -369,7 +369,7 @@ class __$$_LastWordModeChangedCopyWithImpl<$Res>
     Object? mode = null,
   }) {
     return _then(_$_LastWordModeChanged(
-      null == mode
+      mode: null == mode
           ? _value.mode
           : mode // ignore: cast_nullable_to_non_nullable
               as BinarySelectorMode,
@@ -380,7 +380,7 @@ class __$$_LastWordModeChangedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_LastWordModeChanged implements _LastWordModeChanged {
-  const _$_LastWordModeChanged(this.mode);
+  const _$_LastWordModeChanged({required this.mode});
 
   @override
   final BinarySelectorMode mode;
@@ -484,7 +484,7 @@ class _$_LastWordModeChanged implements _LastWordModeChanged {
 }
 
 abstract class _LastWordModeChanged implements GameSettingsEvent {
-  const factory _LastWordModeChanged(final BinarySelectorMode mode) =
+  const factory _LastWordModeChanged({required final BinarySelectorMode mode}) =
       _$_LastWordModeChanged;
 
   BinarySelectorMode get mode;
@@ -516,7 +516,7 @@ class __$$_PenaltyModeChangedCopyWithImpl<$Res>
     Object? mode = null,
   }) {
     return _then(_$_PenaltyModeChanged(
-      null == mode
+      mode: null == mode
           ? _value.mode
           : mode // ignore: cast_nullable_to_non_nullable
               as BinarySelectorMode,
@@ -527,7 +527,7 @@ class __$$_PenaltyModeChangedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_PenaltyModeChanged implements _PenaltyModeChanged {
-  const _$_PenaltyModeChanged(this.mode);
+  const _$_PenaltyModeChanged({required this.mode});
 
   @override
   final BinarySelectorMode mode;
@@ -631,7 +631,7 @@ class _$_PenaltyModeChanged implements _PenaltyModeChanged {
 }
 
 abstract class _PenaltyModeChanged implements GameSettingsEvent {
-  const factory _PenaltyModeChanged(final BinarySelectorMode mode) =
+  const factory _PenaltyModeChanged({required final BinarySelectorMode mode}) =
       _$_PenaltyModeChanged;
 
   BinarySelectorMode get mode;
@@ -763,15 +763,15 @@ class __$$_ReadyCopyWithImpl<$Res>
     Object? penaltyMode = null,
   }) {
     return _then(_$_Ready(
-      null == time
+      time: null == time
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
               as CommandMoveMode,
-      null == lastWordMode
+      lastWordMode: null == lastWordMode
           ? _value.lastWordMode
           : lastWordMode // ignore: cast_nullable_to_non_nullable
               as BinarySelectorMode,
-      null == penaltyMode
+      penaltyMode: null == penaltyMode
           ? _value.penaltyMode
           : penaltyMode // ignore: cast_nullable_to_non_nullable
               as BinarySelectorMode,
@@ -782,7 +782,10 @@ class __$$_ReadyCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Ready implements _Ready {
-  const _$_Ready(this.time, this.lastWordMode, this.penaltyMode);
+  const _$_Ready(
+      {required this.time,
+      required this.lastWordMode,
+      required this.penaltyMode});
 
   @override
   final CommandMoveMode time;
@@ -882,9 +885,9 @@ class _$_Ready implements _Ready {
 
 abstract class _Ready implements GameSettingsState {
   const factory _Ready(
-      final CommandMoveMode time,
-      final BinarySelectorMode lastWordMode,
-      final BinarySelectorMode penaltyMode) = _$_Ready;
+      {required final CommandMoveMode time,
+      required final BinarySelectorMode lastWordMode,
+      required final BinarySelectorMode penaltyMode}) = _$_Ready;
 
   @override
   CommandMoveMode get time;

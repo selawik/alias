@@ -2,9 +2,9 @@ part of 'game_settings_bloc.dart';
 
 @freezed
 class GameSettingsState with _$GameSettingsState {
-  const factory GameSettingsState.ready(
-    CommandMoveMode time,
-    BinarySelectorMode lastWordMode,
-    BinarySelectorMode penaltyMode,
-  ) = _Ready;
+  const factory GameSettingsState.ready({
+    required CommandMoveMode time,
+    required BinarySelectorMode lastWordMode,
+    required BinarySelectorMode penaltyMode,
+  }) = _Ready;
 }

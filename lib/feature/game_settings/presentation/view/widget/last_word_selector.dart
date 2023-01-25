@@ -40,6 +40,6 @@ class LastWordSelector extends StatelessWidget {
   void _onLastWordModeTap(BuildContext context, BinarySelectorMode mode) {
     var bloc = BlocProvider.of<GameSettingsBloc>(context);
 
-    bloc.add(GameSettingsEvent.lastWordModeChanged(mode));
+    bloc.add(GameSettingsEvent.lastWordModeChanged(mode: mode));
   }
 }

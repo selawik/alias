@@ -11,37 +11,45 @@ part 'game_settings_state.dart';
 @Injectable()
 class GameSettingsBloc extends Bloc<GameSettingsEvent, GameSettingsState> {
   GameSettingsBloc()
-      : super(const GameSettingsState.ready(
-          CommandMoveMode.minute,
-          BinarySelectorMode.enabled,
-          BinarySelectorMode.disabled,
-        )) {
+      : super(
+          const GameSettingsState.ready(
+            time: CommandMoveMode.minute,
+            lastWordMode: BinarySelectorMode.enabled,
+            penaltyMode: BinarySelectorMode.disabled,
+          ),
+        ) {
     on<_PenaltyModeChanged>(_onPenaltyModeChanged);
     on<_LastWordModeChanged>(_onLastWordModeChanged);
     on<_MoveTimeChanged>(_onMoveTimeChanged);
   }
 
   void _onPenaltyModeChanged(_PenaltyModeChanged event, Emitter emit) {
-    emit(GameSettingsState.ready(
-      state.time,
-      state.lastWordMode,
-      event.mode,
-    ));
+    var newState = GameSettingsState.ready(
+      time: state.time,
+      lastWordMode: state.lastWordMode,
+      penaltyMode: event.mode,
+    );
+
+    emit(newState);
   }
 
   void _onLastWordModeChanged(_LastWordModeChanged event, Emitter emit) {
-    emit(GameSettingsState.ready(
-      state.time,
-      event.mode,
-      state.penaltyMode,
-    ));
+    var newState = GameSettingsState.ready(
+      time: state.time,
+      lastWordMode: event.mode,
+      penaltyMode: state.penaltyMode,
+    );
+
+    emit(newState);
   }
 
   void _onMoveTimeChanged(_MoveTimeChanged event, Emitter emit) {
-    emit(GameSettingsState.ready(
-      event.moveTime,
-      state.lastWordMode,
-      state.penaltyMode,
-    ));
+    var newState = GameSettingsState.ready(
+      time: event.moveTime,
+      lastWordMode: state.lastWordMode,
+      penaltyMode: state.penaltyMode,
+    );
+
+    emit(newState);
   }
 }

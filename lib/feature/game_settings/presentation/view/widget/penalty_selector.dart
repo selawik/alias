@@ -42,6 +42,6 @@ class PenaltySelector extends StatelessWidget {
   void _onPenaltyModeTap(BuildContext context, BinarySelectorMode mode) {
     var bloc = BlocProvider.of<GameSettingsBloc>(context);
 
-    bloc.add(GameSettingsEvent.penaltyModeChanged(mode));
+    bloc.add(GameSettingsEvent.penaltyModeChanged(mode: mode));
   }
 }

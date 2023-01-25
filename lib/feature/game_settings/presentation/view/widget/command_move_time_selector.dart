@@ -42,6 +42,6 @@ class CommandMoveTimeSelector extends StatelessWidget {
   void _onCommandMoveTap(BuildContext context, CommandMoveMode mode) {
     var bloc = BlocProvider.of<GameSettingsBloc>(context);
 
-    bloc.add(GameSettingsEvent.moveTimeChanged(mode));
+    bloc.add(GameSettingsEvent.moveTimeChanged(moveTime: mode));
   }
 }
