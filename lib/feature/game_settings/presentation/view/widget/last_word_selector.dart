@@ -23,18 +23,15 @@ class LastWordSelector extends StatelessWidget {
   }
 
   Widget _buildValuesList(BuildContext context) {
-    return Wrap(
-      spacing: 12,
-      children: BinarySelectorMode.values
-          .map(
-            (mode) => BaseSelectorItem(
-              onTap: () => _onLastWordModeTap(context, mode),
-              isSelected: mode == selectedItem,
-              title: mode.toString(),
-            ),
-          )
-          .toList(),
+    var items = BinarySelectorMode.values.map(
+      (mode) => BaseSelectorItem(
+        onTap: () => _onLastWordModeTap(context, mode),
+        isSelected: mode == selectedItem,
+        title: mode.toString(),
+      ),
     );
+
+    return Wrap(spacing: 12, runSpacing: 12, children: items.toList());
   }
 
   void _onLastWordModeTap(BuildContext context, BinarySelectorMode mode) {

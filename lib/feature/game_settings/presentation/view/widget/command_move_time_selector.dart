@@ -25,18 +25,15 @@ class CommandMoveTimeSelector extends StatelessWidget {
   }
 
   Widget _buildTypesList(BuildContext context) {
-    return Wrap(
-      spacing: 12,
-      children: CommandMoveMode.values
-          .map(
-            (mode) => BaseSelectorItem(
-              onTap: () => _onCommandMoveTap(context, mode),
-              isSelected: mode == selectedItem,
-              title: mode.toString(),
-            ),
-          )
-          .toList(),
+    var items = CommandMoveMode.values.map(
+      (mode) => BaseSelectorItem(
+        onTap: () => _onCommandMoveTap(context, mode),
+        isSelected: mode == selectedItem,
+        title: mode.toString(),
+      ),
     );
+
+    return Wrap(spacing: 12, runSpacing: 12, children: items.toList());
   }
 
   void _onCommandMoveTap(BuildContext context, CommandMoveMode mode) {

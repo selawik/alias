@@ -25,18 +25,15 @@ class PenaltySelector extends StatelessWidget {
   }
 
   Widget _buildValuesList(BuildContext context) {
-    return Wrap(
-      spacing: 12,
-      children: BinarySelectorMode.values
-          .map(
-            (mode) => BaseSelectorItem(
-              onTap: () => _onPenaltyModeTap(context, mode),
-              isSelected: mode == selectedItem,
-              title: mode.toString(),
-            ),
-          )
-          .toList(),
+    var items = BinarySelectorMode.values.map(
+      (mode) => BaseSelectorItem(
+        onTap: () => _onPenaltyModeTap(context, mode),
+        isSelected: mode == selectedItem,
+        title: mode.toString(),
+      ),
     );
+
+    return Wrap(spacing: 12, runSpacing: 12, children: items.toList());
   }
 
   void _onPenaltyModeTap(BuildContext context, BinarySelectorMode mode) {
