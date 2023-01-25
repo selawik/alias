@@ -1,6 +1,10 @@
 part of 'game_settings_bloc.dart';
 
-@immutable
-abstract class GameSettingsState {}
-
-class GameSettingsInitial extends GameSettingsState {}
+@freezed
+class GameSettingsState with _$GameSettingsState {
+  const factory GameSettingsState.ready(
+    CommandMoveModeSelector time,
+    BinarySelectorMode lastWordMode,
+    BinarySelectorMode penaltyMode,
+  ) = _Ready;
+}

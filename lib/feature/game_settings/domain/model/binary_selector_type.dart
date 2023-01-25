@@ -1,13 +1,13 @@
-enum BinarySelectorType {
+enum BinarySelectorMode {
   enabled,
   disabled;
 
   @override
   String toString() {
     switch (this) {
-      case BinarySelectorType.enabled:
+      case BinarySelectorMode.enabled:
         return 'Вкл.';
-      case BinarySelectorType.disabled:
+      case BinarySelectorMode.disabled:
         return 'Выкл';
     }
   }
