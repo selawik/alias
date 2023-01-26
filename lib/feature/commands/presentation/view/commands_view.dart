@@ -1,11 +1,9 @@
-import 'package:alias/core/constants/app_colors.dart';
-import 'package:alias/core/constants/assets_catalog.dart';
 import 'package:alias/core/injection.dart' as di;
 import 'package:alias/core/router/app_router.dart';
 import 'package:alias/core/theme/theme_builder.dart';
 import 'package:alias/feature/commands/data/models/command.dart';
 import 'package:alias/feature/commands/presentation/bloc/commands_bloc.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:alias/feature/commands/presentation/view/widget/command_list_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -60,60 +58,9 @@ class CommandsView extends StatelessWidget {
       physics: const AlwaysScrollableScrollPhysics(),
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       itemBuilder: (context, index) =>
-          _buildListItem(context, addedCommands[index]),
+          CommandListItem(command: addedCommands[index]),
       separatorBuilder: (context, index) => const SizedBox(height: 16),
       itemCount: addedCommands.length,
-    );
-  }
-
-  Widget _buildListItem(BuildContext context, Command command) {
-    var bloc = BlocProvider.of<CommandsBloc>(context);
-    var textStyle = Theme.of(context).textTheme.headline2;
-
-    return Container(
-      height: 80,
-      alignment: Alignment.centerLeft,
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: AppColors.white,
-        borderRadius: ThemeBuilder.defaultBorderRadius,
-        boxShadow: ThemeBuilder.defaultShadow,
-      ),
-      child: Row(
-        children: [
-          Expanded(
-            child: Text(
-              command.name,
-              style: textStyle?.copyWith(color: AppColors.black),
-            ),
-          ),
-          const SizedBox(width: 8),
-          bloc.state.whenOrNull(
-                loaded: (addedCommands) {
-                  if (addedCommands.length > 1) {
-                    return _buildRemoveButton(context, command);
-                  }
-                  return null;
-                },
-              ) ??
-              const SizedBox(),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildRemoveButton(BuildContext context, Command command) {
-    var bloc = BlocProvider.of<CommandsBloc>(context);
-
-    return CupertinoButton(
-      padding: EdgeInsets.zero,
-      onPressed: () => bloc.add(
-        CommandsEvent.removeCommand(command: command),
-      ),
-      child: Image.asset(
-        AssetsCatalog.icRemove,
-        width: 24,
-      ),
     );
   }
 
