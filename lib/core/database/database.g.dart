@@ -3,12 +3,12 @@
 part of 'database.dart';
 
 // ignore_for_file: type=lint
-class $CategoriesTable extends Categories
-    with TableInfo<$CategoriesTable, Category> {
+class $CategoriesTableTable extends CategoriesTable
+    with TableInfo<$CategoriesTableTable, Category> {
   @override
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
-  $CategoriesTable(this.attachedDatabase, [this._alias]);
+  $CategoriesTableTable(this.attachedDatabase, [this._alias]);
   static const VerificationMeta _idMeta = const VerificationMeta('id');
   @override
   late final GeneratedColumn<int> id = GeneratedColumn<int>(
@@ -27,9 +27,9 @@ class $CategoriesTable extends Categories
   @override
   List<GeneratedColumn> get $columns => [id, description];
   @override
-  String get aliasedName => _alias ?? 'categories';
+  String get aliasedName => _alias ?? 'categories_table';
   @override
-  String get actualTableName => 'categories';
+  String get actualTableName => 'categories_table';
   @override
   VerificationContext validateIntegrity(Insertable<Category> instance,
       {bool isInserting = false}) {
@@ -63,8 +63,8 @@ class $CategoriesTable extends Categories
   }
 
   @override
-  $CategoriesTable createAlias(String alias) {
-    return $CategoriesTable(attachedDatabase, alias);
+  $CategoriesTableTable createAlias(String alias) {
+    return $CategoriesTableTable(attachedDatabase, alias);
   }
 }
 
@@ -80,8 +80,8 @@ class Category extends DataClass implements Insertable<Category> {
     return map;
   }
 
-  CategoriesCompanion toCompanion(bool nullToAbsent) {
-    return CategoriesCompanion(
+  CategoriesTableCompanion toCompanion(bool nullToAbsent) {
+    return CategoriesTableCompanion(
       id: Value(id),
       description: Value(description),
     );
@@ -127,14 +127,14 @@ class Category extends DataClass implements Insertable<Category> {
           other.description == this.description);
 }
 
-class CategoriesCompanion extends UpdateCompanion<Category> {
+class CategoriesTableCompanion extends UpdateCompanion<Category> {
   final Value<int> id;
   final Value<String> description;
-  const CategoriesCompanion({
+  const CategoriesTableCompanion({
     this.id = const Value.absent(),
     this.description = const Value.absent(),
   });
-  CategoriesCompanion.insert({
+  CategoriesTableCompanion.insert({
     this.id = const Value.absent(),
     required String description,
   }) : description = Value(description);
@@ -148,8 +148,9 @@ class CategoriesCompanion extends UpdateCompanion<Category> {
     });
   }
 
-  CategoriesCompanion copyWith({Value<int>? id, Value<String>? description}) {
-    return CategoriesCompanion(
+  CategoriesTableCompanion copyWith(
+      {Value<int>? id, Value<String>? description}) {
+    return CategoriesTableCompanion(
       id: id ?? this.id,
       description: description ?? this.description,
     );
@@ -169,7 +170,7 @@ class CategoriesCompanion extends UpdateCompanion<Category> {
 
   @override
   String toString() {
-    return (StringBuffer('CategoriesCompanion(')
+    return (StringBuffer('CategoriesTableCompanion(')
           ..write('id: $id, ')
           ..write('description: $description')
           ..write(')'))
@@ -177,11 +178,12 @@ class CategoriesCompanion extends UpdateCompanion<Category> {
   }
 }
 
-class $WordsTable extends Words with TableInfo<$WordsTable, Word> {
+class $WordsTableTable extends WordsTable
+    with TableInfo<$WordsTableTable, Word> {
   @override
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
-  $WordsTable(this.attachedDatabase, [this._alias]);
+  $WordsTableTable(this.attachedDatabase, [this._alias]);
   static const VerificationMeta _idMeta = const VerificationMeta('id');
   @override
   late final GeneratedColumn<int> id = GeneratedColumn<int>(
@@ -199,9 +201,9 @@ class $WordsTable extends Words with TableInfo<$WordsTable, Word> {
   @override
   List<GeneratedColumn> get $columns => [id, title];
   @override
-  String get aliasedName => _alias ?? 'words';
+  String get aliasedName => _alias ?? 'words_table';
   @override
-  String get actualTableName => 'words';
+  String get actualTableName => 'words_table';
   @override
   VerificationContext validateIntegrity(Insertable<Word> instance,
       {bool isInserting = false}) {
@@ -233,8 +235,8 @@ class $WordsTable extends Words with TableInfo<$WordsTable, Word> {
   }
 
   @override
-  $WordsTable createAlias(String alias) {
-    return $WordsTable(attachedDatabase, alias);
+  $WordsTableTable createAlias(String alias) {
+    return $WordsTableTable(attachedDatabase, alias);
   }
 }
 
@@ -250,8 +252,8 @@ class Word extends DataClass implements Insertable<Word> {
     return map;
   }
 
-  WordsCompanion toCompanion(bool nullToAbsent) {
-    return WordsCompanion(
+  WordsTableCompanion toCompanion(bool nullToAbsent) {
+    return WordsTableCompanion(
       id: Value(id),
       title: Value(title),
     );
@@ -295,14 +297,14 @@ class Word extends DataClass implements Insertable<Word> {
       (other is Word && other.id == this.id && other.title == this.title);
 }
 
-class WordsCompanion extends UpdateCompanion<Word> {
+class WordsTableCompanion extends UpdateCompanion<Word> {
   final Value<int> id;
   final Value<String> title;
-  const WordsCompanion({
+  const WordsTableCompanion({
     this.id = const Value.absent(),
     this.title = const Value.absent(),
   });
-  WordsCompanion.insert({
+  WordsTableCompanion.insert({
     this.id = const Value.absent(),
     required String title,
   }) : title = Value(title);
@@ -316,8 +318,8 @@ class WordsCompanion extends UpdateCompanion<Word> {
     });
   }
 
-  WordsCompanion copyWith({Value<int>? id, Value<String>? title}) {
-    return WordsCompanion(
+  WordsTableCompanion copyWith({Value<int>? id, Value<String>? title}) {
+    return WordsTableCompanion(
       id: id ?? this.id,
       title: title ?? this.title,
     );
@@ -337,7 +339,7 @@ class WordsCompanion extends UpdateCompanion<Word> {
 
   @override
   String toString() {
-    return (StringBuffer('WordsCompanion(')
+    return (StringBuffer('WordsTableCompanion(')
           ..write('id: $id, ')
           ..write('title: $title')
           ..write(')'))
@@ -347,11 +349,13 @@ class WordsCompanion extends UpdateCompanion<Word> {
 
 abstract class _$MyDatabase extends GeneratedDatabase {
   _$MyDatabase(QueryExecutor e) : super(e);
-  late final $CategoriesTable categories = $CategoriesTable(this);
-  late final $WordsTable words = $WordsTable(this);
+  late final $CategoriesTableTable categoriesTable =
+      $CategoriesTableTable(this);
+  late final $WordsTableTable wordsTable = $WordsTableTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
   @override
-  List<DatabaseSchemaEntity> get allSchemaEntities => [categories, words];
+  List<DatabaseSchemaEntity> get allSchemaEntities =>
+      [categoriesTable, wordsTable];
 }
