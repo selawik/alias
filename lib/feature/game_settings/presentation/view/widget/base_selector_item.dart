@@ -22,22 +22,13 @@ class BaseSelectorItem extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         decoration: BoxDecoration(
           borderRadius: ThemeBuilder.defaultBorderRadius,
-          border: isSelected
-              ? Border.all(color: AppColors.appBackgroundDark)
-              : null,
           color: isSelected ? AppColors.buttonColor : AppColors.white,
-          boxShadow: [
-            BoxShadow(
-              offset: const Offset(2, 3),
-              blurRadius: 5,
-              color: AppColors.black.withOpacity(0.4),
-            ),
-          ],
+          boxShadow: ThemeBuilder.defaultShadow,
         ),
         child: Text(
           title,
           style: Theme.of(context).textTheme.headline4?.copyWith(
-                color: isSelected ? null : AppColors.black,
+                color: isSelected ? AppColors.white : AppColors.black,
                 fontWeight: FontWeight.w500,
               ),
         ),

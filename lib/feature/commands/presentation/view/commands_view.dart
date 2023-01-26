@@ -88,6 +88,7 @@ class CommandsView extends StatelessWidget {
           bloc.state.whenOrNull(loaded: (addedCommands) {
                 if (addedCommands.length > 1) {
                   return CupertinoButton(
+                    padding: EdgeInsets.zero,
                     onPressed: () => bloc.add(
                       CommandsEvent.removeCommand(command: item),
                     ),

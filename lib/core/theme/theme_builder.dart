@@ -107,6 +107,14 @@ class ThemeBuilder {
 
   static BorderRadius get defaultBorderRadius => BorderRadius.circular(16);
 
+  static List<BoxShadow> get defaultShadow => [
+        BoxShadow(
+          offset: const Offset(2, 3),
+          blurRadius: 5,
+          color: AppColors.black.withOpacity(0.4),
+        )
+      ];
+
   static ButtonStyle get blueButtonStyle =>
       _buttonStyle(color: AppColors.buttonColor);
 

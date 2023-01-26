@@ -1,5 +1,7 @@
+import 'package:alias/core/constants/app_colors.dart';
 import 'package:alias/core/injection.dart' as di;
 import 'package:alias/core/router/app_router.dart';
+import 'package:alias/core/theme/theme_builder.dart';
 import 'package:alias/feature/categories/data/models/category.dart';
 import 'package:alias/feature/categories/presentation/bloc/categories_bloc.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +35,7 @@ class CategoriesView extends StatelessWidget {
 
   Widget _buildCategoriesList(BuildContext context, List<Category> categories) {
     return GridView.builder(
-      padding: EdgeInsets.all(16),
+      padding: const EdgeInsets.all(16),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         mainAxisSpacing: 16,
@@ -52,7 +54,8 @@ class CategoriesView extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(22),
-        color: Colors.red,
+        color: AppColors.white,
+        boxShadow: ThemeBuilder.defaultShadow,
       ),
       child: GestureDetector(
         onTap: () => _onListItemTap(context, category),
