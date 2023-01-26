@@ -57,59 +57,65 @@ class CommandsView extends StatelessWidget {
       shrinkWrap: true,
       controller: _scrollController,
       physics: const BouncingScrollPhysics(),
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       itemBuilder: (context, index) =>
           _buildListItem(context, addedCommands[index]),
-      separatorBuilder: (context, index) => const SizedBox(height: 8),
+      separatorBuilder: (context, index) => const SizedBox(height: 16),
       itemCount: addedCommands.length,
     );
   }
 
-  Widget _buildListItem(BuildContext context, Command item) {
+  Widget _buildListItem(BuildContext context, Command command) {
     var bloc = BlocProvider.of<CommandsBloc>(context);
     var textStyle = Theme.of(context).textTheme.headline2;
 
     return Container(
+      height: 80,
       alignment: Alignment.centerLeft,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: AppColors.lavender,
+        color: AppColors.white,
         borderRadius: ThemeBuilder.defaultBorderRadius,
+        boxShadow: ThemeBuilder.defaultShadow,
       ),
       child: Row(
         children: [
           Expanded(
             child: Text(
-              item.name,
+              command.name,
               style: textStyle?.copyWith(color: AppColors.black),
             ),
           ),
           const SizedBox(width: 8),
           bloc.state.whenOrNull(loaded: (addedCommands) {
                 if (addedCommands.length > 1) {
-                  return CupertinoButton(
-                    padding: EdgeInsets.zero,
-                    onPressed: () => bloc.add(
-                      CommandsEvent.removeCommand(command: item),
-                    ),
-                    child: const Icon(
-                      Icons.remove,
-                    ),
-                  );
+                  return _buildRemoveButton(context, command);
                 }
                 return null;
               }) ??
-              Container(
-                height: 20,
-              ),
+              const SizedBox(),
         ],
+      ),
+    );
+  }
+
+  Widget _buildRemoveButton(BuildContext context, Command command) {
+    var bloc = BlocProvider.of<CommandsBloc>(context);
+
+    return CupertinoButton(
+      padding: EdgeInsets.zero,
+      onPressed: () => bloc.add(
+        CommandsEvent.removeCommand(command: command),
+      ),
+      child: const Icon(
+        Icons.remove,
       ),
     );
   }
 
   Widget _buildAddButton(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 16, right: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 16),
       child: ElevatedButton(
         onPressed: () {
           HapticFeedback.mediumImpact();
@@ -159,18 +165,4 @@ class CommandsView extends StatelessWidget {
       ),
     );
   }
-
-  // void _onBlockListenerTrigger(BuildContext context, AliasState state) {
-  //   var commandsBloc = BlocProvider.of<CommandsBloc>(context);
-  //   var commandsState = commandsBloc.state;
-  //
-  //   if (state is CommandStep && commandsState is AddCommands) {
-  //     di.locator<AppRouter>().replace(const GamePageRoute());
-  //   }
-  //
-  //   if (state is WordsLoadingError) {
-  //     di.locator<AppRouter>().pop();
-  //     showMessage(context, state.failure.message);
-  //   }
-  // }
 }
