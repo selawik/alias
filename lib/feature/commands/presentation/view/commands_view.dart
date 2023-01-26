@@ -1,4 +1,5 @@
 import 'package:alias/core/constants/app_colors.dart';
+import 'package:alias/core/constants/assets_catalog.dart';
 import 'package:alias/core/injection.dart' as di;
 import 'package:alias/core/router/app_router.dart';
 import 'package:alias/core/theme/theme_builder.dart';
@@ -87,12 +88,14 @@ class CommandsView extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 8),
-          bloc.state.whenOrNull(loaded: (addedCommands) {
-                if (addedCommands.length > 1) {
-                  return _buildRemoveButton(context, command);
-                }
-                return null;
-              }) ??
+          bloc.state.whenOrNull(
+                loaded: (addedCommands) {
+                  if (addedCommands.length > 1) {
+                    return _buildRemoveButton(context, command);
+                  }
+                  return null;
+                },
+              ) ??
               const SizedBox(),
         ],
       ),
@@ -107,8 +110,9 @@ class CommandsView extends StatelessWidget {
       onPressed: () => bloc.add(
         CommandsEvent.removeCommand(command: command),
       ),
-      child: const Icon(
-        Icons.remove,
+      child: Image.asset(
+        AssetsCatalog.icRemove,
+        width: 24,
       ),
     );
   }
