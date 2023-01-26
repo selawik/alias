@@ -11,4 +11,5 @@ abstract class AppColors {
   static const Color tretiary = Color(0xFFFFBB12);
   static const Color yellow = Color(0xFFF7D08A);
   static const Color peach = Color(0xFFF79F79);
+  static const Color red = Color(0xFFF07167);
 }

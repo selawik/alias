@@ -62,6 +62,7 @@ class CommandListItem extends StatelessWidget {
       ),
       child: Image.asset(
         AssetsCatalog.icRemove,
+        color: AppColors.red,
         width: 24,
       ),
     );
