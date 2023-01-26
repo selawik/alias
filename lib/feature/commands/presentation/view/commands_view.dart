@@ -57,7 +57,7 @@ class CommandsView extends StatelessWidget {
     return ListView.separated(
       shrinkWrap: true,
       controller: _scrollController,
-      physics: const BouncingScrollPhysics(),
+      physics: const AlwaysScrollableScrollPhysics(),
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       itemBuilder: (context, index) =>
           _buildListItem(context, addedCommands[index]),

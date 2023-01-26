@@ -13,19 +13,23 @@ class GameSettingsView extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Stack(
+        fit: StackFit.expand,
         children: [
           BlocBuilder<GameSettingsBloc, GameSettingsState>(
             builder: (context, state) {
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  const SizedBox(height: 16),
-                  CommandMoveTimeSelector(selectedItem: state.time),
-                  const SizedBox(height: 24),
-                  LastWordSelector(selectedItem: state.lastWordMode),
-                  const SizedBox(height: 24),
-                  PenaltySelector(selectedItem: state.penaltyMode),
-                ],
+              return SingleChildScrollView(
+                physics: const AlwaysScrollableScrollPhysics(),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    const SizedBox(height: 16),
+                    CommandMoveTimeSelector(selectedItem: state.time),
+                    const SizedBox(height: 24),
+                    LastWordSelector(selectedItem: state.lastWordMode),
+                    const SizedBox(height: 24),
+                    PenaltySelector(selectedItem: state.penaltyMode),
+                  ],
+                ),
               );
             },
           ),
