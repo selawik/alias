@@ -12,8 +12,17 @@ part 'alias_state.dart';
 
 class AliasBloc extends Bloc<AliasEvent, AliasState> {
   AliasBloc() : super(const AliasState.initial()) {
-    on<AliasEvent>((event, emit) {
-      // TODO: implement event handler
-    });
+    on<_Started>((_onGameStarted));
+    on<_CategorySelected>(_onCategorySelected);
+    on<_CommandsFormed>(_onCommandsFormed);
+    on<_GameSettingsSelected>(_onGameSettingsSelected);
   }
+
+  void _onGameStarted(_Started event, Emitter emit) {}
+
+  void _onCategorySelected(_CategorySelected event, Emitter emit) {}
+
+  void _onCommandsFormed(_CommandsFormed event, Emitter emit) {}
+
+  void _onGameSettingsSelected(_GameSettingsSelected event, Emitter emit) {}
 }

@@ -21,6 +21,12 @@ mixin _$AliasEvent {
     required TResult Function() started,
     required TResult Function(Category category) categorySelected,
     required TResult Function(List<Command> commands) commandsFormed,
+    required TResult Function(
+            CommandMoveTimeSelector moveTime,
+            BinarySelectorMode lastWordMode,
+            BinarySelectorMode penaltyMode,
+            List<Command> commands)
+        gameSettingsSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +34,12 @@ mixin _$AliasEvent {
     TResult? Function()? started,
     TResult? Function(Category category)? categorySelected,
     TResult? Function(List<Command> commands)? commandsFormed,
+    TResult? Function(
+            CommandMoveTimeSelector moveTime,
+            BinarySelectorMode lastWordMode,
+            BinarySelectorMode penaltyMode,
+            List<Command> commands)?
+        gameSettingsSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +47,12 @@ mixin _$AliasEvent {
     TResult Function()? started,
     TResult Function(Category category)? categorySelected,
     TResult Function(List<Command> commands)? commandsFormed,
+    TResult Function(
+            CommandMoveTimeSelector moveTime,
+            BinarySelectorMode lastWordMode,
+            BinarySelectorMode penaltyMode,
+            List<Command> commands)?
+        gameSettingsSelected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +61,7 @@ mixin _$AliasEvent {
     required TResult Function(_Started value) started,
     required TResult Function(_CategorySelected value) categorySelected,
     required TResult Function(_CommandsFormed value) commandsFormed,
+    required TResult Function(_GameSettingsSelected value) gameSettingsSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +69,7 @@ mixin _$AliasEvent {
     TResult? Function(_Started value)? started,
     TResult? Function(_CategorySelected value)? categorySelected,
     TResult? Function(_CommandsFormed value)? commandsFormed,
+    TResult? Function(_GameSettingsSelected value)? gameSettingsSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +77,7 @@ mixin _$AliasEvent {
     TResult Function(_Started value)? started,
     TResult Function(_CategorySelected value)? categorySelected,
     TResult Function(_CommandsFormed value)? commandsFormed,
+    TResult Function(_GameSettingsSelected value)? gameSettingsSelected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,6 +141,12 @@ class _$_Started implements _Started {
     required TResult Function() started,
     required TResult Function(Category category) categorySelected,
     required TResult Function(List<Command> commands) commandsFormed,
+    required TResult Function(
+            CommandMoveTimeSelector moveTime,
+            BinarySelectorMode lastWordMode,
+            BinarySelectorMode penaltyMode,
+            List<Command> commands)
+        gameSettingsSelected,
   }) {
     return started();
   }
@@ -130,6 +157,12 @@ class _$_Started implements _Started {
     TResult? Function()? started,
     TResult? Function(Category category)? categorySelected,
     TResult? Function(List<Command> commands)? commandsFormed,
+    TResult? Function(
+            CommandMoveTimeSelector moveTime,
+            BinarySelectorMode lastWordMode,
+            BinarySelectorMode penaltyMode,
+            List<Command> commands)?
+        gameSettingsSelected,
   }) {
     return started?.call();
   }
@@ -140,6 +173,12 @@ class _$_Started implements _Started {
     TResult Function()? started,
     TResult Function(Category category)? categorySelected,
     TResult Function(List<Command> commands)? commandsFormed,
+    TResult Function(
+            CommandMoveTimeSelector moveTime,
+            BinarySelectorMode lastWordMode,
+            BinarySelectorMode penaltyMode,
+            List<Command> commands)?
+        gameSettingsSelected,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -154,6 +193,7 @@ class _$_Started implements _Started {
     required TResult Function(_Started value) started,
     required TResult Function(_CategorySelected value) categorySelected,
     required TResult Function(_CommandsFormed value) commandsFormed,
+    required TResult Function(_GameSettingsSelected value) gameSettingsSelected,
   }) {
     return started(this);
   }
@@ -164,6 +204,7 @@ class _$_Started implements _Started {
     TResult? Function(_Started value)? started,
     TResult? Function(_CategorySelected value)? categorySelected,
     TResult? Function(_CommandsFormed value)? commandsFormed,
+    TResult? Function(_GameSettingsSelected value)? gameSettingsSelected,
   }) {
     return started?.call(this);
   }
@@ -174,6 +215,7 @@ class _$_Started implements _Started {
     TResult Function(_Started value)? started,
     TResult Function(_CategorySelected value)? categorySelected,
     TResult Function(_CommandsFormed value)? commandsFormed,
+    TResult Function(_GameSettingsSelected value)? gameSettingsSelected,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -265,6 +307,12 @@ class _$_CategorySelected implements _CategorySelected {
     required TResult Function() started,
     required TResult Function(Category category) categorySelected,
     required TResult Function(List<Command> commands) commandsFormed,
+    required TResult Function(
+            CommandMoveTimeSelector moveTime,
+            BinarySelectorMode lastWordMode,
+            BinarySelectorMode penaltyMode,
+            List<Command> commands)
+        gameSettingsSelected,
   }) {
     return categorySelected(category);
   }
@@ -275,6 +323,12 @@ class _$_CategorySelected implements _CategorySelected {
     TResult? Function()? started,
     TResult? Function(Category category)? categorySelected,
     TResult? Function(List<Command> commands)? commandsFormed,
+    TResult? Function(
+            CommandMoveTimeSelector moveTime,
+            BinarySelectorMode lastWordMode,
+            BinarySelectorMode penaltyMode,
+            List<Command> commands)?
+        gameSettingsSelected,
   }) {
     return categorySelected?.call(category);
   }
@@ -285,6 +339,12 @@ class _$_CategorySelected implements _CategorySelected {
     TResult Function()? started,
     TResult Function(Category category)? categorySelected,
     TResult Function(List<Command> commands)? commandsFormed,
+    TResult Function(
+            CommandMoveTimeSelector moveTime,
+            BinarySelectorMode lastWordMode,
+            BinarySelectorMode penaltyMode,
+            List<Command> commands)?
+        gameSettingsSelected,
     required TResult orElse(),
   }) {
     if (categorySelected != null) {
@@ -299,6 +359,7 @@ class _$_CategorySelected implements _CategorySelected {
     required TResult Function(_Started value) started,
     required TResult Function(_CategorySelected value) categorySelected,
     required TResult Function(_CommandsFormed value) commandsFormed,
+    required TResult Function(_GameSettingsSelected value) gameSettingsSelected,
   }) {
     return categorySelected(this);
   }
@@ -309,6 +370,7 @@ class _$_CategorySelected implements _CategorySelected {
     TResult? Function(_Started value)? started,
     TResult? Function(_CategorySelected value)? categorySelected,
     TResult? Function(_CommandsFormed value)? commandsFormed,
+    TResult? Function(_GameSettingsSelected value)? gameSettingsSelected,
   }) {
     return categorySelected?.call(this);
   }
@@ -319,6 +381,7 @@ class _$_CategorySelected implements _CategorySelected {
     TResult Function(_Started value)? started,
     TResult Function(_CategorySelected value)? categorySelected,
     TResult Function(_CommandsFormed value)? commandsFormed,
+    TResult Function(_GameSettingsSelected value)? gameSettingsSelected,
     required TResult orElse(),
   }) {
     if (categorySelected != null) {
@@ -411,6 +474,12 @@ class _$_CommandsFormed implements _CommandsFormed {
     required TResult Function() started,
     required TResult Function(Category category) categorySelected,
     required TResult Function(List<Command> commands) commandsFormed,
+    required TResult Function(
+            CommandMoveTimeSelector moveTime,
+            BinarySelectorMode lastWordMode,
+            BinarySelectorMode penaltyMode,
+            List<Command> commands)
+        gameSettingsSelected,
   }) {
     return commandsFormed(commands);
   }
@@ -421,6 +490,12 @@ class _$_CommandsFormed implements _CommandsFormed {
     TResult? Function()? started,
     TResult? Function(Category category)? categorySelected,
     TResult? Function(List<Command> commands)? commandsFormed,
+    TResult? Function(
+            CommandMoveTimeSelector moveTime,
+            BinarySelectorMode lastWordMode,
+            BinarySelectorMode penaltyMode,
+            List<Command> commands)?
+        gameSettingsSelected,
   }) {
     return commandsFormed?.call(commands);
   }
@@ -431,6 +506,12 @@ class _$_CommandsFormed implements _CommandsFormed {
     TResult Function()? started,
     TResult Function(Category category)? categorySelected,
     TResult Function(List<Command> commands)? commandsFormed,
+    TResult Function(
+            CommandMoveTimeSelector moveTime,
+            BinarySelectorMode lastWordMode,
+            BinarySelectorMode penaltyMode,
+            List<Command> commands)?
+        gameSettingsSelected,
     required TResult orElse(),
   }) {
     if (commandsFormed != null) {
@@ -445,6 +526,7 @@ class _$_CommandsFormed implements _CommandsFormed {
     required TResult Function(_Started value) started,
     required TResult Function(_CategorySelected value) categorySelected,
     required TResult Function(_CommandsFormed value) commandsFormed,
+    required TResult Function(_GameSettingsSelected value) gameSettingsSelected,
   }) {
     return commandsFormed(this);
   }
@@ -455,6 +537,7 @@ class _$_CommandsFormed implements _CommandsFormed {
     TResult? Function(_Started value)? started,
     TResult? Function(_CategorySelected value)? categorySelected,
     TResult? Function(_CommandsFormed value)? commandsFormed,
+    TResult? Function(_GameSettingsSelected value)? gameSettingsSelected,
   }) {
     return commandsFormed?.call(this);
   }
@@ -465,6 +548,7 @@ class _$_CommandsFormed implements _CommandsFormed {
     TResult Function(_Started value)? started,
     TResult Function(_CategorySelected value)? categorySelected,
     TResult Function(_CommandsFormed value)? commandsFormed,
+    TResult Function(_GameSettingsSelected value)? gameSettingsSelected,
     required TResult orElse(),
   }) {
     if (commandsFormed != null) {
@@ -481,6 +565,217 @@ abstract class _CommandsFormed implements AliasEvent {
   List<Command> get commands;
   @JsonKey(ignore: true)
   _$$_CommandsFormedCopyWith<_$_CommandsFormed> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_GameSettingsSelectedCopyWith<$Res> {
+  factory _$$_GameSettingsSelectedCopyWith(_$_GameSettingsSelected value,
+          $Res Function(_$_GameSettingsSelected) then) =
+      __$$_GameSettingsSelectedCopyWithImpl<$Res>;
+  @useResult
+  $Res call(
+      {CommandMoveTimeSelector moveTime,
+      BinarySelectorMode lastWordMode,
+      BinarySelectorMode penaltyMode,
+      List<Command> commands});
+}
+
+/// @nodoc
+class __$$_GameSettingsSelectedCopyWithImpl<$Res>
+    extends _$AliasEventCopyWithImpl<$Res, _$_GameSettingsSelected>
+    implements _$$_GameSettingsSelectedCopyWith<$Res> {
+  __$$_GameSettingsSelectedCopyWithImpl(_$_GameSettingsSelected _value,
+      $Res Function(_$_GameSettingsSelected) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? moveTime = null,
+    Object? lastWordMode = null,
+    Object? penaltyMode = null,
+    Object? commands = null,
+  }) {
+    return _then(_$_GameSettingsSelected(
+      moveTime: null == moveTime
+          ? _value.moveTime
+          : moveTime // ignore: cast_nullable_to_non_nullable
+              as CommandMoveTimeSelector,
+      lastWordMode: null == lastWordMode
+          ? _value.lastWordMode
+          : lastWordMode // ignore: cast_nullable_to_non_nullable
+              as BinarySelectorMode,
+      penaltyMode: null == penaltyMode
+          ? _value.penaltyMode
+          : penaltyMode // ignore: cast_nullable_to_non_nullable
+              as BinarySelectorMode,
+      commands: null == commands
+          ? _value._commands
+          : commands // ignore: cast_nullable_to_non_nullable
+              as List<Command>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_GameSettingsSelected implements _GameSettingsSelected {
+  const _$_GameSettingsSelected(
+      {required this.moveTime,
+      required this.lastWordMode,
+      required this.penaltyMode,
+      required final List<Command> commands})
+      : _commands = commands;
+
+  @override
+  final CommandMoveTimeSelector moveTime;
+  @override
+  final BinarySelectorMode lastWordMode;
+  @override
+  final BinarySelectorMode penaltyMode;
+  final List<Command> _commands;
+  @override
+  List<Command> get commands {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_commands);
+  }
+
+  @override
+  String toString() {
+    return 'AliasEvent.gameSettingsSelected(moveTime: $moveTime, lastWordMode: $lastWordMode, penaltyMode: $penaltyMode, commands: $commands)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_GameSettingsSelected &&
+            (identical(other.moveTime, moveTime) ||
+                other.moveTime == moveTime) &&
+            (identical(other.lastWordMode, lastWordMode) ||
+                other.lastWordMode == lastWordMode) &&
+            (identical(other.penaltyMode, penaltyMode) ||
+                other.penaltyMode == penaltyMode) &&
+            const DeepCollectionEquality().equals(other._commands, _commands));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, moveTime, lastWordMode,
+      penaltyMode, const DeepCollectionEquality().hash(_commands));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GameSettingsSelectedCopyWith<_$_GameSettingsSelected> get copyWith =>
+      __$$_GameSettingsSelectedCopyWithImpl<_$_GameSettingsSelected>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(Category category) categorySelected,
+    required TResult Function(List<Command> commands) commandsFormed,
+    required TResult Function(
+            CommandMoveTimeSelector moveTime,
+            BinarySelectorMode lastWordMode,
+            BinarySelectorMode penaltyMode,
+            List<Command> commands)
+        gameSettingsSelected,
+  }) {
+    return gameSettingsSelected(moveTime, lastWordMode, penaltyMode, commands);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(Category category)? categorySelected,
+    TResult? Function(List<Command> commands)? commandsFormed,
+    TResult? Function(
+            CommandMoveTimeSelector moveTime,
+            BinarySelectorMode lastWordMode,
+            BinarySelectorMode penaltyMode,
+            List<Command> commands)?
+        gameSettingsSelected,
+  }) {
+    return gameSettingsSelected?.call(
+        moveTime, lastWordMode, penaltyMode, commands);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(Category category)? categorySelected,
+    TResult Function(List<Command> commands)? commandsFormed,
+    TResult Function(
+            CommandMoveTimeSelector moveTime,
+            BinarySelectorMode lastWordMode,
+            BinarySelectorMode penaltyMode,
+            List<Command> commands)?
+        gameSettingsSelected,
+    required TResult orElse(),
+  }) {
+    if (gameSettingsSelected != null) {
+      return gameSettingsSelected(
+          moveTime, lastWordMode, penaltyMode, commands);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_CategorySelected value) categorySelected,
+    required TResult Function(_CommandsFormed value) commandsFormed,
+    required TResult Function(_GameSettingsSelected value) gameSettingsSelected,
+  }) {
+    return gameSettingsSelected(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_CategorySelected value)? categorySelected,
+    TResult? Function(_CommandsFormed value)? commandsFormed,
+    TResult? Function(_GameSettingsSelected value)? gameSettingsSelected,
+  }) {
+    return gameSettingsSelected?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_CategorySelected value)? categorySelected,
+    TResult Function(_CommandsFormed value)? commandsFormed,
+    TResult Function(_GameSettingsSelected value)? gameSettingsSelected,
+    required TResult orElse(),
+  }) {
+    if (gameSettingsSelected != null) {
+      return gameSettingsSelected(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GameSettingsSelected implements AliasEvent {
+  const factory _GameSettingsSelected(
+      {required final CommandMoveTimeSelector moveTime,
+      required final BinarySelectorMode lastWordMode,
+      required final BinarySelectorMode penaltyMode,
+      required final List<Command> commands}) = _$_GameSettingsSelected;
+
+  CommandMoveTimeSelector get moveTime;
+  BinarySelectorMode get lastWordMode;
+  BinarySelectorMode get penaltyMode;
+  List<Command> get commands;
+  @JsonKey(ignore: true)
+  _$$_GameSettingsSelectedCopyWith<_$_GameSettingsSelected> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
