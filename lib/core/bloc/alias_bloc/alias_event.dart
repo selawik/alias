@@ -11,9 +11,8 @@ class AliasEvent with _$AliasEvent {
       _CommandsFormed;
 
   const factory AliasEvent.gameSettingsSelected({
-    required CommandMoveTimeSelector moveTime,
+    required CommandMoveMode moveTime,
     required BinarySelectorMode lastWordMode,
     required BinarySelectorMode penaltyMode,
-    required List<Command> commands,
   }) = _GameSettingsSelected;
 }

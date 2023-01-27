@@ -21,11 +21,8 @@ mixin _$AliasEvent {
     required TResult Function() started,
     required TResult Function(Category category) categorySelected,
     required TResult Function(List<Command> commands) commandsFormed,
-    required TResult Function(
-            CommandMoveTimeSelector moveTime,
-            BinarySelectorMode lastWordMode,
-            BinarySelectorMode penaltyMode,
-            List<Command> commands)
+    required TResult Function(CommandMoveMode moveTime,
+            BinarySelectorMode lastWordMode, BinarySelectorMode penaltyMode)
         gameSettingsSelected,
   }) =>
       throw _privateConstructorUsedError;
@@ -34,11 +31,8 @@ mixin _$AliasEvent {
     TResult? Function()? started,
     TResult? Function(Category category)? categorySelected,
     TResult? Function(List<Command> commands)? commandsFormed,
-    TResult? Function(
-            CommandMoveTimeSelector moveTime,
-            BinarySelectorMode lastWordMode,
-            BinarySelectorMode penaltyMode,
-            List<Command> commands)?
+    TResult? Function(CommandMoveMode moveTime, BinarySelectorMode lastWordMode,
+            BinarySelectorMode penaltyMode)?
         gameSettingsSelected,
   }) =>
       throw _privateConstructorUsedError;
@@ -47,11 +41,8 @@ mixin _$AliasEvent {
     TResult Function()? started,
     TResult Function(Category category)? categorySelected,
     TResult Function(List<Command> commands)? commandsFormed,
-    TResult Function(
-            CommandMoveTimeSelector moveTime,
-            BinarySelectorMode lastWordMode,
-            BinarySelectorMode penaltyMode,
-            List<Command> commands)?
+    TResult Function(CommandMoveMode moveTime, BinarySelectorMode lastWordMode,
+            BinarySelectorMode penaltyMode)?
         gameSettingsSelected,
     required TResult orElse(),
   }) =>
@@ -141,11 +132,8 @@ class _$_Started implements _Started {
     required TResult Function() started,
     required TResult Function(Category category) categorySelected,
     required TResult Function(List<Command> commands) commandsFormed,
-    required TResult Function(
-            CommandMoveTimeSelector moveTime,
-            BinarySelectorMode lastWordMode,
-            BinarySelectorMode penaltyMode,
-            List<Command> commands)
+    required TResult Function(CommandMoveMode moveTime,
+            BinarySelectorMode lastWordMode, BinarySelectorMode penaltyMode)
         gameSettingsSelected,
   }) {
     return started();
@@ -157,11 +145,8 @@ class _$_Started implements _Started {
     TResult? Function()? started,
     TResult? Function(Category category)? categorySelected,
     TResult? Function(List<Command> commands)? commandsFormed,
-    TResult? Function(
-            CommandMoveTimeSelector moveTime,
-            BinarySelectorMode lastWordMode,
-            BinarySelectorMode penaltyMode,
-            List<Command> commands)?
+    TResult? Function(CommandMoveMode moveTime, BinarySelectorMode lastWordMode,
+            BinarySelectorMode penaltyMode)?
         gameSettingsSelected,
   }) {
     return started?.call();
@@ -173,11 +158,8 @@ class _$_Started implements _Started {
     TResult Function()? started,
     TResult Function(Category category)? categorySelected,
     TResult Function(List<Command> commands)? commandsFormed,
-    TResult Function(
-            CommandMoveTimeSelector moveTime,
-            BinarySelectorMode lastWordMode,
-            BinarySelectorMode penaltyMode,
-            List<Command> commands)?
+    TResult Function(CommandMoveMode moveTime, BinarySelectorMode lastWordMode,
+            BinarySelectorMode penaltyMode)?
         gameSettingsSelected,
     required TResult orElse(),
   }) {
@@ -307,11 +289,8 @@ class _$_CategorySelected implements _CategorySelected {
     required TResult Function() started,
     required TResult Function(Category category) categorySelected,
     required TResult Function(List<Command> commands) commandsFormed,
-    required TResult Function(
-            CommandMoveTimeSelector moveTime,
-            BinarySelectorMode lastWordMode,
-            BinarySelectorMode penaltyMode,
-            List<Command> commands)
+    required TResult Function(CommandMoveMode moveTime,
+            BinarySelectorMode lastWordMode, BinarySelectorMode penaltyMode)
         gameSettingsSelected,
   }) {
     return categorySelected(category);
@@ -323,11 +302,8 @@ class _$_CategorySelected implements _CategorySelected {
     TResult? Function()? started,
     TResult? Function(Category category)? categorySelected,
     TResult? Function(List<Command> commands)? commandsFormed,
-    TResult? Function(
-            CommandMoveTimeSelector moveTime,
-            BinarySelectorMode lastWordMode,
-            BinarySelectorMode penaltyMode,
-            List<Command> commands)?
+    TResult? Function(CommandMoveMode moveTime, BinarySelectorMode lastWordMode,
+            BinarySelectorMode penaltyMode)?
         gameSettingsSelected,
   }) {
     return categorySelected?.call(category);
@@ -339,11 +315,8 @@ class _$_CategorySelected implements _CategorySelected {
     TResult Function()? started,
     TResult Function(Category category)? categorySelected,
     TResult Function(List<Command> commands)? commandsFormed,
-    TResult Function(
-            CommandMoveTimeSelector moveTime,
-            BinarySelectorMode lastWordMode,
-            BinarySelectorMode penaltyMode,
-            List<Command> commands)?
+    TResult Function(CommandMoveMode moveTime, BinarySelectorMode lastWordMode,
+            BinarySelectorMode penaltyMode)?
         gameSettingsSelected,
     required TResult orElse(),
   }) {
@@ -474,11 +447,8 @@ class _$_CommandsFormed implements _CommandsFormed {
     required TResult Function() started,
     required TResult Function(Category category) categorySelected,
     required TResult Function(List<Command> commands) commandsFormed,
-    required TResult Function(
-            CommandMoveTimeSelector moveTime,
-            BinarySelectorMode lastWordMode,
-            BinarySelectorMode penaltyMode,
-            List<Command> commands)
+    required TResult Function(CommandMoveMode moveTime,
+            BinarySelectorMode lastWordMode, BinarySelectorMode penaltyMode)
         gameSettingsSelected,
   }) {
     return commandsFormed(commands);
@@ -490,11 +460,8 @@ class _$_CommandsFormed implements _CommandsFormed {
     TResult? Function()? started,
     TResult? Function(Category category)? categorySelected,
     TResult? Function(List<Command> commands)? commandsFormed,
-    TResult? Function(
-            CommandMoveTimeSelector moveTime,
-            BinarySelectorMode lastWordMode,
-            BinarySelectorMode penaltyMode,
-            List<Command> commands)?
+    TResult? Function(CommandMoveMode moveTime, BinarySelectorMode lastWordMode,
+            BinarySelectorMode penaltyMode)?
         gameSettingsSelected,
   }) {
     return commandsFormed?.call(commands);
@@ -506,11 +473,8 @@ class _$_CommandsFormed implements _CommandsFormed {
     TResult Function()? started,
     TResult Function(Category category)? categorySelected,
     TResult Function(List<Command> commands)? commandsFormed,
-    TResult Function(
-            CommandMoveTimeSelector moveTime,
-            BinarySelectorMode lastWordMode,
-            BinarySelectorMode penaltyMode,
-            List<Command> commands)?
+    TResult Function(CommandMoveMode moveTime, BinarySelectorMode lastWordMode,
+            BinarySelectorMode penaltyMode)?
         gameSettingsSelected,
     required TResult orElse(),
   }) {
@@ -575,10 +539,9 @@ abstract class _$$_GameSettingsSelectedCopyWith<$Res> {
       __$$_GameSettingsSelectedCopyWithImpl<$Res>;
   @useResult
   $Res call(
-      {CommandMoveTimeSelector moveTime,
+      {CommandMoveMode moveTime,
       BinarySelectorMode lastWordMode,
-      BinarySelectorMode penaltyMode,
-      List<Command> commands});
+      BinarySelectorMode penaltyMode});
 }
 
 /// @nodoc
@@ -595,13 +558,12 @@ class __$$_GameSettingsSelectedCopyWithImpl<$Res>
     Object? moveTime = null,
     Object? lastWordMode = null,
     Object? penaltyMode = null,
-    Object? commands = null,
   }) {
     return _then(_$_GameSettingsSelected(
       moveTime: null == moveTime
           ? _value.moveTime
           : moveTime // ignore: cast_nullable_to_non_nullable
-              as CommandMoveTimeSelector,
+              as CommandMoveMode,
       lastWordMode: null == lastWordMode
           ? _value.lastWordMode
           : lastWordMode // ignore: cast_nullable_to_non_nullable
@@ -610,10 +572,6 @@ class __$$_GameSettingsSelectedCopyWithImpl<$Res>
           ? _value.penaltyMode
           : penaltyMode // ignore: cast_nullable_to_non_nullable
               as BinarySelectorMode,
-      commands: null == commands
-          ? _value._commands
-          : commands // ignore: cast_nullable_to_non_nullable
-              as List<Command>,
     ));
   }
 }
@@ -624,26 +582,18 @@ class _$_GameSettingsSelected implements _GameSettingsSelected {
   const _$_GameSettingsSelected(
       {required this.moveTime,
       required this.lastWordMode,
-      required this.penaltyMode,
-      required final List<Command> commands})
-      : _commands = commands;
+      required this.penaltyMode});
 
   @override
-  final CommandMoveTimeSelector moveTime;
+  final CommandMoveMode moveTime;
   @override
   final BinarySelectorMode lastWordMode;
   @override
   final BinarySelectorMode penaltyMode;
-  final List<Command> _commands;
-  @override
-  List<Command> get commands {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_commands);
-  }
 
   @override
   String toString() {
-    return 'AliasEvent.gameSettingsSelected(moveTime: $moveTime, lastWordMode: $lastWordMode, penaltyMode: $penaltyMode, commands: $commands)';
+    return 'AliasEvent.gameSettingsSelected(moveTime: $moveTime, lastWordMode: $lastWordMode, penaltyMode: $penaltyMode)';
   }
 
   @override
@@ -656,13 +606,12 @@ class _$_GameSettingsSelected implements _GameSettingsSelected {
             (identical(other.lastWordMode, lastWordMode) ||
                 other.lastWordMode == lastWordMode) &&
             (identical(other.penaltyMode, penaltyMode) ||
-                other.penaltyMode == penaltyMode) &&
-            const DeepCollectionEquality().equals(other._commands, _commands));
+                other.penaltyMode == penaltyMode));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, moveTime, lastWordMode,
-      penaltyMode, const DeepCollectionEquality().hash(_commands));
+  int get hashCode =>
+      Object.hash(runtimeType, moveTime, lastWordMode, penaltyMode);
 
   @JsonKey(ignore: true)
   @override
@@ -677,14 +626,11 @@ class _$_GameSettingsSelected implements _GameSettingsSelected {
     required TResult Function() started,
     required TResult Function(Category category) categorySelected,
     required TResult Function(List<Command> commands) commandsFormed,
-    required TResult Function(
-            CommandMoveTimeSelector moveTime,
-            BinarySelectorMode lastWordMode,
-            BinarySelectorMode penaltyMode,
-            List<Command> commands)
+    required TResult Function(CommandMoveMode moveTime,
+            BinarySelectorMode lastWordMode, BinarySelectorMode penaltyMode)
         gameSettingsSelected,
   }) {
-    return gameSettingsSelected(moveTime, lastWordMode, penaltyMode, commands);
+    return gameSettingsSelected(moveTime, lastWordMode, penaltyMode);
   }
 
   @override
@@ -693,15 +639,11 @@ class _$_GameSettingsSelected implements _GameSettingsSelected {
     TResult? Function()? started,
     TResult? Function(Category category)? categorySelected,
     TResult? Function(List<Command> commands)? commandsFormed,
-    TResult? Function(
-            CommandMoveTimeSelector moveTime,
-            BinarySelectorMode lastWordMode,
-            BinarySelectorMode penaltyMode,
-            List<Command> commands)?
+    TResult? Function(CommandMoveMode moveTime, BinarySelectorMode lastWordMode,
+            BinarySelectorMode penaltyMode)?
         gameSettingsSelected,
   }) {
-    return gameSettingsSelected?.call(
-        moveTime, lastWordMode, penaltyMode, commands);
+    return gameSettingsSelected?.call(moveTime, lastWordMode, penaltyMode);
   }
 
   @override
@@ -710,17 +652,13 @@ class _$_GameSettingsSelected implements _GameSettingsSelected {
     TResult Function()? started,
     TResult Function(Category category)? categorySelected,
     TResult Function(List<Command> commands)? commandsFormed,
-    TResult Function(
-            CommandMoveTimeSelector moveTime,
-            BinarySelectorMode lastWordMode,
-            BinarySelectorMode penaltyMode,
-            List<Command> commands)?
+    TResult Function(CommandMoveMode moveTime, BinarySelectorMode lastWordMode,
+            BinarySelectorMode penaltyMode)?
         gameSettingsSelected,
     required TResult orElse(),
   }) {
     if (gameSettingsSelected != null) {
-      return gameSettingsSelected(
-          moveTime, lastWordMode, penaltyMode, commands);
+      return gameSettingsSelected(moveTime, lastWordMode, penaltyMode);
     }
     return orElse();
   }
@@ -765,15 +703,13 @@ class _$_GameSettingsSelected implements _GameSettingsSelected {
 
 abstract class _GameSettingsSelected implements AliasEvent {
   const factory _GameSettingsSelected(
-      {required final CommandMoveTimeSelector moveTime,
+      {required final CommandMoveMode moveTime,
       required final BinarySelectorMode lastWordMode,
-      required final BinarySelectorMode penaltyMode,
-      required final List<Command> commands}) = _$_GameSettingsSelected;
+      required final BinarySelectorMode penaltyMode}) = _$_GameSettingsSelected;
 
-  CommandMoveTimeSelector get moveTime;
+  CommandMoveMode get moveTime;
   BinarySelectorMode get lastWordMode;
   BinarySelectorMode get penaltyMode;
-  List<Command> get commands;
   @JsonKey(ignore: true)
   _$$_GameSettingsSelectedCopyWith<_$_GameSettingsSelected> get copyWith =>
       throw _privateConstructorUsedError;

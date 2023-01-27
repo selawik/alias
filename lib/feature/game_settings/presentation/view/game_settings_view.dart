@@ -1,3 +1,4 @@
+import 'package:alias/core/bloc/alias_bloc/alias_bloc.dart';
 import 'package:alias/feature/game_settings/presentation/bloc/game_settings_bloc.dart';
 import 'package:alias/feature/game_settings/presentation/view/widget/command_move_time_selector.dart';
 import 'package:alias/feature/game_settings/presentation/view/widget/last_word_selector.dart';
@@ -39,11 +40,28 @@ class GameSettingsView extends StatelessWidget {
             right: 0,
             child: ElevatedButton(
               child: const Text('Продолжить'),
-              onPressed: () {},
+              onPressed: () => _onContinuePressed(context),
             ),
           ),
         ],
       ),
+    );
+  }
+
+  void _onContinuePressed(BuildContext context) {
+    var gameSettingBloc = BlocProvider.of<GameSettingsBloc>(context);
+    var aliasBloc = BlocProvider.of<AliasBloc>(context);
+
+    gameSettingBloc.state.whenOrNull(
+      ready: (moveTime, lastWordMode, penaltyMode) {
+        aliasBloc.add(
+          AliasEvent.gameSettingsSelected(
+            moveTime: moveTime,
+            lastWordMode: lastWordMode,
+            penaltyMode: penaltyMode,
+          ),
+        );
+      },
     );
   }
 }
