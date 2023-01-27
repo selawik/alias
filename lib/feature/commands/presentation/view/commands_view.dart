@@ -1,3 +1,4 @@
+import 'package:alias/core/bloc/alias_bloc/alias_bloc.dart';
 import 'package:alias/core/injection.dart' as di;
 import 'package:alias/core/router/app_router.dart';
 import 'package:alias/core/theme/theme_builder.dart';
@@ -98,6 +99,12 @@ class CommandsView extends StatelessWidget {
   void _onContinuePressed(BuildContext context) {
     HapticFeedback.mediumImpact();
     var router = di.locator.get<AppRouter>();
+    var aliasBloc = BlocProvider.of<AliasBloc>(context);
+    var commandsBloc = BlocProvider.of<CommandsBloc>(context);
+
+    commandsBloc.state.whenOrNull(loaded: (addedCommands) {
+      aliasBloc.add(AliasEvent.commandsFormed(commands: addedCommands));
+    });
 
     router.push(const GameSettingsPageRoute());
   }
