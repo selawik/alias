@@ -1,3 +1,4 @@
+import 'package:alias/core/bloc/alias_bloc/alias_bloc.dart';
 import 'package:alias/core/constants/app_colors.dart';
 import 'package:alias/core/injection.dart' as di;
 import 'package:alias/core/router/app_router.dart';
@@ -76,7 +77,9 @@ class CategoriesView extends StatelessWidget {
 
   void _onListItemTap(BuildContext context, Category category) {
     var router = di.locator.get<AppRouter>();
+    var aliasBloc = BlocProvider.of<AliasBloc>(context);
 
+    aliasBloc.add(AliasEvent.categorySelected(category: category));
     router.push(const CommandPageRoute());
   }
 }
