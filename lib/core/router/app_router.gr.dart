@@ -53,6 +53,12 @@ class _$AppRouter extends RootStackRouter {
         child: const GamePage(),
       );
     },
+    CommandMoveResultPageRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const CommandMoveResultPage(),
+      );
+    },
   };
 
   @override
@@ -80,6 +86,10 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(
           GamePageRoute.name,
           path: '/game-page',
+        ),
+        RouteConfig(
+          CommandMoveResultPageRoute.name,
+          path: '/command-move-result-page',
         ),
       ];
 }
@@ -154,4 +164,16 @@ class GamePageRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'GamePageRoute';
+}
+
+/// generated route for
+/// [CommandMoveResultPage]
+class CommandMoveResultPageRoute extends PageRouteInfo<void> {
+  const CommandMoveResultPageRoute()
+      : super(
+          CommandMoveResultPageRoute.name,
+          path: '/command-move-result-page',
+        );
+
+  static const String name = 'CommandMoveResultPageRoute';
 }
