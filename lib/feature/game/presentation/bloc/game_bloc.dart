@@ -8,9 +8,12 @@ part 'game_state.dart';
 
 @injectable
 class GameBloc extends Bloc<GameEvent, GameState> {
-  GameBloc() : super(const GameState.initial()) {
-    on<GameEvent>((event, emit) {
-      // TODO: implement event handler
-    });
+  GameBloc() : super(const GameState.waitingForAnswer()) {
+    on<_PauseGame>(_onPauseGame);
+  }
+
+
+  void _onPauseGame(_PauseGame event, Emitter emit) {
+    emit(const GameState.gamePaused());
   }
 }

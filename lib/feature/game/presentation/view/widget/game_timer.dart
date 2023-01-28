@@ -53,6 +53,8 @@ class _GameTimerState extends State<GameTimer> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return BlocListener<GameBloc, GameState>(
       listener: (context, state) {
+
+        state.whenOrNull(gamePaused: () {controller.stop();});
         // if (state is WaitingForAnswer) {
         //   controller.reverse(
         //       from: controller.value == 0
@@ -60,9 +62,6 @@ class _GameTimerState extends State<GameTimer> with TickerProviderStateMixin {
         //           : controller.value);
         // }
         //
-        // if (state is GamePaused) {
-        //   controller.stop();
-        // }
       },
       // listenWhen: (previousState, currentState) {
       //   // if (currentState is WaitingForAnswer && previousState is WordsIsReady) {
