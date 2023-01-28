@@ -10,10 +10,15 @@ part 'game_state.dart';
 class GameBloc extends Bloc<GameEvent, GameState> {
   GameBloc() : super(const GameState.waitingForAnswer()) {
     on<_PauseGame>(_onPauseGame);
+    on<_ResumeGame>(_onResumeGame);
   }
 
 
   void _onPauseGame(_PauseGame event, Emitter emit) {
     emit(const GameState.gamePaused());
+  }
+
+  void _onResumeGame(_ResumeGame event, Emitter emit) {
+    emit(const GameState.waitingForAnswer());
   }
 }

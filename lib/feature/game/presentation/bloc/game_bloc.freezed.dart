@@ -20,18 +20,21 @@ mixin _$GameEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() pauseGame,
+    required TResult Function() resumeGame,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? pauseGame,
+    TResult? Function()? resumeGame,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? pauseGame,
+    TResult Function()? resumeGame,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$GameEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_PauseGame value) pauseGame,
+    required TResult Function(_ResumeGame value) resumeGame,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_PauseGame value)? pauseGame,
+    TResult? Function(_ResumeGame value)? resumeGame,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_PauseGame value)? pauseGame,
+    TResult Function(_ResumeGame value)? resumeGame,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -112,6 +118,7 @@ class _$_Started implements _Started {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() pauseGame,
+    required TResult Function() resumeGame,
   }) {
     return started();
   }
@@ -121,6 +128,7 @@ class _$_Started implements _Started {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? pauseGame,
+    TResult? Function()? resumeGame,
   }) {
     return started?.call();
   }
@@ -130,6 +138,7 @@ class _$_Started implements _Started {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? pauseGame,
+    TResult Function()? resumeGame,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -143,6 +152,7 @@ class _$_Started implements _Started {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_PauseGame value) pauseGame,
+    required TResult Function(_ResumeGame value) resumeGame,
   }) {
     return started(this);
   }
@@ -152,6 +162,7 @@ class _$_Started implements _Started {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_PauseGame value)? pauseGame,
+    TResult? Function(_ResumeGame value)? resumeGame,
   }) {
     return started?.call(this);
   }
@@ -161,6 +172,7 @@ class _$_Started implements _Started {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_PauseGame value)? pauseGame,
+    TResult Function(_ResumeGame value)? resumeGame,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -214,6 +226,7 @@ class _$_PauseGame implements _PauseGame {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() pauseGame,
+    required TResult Function() resumeGame,
   }) {
     return pauseGame();
   }
@@ -223,6 +236,7 @@ class _$_PauseGame implements _PauseGame {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? pauseGame,
+    TResult? Function()? resumeGame,
   }) {
     return pauseGame?.call();
   }
@@ -232,6 +246,7 @@ class _$_PauseGame implements _PauseGame {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? pauseGame,
+    TResult Function()? resumeGame,
     required TResult orElse(),
   }) {
     if (pauseGame != null) {
@@ -245,6 +260,7 @@ class _$_PauseGame implements _PauseGame {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_PauseGame value) pauseGame,
+    required TResult Function(_ResumeGame value) resumeGame,
   }) {
     return pauseGame(this);
   }
@@ -254,6 +270,7 @@ class _$_PauseGame implements _PauseGame {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_PauseGame value)? pauseGame,
+    TResult? Function(_ResumeGame value)? resumeGame,
   }) {
     return pauseGame?.call(this);
   }
@@ -263,6 +280,7 @@ class _$_PauseGame implements _PauseGame {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_PauseGame value)? pauseGame,
+    TResult Function(_ResumeGame value)? resumeGame,
     required TResult orElse(),
   }) {
     if (pauseGame != null) {
@@ -274,6 +292,114 @@ class _$_PauseGame implements _PauseGame {
 
 abstract class _PauseGame implements GameEvent {
   const factory _PauseGame() = _$_PauseGame;
+}
+
+/// @nodoc
+abstract class _$$_ResumeGameCopyWith<$Res> {
+  factory _$$_ResumeGameCopyWith(
+          _$_ResumeGame value, $Res Function(_$_ResumeGame) then) =
+      __$$_ResumeGameCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ResumeGameCopyWithImpl<$Res>
+    extends _$GameEventCopyWithImpl<$Res, _$_ResumeGame>
+    implements _$$_ResumeGameCopyWith<$Res> {
+  __$$_ResumeGameCopyWithImpl(
+      _$_ResumeGame _value, $Res Function(_$_ResumeGame) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_ResumeGame implements _ResumeGame {
+  const _$_ResumeGame();
+
+  @override
+  String toString() {
+    return 'GameEvent.resumeGame()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_ResumeGame);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() pauseGame,
+    required TResult Function() resumeGame,
+  }) {
+    return resumeGame();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? pauseGame,
+    TResult? Function()? resumeGame,
+  }) {
+    return resumeGame?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? pauseGame,
+    TResult Function()? resumeGame,
+    required TResult orElse(),
+  }) {
+    if (resumeGame != null) {
+      return resumeGame();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_PauseGame value) pauseGame,
+    required TResult Function(_ResumeGame value) resumeGame,
+  }) {
+    return resumeGame(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_PauseGame value)? pauseGame,
+    TResult? Function(_ResumeGame value)? resumeGame,
+  }) {
+    return resumeGame?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_PauseGame value)? pauseGame,
+    TResult Function(_ResumeGame value)? resumeGame,
+    required TResult orElse(),
+  }) {
+    if (resumeGame != null) {
+      return resumeGame(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ResumeGame implements GameEvent {
+  const factory _ResumeGame() = _$_ResumeGame;
 }
 
 /// @nodoc

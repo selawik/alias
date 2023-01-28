@@ -20,7 +20,7 @@ class _GameTimerState extends State<GameTimer> with TickerProviderStateMixin {
 
     var aliasBloc = BlocProvider.of<AliasBloc>(context);
 
-    aliasBloc.state.whenOrNull(gameIsReady: (settings, words)  {
+    aliasBloc.state.whenOrNull(gameIsReady: (settings, words) {
       duration = settings.moveTime.getDuration();
     });
 
@@ -36,10 +36,10 @@ class _GameTimerState extends State<GameTimer> with TickerProviderStateMixin {
     //   }
     // });
 
-      controller.reverse(
-          from: controller.value == 0
-              ? duration.inSeconds.toDouble()
-              : controller.value);
+    controller.reverse(
+        from: controller.value == 0
+            ? duration.inSeconds.toDouble()
+            : controller.value);
   }
 
   @override
@@ -53,15 +53,18 @@ class _GameTimerState extends State<GameTimer> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return BlocListener<GameBloc, GameState>(
       listener: (context, state) {
-
-        state.whenOrNull(gamePaused: () {controller.stop();});
-        // if (state is WaitingForAnswer) {
-        //   controller.reverse(
-        //       from: controller.value == 0
-        //           ? duration.inSeconds.toDouble()
-        //           : controller.value);
-        // }
-        //
+        state.whenOrNull(
+          gamePaused: () {
+            controller.stop();
+          },
+          waitingForAnswer: () {
+            controller.reverse(
+              from: controller.value == 0
+                  ? duration.inSeconds.toDouble()
+                  : controller.value,
+            );
+          },
+        );
       },
       // listenWhen: (previousState, currentState) {
       //   // if (currentState is WaitingForAnswer && previousState is WordsIsReady) {
@@ -89,9 +92,8 @@ class _GameTimerState extends State<GameTimer> with TickerProviderStateMixin {
               Text(
                 (count.inSeconds).toString().padLeft(1, '0'),
                 style: textTheme.headlineLarge?.copyWith(
-                  color: count.inSeconds < 5 ? Colors.red : null,
-                  fontWeight: FontWeight.bold
-                ),
+                    color: count.inSeconds < 5 ? Colors.red : null,
+                    fontWeight: FontWeight.bold),
               ),
               Text(
                 ' секунд',

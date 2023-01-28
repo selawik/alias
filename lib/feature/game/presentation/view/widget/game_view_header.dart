@@ -43,20 +43,14 @@ class GameHeader extends StatelessWidget {
 
     bloc.state.whenOrNull(waitingForAnswer: () => bloc.add(const GameEvent.pauseGame()));
 
-    // if (bloc.state is WaitingForAnswer) {
-    //   bloc.add(PauseGame());
-    // }
-
     HapticFeedback.mediumImpact();
 
     showDialog(
       context: context,
       barrierDismissible: false,
       builder: (context) => GamePauseDialog(
-        onResumePressed: () {
-          // if (bloc.state is GamePaused) {
-          //   bloc.add(ResumeGame());
-          // }
+        onResumePressed: () {  
+          bloc.state.whenOrNull(gamePaused: () => bloc.add(const GameEvent.resumeGame()));
 
           router.pop();
         },
