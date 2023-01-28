@@ -1,6 +1,7 @@
 import 'package:alias/core/bloc/alias_bloc/alias_bloc.dart';
 import 'package:alias/core/router/app_router.dart';
 import 'package:alias/feature/game/domain/game_settings.dart';
+import 'package:alias/feature/game/presentation/bloc/game_bloc.dart';
 import 'package:alias/feature/game_settings/presentation/bloc/game_settings_bloc.dart';
 import 'package:alias/feature/game_settings/presentation/view/widget/command_move_time_selector.dart';
 import 'package:alias/feature/game_settings/presentation/view/widget/last_word_selector.dart';
@@ -53,6 +54,7 @@ class GameSettingsView extends StatelessWidget {
 
   void _onContinuePressed(BuildContext context) {
     var gameSettingBloc = BlocProvider.of<GameSettingsBloc>(context);
+    var gameBloc = BlocProvider.of<GameBloc>(context);
     var aliasBloc = BlocProvider.of<AliasBloc>(context);
 
     gameSettingBloc.state.whenOrNull(
@@ -65,6 +67,8 @@ class GameSettingsView extends StatelessWidget {
 
         aliasBloc
             .add(AliasEvent.gameSettingsSelected(gameSettings: gameSettings));
+
+        gameBloc.add(GameEvent.initial(gameSettings: gameSettings));
       },
     );
 

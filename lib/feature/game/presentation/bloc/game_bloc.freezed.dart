@@ -18,45 +18,57 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$GameEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function(GameSettings gameSettings) initial,
+    required TResult Function() startGame,
     required TResult Function() pauseGame,
     required TResult Function() resumeGame,
+    required TResult Function() timeIsLeft,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function(GameSettings gameSettings)? initial,
+    TResult? Function()? startGame,
     TResult? Function()? pauseGame,
     TResult? Function()? resumeGame,
+    TResult? Function()? timeIsLeft,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function(GameSettings gameSettings)? initial,
+    TResult Function()? startGame,
     TResult Function()? pauseGame,
     TResult Function()? resumeGame,
+    TResult Function()? timeIsLeft,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_StartGame value) startGame,
     required TResult Function(_PauseGame value) pauseGame,
     required TResult Function(_ResumeGame value) resumeGame,
+    required TResult Function(_TimeIsLeft value) timeIsLeft,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_StartGame value)? startGame,
     TResult? Function(_PauseGame value)? pauseGame,
     TResult? Function(_ResumeGame value)? resumeGame,
+    TResult? Function(_TimeIsLeft value)? timeIsLeft,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(_Initial value)? initial,
+    TResult Function(_StartGame value)? startGame,
     TResult Function(_PauseGame value)? pauseGame,
     TResult Function(_ResumeGame value)? resumeGame,
+    TResult Function(_TimeIsLeft value)? timeIsLeft,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -80,34 +92,187 @@ class _$GameEventCopyWithImpl<$Res, $Val extends GameEvent>
 }
 
 /// @nodoc
-abstract class _$$_StartedCopyWith<$Res> {
-  factory _$$_StartedCopyWith(
-          _$_Started value, $Res Function(_$_Started) then) =
-      __$$_StartedCopyWithImpl<$Res>;
+abstract class _$$_InitialCopyWith<$Res> {
+  factory _$$_InitialCopyWith(
+          _$_Initial value, $Res Function(_$_Initial) then) =
+      __$$_InitialCopyWithImpl<$Res>;
+  @useResult
+  $Res call({GameSettings gameSettings});
 }
 
 /// @nodoc
-class __$$_StartedCopyWithImpl<$Res>
-    extends _$GameEventCopyWithImpl<$Res, _$_Started>
-    implements _$$_StartedCopyWith<$Res> {
-  __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
+class __$$_InitialCopyWithImpl<$Res>
+    extends _$GameEventCopyWithImpl<$Res, _$_Initial>
+    implements _$$_InitialCopyWith<$Res> {
+  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? gameSettings = null,
+  }) {
+    return _then(_$_Initial(
+      gameSettings: null == gameSettings
+          ? _value.gameSettings
+          : gameSettings // ignore: cast_nullable_to_non_nullable
+              as GameSettings,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$_Started implements _Started {
-  const _$_Started();
+class _$_Initial implements _Initial {
+  const _$_Initial({required this.gameSettings});
+
+  @override
+  final GameSettings gameSettings;
 
   @override
   String toString() {
-    return 'GameEvent.started()';
+    return 'GameEvent.initial(gameSettings: $gameSettings)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Started);
+        (other.runtimeType == runtimeType &&
+            other is _$_Initial &&
+            (identical(other.gameSettings, gameSettings) ||
+                other.gameSettings == gameSettings));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, gameSettings);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_InitialCopyWith<_$_Initial> get copyWith =>
+      __$$_InitialCopyWithImpl<_$_Initial>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(GameSettings gameSettings) initial,
+    required TResult Function() startGame,
+    required TResult Function() pauseGame,
+    required TResult Function() resumeGame,
+    required TResult Function() timeIsLeft,
+  }) {
+    return initial(gameSettings);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(GameSettings gameSettings)? initial,
+    TResult? Function()? startGame,
+    TResult? Function()? pauseGame,
+    TResult? Function()? resumeGame,
+    TResult? Function()? timeIsLeft,
+  }) {
+    return initial?.call(gameSettings);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(GameSettings gameSettings)? initial,
+    TResult Function()? startGame,
+    TResult Function()? pauseGame,
+    TResult Function()? resumeGame,
+    TResult Function()? timeIsLeft,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial(gameSettings);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_StartGame value) startGame,
+    required TResult Function(_PauseGame value) pauseGame,
+    required TResult Function(_ResumeGame value) resumeGame,
+    required TResult Function(_TimeIsLeft value) timeIsLeft,
+  }) {
+    return initial(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_StartGame value)? startGame,
+    TResult? Function(_PauseGame value)? pauseGame,
+    TResult? Function(_ResumeGame value)? resumeGame,
+    TResult? Function(_TimeIsLeft value)? timeIsLeft,
+  }) {
+    return initial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_StartGame value)? startGame,
+    TResult Function(_PauseGame value)? pauseGame,
+    TResult Function(_ResumeGame value)? resumeGame,
+    TResult Function(_TimeIsLeft value)? timeIsLeft,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Initial implements GameEvent {
+  const factory _Initial({required final GameSettings gameSettings}) =
+      _$_Initial;
+
+  GameSettings get gameSettings;
+  @JsonKey(ignore: true)
+  _$$_InitialCopyWith<_$_Initial> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_StartGameCopyWith<$Res> {
+  factory _$$_StartGameCopyWith(
+          _$_StartGame value, $Res Function(_$_StartGame) then) =
+      __$$_StartGameCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_StartGameCopyWithImpl<$Res>
+    extends _$GameEventCopyWithImpl<$Res, _$_StartGame>
+    implements _$$_StartGameCopyWith<$Res> {
+  __$$_StartGameCopyWithImpl(
+      _$_StartGame _value, $Res Function(_$_StartGame) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_StartGame implements _StartGame {
+  const _$_StartGame();
+
+  @override
+  String toString() {
+    return 'GameEvent.startGame()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_StartGame);
   }
 
   @override
@@ -116,33 +281,39 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function(GameSettings gameSettings) initial,
+    required TResult Function() startGame,
     required TResult Function() pauseGame,
     required TResult Function() resumeGame,
+    required TResult Function() timeIsLeft,
   }) {
-    return started();
+    return startGame();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function(GameSettings gameSettings)? initial,
+    TResult? Function()? startGame,
     TResult? Function()? pauseGame,
     TResult? Function()? resumeGame,
+    TResult? Function()? timeIsLeft,
   }) {
-    return started?.call();
+    return startGame?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function(GameSettings gameSettings)? initial,
+    TResult Function()? startGame,
     TResult Function()? pauseGame,
     TResult Function()? resumeGame,
+    TResult Function()? timeIsLeft,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started();
+    if (startGame != null) {
+      return startGame();
     }
     return orElse();
   }
@@ -150,40 +321,46 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_StartGame value) startGame,
     required TResult Function(_PauseGame value) pauseGame,
     required TResult Function(_ResumeGame value) resumeGame,
+    required TResult Function(_TimeIsLeft value) timeIsLeft,
   }) {
-    return started(this);
+    return startGame(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_StartGame value)? startGame,
     TResult? Function(_PauseGame value)? pauseGame,
     TResult? Function(_ResumeGame value)? resumeGame,
+    TResult? Function(_TimeIsLeft value)? timeIsLeft,
   }) {
-    return started?.call(this);
+    return startGame?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(_Initial value)? initial,
+    TResult Function(_StartGame value)? startGame,
     TResult Function(_PauseGame value)? pauseGame,
     TResult Function(_ResumeGame value)? resumeGame,
+    TResult Function(_TimeIsLeft value)? timeIsLeft,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started(this);
+    if (startGame != null) {
+      return startGame(this);
     }
     return orElse();
   }
 }
 
-abstract class _Started implements GameEvent {
-  const factory _Started() = _$_Started;
+abstract class _StartGame implements GameEvent {
+  const factory _StartGame() = _$_StartGame;
 }
 
 /// @nodoc
@@ -224,9 +401,11 @@ class _$_PauseGame implements _PauseGame {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function(GameSettings gameSettings) initial,
+    required TResult Function() startGame,
     required TResult Function() pauseGame,
     required TResult Function() resumeGame,
+    required TResult Function() timeIsLeft,
   }) {
     return pauseGame();
   }
@@ -234,9 +413,11 @@ class _$_PauseGame implements _PauseGame {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function(GameSettings gameSettings)? initial,
+    TResult? Function()? startGame,
     TResult? Function()? pauseGame,
     TResult? Function()? resumeGame,
+    TResult? Function()? timeIsLeft,
   }) {
     return pauseGame?.call();
   }
@@ -244,9 +425,11 @@ class _$_PauseGame implements _PauseGame {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function(GameSettings gameSettings)? initial,
+    TResult Function()? startGame,
     TResult Function()? pauseGame,
     TResult Function()? resumeGame,
+    TResult Function()? timeIsLeft,
     required TResult orElse(),
   }) {
     if (pauseGame != null) {
@@ -258,9 +441,11 @@ class _$_PauseGame implements _PauseGame {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_StartGame value) startGame,
     required TResult Function(_PauseGame value) pauseGame,
     required TResult Function(_ResumeGame value) resumeGame,
+    required TResult Function(_TimeIsLeft value) timeIsLeft,
   }) {
     return pauseGame(this);
   }
@@ -268,9 +453,11 @@ class _$_PauseGame implements _PauseGame {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_StartGame value)? startGame,
     TResult? Function(_PauseGame value)? pauseGame,
     TResult? Function(_ResumeGame value)? resumeGame,
+    TResult? Function(_TimeIsLeft value)? timeIsLeft,
   }) {
     return pauseGame?.call(this);
   }
@@ -278,9 +465,11 @@ class _$_PauseGame implements _PauseGame {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(_Initial value)? initial,
+    TResult Function(_StartGame value)? startGame,
     TResult Function(_PauseGame value)? pauseGame,
     TResult Function(_ResumeGame value)? resumeGame,
+    TResult Function(_TimeIsLeft value)? timeIsLeft,
     required TResult orElse(),
   }) {
     if (pauseGame != null) {
@@ -332,9 +521,11 @@ class _$_ResumeGame implements _ResumeGame {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function(GameSettings gameSettings) initial,
+    required TResult Function() startGame,
     required TResult Function() pauseGame,
     required TResult Function() resumeGame,
+    required TResult Function() timeIsLeft,
   }) {
     return resumeGame();
   }
@@ -342,9 +533,11 @@ class _$_ResumeGame implements _ResumeGame {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function(GameSettings gameSettings)? initial,
+    TResult? Function()? startGame,
     TResult? Function()? pauseGame,
     TResult? Function()? resumeGame,
+    TResult? Function()? timeIsLeft,
   }) {
     return resumeGame?.call();
   }
@@ -352,9 +545,11 @@ class _$_ResumeGame implements _ResumeGame {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function(GameSettings gameSettings)? initial,
+    TResult Function()? startGame,
     TResult Function()? pauseGame,
     TResult Function()? resumeGame,
+    TResult Function()? timeIsLeft,
     required TResult orElse(),
   }) {
     if (resumeGame != null) {
@@ -366,9 +561,11 @@ class _$_ResumeGame implements _ResumeGame {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_StartGame value) startGame,
     required TResult Function(_PauseGame value) pauseGame,
     required TResult Function(_ResumeGame value) resumeGame,
+    required TResult Function(_TimeIsLeft value) timeIsLeft,
   }) {
     return resumeGame(this);
   }
@@ -376,9 +573,11 @@ class _$_ResumeGame implements _ResumeGame {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_StartGame value)? startGame,
     TResult? Function(_PauseGame value)? pauseGame,
     TResult? Function(_ResumeGame value)? resumeGame,
+    TResult? Function(_TimeIsLeft value)? timeIsLeft,
   }) {
     return resumeGame?.call(this);
   }
@@ -386,9 +585,11 @@ class _$_ResumeGame implements _ResumeGame {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(_Initial value)? initial,
+    TResult Function(_StartGame value)? startGame,
     TResult Function(_PauseGame value)? pauseGame,
     TResult Function(_ResumeGame value)? resumeGame,
+    TResult Function(_TimeIsLeft value)? timeIsLeft,
     required TResult orElse(),
   }) {
     if (resumeGame != null) {
@@ -403,48 +604,180 @@ abstract class _ResumeGame implements GameEvent {
 }
 
 /// @nodoc
+abstract class _$$_TimeIsLeftCopyWith<$Res> {
+  factory _$$_TimeIsLeftCopyWith(
+          _$_TimeIsLeft value, $Res Function(_$_TimeIsLeft) then) =
+      __$$_TimeIsLeftCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_TimeIsLeftCopyWithImpl<$Res>
+    extends _$GameEventCopyWithImpl<$Res, _$_TimeIsLeft>
+    implements _$$_TimeIsLeftCopyWith<$Res> {
+  __$$_TimeIsLeftCopyWithImpl(
+      _$_TimeIsLeft _value, $Res Function(_$_TimeIsLeft) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_TimeIsLeft implements _TimeIsLeft {
+  const _$_TimeIsLeft();
+
+  @override
+  String toString() {
+    return 'GameEvent.timeIsLeft()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_TimeIsLeft);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(GameSettings gameSettings) initial,
+    required TResult Function() startGame,
+    required TResult Function() pauseGame,
+    required TResult Function() resumeGame,
+    required TResult Function() timeIsLeft,
+  }) {
+    return timeIsLeft();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(GameSettings gameSettings)? initial,
+    TResult? Function()? startGame,
+    TResult? Function()? pauseGame,
+    TResult? Function()? resumeGame,
+    TResult? Function()? timeIsLeft,
+  }) {
+    return timeIsLeft?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(GameSettings gameSettings)? initial,
+    TResult Function()? startGame,
+    TResult Function()? pauseGame,
+    TResult Function()? resumeGame,
+    TResult Function()? timeIsLeft,
+    required TResult orElse(),
+  }) {
+    if (timeIsLeft != null) {
+      return timeIsLeft();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_StartGame value) startGame,
+    required TResult Function(_PauseGame value) pauseGame,
+    required TResult Function(_ResumeGame value) resumeGame,
+    required TResult Function(_TimeIsLeft value) timeIsLeft,
+  }) {
+    return timeIsLeft(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_StartGame value)? startGame,
+    TResult? Function(_PauseGame value)? pauseGame,
+    TResult? Function(_ResumeGame value)? resumeGame,
+    TResult? Function(_TimeIsLeft value)? timeIsLeft,
+  }) {
+    return timeIsLeft?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_StartGame value)? startGame,
+    TResult Function(_PauseGame value)? pauseGame,
+    TResult Function(_ResumeGame value)? resumeGame,
+    TResult Function(_TimeIsLeft value)? timeIsLeft,
+    required TResult orElse(),
+  }) {
+    if (timeIsLeft != null) {
+      return timeIsLeft(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _TimeIsLeft implements GameEvent {
+  const factory _TimeIsLeft() = _$_TimeIsLeft;
+}
+
+/// @nodoc
 mixin _$GameState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
+    required TResult Function(GameSettings settings) gameIsReady,
     required TResult Function() waitingForAnswer,
     required TResult Function() gamePaused,
+    required TResult Function() lastWord,
+    required TResult Function() commandMoveIsOver,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
+    TResult? Function(GameSettings settings)? gameIsReady,
     TResult? Function()? waitingForAnswer,
     TResult? Function()? gamePaused,
+    TResult? Function()? lastWord,
+    TResult? Function()? commandMoveIsOver,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
+    TResult Function(GameSettings settings)? gameIsReady,
     TResult Function()? waitingForAnswer,
     TResult Function()? gamePaused,
+    TResult Function()? lastWord,
+    TResult Function()? commandMoveIsOver,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
+    required TResult Function(_GameIsReady value) gameIsReady,
     required TResult Function(_WaitingForAnswer value) waitingForAnswer,
     required TResult Function(_GamePaused value) gamePaused,
+    required TResult Function(_LastWord value) lastWord,
+    required TResult Function(_CommandMoveIsOver value) commandMoveIsOver,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
+    TResult? Function(_GameIsReady value)? gameIsReady,
     TResult? Function(_WaitingForAnswer value)? waitingForAnswer,
     TResult? Function(_GamePaused value)? gamePaused,
+    TResult? Function(_LastWord value)? lastWord,
+    TResult? Function(_CommandMoveIsOver value)? commandMoveIsOver,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
+    TResult Function(_GameIsReady value)? gameIsReady,
     TResult Function(_WaitingForAnswer value)? waitingForAnswer,
     TResult Function(_GamePaused value)? gamePaused,
+    TResult Function(_LastWord value)? lastWord,
+    TResult Function(_CommandMoveIsOver value)? commandMoveIsOver,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -468,69 +801,103 @@ class _$GameStateCopyWithImpl<$Res, $Val extends GameState>
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+abstract class _$$_GameIsReadyCopyWith<$Res> {
+  factory _$$_GameIsReadyCopyWith(
+          _$_GameIsReady value, $Res Function(_$_GameIsReady) then) =
+      __$$_GameIsReadyCopyWithImpl<$Res>;
+  @useResult
+  $Res call({GameSettings settings});
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$GameStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$_GameIsReadyCopyWithImpl<$Res>
+    extends _$GameStateCopyWithImpl<$Res, _$_GameIsReady>
+    implements _$$_GameIsReadyCopyWith<$Res> {
+  __$$_GameIsReadyCopyWithImpl(
+      _$_GameIsReady _value, $Res Function(_$_GameIsReady) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? settings = null,
+  }) {
+    return _then(_$_GameIsReady(
+      settings: null == settings
+          ? _value.settings
+          : settings // ignore: cast_nullable_to_non_nullable
+              as GameSettings,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial();
+class _$_GameIsReady implements _GameIsReady {
+  const _$_GameIsReady({required this.settings});
+
+  @override
+  final GameSettings settings;
 
   @override
   String toString() {
-    return 'GameState.initial()';
+    return 'GameState.gameIsReady(settings: $settings)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
+        (other.runtimeType == runtimeType &&
+            other is _$_GameIsReady &&
+            (identical(other.settings, settings) ||
+                other.settings == settings));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, settings);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GameIsReadyCopyWith<_$_GameIsReady> get copyWith =>
+      __$$_GameIsReadyCopyWithImpl<_$_GameIsReady>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
+    required TResult Function(GameSettings settings) gameIsReady,
     required TResult Function() waitingForAnswer,
     required TResult Function() gamePaused,
+    required TResult Function() lastWord,
+    required TResult Function() commandMoveIsOver,
   }) {
-    return initial();
+    return gameIsReady(settings);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
+    TResult? Function(GameSettings settings)? gameIsReady,
     TResult? Function()? waitingForAnswer,
     TResult? Function()? gamePaused,
+    TResult? Function()? lastWord,
+    TResult? Function()? commandMoveIsOver,
   }) {
-    return initial?.call();
+    return gameIsReady?.call(settings);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
+    TResult Function(GameSettings settings)? gameIsReady,
     TResult Function()? waitingForAnswer,
     TResult Function()? gamePaused,
+    TResult Function()? lastWord,
+    TResult Function()? commandMoveIsOver,
     required TResult orElse(),
   }) {
-    if (initial != null) {
-      return initial();
+    if (gameIsReady != null) {
+      return gameIsReady(settings);
     }
     return orElse();
   }
@@ -538,40 +905,52 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
+    required TResult Function(_GameIsReady value) gameIsReady,
     required TResult Function(_WaitingForAnswer value) waitingForAnswer,
     required TResult Function(_GamePaused value) gamePaused,
+    required TResult Function(_LastWord value) lastWord,
+    required TResult Function(_CommandMoveIsOver value) commandMoveIsOver,
   }) {
-    return initial(this);
+    return gameIsReady(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
+    TResult? Function(_GameIsReady value)? gameIsReady,
     TResult? Function(_WaitingForAnswer value)? waitingForAnswer,
     TResult? Function(_GamePaused value)? gamePaused,
+    TResult? Function(_LastWord value)? lastWord,
+    TResult? Function(_CommandMoveIsOver value)? commandMoveIsOver,
   }) {
-    return initial?.call(this);
+    return gameIsReady?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
+    TResult Function(_GameIsReady value)? gameIsReady,
     TResult Function(_WaitingForAnswer value)? waitingForAnswer,
     TResult Function(_GamePaused value)? gamePaused,
+    TResult Function(_LastWord value)? lastWord,
+    TResult Function(_CommandMoveIsOver value)? commandMoveIsOver,
     required TResult orElse(),
   }) {
-    if (initial != null) {
-      return initial(this);
+    if (gameIsReady != null) {
+      return gameIsReady(this);
     }
     return orElse();
   }
 }
 
-abstract class _Initial implements GameState {
-  const factory _Initial() = _$_Initial;
+abstract class _GameIsReady implements GameState {
+  const factory _GameIsReady({required final GameSettings settings}) =
+      _$_GameIsReady;
+
+  GameSettings get settings;
+  @JsonKey(ignore: true)
+  _$$_GameIsReadyCopyWith<_$_GameIsReady> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -612,9 +991,11 @@ class _$_WaitingForAnswer implements _WaitingForAnswer {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
+    required TResult Function(GameSettings settings) gameIsReady,
     required TResult Function() waitingForAnswer,
     required TResult Function() gamePaused,
+    required TResult Function() lastWord,
+    required TResult Function() commandMoveIsOver,
   }) {
     return waitingForAnswer();
   }
@@ -622,9 +1003,11 @@ class _$_WaitingForAnswer implements _WaitingForAnswer {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
+    TResult? Function(GameSettings settings)? gameIsReady,
     TResult? Function()? waitingForAnswer,
     TResult? Function()? gamePaused,
+    TResult? Function()? lastWord,
+    TResult? Function()? commandMoveIsOver,
   }) {
     return waitingForAnswer?.call();
   }
@@ -632,9 +1015,11 @@ class _$_WaitingForAnswer implements _WaitingForAnswer {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
+    TResult Function(GameSettings settings)? gameIsReady,
     TResult Function()? waitingForAnswer,
     TResult Function()? gamePaused,
+    TResult Function()? lastWord,
+    TResult Function()? commandMoveIsOver,
     required TResult orElse(),
   }) {
     if (waitingForAnswer != null) {
@@ -646,9 +1031,11 @@ class _$_WaitingForAnswer implements _WaitingForAnswer {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
+    required TResult Function(_GameIsReady value) gameIsReady,
     required TResult Function(_WaitingForAnswer value) waitingForAnswer,
     required TResult Function(_GamePaused value) gamePaused,
+    required TResult Function(_LastWord value) lastWord,
+    required TResult Function(_CommandMoveIsOver value) commandMoveIsOver,
   }) {
     return waitingForAnswer(this);
   }
@@ -656,9 +1043,11 @@ class _$_WaitingForAnswer implements _WaitingForAnswer {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
+    TResult? Function(_GameIsReady value)? gameIsReady,
     TResult? Function(_WaitingForAnswer value)? waitingForAnswer,
     TResult? Function(_GamePaused value)? gamePaused,
+    TResult? Function(_LastWord value)? lastWord,
+    TResult? Function(_CommandMoveIsOver value)? commandMoveIsOver,
   }) {
     return waitingForAnswer?.call(this);
   }
@@ -666,9 +1055,11 @@ class _$_WaitingForAnswer implements _WaitingForAnswer {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
+    TResult Function(_GameIsReady value)? gameIsReady,
     TResult Function(_WaitingForAnswer value)? waitingForAnswer,
     TResult Function(_GamePaused value)? gamePaused,
+    TResult Function(_LastWord value)? lastWord,
+    TResult Function(_CommandMoveIsOver value)? commandMoveIsOver,
     required TResult orElse(),
   }) {
     if (waitingForAnswer != null) {
@@ -720,9 +1111,11 @@ class _$_GamePaused implements _GamePaused {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
+    required TResult Function(GameSettings settings) gameIsReady,
     required TResult Function() waitingForAnswer,
     required TResult Function() gamePaused,
+    required TResult Function() lastWord,
+    required TResult Function() commandMoveIsOver,
   }) {
     return gamePaused();
   }
@@ -730,9 +1123,11 @@ class _$_GamePaused implements _GamePaused {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
+    TResult? Function(GameSettings settings)? gameIsReady,
     TResult? Function()? waitingForAnswer,
     TResult? Function()? gamePaused,
+    TResult? Function()? lastWord,
+    TResult? Function()? commandMoveIsOver,
   }) {
     return gamePaused?.call();
   }
@@ -740,9 +1135,11 @@ class _$_GamePaused implements _GamePaused {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
+    TResult Function(GameSettings settings)? gameIsReady,
     TResult Function()? waitingForAnswer,
     TResult Function()? gamePaused,
+    TResult Function()? lastWord,
+    TResult Function()? commandMoveIsOver,
     required TResult orElse(),
   }) {
     if (gamePaused != null) {
@@ -754,9 +1151,11 @@ class _$_GamePaused implements _GamePaused {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
+    required TResult Function(_GameIsReady value) gameIsReady,
     required TResult Function(_WaitingForAnswer value) waitingForAnswer,
     required TResult Function(_GamePaused value) gamePaused,
+    required TResult Function(_LastWord value) lastWord,
+    required TResult Function(_CommandMoveIsOver value) commandMoveIsOver,
   }) {
     return gamePaused(this);
   }
@@ -764,9 +1163,11 @@ class _$_GamePaused implements _GamePaused {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
+    TResult? Function(_GameIsReady value)? gameIsReady,
     TResult? Function(_WaitingForAnswer value)? waitingForAnswer,
     TResult? Function(_GamePaused value)? gamePaused,
+    TResult? Function(_LastWord value)? lastWord,
+    TResult? Function(_CommandMoveIsOver value)? commandMoveIsOver,
   }) {
     return gamePaused?.call(this);
   }
@@ -774,9 +1175,11 @@ class _$_GamePaused implements _GamePaused {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
+    TResult Function(_GameIsReady value)? gameIsReady,
     TResult Function(_WaitingForAnswer value)? waitingForAnswer,
     TResult Function(_GamePaused value)? gamePaused,
+    TResult Function(_LastWord value)? lastWord,
+    TResult Function(_CommandMoveIsOver value)? commandMoveIsOver,
     required TResult orElse(),
   }) {
     if (gamePaused != null) {
@@ -788,4 +1191,244 @@ class _$_GamePaused implements _GamePaused {
 
 abstract class _GamePaused implements GameState {
   const factory _GamePaused() = _$_GamePaused;
+}
+
+/// @nodoc
+abstract class _$$_LastWordCopyWith<$Res> {
+  factory _$$_LastWordCopyWith(
+          _$_LastWord value, $Res Function(_$_LastWord) then) =
+      __$$_LastWordCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_LastWordCopyWithImpl<$Res>
+    extends _$GameStateCopyWithImpl<$Res, _$_LastWord>
+    implements _$$_LastWordCopyWith<$Res> {
+  __$$_LastWordCopyWithImpl(
+      _$_LastWord _value, $Res Function(_$_LastWord) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_LastWord implements _LastWord {
+  const _$_LastWord();
+
+  @override
+  String toString() {
+    return 'GameState.lastWord()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_LastWord);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(GameSettings settings) gameIsReady,
+    required TResult Function() waitingForAnswer,
+    required TResult Function() gamePaused,
+    required TResult Function() lastWord,
+    required TResult Function() commandMoveIsOver,
+  }) {
+    return lastWord();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(GameSettings settings)? gameIsReady,
+    TResult? Function()? waitingForAnswer,
+    TResult? Function()? gamePaused,
+    TResult? Function()? lastWord,
+    TResult? Function()? commandMoveIsOver,
+  }) {
+    return lastWord?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(GameSettings settings)? gameIsReady,
+    TResult Function()? waitingForAnswer,
+    TResult Function()? gamePaused,
+    TResult Function()? lastWord,
+    TResult Function()? commandMoveIsOver,
+    required TResult orElse(),
+  }) {
+    if (lastWord != null) {
+      return lastWord();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GameIsReady value) gameIsReady,
+    required TResult Function(_WaitingForAnswer value) waitingForAnswer,
+    required TResult Function(_GamePaused value) gamePaused,
+    required TResult Function(_LastWord value) lastWord,
+    required TResult Function(_CommandMoveIsOver value) commandMoveIsOver,
+  }) {
+    return lastWord(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GameIsReady value)? gameIsReady,
+    TResult? Function(_WaitingForAnswer value)? waitingForAnswer,
+    TResult? Function(_GamePaused value)? gamePaused,
+    TResult? Function(_LastWord value)? lastWord,
+    TResult? Function(_CommandMoveIsOver value)? commandMoveIsOver,
+  }) {
+    return lastWord?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GameIsReady value)? gameIsReady,
+    TResult Function(_WaitingForAnswer value)? waitingForAnswer,
+    TResult Function(_GamePaused value)? gamePaused,
+    TResult Function(_LastWord value)? lastWord,
+    TResult Function(_CommandMoveIsOver value)? commandMoveIsOver,
+    required TResult orElse(),
+  }) {
+    if (lastWord != null) {
+      return lastWord(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LastWord implements GameState {
+  const factory _LastWord() = _$_LastWord;
+}
+
+/// @nodoc
+abstract class _$$_CommandMoveIsOverCopyWith<$Res> {
+  factory _$$_CommandMoveIsOverCopyWith(_$_CommandMoveIsOver value,
+          $Res Function(_$_CommandMoveIsOver) then) =
+      __$$_CommandMoveIsOverCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_CommandMoveIsOverCopyWithImpl<$Res>
+    extends _$GameStateCopyWithImpl<$Res, _$_CommandMoveIsOver>
+    implements _$$_CommandMoveIsOverCopyWith<$Res> {
+  __$$_CommandMoveIsOverCopyWithImpl(
+      _$_CommandMoveIsOver _value, $Res Function(_$_CommandMoveIsOver) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_CommandMoveIsOver implements _CommandMoveIsOver {
+  const _$_CommandMoveIsOver();
+
+  @override
+  String toString() {
+    return 'GameState.commandMoveIsOver()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_CommandMoveIsOver);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(GameSettings settings) gameIsReady,
+    required TResult Function() waitingForAnswer,
+    required TResult Function() gamePaused,
+    required TResult Function() lastWord,
+    required TResult Function() commandMoveIsOver,
+  }) {
+    return commandMoveIsOver();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(GameSettings settings)? gameIsReady,
+    TResult? Function()? waitingForAnswer,
+    TResult? Function()? gamePaused,
+    TResult? Function()? lastWord,
+    TResult? Function()? commandMoveIsOver,
+  }) {
+    return commandMoveIsOver?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(GameSettings settings)? gameIsReady,
+    TResult Function()? waitingForAnswer,
+    TResult Function()? gamePaused,
+    TResult Function()? lastWord,
+    TResult Function()? commandMoveIsOver,
+    required TResult orElse(),
+  }) {
+    if (commandMoveIsOver != null) {
+      return commandMoveIsOver();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GameIsReady value) gameIsReady,
+    required TResult Function(_WaitingForAnswer value) waitingForAnswer,
+    required TResult Function(_GamePaused value) gamePaused,
+    required TResult Function(_LastWord value) lastWord,
+    required TResult Function(_CommandMoveIsOver value) commandMoveIsOver,
+  }) {
+    return commandMoveIsOver(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GameIsReady value)? gameIsReady,
+    TResult? Function(_WaitingForAnswer value)? waitingForAnswer,
+    TResult? Function(_GamePaused value)? gamePaused,
+    TResult? Function(_LastWord value)? lastWord,
+    TResult? Function(_CommandMoveIsOver value)? commandMoveIsOver,
+  }) {
+    return commandMoveIsOver?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GameIsReady value)? gameIsReady,
+    TResult Function(_WaitingForAnswer value)? waitingForAnswer,
+    TResult Function(_GamePaused value)? gamePaused,
+    TResult Function(_LastWord value)? lastWord,
+    TResult Function(_CommandMoveIsOver value)? commandMoveIsOver,
+    required TResult orElse(),
+  }) {
+    if (commandMoveIsOver != null) {
+      return commandMoveIsOver(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CommandMoveIsOver implements GameState {
+  const factory _CommandMoveIsOver() = _$_CommandMoveIsOver;
 }

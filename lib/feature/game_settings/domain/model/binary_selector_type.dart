@@ -11,4 +11,6 @@ enum BinarySelectorMode {
         return 'Выкл';
     }
   }
+
+  bool get isEnabled => this == BinarySelectorMode.enabled;
 }

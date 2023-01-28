@@ -18,9 +18,9 @@ class _GameTimerState extends State<GameTimer> with TickerProviderStateMixin {
   void initState() {
     super.initState();
 
-    var aliasBloc = BlocProvider.of<AliasBloc>(context);
+    var gameBloc = BlocProvider.of<GameBloc>(context);
 
-    aliasBloc.state.whenOrNull(gameIsReady: (settings, words) {
+    gameBloc.state.whenOrNull(gameIsReady: (settings) {
       duration = settings.moveTime.getDuration();
     });
 
@@ -28,18 +28,13 @@ class _GameTimerState extends State<GameTimer> with TickerProviderStateMixin {
 
     controller.value = duration.inSeconds.toDouble();
 
-    // controller.addStatusListener((status) {
-    //   if (status == AnimationStatus.dismissed) {
-    //     var bloc = BlocProvider.of<GameBloc>(context);
-    //
-    //     bloc.add(TimeIsLeft());
-    //   }
-    // });
+    controller.addStatusListener((status) {
+      if (status == AnimationStatus.dismissed) {
+        var bloc = BlocProvider.of<GameBloc>(context);
 
-    controller.reverse(
-        from: controller.value == 0
-            ? duration.inSeconds.toDouble()
-            : controller.value);
+        bloc.add(const GameEvent.timeIsLeft());
+      }
+    });
   }
 
   @override
