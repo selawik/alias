@@ -31,14 +31,6 @@ class AliasBloc extends Bloc<AliasEvent, AliasState> {
   void _onCommandsFormed(_CommandsFormed event, Emitter emit) {}
 
   void _onGameSettingsSelected(_GameSettingsSelected event, Emitter emit) {
-    emit(
-      AliasState.gameIsReady(
-        gameSettings: GameSettings(
-            moveTime: event.moveTime,
-            lastWordMode: event.lastWordMode,
-            penaltyMode: event.penaltyMode),
-        words: [],
-      ),
-    );
+    emit(AliasState.gameIsReady(gameSettings: event.gameSettings, words: []));
   }
 }

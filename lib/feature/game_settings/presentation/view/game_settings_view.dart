@@ -1,5 +1,6 @@
 import 'package:alias/core/bloc/alias_bloc/alias_bloc.dart';
 import 'package:alias/core/router/app_router.dart';
+import 'package:alias/feature/game/domain/game_settings.dart';
 import 'package:alias/feature/game_settings/presentation/bloc/game_settings_bloc.dart';
 import 'package:alias/feature/game_settings/presentation/view/widget/command_move_time_selector.dart';
 import 'package:alias/feature/game_settings/presentation/view/widget/last_word_selector.dart';
@@ -56,20 +57,19 @@ class GameSettingsView extends StatelessWidget {
 
     gameSettingBloc.state.whenOrNull(
       ready: (moveTime, lastWordMode, penaltyMode) {
-        aliasBloc.add(
-          AliasEvent.gameSettingsSelected(
-            moveTime: moveTime,
-            lastWordMode: lastWordMode,
-            penaltyMode: penaltyMode,
-          ),
+        var gameSettings = GameSettings(
+          moveTime: moveTime,
+          lastWordMode: lastWordMode,
+          penaltyMode: penaltyMode,
         );
+
+        aliasBloc
+            .add(AliasEvent.gameSettingsSelected(gameSettings: gameSettings));
       },
     );
-    
-    
+
     var router = di.locator.get<AppRouter>();
 
     router.push(const GamePageRoute());
-    
   }
 }
