@@ -2,6 +2,7 @@ import 'package:alias/core/application.dart';
 import 'package:alias/core/bloc/alias_bloc/alias_bloc.dart';
 import 'package:alias/core/injection.dart' as di;
 import 'package:alias/feature/game/presentation/bloc/game_bloc.dart';
+import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,6 +17,8 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+  await FirebaseAppCheck.instance.activate();
 
   runApp(
     MultiBlocProvider(
