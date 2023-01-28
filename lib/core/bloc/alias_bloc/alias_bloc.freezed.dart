@@ -721,46 +721,29 @@ mixin _$AliasState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(
-            CommandMoveTimeSelector moveTime,
-            BinarySelectorMode lastWordMode,
-            BinarySelectorMode penaltyMode,
-            List<Command> commands)
+    required TResult Function(GameSettings gameSettings, List<Command> commands)
         gameIsLoading,
     required TResult Function() gameLoadingError,
-    required TResult Function(Command command, List<Word> words) commandStep,
-    required TResult Function() roundEnd,
-    required TResult Function() gameOver,
+    required TResult Function(GameSettings gameSettings, List<Word> words)
+        gameIsReady,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(
-            CommandMoveTimeSelector moveTime,
-            BinarySelectorMode lastWordMode,
-            BinarySelectorMode penaltyMode,
-            List<Command> commands)?
+    TResult? Function(GameSettings gameSettings, List<Command> commands)?
         gameIsLoading,
     TResult? Function()? gameLoadingError,
-    TResult? Function(Command command, List<Word> words)? commandStep,
-    TResult? Function()? roundEnd,
-    TResult? Function()? gameOver,
+    TResult? Function(GameSettings gameSettings, List<Word> words)? gameIsReady,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(
-            CommandMoveTimeSelector moveTime,
-            BinarySelectorMode lastWordMode,
-            BinarySelectorMode penaltyMode,
-            List<Command> commands)?
+    TResult Function(GameSettings gameSettings, List<Command> commands)?
         gameIsLoading,
     TResult Function()? gameLoadingError,
-    TResult Function(Command command, List<Word> words)? commandStep,
-    TResult Function()? roundEnd,
-    TResult Function()? gameOver,
+    TResult Function(GameSettings gameSettings, List<Word> words)? gameIsReady,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -769,9 +752,7 @@ mixin _$AliasState {
     required TResult Function(_Initial value) initial,
     required TResult Function(_GameIsLoading value) gameIsLoading,
     required TResult Function(_GameLoadingError value) gameLoadingError,
-    required TResult Function(_CommandStep value) commandStep,
-    required TResult Function(_RoundEnd value) roundEnd,
-    required TResult Function(_GameOver value) gameOver,
+    required TResult Function(_GameIsReady value) gameIsReady,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -779,9 +760,7 @@ mixin _$AliasState {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_GameIsLoading value)? gameIsLoading,
     TResult? Function(_GameLoadingError value)? gameLoadingError,
-    TResult? Function(_CommandStep value)? commandStep,
-    TResult? Function(_RoundEnd value)? roundEnd,
-    TResult? Function(_GameOver value)? gameOver,
+    TResult? Function(_GameIsReady value)? gameIsReady,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -789,9 +768,7 @@ mixin _$AliasState {
     TResult Function(_Initial value)? initial,
     TResult Function(_GameIsLoading value)? gameIsLoading,
     TResult Function(_GameLoadingError value)? gameLoadingError,
-    TResult Function(_CommandStep value)? commandStep,
-    TResult Function(_RoundEnd value)? roundEnd,
-    TResult Function(_GameOver value)? gameOver,
+    TResult Function(_GameIsReady value)? gameIsReady,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -853,16 +830,11 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(
-            CommandMoveTimeSelector moveTime,
-            BinarySelectorMode lastWordMode,
-            BinarySelectorMode penaltyMode,
-            List<Command> commands)
+    required TResult Function(GameSettings gameSettings, List<Command> commands)
         gameIsLoading,
     required TResult Function() gameLoadingError,
-    required TResult Function(Command command, List<Word> words) commandStep,
-    required TResult Function() roundEnd,
-    required TResult Function() gameOver,
+    required TResult Function(GameSettings gameSettings, List<Word> words)
+        gameIsReady,
   }) {
     return initial();
   }
@@ -871,16 +843,10 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(
-            CommandMoveTimeSelector moveTime,
-            BinarySelectorMode lastWordMode,
-            BinarySelectorMode penaltyMode,
-            List<Command> commands)?
+    TResult? Function(GameSettings gameSettings, List<Command> commands)?
         gameIsLoading,
     TResult? Function()? gameLoadingError,
-    TResult? Function(Command command, List<Word> words)? commandStep,
-    TResult? Function()? roundEnd,
-    TResult? Function()? gameOver,
+    TResult? Function(GameSettings gameSettings, List<Word> words)? gameIsReady,
   }) {
     return initial?.call();
   }
@@ -889,16 +855,10 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(
-            CommandMoveTimeSelector moveTime,
-            BinarySelectorMode lastWordMode,
-            BinarySelectorMode penaltyMode,
-            List<Command> commands)?
+    TResult Function(GameSettings gameSettings, List<Command> commands)?
         gameIsLoading,
     TResult Function()? gameLoadingError,
-    TResult Function(Command command, List<Word> words)? commandStep,
-    TResult Function()? roundEnd,
-    TResult Function()? gameOver,
+    TResult Function(GameSettings gameSettings, List<Word> words)? gameIsReady,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -913,9 +873,7 @@ class _$_Initial implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(_GameIsLoading value) gameIsLoading,
     required TResult Function(_GameLoadingError value) gameLoadingError,
-    required TResult Function(_CommandStep value) commandStep,
-    required TResult Function(_RoundEnd value) roundEnd,
-    required TResult Function(_GameOver value) gameOver,
+    required TResult Function(_GameIsReady value) gameIsReady,
   }) {
     return initial(this);
   }
@@ -926,9 +884,7 @@ class _$_Initial implements _Initial {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_GameIsLoading value)? gameIsLoading,
     TResult? Function(_GameLoadingError value)? gameLoadingError,
-    TResult? Function(_CommandStep value)? commandStep,
-    TResult? Function(_RoundEnd value)? roundEnd,
-    TResult? Function(_GameOver value)? gameOver,
+    TResult? Function(_GameIsReady value)? gameIsReady,
   }) {
     return initial?.call(this);
   }
@@ -939,9 +895,7 @@ class _$_Initial implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_GameIsLoading value)? gameIsLoading,
     TResult Function(_GameLoadingError value)? gameLoadingError,
-    TResult Function(_CommandStep value)? commandStep,
-    TResult Function(_RoundEnd value)? roundEnd,
-    TResult Function(_GameOver value)? gameOver,
+    TResult Function(_GameIsReady value)? gameIsReady,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -961,11 +915,7 @@ abstract class _$$_GameIsLoadingCopyWith<$Res> {
           _$_GameIsLoading value, $Res Function(_$_GameIsLoading) then) =
       __$$_GameIsLoadingCopyWithImpl<$Res>;
   @useResult
-  $Res call(
-      {CommandMoveTimeSelector moveTime,
-      BinarySelectorMode lastWordMode,
-      BinarySelectorMode penaltyMode,
-      List<Command> commands});
+  $Res call({GameSettings gameSettings, List<Command> commands});
 }
 
 /// @nodoc
@@ -979,24 +929,14 @@ class __$$_GameIsLoadingCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? moveTime = null,
-    Object? lastWordMode = null,
-    Object? penaltyMode = null,
+    Object? gameSettings = null,
     Object? commands = null,
   }) {
     return _then(_$_GameIsLoading(
-      moveTime: null == moveTime
-          ? _value.moveTime
-          : moveTime // ignore: cast_nullable_to_non_nullable
-              as CommandMoveTimeSelector,
-      lastWordMode: null == lastWordMode
-          ? _value.lastWordMode
-          : lastWordMode // ignore: cast_nullable_to_non_nullable
-              as BinarySelectorMode,
-      penaltyMode: null == penaltyMode
-          ? _value.penaltyMode
-          : penaltyMode // ignore: cast_nullable_to_non_nullable
-              as BinarySelectorMode,
+      gameSettings: null == gameSettings
+          ? _value.gameSettings
+          : gameSettings // ignore: cast_nullable_to_non_nullable
+              as GameSettings,
       commands: null == commands
           ? _value._commands
           : commands // ignore: cast_nullable_to_non_nullable
@@ -1009,18 +949,11 @@ class __$$_GameIsLoadingCopyWithImpl<$Res>
 
 class _$_GameIsLoading implements _GameIsLoading {
   const _$_GameIsLoading(
-      {required this.moveTime,
-      required this.lastWordMode,
-      required this.penaltyMode,
-      required final List<Command> commands})
+      {required this.gameSettings, required final List<Command> commands})
       : _commands = commands;
 
   @override
-  final CommandMoveTimeSelector moveTime;
-  @override
-  final BinarySelectorMode lastWordMode;
-  @override
-  final BinarySelectorMode penaltyMode;
+  final GameSettings gameSettings;
   final List<Command> _commands;
   @override
   List<Command> get commands {
@@ -1031,7 +964,7 @@ class _$_GameIsLoading implements _GameIsLoading {
 
   @override
   String toString() {
-    return 'AliasState.gameIsLoading(moveTime: $moveTime, lastWordMode: $lastWordMode, penaltyMode: $penaltyMode, commands: $commands)';
+    return 'AliasState.gameIsLoading(gameSettings: $gameSettings, commands: $commands)';
   }
 
   @override
@@ -1039,18 +972,14 @@ class _$_GameIsLoading implements _GameIsLoading {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_GameIsLoading &&
-            (identical(other.moveTime, moveTime) ||
-                other.moveTime == moveTime) &&
-            (identical(other.lastWordMode, lastWordMode) ||
-                other.lastWordMode == lastWordMode) &&
-            (identical(other.penaltyMode, penaltyMode) ||
-                other.penaltyMode == penaltyMode) &&
+            (identical(other.gameSettings, gameSettings) ||
+                other.gameSettings == gameSettings) &&
             const DeepCollectionEquality().equals(other._commands, _commands));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, moveTime, lastWordMode,
-      penaltyMode, const DeepCollectionEquality().hash(_commands));
+  int get hashCode => Object.hash(runtimeType, gameSettings,
+      const DeepCollectionEquality().hash(_commands));
 
   @JsonKey(ignore: true)
   @override
@@ -1062,56 +991,39 @@ class _$_GameIsLoading implements _GameIsLoading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(
-            CommandMoveTimeSelector moveTime,
-            BinarySelectorMode lastWordMode,
-            BinarySelectorMode penaltyMode,
-            List<Command> commands)
+    required TResult Function(GameSettings gameSettings, List<Command> commands)
         gameIsLoading,
     required TResult Function() gameLoadingError,
-    required TResult Function(Command command, List<Word> words) commandStep,
-    required TResult Function() roundEnd,
-    required TResult Function() gameOver,
+    required TResult Function(GameSettings gameSettings, List<Word> words)
+        gameIsReady,
   }) {
-    return gameIsLoading(moveTime, lastWordMode, penaltyMode, commands);
+    return gameIsLoading(gameSettings, commands);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(
-            CommandMoveTimeSelector moveTime,
-            BinarySelectorMode lastWordMode,
-            BinarySelectorMode penaltyMode,
-            List<Command> commands)?
+    TResult? Function(GameSettings gameSettings, List<Command> commands)?
         gameIsLoading,
     TResult? Function()? gameLoadingError,
-    TResult? Function(Command command, List<Word> words)? commandStep,
-    TResult? Function()? roundEnd,
-    TResult? Function()? gameOver,
+    TResult? Function(GameSettings gameSettings, List<Word> words)? gameIsReady,
   }) {
-    return gameIsLoading?.call(moveTime, lastWordMode, penaltyMode, commands);
+    return gameIsLoading?.call(gameSettings, commands);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(
-            CommandMoveTimeSelector moveTime,
-            BinarySelectorMode lastWordMode,
-            BinarySelectorMode penaltyMode,
-            List<Command> commands)?
+    TResult Function(GameSettings gameSettings, List<Command> commands)?
         gameIsLoading,
     TResult Function()? gameLoadingError,
-    TResult Function(Command command, List<Word> words)? commandStep,
-    TResult Function()? roundEnd,
-    TResult Function()? gameOver,
+    TResult Function(GameSettings gameSettings, List<Word> words)? gameIsReady,
     required TResult orElse(),
   }) {
     if (gameIsLoading != null) {
-      return gameIsLoading(moveTime, lastWordMode, penaltyMode, commands);
+      return gameIsLoading(gameSettings, commands);
     }
     return orElse();
   }
@@ -1122,9 +1034,7 @@ class _$_GameIsLoading implements _GameIsLoading {
     required TResult Function(_Initial value) initial,
     required TResult Function(_GameIsLoading value) gameIsLoading,
     required TResult Function(_GameLoadingError value) gameLoadingError,
-    required TResult Function(_CommandStep value) commandStep,
-    required TResult Function(_RoundEnd value) roundEnd,
-    required TResult Function(_GameOver value) gameOver,
+    required TResult Function(_GameIsReady value) gameIsReady,
   }) {
     return gameIsLoading(this);
   }
@@ -1135,9 +1045,7 @@ class _$_GameIsLoading implements _GameIsLoading {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_GameIsLoading value)? gameIsLoading,
     TResult? Function(_GameLoadingError value)? gameLoadingError,
-    TResult? Function(_CommandStep value)? commandStep,
-    TResult? Function(_RoundEnd value)? roundEnd,
-    TResult? Function(_GameOver value)? gameOver,
+    TResult? Function(_GameIsReady value)? gameIsReady,
   }) {
     return gameIsLoading?.call(this);
   }
@@ -1148,9 +1056,7 @@ class _$_GameIsLoading implements _GameIsLoading {
     TResult Function(_Initial value)? initial,
     TResult Function(_GameIsLoading value)? gameIsLoading,
     TResult Function(_GameLoadingError value)? gameLoadingError,
-    TResult Function(_CommandStep value)? commandStep,
-    TResult Function(_RoundEnd value)? roundEnd,
-    TResult Function(_GameOver value)? gameOver,
+    TResult Function(_GameIsReady value)? gameIsReady,
     required TResult orElse(),
   }) {
     if (gameIsLoading != null) {
@@ -1162,14 +1068,10 @@ class _$_GameIsLoading implements _GameIsLoading {
 
 abstract class _GameIsLoading implements AliasState {
   const factory _GameIsLoading(
-      {required final CommandMoveTimeSelector moveTime,
-      required final BinarySelectorMode lastWordMode,
-      required final BinarySelectorMode penaltyMode,
+      {required final GameSettings gameSettings,
       required final List<Command> commands}) = _$_GameIsLoading;
 
-  CommandMoveTimeSelector get moveTime;
-  BinarySelectorMode get lastWordMode;
-  BinarySelectorMode get penaltyMode;
+  GameSettings get gameSettings;
   List<Command> get commands;
   @JsonKey(ignore: true)
   _$$_GameIsLoadingCopyWith<_$_GameIsLoading> get copyWith =>
@@ -1215,16 +1117,11 @@ class _$_GameLoadingError implements _GameLoadingError {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(
-            CommandMoveTimeSelector moveTime,
-            BinarySelectorMode lastWordMode,
-            BinarySelectorMode penaltyMode,
-            List<Command> commands)
+    required TResult Function(GameSettings gameSettings, List<Command> commands)
         gameIsLoading,
     required TResult Function() gameLoadingError,
-    required TResult Function(Command command, List<Word> words) commandStep,
-    required TResult Function() roundEnd,
-    required TResult Function() gameOver,
+    required TResult Function(GameSettings gameSettings, List<Word> words)
+        gameIsReady,
   }) {
     return gameLoadingError();
   }
@@ -1233,16 +1130,10 @@ class _$_GameLoadingError implements _GameLoadingError {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(
-            CommandMoveTimeSelector moveTime,
-            BinarySelectorMode lastWordMode,
-            BinarySelectorMode penaltyMode,
-            List<Command> commands)?
+    TResult? Function(GameSettings gameSettings, List<Command> commands)?
         gameIsLoading,
     TResult? Function()? gameLoadingError,
-    TResult? Function(Command command, List<Word> words)? commandStep,
-    TResult? Function()? roundEnd,
-    TResult? Function()? gameOver,
+    TResult? Function(GameSettings gameSettings, List<Word> words)? gameIsReady,
   }) {
     return gameLoadingError?.call();
   }
@@ -1251,16 +1142,10 @@ class _$_GameLoadingError implements _GameLoadingError {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(
-            CommandMoveTimeSelector moveTime,
-            BinarySelectorMode lastWordMode,
-            BinarySelectorMode penaltyMode,
-            List<Command> commands)?
+    TResult Function(GameSettings gameSettings, List<Command> commands)?
         gameIsLoading,
     TResult Function()? gameLoadingError,
-    TResult Function(Command command, List<Word> words)? commandStep,
-    TResult Function()? roundEnd,
-    TResult Function()? gameOver,
+    TResult Function(GameSettings gameSettings, List<Word> words)? gameIsReady,
     required TResult orElse(),
   }) {
     if (gameLoadingError != null) {
@@ -1275,9 +1160,7 @@ class _$_GameLoadingError implements _GameLoadingError {
     required TResult Function(_Initial value) initial,
     required TResult Function(_GameIsLoading value) gameIsLoading,
     required TResult Function(_GameLoadingError value) gameLoadingError,
-    required TResult Function(_CommandStep value) commandStep,
-    required TResult Function(_RoundEnd value) roundEnd,
-    required TResult Function(_GameOver value) gameOver,
+    required TResult Function(_GameIsReady value) gameIsReady,
   }) {
     return gameLoadingError(this);
   }
@@ -1288,9 +1171,7 @@ class _$_GameLoadingError implements _GameLoadingError {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_GameIsLoading value)? gameIsLoading,
     TResult? Function(_GameLoadingError value)? gameLoadingError,
-    TResult? Function(_CommandStep value)? commandStep,
-    TResult? Function(_RoundEnd value)? roundEnd,
-    TResult? Function(_GameOver value)? gameOver,
+    TResult? Function(_GameIsReady value)? gameIsReady,
   }) {
     return gameLoadingError?.call(this);
   }
@@ -1301,9 +1182,7 @@ class _$_GameLoadingError implements _GameLoadingError {
     TResult Function(_Initial value)? initial,
     TResult Function(_GameIsLoading value)? gameIsLoading,
     TResult Function(_GameLoadingError value)? gameLoadingError,
-    TResult Function(_CommandStep value)? commandStep,
-    TResult Function(_RoundEnd value)? roundEnd,
-    TResult Function(_GameOver value)? gameOver,
+    TResult Function(_GameIsReady value)? gameIsReady,
     required TResult orElse(),
   }) {
     if (gameLoadingError != null) {
@@ -1318,59 +1197,50 @@ abstract class _GameLoadingError implements AliasState {
 }
 
 /// @nodoc
-abstract class _$$_CommandStepCopyWith<$Res> {
-  factory _$$_CommandStepCopyWith(
-          _$_CommandStep value, $Res Function(_$_CommandStep) then) =
-      __$$_CommandStepCopyWithImpl<$Res>;
+abstract class _$$_GameIsReadyCopyWith<$Res> {
+  factory _$$_GameIsReadyCopyWith(
+          _$_GameIsReady value, $Res Function(_$_GameIsReady) then) =
+      __$$_GameIsReadyCopyWithImpl<$Res>;
   @useResult
-  $Res call({Command command, List<Word> words});
-
-  $CommandCopyWith<$Res> get command;
+  $Res call({GameSettings gameSettings, List<Word> words});
 }
 
 /// @nodoc
-class __$$_CommandStepCopyWithImpl<$Res>
-    extends _$AliasStateCopyWithImpl<$Res, _$_CommandStep>
-    implements _$$_CommandStepCopyWith<$Res> {
-  __$$_CommandStepCopyWithImpl(
-      _$_CommandStep _value, $Res Function(_$_CommandStep) _then)
+class __$$_GameIsReadyCopyWithImpl<$Res>
+    extends _$AliasStateCopyWithImpl<$Res, _$_GameIsReady>
+    implements _$$_GameIsReadyCopyWith<$Res> {
+  __$$_GameIsReadyCopyWithImpl(
+      _$_GameIsReady _value, $Res Function(_$_GameIsReady) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? command = null,
+    Object? gameSettings = null,
     Object? words = null,
   }) {
-    return _then(_$_CommandStep(
-      command: null == command
-          ? _value.command
-          : command // ignore: cast_nullable_to_non_nullable
-              as Command,
+    return _then(_$_GameIsReady(
+      gameSettings: null == gameSettings
+          ? _value.gameSettings
+          : gameSettings // ignore: cast_nullable_to_non_nullable
+              as GameSettings,
       words: null == words
           ? _value._words
           : words // ignore: cast_nullable_to_non_nullable
               as List<Word>,
     ));
   }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $CommandCopyWith<$Res> get command {
-    return $CommandCopyWith<$Res>(_value.command, (value) {
-      return _then(_value.copyWith(command: value));
-    });
-  }
 }
 
 /// @nodoc
 
-class _$_CommandStep implements _CommandStep {
-  const _$_CommandStep({required this.command, required final List<Word> words})
+class _$_GameIsReady implements _GameIsReady {
+  const _$_GameIsReady(
+      {required this.gameSettings, required final List<Word> words})
       : _words = words;
 
   @override
-  final Command command;
+  final GameSettings gameSettings;
   final List<Word> _words;
   @override
   List<Word> get words {
@@ -1381,82 +1251,66 @@ class _$_CommandStep implements _CommandStep {
 
   @override
   String toString() {
-    return 'AliasState.commandStep(command: $command, words: $words)';
+    return 'AliasState.gameIsReady(gameSettings: $gameSettings, words: $words)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CommandStep &&
-            (identical(other.command, command) || other.command == command) &&
+            other is _$_GameIsReady &&
+            (identical(other.gameSettings, gameSettings) ||
+                other.gameSettings == gameSettings) &&
             const DeepCollectionEquality().equals(other._words, _words));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, command, const DeepCollectionEquality().hash(_words));
+      runtimeType, gameSettings, const DeepCollectionEquality().hash(_words));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CommandStepCopyWith<_$_CommandStep> get copyWith =>
-      __$$_CommandStepCopyWithImpl<_$_CommandStep>(this, _$identity);
+  _$$_GameIsReadyCopyWith<_$_GameIsReady> get copyWith =>
+      __$$_GameIsReadyCopyWithImpl<_$_GameIsReady>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(
-            CommandMoveTimeSelector moveTime,
-            BinarySelectorMode lastWordMode,
-            BinarySelectorMode penaltyMode,
-            List<Command> commands)
+    required TResult Function(GameSettings gameSettings, List<Command> commands)
         gameIsLoading,
     required TResult Function() gameLoadingError,
-    required TResult Function(Command command, List<Word> words) commandStep,
-    required TResult Function() roundEnd,
-    required TResult Function() gameOver,
+    required TResult Function(GameSettings gameSettings, List<Word> words)
+        gameIsReady,
   }) {
-    return commandStep(command, words);
+    return gameIsReady(gameSettings, words);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(
-            CommandMoveTimeSelector moveTime,
-            BinarySelectorMode lastWordMode,
-            BinarySelectorMode penaltyMode,
-            List<Command> commands)?
+    TResult? Function(GameSettings gameSettings, List<Command> commands)?
         gameIsLoading,
     TResult? Function()? gameLoadingError,
-    TResult? Function(Command command, List<Word> words)? commandStep,
-    TResult? Function()? roundEnd,
-    TResult? Function()? gameOver,
+    TResult? Function(GameSettings gameSettings, List<Word> words)? gameIsReady,
   }) {
-    return commandStep?.call(command, words);
+    return gameIsReady?.call(gameSettings, words);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(
-            CommandMoveTimeSelector moveTime,
-            BinarySelectorMode lastWordMode,
-            BinarySelectorMode penaltyMode,
-            List<Command> commands)?
+    TResult Function(GameSettings gameSettings, List<Command> commands)?
         gameIsLoading,
     TResult Function()? gameLoadingError,
-    TResult Function(Command command, List<Word> words)? commandStep,
-    TResult Function()? roundEnd,
-    TResult Function()? gameOver,
+    TResult Function(GameSettings gameSettings, List<Word> words)? gameIsReady,
     required TResult orElse(),
   }) {
-    if (commandStep != null) {
-      return commandStep(command, words);
+    if (gameIsReady != null) {
+      return gameIsReady(gameSettings, words);
     }
     return orElse();
   }
@@ -1467,11 +1321,9 @@ class _$_CommandStep implements _CommandStep {
     required TResult Function(_Initial value) initial,
     required TResult Function(_GameIsLoading value) gameIsLoading,
     required TResult Function(_GameLoadingError value) gameLoadingError,
-    required TResult Function(_CommandStep value) commandStep,
-    required TResult Function(_RoundEnd value) roundEnd,
-    required TResult Function(_GameOver value) gameOver,
+    required TResult Function(_GameIsReady value) gameIsReady,
   }) {
-    return commandStep(this);
+    return gameIsReady(this);
   }
 
   @override
@@ -1480,11 +1332,9 @@ class _$_CommandStep implements _CommandStep {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_GameIsLoading value)? gameIsLoading,
     TResult? Function(_GameLoadingError value)? gameLoadingError,
-    TResult? Function(_CommandStep value)? commandStep,
-    TResult? Function(_RoundEnd value)? roundEnd,
-    TResult? Function(_GameOver value)? gameOver,
+    TResult? Function(_GameIsReady value)? gameIsReady,
   }) {
-    return commandStep?.call(this);
+    return gameIsReady?.call(this);
   }
 
   @override
@@ -1493,308 +1343,24 @@ class _$_CommandStep implements _CommandStep {
     TResult Function(_Initial value)? initial,
     TResult Function(_GameIsLoading value)? gameIsLoading,
     TResult Function(_GameLoadingError value)? gameLoadingError,
-    TResult Function(_CommandStep value)? commandStep,
-    TResult Function(_RoundEnd value)? roundEnd,
-    TResult Function(_GameOver value)? gameOver,
+    TResult Function(_GameIsReady value)? gameIsReady,
     required TResult orElse(),
   }) {
-    if (commandStep != null) {
-      return commandStep(this);
+    if (gameIsReady != null) {
+      return gameIsReady(this);
     }
     return orElse();
   }
 }
 
-abstract class _CommandStep implements AliasState {
-  const factory _CommandStep(
-      {required final Command command,
-      required final List<Word> words}) = _$_CommandStep;
+abstract class _GameIsReady implements AliasState {
+  const factory _GameIsReady(
+      {required final GameSettings gameSettings,
+      required final List<Word> words}) = _$_GameIsReady;
 
-  Command get command;
+  GameSettings get gameSettings;
   List<Word> get words;
   @JsonKey(ignore: true)
-  _$$_CommandStepCopyWith<_$_CommandStep> get copyWith =>
+  _$$_GameIsReadyCopyWith<_$_GameIsReady> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$_RoundEndCopyWith<$Res> {
-  factory _$$_RoundEndCopyWith(
-          _$_RoundEnd value, $Res Function(_$_RoundEnd) then) =
-      __$$_RoundEndCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_RoundEndCopyWithImpl<$Res>
-    extends _$AliasStateCopyWithImpl<$Res, _$_RoundEnd>
-    implements _$$_RoundEndCopyWith<$Res> {
-  __$$_RoundEndCopyWithImpl(
-      _$_RoundEnd _value, $Res Function(_$_RoundEnd) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$_RoundEnd implements _RoundEnd {
-  const _$_RoundEnd();
-
-  @override
-  String toString() {
-    return 'AliasState.roundEnd()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_RoundEnd);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(
-            CommandMoveTimeSelector moveTime,
-            BinarySelectorMode lastWordMode,
-            BinarySelectorMode penaltyMode,
-            List<Command> commands)
-        gameIsLoading,
-    required TResult Function() gameLoadingError,
-    required TResult Function(Command command, List<Word> words) commandStep,
-    required TResult Function() roundEnd,
-    required TResult Function() gameOver,
-  }) {
-    return roundEnd();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(
-            CommandMoveTimeSelector moveTime,
-            BinarySelectorMode lastWordMode,
-            BinarySelectorMode penaltyMode,
-            List<Command> commands)?
-        gameIsLoading,
-    TResult? Function()? gameLoadingError,
-    TResult? Function(Command command, List<Word> words)? commandStep,
-    TResult? Function()? roundEnd,
-    TResult? Function()? gameOver,
-  }) {
-    return roundEnd?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(
-            CommandMoveTimeSelector moveTime,
-            BinarySelectorMode lastWordMode,
-            BinarySelectorMode penaltyMode,
-            List<Command> commands)?
-        gameIsLoading,
-    TResult Function()? gameLoadingError,
-    TResult Function(Command command, List<Word> words)? commandStep,
-    TResult Function()? roundEnd,
-    TResult Function()? gameOver,
-    required TResult orElse(),
-  }) {
-    if (roundEnd != null) {
-      return roundEnd();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_GameIsLoading value) gameIsLoading,
-    required TResult Function(_GameLoadingError value) gameLoadingError,
-    required TResult Function(_CommandStep value) commandStep,
-    required TResult Function(_RoundEnd value) roundEnd,
-    required TResult Function(_GameOver value) gameOver,
-  }) {
-    return roundEnd(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_GameIsLoading value)? gameIsLoading,
-    TResult? Function(_GameLoadingError value)? gameLoadingError,
-    TResult? Function(_CommandStep value)? commandStep,
-    TResult? Function(_RoundEnd value)? roundEnd,
-    TResult? Function(_GameOver value)? gameOver,
-  }) {
-    return roundEnd?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_GameIsLoading value)? gameIsLoading,
-    TResult Function(_GameLoadingError value)? gameLoadingError,
-    TResult Function(_CommandStep value)? commandStep,
-    TResult Function(_RoundEnd value)? roundEnd,
-    TResult Function(_GameOver value)? gameOver,
-    required TResult orElse(),
-  }) {
-    if (roundEnd != null) {
-      return roundEnd(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _RoundEnd implements AliasState {
-  const factory _RoundEnd() = _$_RoundEnd;
-}
-
-/// @nodoc
-abstract class _$$_GameOverCopyWith<$Res> {
-  factory _$$_GameOverCopyWith(
-          _$_GameOver value, $Res Function(_$_GameOver) then) =
-      __$$_GameOverCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_GameOverCopyWithImpl<$Res>
-    extends _$AliasStateCopyWithImpl<$Res, _$_GameOver>
-    implements _$$_GameOverCopyWith<$Res> {
-  __$$_GameOverCopyWithImpl(
-      _$_GameOver _value, $Res Function(_$_GameOver) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$_GameOver implements _GameOver {
-  const _$_GameOver();
-
-  @override
-  String toString() {
-    return 'AliasState.gameOver()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_GameOver);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(
-            CommandMoveTimeSelector moveTime,
-            BinarySelectorMode lastWordMode,
-            BinarySelectorMode penaltyMode,
-            List<Command> commands)
-        gameIsLoading,
-    required TResult Function() gameLoadingError,
-    required TResult Function(Command command, List<Word> words) commandStep,
-    required TResult Function() roundEnd,
-    required TResult Function() gameOver,
-  }) {
-    return gameOver();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(
-            CommandMoveTimeSelector moveTime,
-            BinarySelectorMode lastWordMode,
-            BinarySelectorMode penaltyMode,
-            List<Command> commands)?
-        gameIsLoading,
-    TResult? Function()? gameLoadingError,
-    TResult? Function(Command command, List<Word> words)? commandStep,
-    TResult? Function()? roundEnd,
-    TResult? Function()? gameOver,
-  }) {
-    return gameOver?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(
-            CommandMoveTimeSelector moveTime,
-            BinarySelectorMode lastWordMode,
-            BinarySelectorMode penaltyMode,
-            List<Command> commands)?
-        gameIsLoading,
-    TResult Function()? gameLoadingError,
-    TResult Function(Command command, List<Word> words)? commandStep,
-    TResult Function()? roundEnd,
-    TResult Function()? gameOver,
-    required TResult orElse(),
-  }) {
-    if (gameOver != null) {
-      return gameOver();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_GameIsLoading value) gameIsLoading,
-    required TResult Function(_GameLoadingError value) gameLoadingError,
-    required TResult Function(_CommandStep value) commandStep,
-    required TResult Function(_RoundEnd value) roundEnd,
-    required TResult Function(_GameOver value) gameOver,
-  }) {
-    return gameOver(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_GameIsLoading value)? gameIsLoading,
-    TResult? Function(_GameLoadingError value)? gameLoadingError,
-    TResult? Function(_CommandStep value)? commandStep,
-    TResult? Function(_RoundEnd value)? roundEnd,
-    TResult? Function(_GameOver value)? gameOver,
-  }) {
-    return gameOver?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_GameIsLoading value)? gameIsLoading,
-    TResult Function(_GameLoadingError value)? gameLoadingError,
-    TResult Function(_CommandStep value)? commandStep,
-    TResult Function(_RoundEnd value)? roundEnd,
-    TResult Function(_GameOver value)? gameOver,
-    required TResult orElse(),
-  }) {
-    if (gameOver != null) {
-      return gameOver(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _GameOver implements AliasState {
-  const factory _GameOver() = _$_GameOver;
 }

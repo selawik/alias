@@ -1,5 +1,6 @@
 import 'package:alias/feature/categories/data/models/category.dart';
 import 'package:alias/feature/commands/data/models/command.dart';
+import 'package:alias/feature/game/domain/game_settings.dart';
 import 'package:alias/feature/game_settings/data/models/word.dart';
 import 'package:alias/feature/game_settings/domain/model/binary_selector_type.dart';
 import 'package:alias/feature/game_settings/domain/model/command_move_selector_type.dart';
@@ -9,7 +10,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 part 'alias_bloc.freezed.dart';
+
 part 'alias_event.dart';
+
 part 'alias_state.dart';
 
 @Injectable()
@@ -27,5 +30,15 @@ class AliasBloc extends Bloc<AliasEvent, AliasState> {
 
   void _onCommandsFormed(_CommandsFormed event, Emitter emit) {}
 
-  void _onGameSettingsSelected(_GameSettingsSelected event, Emitter emit) {}
+  void _onGameSettingsSelected(_GameSettingsSelected event, Emitter emit) {
+    emit(
+      AliasState.gameIsReady(
+        gameSettings: GameSettings(
+            moveTime: event.moveTime,
+            lastWordMode: event.lastWordMode,
+            penaltyMode: event.penaltyMode),
+        words: [],
+      ),
+    );
+  }
 }
