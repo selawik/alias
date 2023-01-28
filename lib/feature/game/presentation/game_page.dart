@@ -8,9 +8,6 @@ class GamePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      appBar: CustomAppBar(
-        title: '123',
-      ),
       body: GameView(),
     );
   }
