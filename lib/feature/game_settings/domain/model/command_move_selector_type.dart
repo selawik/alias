@@ -14,4 +14,15 @@ enum CommandMoveMode {
         return '90 сек';
     }
   }
+
+  Duration getDuration() {
+    switch (this) {
+      case CommandMoveMode.halfOfMinute:
+      return const Duration(seconds: 30);
+      case CommandMoveMode.minute:
+        return const Duration(seconds: 60);
+      case CommandMoveMode.minuteAndHalf:
+        return const Duration(seconds: 90);
+    }
+  }
 }

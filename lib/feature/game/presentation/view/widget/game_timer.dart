@@ -12,15 +12,17 @@ class GameTimer extends StatefulWidget {
 
 class _GameTimerState extends State<GameTimer> with TickerProviderStateMixin {
   late final AnimationController controller;
-
-  final Duration duration = const Duration(seconds: 30);
+  late final Duration duration;
 
   @override
   void initState() {
     super.initState();
 
     var aliasBloc = BlocProvider.of<AliasBloc>(context);
-    aliasBloc.state.whenOrNull()
+
+    aliasBloc.state.whenOrNull(gameIsReady: (settings, words)  {
+      duration = settings.moveTime.getDuration();
+    });
 
     controller = AnimationController(vsync: this, reverseDuration: duration);
 
