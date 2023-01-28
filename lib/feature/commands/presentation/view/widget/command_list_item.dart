@@ -40,7 +40,7 @@ class CommandListItem extends StatelessWidget {
           const SizedBox(width: 8),
           bloc.state.whenOrNull(
                 loaded: (addedCommands) {
-                  if (addedCommands.length > 1) {
+                  if (addedCommands.length > 2) {
                     return _buildRemoveButton(context, command);
                   }
                   return null;

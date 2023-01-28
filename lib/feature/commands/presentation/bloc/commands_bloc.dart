@@ -32,7 +32,7 @@ class CommandsBloc extends Bloc<CommandsEvent, CommandsState> {
       (failure) => null,
       (commands) {
         _allCommands = commands;
-        _addCommand();
+        _addInitialCommands();
         emit(CommandsState.loaded(addedCommands: _addedCommands));
       },
     );
@@ -63,5 +63,14 @@ class CommandsBloc extends Bloc<CommandsEvent, CommandsState> {
     _addedCommands = addedCommands;
 
     _allCommands.removeAt(0);
+  }
+
+  void _addInitialCommands() {
+    if (_allCommands.length > 1) {
+      _addedCommands.addAll(_allCommands.getRange(0, 2));
+      _allCommands.removeRange(0, 2);
+    } else if (_allCommands.isNotEmpty) {
+      _addCommand();
+    }
   }
 }
