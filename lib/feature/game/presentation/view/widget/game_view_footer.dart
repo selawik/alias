@@ -48,7 +48,7 @@ class GameViewFooter extends StatelessWidget {
             child: ElevatedButton(
               onPressed: () {},
               child: const Text('Да'),
-            ),
+            ), 
           ),
         ],
       ),
