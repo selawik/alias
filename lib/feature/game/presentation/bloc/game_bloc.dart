@@ -29,7 +29,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     _settings = event.gameSettings;
 
     _words = [
-      const Word(categoryId: 1, wordId: 1, name: 'Слово'),
+      const Word(categoryId: 1, wordId: 1, name: 'Слово 1'),
       const Word(categoryId: 1, wordId: 1, name: 'Слово'),
       const Word(categoryId: 1, wordId: 1, name: 'Слово'),
       const Word(categoryId: 1, wordId: 1, name: 'Слово'),

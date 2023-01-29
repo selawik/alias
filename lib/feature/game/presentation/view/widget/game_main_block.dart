@@ -1,5 +1,6 @@
 import 'package:alias/core/constants/app_colors.dart';
 import 'package:alias/feature/game/presentation/bloc/game_bloc.dart';
+import 'package:alias/feature/game/presentation/view/widget/game_main_circle_widget.dart';
 import 'package:alias/feature/game/presentation/view/widget/game_word_card.dart';
 import 'package:alias/feature/game_settings/data/models/word.dart';
 import 'package:flutter/material.dart';
@@ -29,18 +30,9 @@ class GameMainBlock extends StatelessWidget {
       },
       builder: (context, state) {
         return state.maybeWhen(
-          orElse: () => Container(
-            padding: const EdgeInsets.symmetric(horizontal: 8),
-            margin: const EdgeInsets.symmetric(horizontal: 16),
-            height: MediaQuery.of(context).size.height * 0.6,
-            decoration: const BoxDecoration(
-              shape: BoxShape.circle,
-              color: AppColors.peach,
-            ),
-            child: const Center(
-              child: Text(
-                'Нажмите начать, когда будете готовы',
-              ),
+          orElse: () => const Center(
+            child: GameMainCircleWidget(
+              title: 'Нажмите начать, когда будете готовы',
             ),
           ),
           waitingForAnswer: (word) => GameWordCard(word: word),

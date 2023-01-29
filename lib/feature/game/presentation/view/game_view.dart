@@ -29,7 +29,9 @@ class GameView extends StatelessWidget {
           SizedBox(height: MediaQuery.of(context).padding.top + 16),
           const GameHeader(),
           const Spacer(),
-          const GameMainBlock(word: Word(name: '123', wordId: 1, categoryId:1 ),),
+          const GameMainBlock(
+            word: Word(name: '123', wordId: 1, categoryId: 1),
+          ),
           const Spacer(),
           const GameViewFooter(),
           SizedBox(height: MediaQuery.of(context).padding.bottom + 16),
