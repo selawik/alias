@@ -1,4 +1,3 @@
-import 'package:alias/core/constants/app_colors.dart';
 import 'package:alias/feature/game/presentation/bloc/game_bloc.dart';
 import 'package:alias/feature/game/presentation/view/widget/game_main_circle_widget.dart';
 import 'package:alias/feature/game/presentation/view/widget/game_word_card.dart';

@@ -1,6 +1,6 @@
 import 'package:alias/feature/game/domain/game_settings.dart';
 import 'package:alias/feature/game_settings/data/models/word.dart';
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 

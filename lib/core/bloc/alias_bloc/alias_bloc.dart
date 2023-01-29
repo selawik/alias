@@ -2,10 +2,7 @@ import 'package:alias/feature/categories/data/models/category.dart';
 import 'package:alias/feature/commands/data/models/command.dart';
 import 'package:alias/feature/game/domain/game_settings.dart';
 import 'package:alias/feature/game_settings/data/models/word.dart';
-import 'package:alias/feature/game_settings/domain/model/binary_selector_type.dart';
-import 'package:alias/feature/game_settings/domain/model/command_move_selector_type.dart';
-import 'package:alias/feature/game_settings/presentation/view/widget/command_move_time_selector.dart';
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
