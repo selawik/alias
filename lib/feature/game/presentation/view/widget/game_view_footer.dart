@@ -7,8 +7,6 @@ class GameViewFooter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var gameBloc = BlocProvider.of<GameBloc>(context);
-
     return BlocBuilder<GameBloc, GameState>(
       builder: (context, state) {
         return state.when(
@@ -25,20 +23,35 @@ class GameViewFooter extends StatelessWidget {
   Widget _buildStartButton(BuildContext context) {
     var gameBloc = BlocProvider.of<GameBloc>(context);
 
-    return Center(
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
       child: ElevatedButton(
         onPressed: () => gameBloc.add(const GameEvent.startGame()),
-        child: const Text('start'),
+        child: const Text('Начать'),
       ),
     );
   }
 
   Widget _buildAnswerButtons(BuildContext context) {
-    return Row(
-      children: [
-        ElevatedButton(onPressed: () {}, child: Text('Нет')),
-        ElevatedButton(onPressed: () {}, child: Text('Да'))
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Row(
+        children: [
+          Expanded(
+            child: ElevatedButton(
+              onPressed: () {},
+              child: const Text('Нет'),
+            ),
+          ),
+          const SizedBox(width: 16),
+          Expanded(
+            child: ElevatedButton(
+              onPressed: () {},
+              child: const Text('Да'),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

@@ -12,7 +12,6 @@ class GameView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var router = di.locator.get<AppRouter>();
-    var gameBloc = BlocProvider.of<GameBloc>(context);
 
     return BlocListener<GameBloc, GameState>(
       listener: (context, state) {
@@ -23,6 +22,7 @@ class GameView extends StatelessWidget {
         );
       },
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           SizedBox(height: MediaQuery.of(context).padding.top + 16),
           const GameHeader(),
