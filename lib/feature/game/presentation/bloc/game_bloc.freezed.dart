@@ -23,6 +23,8 @@ mixin _$GameEvent {
     required TResult Function() pauseGame,
     required TResult Function() resumeGame,
     required TResult Function() timeIsLeft,
+    required TResult Function() skipWord,
+    required TResult Function() countWord,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,6 +34,8 @@ mixin _$GameEvent {
     TResult? Function()? pauseGame,
     TResult? Function()? resumeGame,
     TResult? Function()? timeIsLeft,
+    TResult? Function()? skipWord,
+    TResult? Function()? countWord,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,6 +45,8 @@ mixin _$GameEvent {
     TResult Function()? pauseGame,
     TResult Function()? resumeGame,
     TResult Function()? timeIsLeft,
+    TResult Function()? skipWord,
+    TResult Function()? countWord,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -51,6 +57,8 @@ mixin _$GameEvent {
     required TResult Function(_PauseGame value) pauseGame,
     required TResult Function(_ResumeGame value) resumeGame,
     required TResult Function(_TimeIsLeft value) timeIsLeft,
+    required TResult Function(_SkipWord value) skipWord,
+    required TResult Function(_CountWord value) countWord,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,6 +68,8 @@ mixin _$GameEvent {
     TResult? Function(_PauseGame value)? pauseGame,
     TResult? Function(_ResumeGame value)? resumeGame,
     TResult? Function(_TimeIsLeft value)? timeIsLeft,
+    TResult? Function(_SkipWord value)? skipWord,
+    TResult? Function(_CountWord value)? countWord,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,6 +79,8 @@ mixin _$GameEvent {
     TResult Function(_PauseGame value)? pauseGame,
     TResult Function(_ResumeGame value)? resumeGame,
     TResult Function(_TimeIsLeft value)? timeIsLeft,
+    TResult Function(_SkipWord value)? skipWord,
+    TResult Function(_CountWord value)? countWord,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -160,6 +172,8 @@ class _$_Initial implements _Initial {
     required TResult Function() pauseGame,
     required TResult Function() resumeGame,
     required TResult Function() timeIsLeft,
+    required TResult Function() skipWord,
+    required TResult Function() countWord,
   }) {
     return initial(gameSettings);
   }
@@ -172,6 +186,8 @@ class _$_Initial implements _Initial {
     TResult? Function()? pauseGame,
     TResult? Function()? resumeGame,
     TResult? Function()? timeIsLeft,
+    TResult? Function()? skipWord,
+    TResult? Function()? countWord,
   }) {
     return initial?.call(gameSettings);
   }
@@ -184,6 +200,8 @@ class _$_Initial implements _Initial {
     TResult Function()? pauseGame,
     TResult Function()? resumeGame,
     TResult Function()? timeIsLeft,
+    TResult Function()? skipWord,
+    TResult Function()? countWord,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -200,6 +218,8 @@ class _$_Initial implements _Initial {
     required TResult Function(_PauseGame value) pauseGame,
     required TResult Function(_ResumeGame value) resumeGame,
     required TResult Function(_TimeIsLeft value) timeIsLeft,
+    required TResult Function(_SkipWord value) skipWord,
+    required TResult Function(_CountWord value) countWord,
   }) {
     return initial(this);
   }
@@ -212,6 +232,8 @@ class _$_Initial implements _Initial {
     TResult? Function(_PauseGame value)? pauseGame,
     TResult? Function(_ResumeGame value)? resumeGame,
     TResult? Function(_TimeIsLeft value)? timeIsLeft,
+    TResult? Function(_SkipWord value)? skipWord,
+    TResult? Function(_CountWord value)? countWord,
   }) {
     return initial?.call(this);
   }
@@ -224,6 +246,8 @@ class _$_Initial implements _Initial {
     TResult Function(_PauseGame value)? pauseGame,
     TResult Function(_ResumeGame value)? resumeGame,
     TResult Function(_TimeIsLeft value)? timeIsLeft,
+    TResult Function(_SkipWord value)? skipWord,
+    TResult Function(_CountWord value)? countWord,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -286,6 +310,8 @@ class _$_StartGame implements _StartGame {
     required TResult Function() pauseGame,
     required TResult Function() resumeGame,
     required TResult Function() timeIsLeft,
+    required TResult Function() skipWord,
+    required TResult Function() countWord,
   }) {
     return startGame();
   }
@@ -298,6 +324,8 @@ class _$_StartGame implements _StartGame {
     TResult? Function()? pauseGame,
     TResult? Function()? resumeGame,
     TResult? Function()? timeIsLeft,
+    TResult? Function()? skipWord,
+    TResult? Function()? countWord,
   }) {
     return startGame?.call();
   }
@@ -310,6 +338,8 @@ class _$_StartGame implements _StartGame {
     TResult Function()? pauseGame,
     TResult Function()? resumeGame,
     TResult Function()? timeIsLeft,
+    TResult Function()? skipWord,
+    TResult Function()? countWord,
     required TResult orElse(),
   }) {
     if (startGame != null) {
@@ -326,6 +356,8 @@ class _$_StartGame implements _StartGame {
     required TResult Function(_PauseGame value) pauseGame,
     required TResult Function(_ResumeGame value) resumeGame,
     required TResult Function(_TimeIsLeft value) timeIsLeft,
+    required TResult Function(_SkipWord value) skipWord,
+    required TResult Function(_CountWord value) countWord,
   }) {
     return startGame(this);
   }
@@ -338,6 +370,8 @@ class _$_StartGame implements _StartGame {
     TResult? Function(_PauseGame value)? pauseGame,
     TResult? Function(_ResumeGame value)? resumeGame,
     TResult? Function(_TimeIsLeft value)? timeIsLeft,
+    TResult? Function(_SkipWord value)? skipWord,
+    TResult? Function(_CountWord value)? countWord,
   }) {
     return startGame?.call(this);
   }
@@ -350,6 +384,8 @@ class _$_StartGame implements _StartGame {
     TResult Function(_PauseGame value)? pauseGame,
     TResult Function(_ResumeGame value)? resumeGame,
     TResult Function(_TimeIsLeft value)? timeIsLeft,
+    TResult Function(_SkipWord value)? skipWord,
+    TResult Function(_CountWord value)? countWord,
     required TResult orElse(),
   }) {
     if (startGame != null) {
@@ -406,6 +442,8 @@ class _$_PauseGame implements _PauseGame {
     required TResult Function() pauseGame,
     required TResult Function() resumeGame,
     required TResult Function() timeIsLeft,
+    required TResult Function() skipWord,
+    required TResult Function() countWord,
   }) {
     return pauseGame();
   }
@@ -418,6 +456,8 @@ class _$_PauseGame implements _PauseGame {
     TResult? Function()? pauseGame,
     TResult? Function()? resumeGame,
     TResult? Function()? timeIsLeft,
+    TResult? Function()? skipWord,
+    TResult? Function()? countWord,
   }) {
     return pauseGame?.call();
   }
@@ -430,6 +470,8 @@ class _$_PauseGame implements _PauseGame {
     TResult Function()? pauseGame,
     TResult Function()? resumeGame,
     TResult Function()? timeIsLeft,
+    TResult Function()? skipWord,
+    TResult Function()? countWord,
     required TResult orElse(),
   }) {
     if (pauseGame != null) {
@@ -446,6 +488,8 @@ class _$_PauseGame implements _PauseGame {
     required TResult Function(_PauseGame value) pauseGame,
     required TResult Function(_ResumeGame value) resumeGame,
     required TResult Function(_TimeIsLeft value) timeIsLeft,
+    required TResult Function(_SkipWord value) skipWord,
+    required TResult Function(_CountWord value) countWord,
   }) {
     return pauseGame(this);
   }
@@ -458,6 +502,8 @@ class _$_PauseGame implements _PauseGame {
     TResult? Function(_PauseGame value)? pauseGame,
     TResult? Function(_ResumeGame value)? resumeGame,
     TResult? Function(_TimeIsLeft value)? timeIsLeft,
+    TResult? Function(_SkipWord value)? skipWord,
+    TResult? Function(_CountWord value)? countWord,
   }) {
     return pauseGame?.call(this);
   }
@@ -470,6 +516,8 @@ class _$_PauseGame implements _PauseGame {
     TResult Function(_PauseGame value)? pauseGame,
     TResult Function(_ResumeGame value)? resumeGame,
     TResult Function(_TimeIsLeft value)? timeIsLeft,
+    TResult Function(_SkipWord value)? skipWord,
+    TResult Function(_CountWord value)? countWord,
     required TResult orElse(),
   }) {
     if (pauseGame != null) {
@@ -526,6 +574,8 @@ class _$_ResumeGame implements _ResumeGame {
     required TResult Function() pauseGame,
     required TResult Function() resumeGame,
     required TResult Function() timeIsLeft,
+    required TResult Function() skipWord,
+    required TResult Function() countWord,
   }) {
     return resumeGame();
   }
@@ -538,6 +588,8 @@ class _$_ResumeGame implements _ResumeGame {
     TResult? Function()? pauseGame,
     TResult? Function()? resumeGame,
     TResult? Function()? timeIsLeft,
+    TResult? Function()? skipWord,
+    TResult? Function()? countWord,
   }) {
     return resumeGame?.call();
   }
@@ -550,6 +602,8 @@ class _$_ResumeGame implements _ResumeGame {
     TResult Function()? pauseGame,
     TResult Function()? resumeGame,
     TResult Function()? timeIsLeft,
+    TResult Function()? skipWord,
+    TResult Function()? countWord,
     required TResult orElse(),
   }) {
     if (resumeGame != null) {
@@ -566,6 +620,8 @@ class _$_ResumeGame implements _ResumeGame {
     required TResult Function(_PauseGame value) pauseGame,
     required TResult Function(_ResumeGame value) resumeGame,
     required TResult Function(_TimeIsLeft value) timeIsLeft,
+    required TResult Function(_SkipWord value) skipWord,
+    required TResult Function(_CountWord value) countWord,
   }) {
     return resumeGame(this);
   }
@@ -578,6 +634,8 @@ class _$_ResumeGame implements _ResumeGame {
     TResult? Function(_PauseGame value)? pauseGame,
     TResult? Function(_ResumeGame value)? resumeGame,
     TResult? Function(_TimeIsLeft value)? timeIsLeft,
+    TResult? Function(_SkipWord value)? skipWord,
+    TResult? Function(_CountWord value)? countWord,
   }) {
     return resumeGame?.call(this);
   }
@@ -590,6 +648,8 @@ class _$_ResumeGame implements _ResumeGame {
     TResult Function(_PauseGame value)? pauseGame,
     TResult Function(_ResumeGame value)? resumeGame,
     TResult Function(_TimeIsLeft value)? timeIsLeft,
+    TResult Function(_SkipWord value)? skipWord,
+    TResult Function(_CountWord value)? countWord,
     required TResult orElse(),
   }) {
     if (resumeGame != null) {
@@ -646,6 +706,8 @@ class _$_TimeIsLeft implements _TimeIsLeft {
     required TResult Function() pauseGame,
     required TResult Function() resumeGame,
     required TResult Function() timeIsLeft,
+    required TResult Function() skipWord,
+    required TResult Function() countWord,
   }) {
     return timeIsLeft();
   }
@@ -658,6 +720,8 @@ class _$_TimeIsLeft implements _TimeIsLeft {
     TResult? Function()? pauseGame,
     TResult? Function()? resumeGame,
     TResult? Function()? timeIsLeft,
+    TResult? Function()? skipWord,
+    TResult? Function()? countWord,
   }) {
     return timeIsLeft?.call();
   }
@@ -670,6 +734,8 @@ class _$_TimeIsLeft implements _TimeIsLeft {
     TResult Function()? pauseGame,
     TResult Function()? resumeGame,
     TResult Function()? timeIsLeft,
+    TResult Function()? skipWord,
+    TResult Function()? countWord,
     required TResult orElse(),
   }) {
     if (timeIsLeft != null) {
@@ -686,6 +752,8 @@ class _$_TimeIsLeft implements _TimeIsLeft {
     required TResult Function(_PauseGame value) pauseGame,
     required TResult Function(_ResumeGame value) resumeGame,
     required TResult Function(_TimeIsLeft value) timeIsLeft,
+    required TResult Function(_SkipWord value) skipWord,
+    required TResult Function(_CountWord value) countWord,
   }) {
     return timeIsLeft(this);
   }
@@ -698,6 +766,8 @@ class _$_TimeIsLeft implements _TimeIsLeft {
     TResult? Function(_PauseGame value)? pauseGame,
     TResult? Function(_ResumeGame value)? resumeGame,
     TResult? Function(_TimeIsLeft value)? timeIsLeft,
+    TResult? Function(_SkipWord value)? skipWord,
+    TResult? Function(_CountWord value)? countWord,
   }) {
     return timeIsLeft?.call(this);
   }
@@ -710,6 +780,8 @@ class _$_TimeIsLeft implements _TimeIsLeft {
     TResult Function(_PauseGame value)? pauseGame,
     TResult Function(_ResumeGame value)? resumeGame,
     TResult Function(_TimeIsLeft value)? timeIsLeft,
+    TResult Function(_SkipWord value)? skipWord,
+    TResult Function(_CountWord value)? countWord,
     required TResult orElse(),
   }) {
     if (timeIsLeft != null) {
@@ -721,6 +793,270 @@ class _$_TimeIsLeft implements _TimeIsLeft {
 
 abstract class _TimeIsLeft implements GameEvent {
   const factory _TimeIsLeft() = _$_TimeIsLeft;
+}
+
+/// @nodoc
+abstract class _$$_SkipWordCopyWith<$Res> {
+  factory _$$_SkipWordCopyWith(
+          _$_SkipWord value, $Res Function(_$_SkipWord) then) =
+      __$$_SkipWordCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_SkipWordCopyWithImpl<$Res>
+    extends _$GameEventCopyWithImpl<$Res, _$_SkipWord>
+    implements _$$_SkipWordCopyWith<$Res> {
+  __$$_SkipWordCopyWithImpl(
+      _$_SkipWord _value, $Res Function(_$_SkipWord) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_SkipWord implements _SkipWord {
+  const _$_SkipWord();
+
+  @override
+  String toString() {
+    return 'GameEvent.skipWord()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_SkipWord);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(GameSettings gameSettings) initial,
+    required TResult Function() startGame,
+    required TResult Function() pauseGame,
+    required TResult Function() resumeGame,
+    required TResult Function() timeIsLeft,
+    required TResult Function() skipWord,
+    required TResult Function() countWord,
+  }) {
+    return skipWord();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(GameSettings gameSettings)? initial,
+    TResult? Function()? startGame,
+    TResult? Function()? pauseGame,
+    TResult? Function()? resumeGame,
+    TResult? Function()? timeIsLeft,
+    TResult? Function()? skipWord,
+    TResult? Function()? countWord,
+  }) {
+    return skipWord?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(GameSettings gameSettings)? initial,
+    TResult Function()? startGame,
+    TResult Function()? pauseGame,
+    TResult Function()? resumeGame,
+    TResult Function()? timeIsLeft,
+    TResult Function()? skipWord,
+    TResult Function()? countWord,
+    required TResult orElse(),
+  }) {
+    if (skipWord != null) {
+      return skipWord();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_StartGame value) startGame,
+    required TResult Function(_PauseGame value) pauseGame,
+    required TResult Function(_ResumeGame value) resumeGame,
+    required TResult Function(_TimeIsLeft value) timeIsLeft,
+    required TResult Function(_SkipWord value) skipWord,
+    required TResult Function(_CountWord value) countWord,
+  }) {
+    return skipWord(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_StartGame value)? startGame,
+    TResult? Function(_PauseGame value)? pauseGame,
+    TResult? Function(_ResumeGame value)? resumeGame,
+    TResult? Function(_TimeIsLeft value)? timeIsLeft,
+    TResult? Function(_SkipWord value)? skipWord,
+    TResult? Function(_CountWord value)? countWord,
+  }) {
+    return skipWord?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_StartGame value)? startGame,
+    TResult Function(_PauseGame value)? pauseGame,
+    TResult Function(_ResumeGame value)? resumeGame,
+    TResult Function(_TimeIsLeft value)? timeIsLeft,
+    TResult Function(_SkipWord value)? skipWord,
+    TResult Function(_CountWord value)? countWord,
+    required TResult orElse(),
+  }) {
+    if (skipWord != null) {
+      return skipWord(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SkipWord implements GameEvent {
+  const factory _SkipWord() = _$_SkipWord;
+}
+
+/// @nodoc
+abstract class _$$_CountWordCopyWith<$Res> {
+  factory _$$_CountWordCopyWith(
+          _$_CountWord value, $Res Function(_$_CountWord) then) =
+      __$$_CountWordCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_CountWordCopyWithImpl<$Res>
+    extends _$GameEventCopyWithImpl<$Res, _$_CountWord>
+    implements _$$_CountWordCopyWith<$Res> {
+  __$$_CountWordCopyWithImpl(
+      _$_CountWord _value, $Res Function(_$_CountWord) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_CountWord implements _CountWord {
+  const _$_CountWord();
+
+  @override
+  String toString() {
+    return 'GameEvent.countWord()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_CountWord);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(GameSettings gameSettings) initial,
+    required TResult Function() startGame,
+    required TResult Function() pauseGame,
+    required TResult Function() resumeGame,
+    required TResult Function() timeIsLeft,
+    required TResult Function() skipWord,
+    required TResult Function() countWord,
+  }) {
+    return countWord();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(GameSettings gameSettings)? initial,
+    TResult? Function()? startGame,
+    TResult? Function()? pauseGame,
+    TResult? Function()? resumeGame,
+    TResult? Function()? timeIsLeft,
+    TResult? Function()? skipWord,
+    TResult? Function()? countWord,
+  }) {
+    return countWord?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(GameSettings gameSettings)? initial,
+    TResult Function()? startGame,
+    TResult Function()? pauseGame,
+    TResult Function()? resumeGame,
+    TResult Function()? timeIsLeft,
+    TResult Function()? skipWord,
+    TResult Function()? countWord,
+    required TResult orElse(),
+  }) {
+    if (countWord != null) {
+      return countWord();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_StartGame value) startGame,
+    required TResult Function(_PauseGame value) pauseGame,
+    required TResult Function(_ResumeGame value) resumeGame,
+    required TResult Function(_TimeIsLeft value) timeIsLeft,
+    required TResult Function(_SkipWord value) skipWord,
+    required TResult Function(_CountWord value) countWord,
+  }) {
+    return countWord(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_StartGame value)? startGame,
+    TResult? Function(_PauseGame value)? pauseGame,
+    TResult? Function(_ResumeGame value)? resumeGame,
+    TResult? Function(_TimeIsLeft value)? timeIsLeft,
+    TResult? Function(_SkipWord value)? skipWord,
+    TResult? Function(_CountWord value)? countWord,
+  }) {
+    return countWord?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_StartGame value)? startGame,
+    TResult Function(_PauseGame value)? pauseGame,
+    TResult Function(_ResumeGame value)? resumeGame,
+    TResult Function(_TimeIsLeft value)? timeIsLeft,
+    TResult Function(_SkipWord value)? skipWord,
+    TResult Function(_CountWord value)? countWord,
+    required TResult orElse(),
+  }) {
+    if (countWord != null) {
+      return countWord(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CountWord implements GameEvent {
+  const factory _CountWord() = _$_CountWord;
 }
 
 /// @nodoc

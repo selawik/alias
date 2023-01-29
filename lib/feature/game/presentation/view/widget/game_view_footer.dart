@@ -31,20 +31,22 @@ class GameViewFooter extends StatelessWidget {
   }
 
   Widget _buildAnswerButtons(BuildContext context) {
+    var gameBloc = BlocProvider.of<GameBloc>(context);
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Row(
         children: [
           Expanded(
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () => gameBloc.add(const GameEvent.skipWord()),
               child: const Text('Нет'),
             ),
           ),
           const SizedBox(width: 16),
           Expanded(
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () => gameBloc.add(const GameEvent.countWord()),
               child: const Text('Да'),
             ),
           ),
