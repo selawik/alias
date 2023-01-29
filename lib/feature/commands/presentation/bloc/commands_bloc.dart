@@ -5,16 +5,19 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 part 'commands_bloc.freezed.dart';
+
 part 'commands_event.dart';
+
 part 'commands_state.dart';
 
 @injectable
 class CommandsBloc extends Bloc<CommandsEvent, CommandsState> {
-  final LoadCommands loadCommands;
+  final LoadCommands _loadCommands;
 
-  CommandsBloc(
-    this.loadCommands,
-  ) : super(const CommandsState.initial()) {
+  CommandsBloc({
+    required LoadCommands loadCommandsUseCase,
+  })   : _loadCommands = loadCommandsUseCase,
+        super(const CommandsState.initial()) {
     on<_LoadCommands>(_onLoadCommands);
     on<_AddCommand>(_onAddCommand);
     on<_RemoveCommand>(_onRemoveCommand);
@@ -26,7 +29,7 @@ class CommandsBloc extends Bloc<CommandsEvent, CommandsState> {
   void _onLoadCommands(_LoadCommands event, Emitter emit) async {
     emit(const CommandsState.loading());
 
-    final result = await loadCommands.execute();
+    final result = await _loadCommands.execute();
 
     result.fold(
       (failure) => null,

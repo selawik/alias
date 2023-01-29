@@ -67,7 +67,7 @@ extension GetItInjectableX on _i1.GetIt {
     gh.factory<_i17.CategoriesBloc>(
         () => _i17.CategoriesBloc(loadCategories: gh<_i15.LoadCategories>()));
     gh.factory<_i18.CommandsBloc>(
-        () => _i18.CommandsBloc(gh<_i16.LoadCommands>()));
+        () => _i18.CommandsBloc(loadCommandsUseCase: gh<_i16.LoadCommands>()));
     return this;
   }
 }
