@@ -16,6 +16,17 @@ class GameMainBlock extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<GameBloc, GameState>(
+      buildWhen: (prevState, currentState) {
+        return prevState.maybeWhen(
+          orElse: () => true,
+          waitingForAnswer: (word) {
+            return currentState.maybeWhen(
+              orElse: () => true,
+              gamePaused: () => false,
+            );
+          },
+        );
+      },
       builder: (context, state) {
         return state.maybeWhen(
           orElse: () => Container(
