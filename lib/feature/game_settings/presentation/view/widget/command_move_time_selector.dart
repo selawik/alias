@@ -17,7 +17,7 @@ class CommandMoveTimeSelector extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Text('Время на ход', style: Theme.of(context).textTheme.headline1),
+        Text('Время на ход', style: Theme.of(context).textTheme.displayLarge),
         const SizedBox(height: 16),
         _buildTypesList(context),
       ],

@@ -15,7 +15,7 @@ class LastWordSelector extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Text('Последнее слово', style: Theme.of(context).textTheme.headline1),
+        Text('Последнее слово', style: Theme.of(context).textTheme.displayLarge),
         const SizedBox(height: 16),
         _buildValuesList(context),
       ],

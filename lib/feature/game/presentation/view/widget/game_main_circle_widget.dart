@@ -11,7 +11,7 @@ class GameMainCircleWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var textStyle = Theme.of(context).textTheme.headline1;
+    var textStyle = Theme.of(context).textTheme.displayLarge;
 
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16),

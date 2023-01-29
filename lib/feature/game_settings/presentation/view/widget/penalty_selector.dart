@@ -17,7 +17,7 @@ class PenaltySelector extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Text('Штраф за пропуск', style: Theme.of(context).textTheme.headline1),
+        Text('Штраф за пропуск', style: Theme.of(context).textTheme.displayLarge),
         const SizedBox(height: 16),
         _buildValuesList(context),
       ],

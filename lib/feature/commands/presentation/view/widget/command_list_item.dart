@@ -18,7 +18,7 @@ class CommandListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var bloc = BlocProvider.of<CommandsBloc>(context);
-    var textStyle = Theme.of(context).textTheme.headline2;
+    var textStyle = Theme.of(context).textTheme.displayMedium;
 
     return Container(
       height: 80,

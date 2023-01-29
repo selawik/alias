@@ -7,38 +7,38 @@ class ThemeBuilder {
       useMaterial3: true,
       primaryColor: AppColors.white,
       brightness: Brightness.light,
-      textTheme: const TextTheme(
-        headline1: TextStyle(
+      textTheme:  const TextTheme(
+        displayLarge: TextStyle(
           fontFamily: 'Roboto',
           fontSize: 24,
           color: AppColors.black,
           fontWeight: FontWeight.normal,
         ),
-        headline2: TextStyle(
+        displayMedium: TextStyle(
           fontFamily: 'Roboto',
           fontSize: 20,
           color: AppColors.black,
           fontWeight: FontWeight.normal,
         ),
-        headline3: TextStyle(
+        displaySmall: TextStyle(
           fontFamily: 'Roboto',
           fontSize: 18,
           color: AppColors.black,
           fontWeight: FontWeight.normal,
         ),
-        headline4: TextStyle(
+        headlineMedium: TextStyle(
           fontFamily: 'Roboto',
           fontSize: 16,
           color: AppColors.black,
           fontWeight: FontWeight.normal,
         ),
-        subtitle1: TextStyle(
+        titleMedium: TextStyle(
           fontFamily: 'Roboto',
           fontSize: 13,
           color: AppColors.black,
           fontWeight: FontWeight.normal,
         ),
-        button: TextStyle(
+        labelLarge: TextStyle(
           fontFamily: 'Roboto',
           fontSize: 20,
           color: AppColors.white,
@@ -56,38 +56,38 @@ class ThemeBuilder {
         useMaterial3: true,
         primarySwatch: Colors.red,
         brightness: Brightness.dark,
-        textTheme: const TextTheme(
-          headline1: TextStyle(
+        textTheme:  const TextTheme(
+          displayLarge: TextStyle(
             fontFamily: 'Roboto',
             fontSize: 24,
             color: AppColors.white,
             fontWeight: FontWeight.normal,
           ),
-          headline2: TextStyle(
+          displayMedium: TextStyle(
             fontFamily: 'Roboto',
             fontSize: 20,
             color: AppColors.white,
             fontWeight: FontWeight.normal,
           ),
-          headline3: TextStyle(
+          displaySmall: TextStyle(
             fontFamily: 'Roboto',
             fontSize: 18,
             color: AppColors.white,
             fontWeight: FontWeight.normal,
           ),
-          headline4: TextStyle(
+          headlineMedium: TextStyle(
             fontFamily: 'Roboto',
             fontSize: 16,
             color: AppColors.white,
             fontWeight: FontWeight.normal,
           ),
-          subtitle1: TextStyle(
+          titleMedium: TextStyle(
             fontFamily: 'Roboto',
             fontSize: 13,
             color: AppColors.white,
             fontWeight: FontWeight.normal,
           ),
-          button: TextStyle(
+          labelLarge: TextStyle(
             fontFamily: 'Roboto',
             fontSize: 16,
             color: AppColors.white,

@@ -76,7 +76,7 @@ class _GameTimerState extends State<GameTimer> with TickerProviderStateMixin {
               ),
               Text(
                 ' секунд',
-                style: textTheme.headline4?.copyWith(
+                style: textTheme.headlineMedium?.copyWith(
                   color: count.inSeconds < 5 ? Colors.red : null,
                 ),
               ),
