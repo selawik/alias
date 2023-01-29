@@ -66,18 +66,25 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     }
   }
 
-  void _onSkipWord(_SkipWord event, Emitter emit) {}
+  void _onSkipWord(_SkipWord event, Emitter emit) {
+    _skippedWords.add(_words.first);
+    _words.removeAt(0);
+
+    if (_words.isNotEmpty) {
+      emit(GameState.waitingForAnswer(word: _words.first));
+    } else {
+      emit(const GameState.commandMoveIsOver());
+    }
+  }
 
   void _onCountWord(_CountWord event, Emitter emit) {
-    if (_words.isNotEmpty) {
-      _countWords.add(_words.first);
-      _words.removeAt(0);
+    _countWords.add(_words.first);
+    _words.removeAt(0);
 
-      if (_words.isNotEmpty) {
-        emit(GameState.waitingForAnswer(word: _words.first));
-      } else {
-        emit(const GameState.commandMoveIsOver());
-      }
+    if (_words.isNotEmpty) {
+      emit(GameState.waitingForAnswer(word: _words.first));
+    } else {
+      emit(const GameState.commandMoveIsOver());
     }
   }
 }
