@@ -16,6 +16,7 @@ class GameMainBlock extends StatelessWidget {
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8),
+      margin: const EdgeInsets.symmetric(horizontal: 16),
       height: MediaQuery.of(context).size.height * 0.6,
       width: MediaQuery.of(context).size.width * 0.8,
       decoration: const BoxDecoration(
@@ -23,18 +24,11 @@ class GameMainBlock extends StatelessWidget {
         shape: BoxShape.circle,
       ),
       child: Center(
-        child: Text.rich(
-          TextSpan(
-            children: [
-              TextSpan(
-                text: word.name,
-                style: textStyle?.copyWith(
-                  color: AppColors.black,
-                ),
-              ),
-            ],
+        child: Text(
+          word.name,
+          style: textStyle?.copyWith(
+            color: AppColors.black,
           ),
-          textAlign: TextAlign.center,
         ),
       ),
     );
