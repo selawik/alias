@@ -61,21 +61,6 @@ class _GameTimerState extends State<GameTimer> with TickerProviderStateMixin {
           },
         );
       },
-      // listenWhen: (previousState, currentState) {
-      //   // if (currentState is WaitingForAnswer && previousState is WordsIsReady) {
-      //   //   return true;
-      //   // }
-      //   //
-      //   // if (currentState is GamePaused && previousState is WaitingForAnswer) {
-      //   //   return true;
-      //   // }
-      //   //
-      //   // if (currentState is WaitingForAnswer && previousState is GamePaused) {
-      //   //   return true;
-      //   // }
-      //   //
-      //   // return false;
-      // },
       child: AnimatedBuilder(
         animation: controller,
         builder: (context, child) {
