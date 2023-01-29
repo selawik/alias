@@ -1,4 +1,5 @@
 import 'package:alias/feature/game/domain/game_settings.dart';
+import 'package:alias/feature/game_settings/data/models/word.dart';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -12,7 +13,11 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
   late GameSettings _settings;
 
-  GameBloc() : super(const GameState.waitingForAnswer()) {
+  late List<Word> _words;
+
+
+
+  GameBloc() : super(const GameState.waitingForConfig()) {
     on<_Initial>(_onInitial);
     on<_StartGame>(_onStartGame);
     on<_PauseGame>(_onPauseGame);
@@ -22,11 +27,23 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
   void _onInitial(_Initial event, Emitter emit) {
     _settings = event.gameSettings;
+
+    _words = [
+      const Word(categoryId: 1, wordId: 1, name: 'Слово'),
+      const Word(categoryId: 1, wordId: 1, name: 'Слово'),
+      const Word(categoryId: 1, wordId: 1, name: 'Слово'),
+      const Word(categoryId: 1, wordId: 1, name: 'Слово'),
+    ];
+
     emit(GameState.gameIsReady(settings: _settings));
   }
 
   void _onStartGame(_StartGame event, Emitter emit) {
-    emit(const GameState.waitingForAnswer());
+    if (_words.isNotEmpty) {
+      emit(GameState.waitingForAnswer(word: _words.first));
+    } else {
+      //try load words;
+    }
   }
 
   void _onPauseGame(_PauseGame event, Emitter emit) {
@@ -34,7 +51,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
   }
 
   void _onResumeGame(_ResumeGame event, Emitter emit) {
-    emit(const GameState.waitingForAnswer());
+    emit(GameState.waitingForAnswer(word: _words.first));
   }
 
   void _onTimeIsLeft(_TimeIsLeft event, Emitter emit) {

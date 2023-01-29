@@ -41,7 +41,7 @@ class GameHeader extends StatelessWidget {
     var bloc = BlocProvider.of<GameBloc>(context);
     var router = di.locator<AppRouter>();
 
-    bloc.state.whenOrNull(waitingForAnswer: () => bloc.add(const GameEvent.pauseGame()));
+    bloc.state.whenOrNull(waitingForAnswer: (word) => bloc.add(const GameEvent.pauseGame()));
 
     HapticFeedback.mediumImpact();
 

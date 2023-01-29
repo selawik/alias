@@ -9,12 +9,10 @@ class GameViewFooter extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<GameBloc, GameState>(
       builder: (context, state) {
-        return state.when(
+        return state.maybeWhen(
+          orElse: () => _buildAnswerButtons(context),
           gameIsReady: (settings) => _buildStartButton(context),
-          waitingForAnswer: () => _buildAnswerButtons(context),
-          gamePaused: () => _buildAnswerButtons(context),
-          lastWord: () => _buildAnswerButtons(context),
-          commandMoveIsOver: () => _buildAnswerButtons(context),
+          waitingForAnswer: (word) => _buildAnswerButtons(context),
         );
       },
     );
@@ -48,7 +46,7 @@ class GameViewFooter extends StatelessWidget {
             child: ElevatedButton(
               onPressed: () {},
               child: const Text('Да'),
-            ), 
+            ),
           ),
         ],
       ),
