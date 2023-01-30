@@ -16,6 +16,10 @@ class GameView extends StatelessWidget {
     var router = di.locator.get<AppRouter>();
 
     return BlocListener<GameBloc, GameState>(
+      listenWhen: (prevState, currentState) {
+        return prevState.maybeWhen(
+            commandMoveIsOver: (answers) => false, orElse: () => true);
+      },
       listener: (context, state) {
         state.whenOrNull(
           commandMoveIsOver: (answers) => router.push(
