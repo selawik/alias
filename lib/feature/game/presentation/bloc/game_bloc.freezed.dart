@@ -1114,6 +1114,8 @@ abstract class _$$_ChangeAnswerCopyWith<$Res> {
       __$$_ChangeAnswerCopyWithImpl<$Res>;
   @useResult
   $Res call({GameAnswer answer});
+
+  $GameAnswerCopyWith<$Res> get answer;
 }
 
 /// @nodoc
@@ -1135,6 +1137,14 @@ class __$$_ChangeAnswerCopyWithImpl<$Res>
           : answer // ignore: cast_nullable_to_non_nullable
               as GameAnswer,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $GameAnswerCopyWith<$Res> get answer {
+    return $GameAnswerCopyWith<$Res>(_value.answer, (value) {
+      return _then(_value.copyWith(answer: value));
+    });
   }
 }
 

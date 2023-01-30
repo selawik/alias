@@ -4,6 +4,7 @@ import 'package:alias/feature/game_settings/data/models/word.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:collection/collection.dart';
 
 part 'game_bloc.freezed.dart';
 
@@ -84,7 +85,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
   void _onSkipWord(_SkipWord event, Emitter emit) {
     var word = _words.first;
 
-    _answers.add(GameAnswer.skip(word: word));
+    _answers.add(GameAnswer(word: word, type: GameAnswerType.count));
     _words.remove(word);
 
     if (_words.isNotEmpty) {
@@ -99,7 +100,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
   void _onCountWord(_CountWord event, Emitter emit) {
     var word = _words.first;
 
-    _answers.add(GameAnswer.count(word: word));
+    _answers.add(GameAnswer(word: word, type: GameAnswerType.count));
     _words.remove(word);
 
     if (_words.isNotEmpty) {
@@ -110,7 +111,15 @@ class GameBloc extends Bloc<GameEvent, GameState> {
   }
 
   void _onChangeAnswer(_ChangeAnswer event, Emitter emit) {
-    event.answer.changeAnswer();
-    emit(GameState.commandMoveIsOver(answers: _answers));
+    print(_answers);
+    var index = _answers.indexWhere((answer) => event.answer.word == answer.word);
+
+
+    _answers.replaceRange(index, index, [GameAnswer(word: event.answer.word, type: GameAnswerType.skip)]);
+
+    print(GameState.commandMoveIsOver(answers: List.from(_answers)) == state);
+    print(_answers);
+
+    emit(GameState.commandMoveIsOver(answers: List.from(_answers)));
   }
 }

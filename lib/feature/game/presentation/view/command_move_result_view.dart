@@ -16,13 +16,13 @@ class CommandMoveResultView extends StatelessWidget {
     return Stack(
       fit: StackFit.expand,
       children: [
-        BlocListener<AliasBloc, AliasState>(
-          listener: (context, state) {},
-          child: BlocBuilder<GameBloc, GameState>(
-            builder: (context, state) {
-              return _buildWordsList(context, state);
-            },
-          ),
+        BlocBuilder<GameBloc, GameState>(
+          builder: (context, state) {
+            return state.maybeWhen(
+              orElse: () => _buildEmptyListPlaceholder(context),
+              commandMoveIsOver: (answers) => _buildListView(context, answers: answers),
+            );
+          },
         ),
         Positioned(
           top: 0,
@@ -41,13 +41,6 @@ class CommandMoveResultView extends StatelessWidget {
           child: _buildContinueButton(context),
         ),
       ],
-    );
-  }
-
-  Widget _buildWordsList(BuildContext context, GameState state) {
-    return state.maybeWhen(
-      orElse: () => _buildEmptyListPlaceholder(context),
-      commandMoveIsOver: (answers) => _buildListView(context, answers: answers),
     );
   }
 
