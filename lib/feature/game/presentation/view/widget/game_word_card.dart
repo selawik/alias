@@ -1,6 +1,8 @@
+import 'package:alias/feature/game/presentation/bloc/game_bloc.dart';
 import 'package:alias/feature/game/presentation/view/widget/game_main_circle_widget.dart';
 import 'package:alias/feature/game_settings/data/models/word.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class GameWordCard extends StatelessWidget {
   final Word word;
@@ -21,17 +23,17 @@ class GameWordCard extends StatelessWidget {
   }
 
   void _onDragEnd(DraggableDetails details, BuildContext context) async {
-    //var bloc = BlocProvider.of<GameBloc>(context);
+    var bloc = BlocProvider.of<GameBloc>(context);
 
     if (details.offset.dx > 0 &&
         details.offset.dx.abs() >= MediaQuery.of(context).size.width / 3) {
       //_audioPlayer.play(AssetSource(AssetsCatalog.onExplainedWordSound));
-      //bloc.add(AchieveWord());
+      bloc.add(const GameEvent.countWord());
     }
 
     if (details.offset.dx < 0) {
       //_audioPlayer.play(AssetSource(AssetsCatalog.onSkippedWordSound));
-      //bloc.add(SkipWord());
+      bloc.add(const GameEvent.skipWord());
     }
   }
 }
