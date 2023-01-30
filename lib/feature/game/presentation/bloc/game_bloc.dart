@@ -1,3 +1,4 @@
+import 'package:alias/feature/game/domain/game_answer.dart';
 import 'package:alias/feature/game/domain/game_settings.dart';
 import 'package:alias/feature/game_settings/data/models/word.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,8 +17,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
   late List<Word> _words;
 
-  final List<Word> _skippedWords = [];
-  final List<Word> _countWords = [];
+  List<GameAnswer> _answers = [];
 
   GameBloc() : super(const GameState.waitingForConfig()) {
     on<_Initial>(_onInitial);
@@ -27,6 +27,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     on<_TimeIsLeft>(_onTimeIsLeft);
     on<_CountWord>(_onCountWord);
     on<_SkipWord>(_onSkipWord);
+    on<_ChangeAnswer>(_onChangeAnswer);
   }
 
   void _onInitial(_Initial event, Emitter emit) {
@@ -74,29 +75,42 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     if (_settings.lastWordMode.isEnabled) {
       emit(const GameState.lastWord());
     } else {
-      emit(const GameState.commandMoveIsOver());
+      emit(
+        GameState.commandMoveIsOver(answers: _answers),
+      );
     }
   }
 
   void _onSkipWord(_SkipWord event, Emitter emit) {
-    _skippedWords.add(_words.first);
-    _words.removeAt(0);
+    var word = _words.first;
+
+    _answers.add(GameAnswer.skip(word: word));
+    _words.remove(word);
 
     if (_words.isNotEmpty) {
       emit(GameState.waitingForAnswer(word: _words.first));
     } else {
-      emit(const GameState.commandMoveIsOver());
+      emit(
+        GameState.commandMoveIsOver(answers: _answers),
+      );
     }
   }
 
   void _onCountWord(_CountWord event, Emitter emit) {
-    _countWords.add(_words.first);
-    _words.removeAt(0);
+    var word = _words.first;
+
+    _answers.add(GameAnswer.count(word: word));
+    _words.remove(word);
 
     if (_words.isNotEmpty) {
       emit(GameState.waitingForAnswer(word: _words.first));
     } else {
-      emit(const GameState.commandMoveIsOver());
+      emit(GameState.commandMoveIsOver(answers: _answers));
     }
+  }
+
+  void _onChangeAnswer(_ChangeAnswer event, Emitter emit) {
+    event.answer.changeAnswer();
+    emit(GameState.commandMoveIsOver(answers: _answers));
   }
 }
