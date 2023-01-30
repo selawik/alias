@@ -34,9 +34,21 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
     _words = [
       const Word(categoryId: 1, wordId: 1, name: 'Слово 1'),
-      const Word(categoryId: 1, wordId: 1, name: 'Слово 2'),
-      const Word(categoryId: 1, wordId: 1, name: 'Слово 3'),
-      const Word(categoryId: 1, wordId: 1, name: 'Слово 4'),
+      const Word(categoryId: 1, wordId: 2, name: 'Слово 2'),
+      const Word(categoryId: 1, wordId: 3, name: 'Слово 3'),
+      const Word(categoryId: 1, wordId: 4, name: 'Слово 4'),
+      const Word(categoryId: 1, wordId: 5, name: 'Слово 5'),
+      const Word(categoryId: 1, wordId: 6, name: 'Слово 6'),
+      const Word(categoryId: 1, wordId: 7, name: 'Слово 7'),
+      const Word(categoryId: 1, wordId: 8, name: 'Слово 8'),
+      const Word(categoryId: 1, wordId: 9, name: 'Слово 9'),
+      const Word(categoryId: 1, wordId: 10, name: 'Слово 10'),
+      const Word(categoryId: 1, wordId: 11, name: 'Слово 11'),
+      const Word(categoryId: 1, wordId: 12, name: 'Слово 12'),
+      const Word(categoryId: 1, wordId: 13, name: 'Слово 13'),
+      const Word(categoryId: 1, wordId: 14, name: 'Слово 14'),
+      const Word(categoryId: 1, wordId: 15, name: 'Слово 15'),
+      const Word(categoryId: 1, wordId: 16, name: 'Слово 16'),
     ];
 
     emit(GameState.gameIsReady(settings: _settings));
