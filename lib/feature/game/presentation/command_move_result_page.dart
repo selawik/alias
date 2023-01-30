@@ -1,3 +1,4 @@
+import 'package:alias/feature/game/presentation/view/command_move_result_view.dart';
 import 'package:flutter/material.dart';
 
 class CommandMoveResultPage extends StatelessWidget {
@@ -5,6 +6,8 @@ class CommandMoveResultPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const Scaffold(
+      body: CommandMoveResultView(),
+    );
   }
 }
