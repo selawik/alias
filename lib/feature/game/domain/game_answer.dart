@@ -1,4 +1,7 @@
 import 'package:alias/feature/game_settings/data/models/word.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'game_answer.freezed.dart';
 
 enum GameAnswerType {
   count,
@@ -7,20 +10,10 @@ enum GameAnswerType {
   bool get isCount => this == GameAnswerType.count;
 }
 
-
-class GameAnswer {
-  final Word word;
-  GameAnswerType _type;
-
-  GameAnswerType get type => _type;
-
-
-  GameAnswer.count({required this.word}) : _type = GameAnswerType.count;
-
-  GameAnswer.skip({required this.word}) : _type = GameAnswerType.skip;
-
-
-  void changeAnswer() {
-    _type = _type.isCount ? GameAnswerType.skip : GameAnswerType.count;
-  }
+@freezed
+class GameAnswer with _$GameAnswer {
+  const factory GameAnswer({
+    required Word word,
+    required GameAnswerType type,
+  }) = _GameAnswer;
 }
