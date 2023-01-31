@@ -1,16 +1,12 @@
 import 'package:alias/feature/game/presentation/bloc/game_bloc.dart';
 import 'package:alias/feature/game/presentation/view/widget/game_main_circle_widget.dart';
 import 'package:alias/feature/game/presentation/view/widget/game_word_card.dart';
-import 'package:alias/feature/game_settings/data/models/word.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class GameMainBlock extends StatelessWidget {
-  final Word word;
-
   const GameMainBlock({
     Key? key,
-    required this.word,
   }) : super(key: key);
 
   @override

@@ -18,7 +18,8 @@ class GameView extends StatelessWidget {
     return BlocListener<GameBloc, GameState>(
       listenWhen: (prevState, currentState) {
         return prevState.maybeWhen(
-            commandMoveIsOver: (command, answers, commandScore) => false, orElse: () => true);
+            commandMoveIsOver: (command, answers, commandScore) => false,
+            orElse: () => true);
       },
       listener: (context, state) {
         state.whenOrNull(
@@ -33,9 +34,7 @@ class GameView extends StatelessWidget {
           SizedBox(height: MediaQuery.of(context).padding.top + 16),
           const GameHeader(),
           const Spacer(),
-          const GameMainBlock(
-            word: Word(name: '123', wordId: 1, categoryId: 1),
-          ),
+          const GameMainBlock(),
           const Spacer(),
           const GameViewFooter(),
           SizedBox(height: MediaQuery.of(context).padding.bottom + 16),
