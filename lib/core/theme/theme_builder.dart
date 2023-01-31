@@ -46,6 +46,9 @@ class ThemeBuilder {
         ),
       ),
       scaffoldBackgroundColor: AppColors.appBackgroundLight,
+      appBarTheme: const AppBarTheme(
+        color: AppColors.appBackgroundLight,
+      ),
       elevatedButtonTheme: _getElevatedButtonTheme(),
       iconTheme: const IconThemeData(color: AppColors.black),
     );
