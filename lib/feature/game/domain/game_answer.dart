@@ -8,6 +8,9 @@ enum GameAnswerType {
   skip;
 
   bool get isCount => this == GameAnswerType.count;
+
+  GameAnswerType get switchedValue =>
+      this == GameAnswerType.count ? GameAnswerType.skip : GameAnswerType.count;
 }
 
 @freezed
