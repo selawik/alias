@@ -1,5 +1,7 @@
 import 'package:alias/core/constants/app_colors.dart';
+import 'package:alias/core/theme/theme_builder.dart';
 import 'package:alias/feature/commands/data/models/command.dart';
+import 'package:alias/feature/game/presentation/view/widget/command_score.dart';
 import 'package:flutter/material.dart';
 
 class CommandModeResultHeader extends StatelessWidget {
@@ -14,31 +16,22 @@ class CommandModeResultHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var textStyle = Theme.of(context).textTheme.displayMedium;
 
-    return  Container(
-      padding: const EdgeInsets.all(16),
-      decoration: const BoxDecoration(
-        color: AppColors.peach,
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(22),
-          bottomRight: Radius.circular(22),
-        ),
-      ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Expanded(
-            child: Text(
-              command.name,
-              style: textStyle,
-            ),
-          ),
           Text(
-           commandScore.toString(),
-            style: textStyle,
+            command.name,
+            style: Theme.of(context).textTheme.displayMedium,
           ),
+          const SizedBox(width: 8),
+          CommandScore(score: commandScore),
         ],
       ),
     );
   }
+
+
 }

@@ -1,4 +1,5 @@
 import 'package:alias/core/constants/app_colors.dart';
+import 'package:alias/core/theme/theme_builder.dart';
 import 'package:alias/feature/commands/data/models/command.dart';
 import 'package:alias/feature/game/domain/game_answer.dart';
 import 'package:alias/feature/game/presentation/bloc/game_bloc.dart';
@@ -47,6 +48,7 @@ class CommandMoveResultView extends StatelessWidget {
   }) {
     return Column(
       children: [
+        const SizedBox(height: 16),
         CommandModeResultHeader(commandScore: commandScore, command: command),
         const SizedBox(height: 16),
         Expanded(
@@ -76,6 +78,7 @@ class CommandMoveResultView extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.yellow,
         borderRadius: BorderRadius.circular(12),
+        boxShadow: ThemeBuilder.defaultShadow,
       ),
       child: Row(
         children: [

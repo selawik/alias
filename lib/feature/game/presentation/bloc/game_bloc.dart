@@ -104,7 +104,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
   void _onSkipWord(_SkipWord event, Emitter emit) {
     var word = _words.first;
 
-    _answers.add(GameAnswer(word: word, type: GameAnswerType.count));
+    _answers.add(GameAnswer(word: word, type: GameAnswerType.skip));
     _words.remove(word);
 
     if (_words.isNotEmpty) {
