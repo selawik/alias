@@ -17,10 +17,10 @@ class GameHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Row(
+      child: Stack(
         children: [
+          const Center(child: GameTimer()),
           _buildAppBarPauseButton(context),
-          const Expanded(child: GameTimer()),
         ],
       ),
     );
