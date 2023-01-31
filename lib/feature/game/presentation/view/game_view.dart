@@ -2,7 +2,6 @@ import 'package:alias/core/router/app_router.dart';
 import 'package:alias/feature/game/presentation/bloc/game_bloc.dart';
 import 'package:alias/feature/game/presentation/view/widget/game_main_block.dart';
 import 'package:alias/feature/game/presentation/view/widget/game_view_footer.dart';
-import 'package:alias/feature/game_settings/data/models/word.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:alias/core/injection.dart' as di;

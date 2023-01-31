@@ -39,15 +39,6 @@ class CommandMoveResultView extends StatelessWidget {
     );
   }
 
-  Widget _buildCommandScore(BuildContext context, GameState state) {
-    // if (state is CommandStepIsOver && currentAliasState is CommandStep) {
-    //   return _buildCommandBlock(context,
-    //       command: currentAliasState.command, explainedWords: state.words);
-    // }
-
-    return Container();
-  }
-
   Widget _buildListView(
     BuildContext context, {
     required Command command,
@@ -60,8 +51,7 @@ class CommandMoveResultView extends StatelessWidget {
         const SizedBox(height: 16),
         Expanded(
           child: ListView.separated(
-            padding:
-                const EdgeInsets.only(top: 76, left: 16, right: 16, bottom: 8),
+            padding: const EdgeInsets.only(left: 16, right: 16, bottom: 8),
             itemCount: answers.length,
             shrinkWrap: true,
             itemBuilder: (context, index) {
