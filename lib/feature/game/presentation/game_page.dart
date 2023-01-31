@@ -6,8 +6,11 @@ class GamePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: GameView(),
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: const Scaffold(
+        body: GameView(),
+      ),
     );
   }
 }
