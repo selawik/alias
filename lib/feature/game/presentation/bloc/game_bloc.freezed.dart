@@ -1297,7 +1297,8 @@ mixin _$GameState {
     required TResult Function(Word word) waitingForAnswer,
     required TResult Function() gamePaused,
     required TResult Function() lastWord,
-    required TResult Function(List<GameAnswer> answers) commandMoveIsOver,
+    required TResult Function(List<GameAnswer> answers, int commandScore)
+        commandMoveIsOver,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1308,7 +1309,8 @@ mixin _$GameState {
     TResult? Function(Word word)? waitingForAnswer,
     TResult? Function()? gamePaused,
     TResult? Function()? lastWord,
-    TResult? Function(List<GameAnswer> answers)? commandMoveIsOver,
+    TResult? Function(List<GameAnswer> answers, int commandScore)?
+        commandMoveIsOver,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1319,7 +1321,8 @@ mixin _$GameState {
     TResult Function(Word word)? waitingForAnswer,
     TResult Function()? gamePaused,
     TResult Function()? lastWord,
-    TResult Function(List<GameAnswer> answers)? commandMoveIsOver,
+    TResult Function(List<GameAnswer> answers, int commandScore)?
+        commandMoveIsOver,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1420,7 +1423,8 @@ class _$_WaitingForConfig implements _WaitingForConfig {
     required TResult Function(Word word) waitingForAnswer,
     required TResult Function() gamePaused,
     required TResult Function() lastWord,
-    required TResult Function(List<GameAnswer> answers) commandMoveIsOver,
+    required TResult Function(List<GameAnswer> answers, int commandScore)
+        commandMoveIsOver,
   }) {
     return waitingForConfig();
   }
@@ -1434,7 +1438,8 @@ class _$_WaitingForConfig implements _WaitingForConfig {
     TResult? Function(Word word)? waitingForAnswer,
     TResult? Function()? gamePaused,
     TResult? Function()? lastWord,
-    TResult? Function(List<GameAnswer> answers)? commandMoveIsOver,
+    TResult? Function(List<GameAnswer> answers, int commandScore)?
+        commandMoveIsOver,
   }) {
     return waitingForConfig?.call();
   }
@@ -1448,7 +1453,8 @@ class _$_WaitingForConfig implements _WaitingForConfig {
     TResult Function(Word word)? waitingForAnswer,
     TResult Function()? gamePaused,
     TResult Function()? lastWord,
-    TResult Function(List<GameAnswer> answers)? commandMoveIsOver,
+    TResult Function(List<GameAnswer> answers, int commandScore)?
+        commandMoveIsOver,
     required TResult orElse(),
   }) {
     if (waitingForConfig != null) {
@@ -1552,7 +1558,8 @@ class _$_WordsIsLoading implements _WordsIsLoading {
     required TResult Function(Word word) waitingForAnswer,
     required TResult Function() gamePaused,
     required TResult Function() lastWord,
-    required TResult Function(List<GameAnswer> answers) commandMoveIsOver,
+    required TResult Function(List<GameAnswer> answers, int commandScore)
+        commandMoveIsOver,
   }) {
     return wordsIsLoading();
   }
@@ -1566,7 +1573,8 @@ class _$_WordsIsLoading implements _WordsIsLoading {
     TResult? Function(Word word)? waitingForAnswer,
     TResult? Function()? gamePaused,
     TResult? Function()? lastWord,
-    TResult? Function(List<GameAnswer> answers)? commandMoveIsOver,
+    TResult? Function(List<GameAnswer> answers, int commandScore)?
+        commandMoveIsOver,
   }) {
     return wordsIsLoading?.call();
   }
@@ -1580,7 +1588,8 @@ class _$_WordsIsLoading implements _WordsIsLoading {
     TResult Function(Word word)? waitingForAnswer,
     TResult Function()? gamePaused,
     TResult Function()? lastWord,
-    TResult Function(List<GameAnswer> answers)? commandMoveIsOver,
+    TResult Function(List<GameAnswer> answers, int commandScore)?
+        commandMoveIsOver,
     required TResult orElse(),
   }) {
     if (wordsIsLoading != null) {
@@ -1711,7 +1720,8 @@ class _$_GameIsReady implements _GameIsReady {
     required TResult Function(Word word) waitingForAnswer,
     required TResult Function() gamePaused,
     required TResult Function() lastWord,
-    required TResult Function(List<GameAnswer> answers) commandMoveIsOver,
+    required TResult Function(List<GameAnswer> answers, int commandScore)
+        commandMoveIsOver,
   }) {
     return gameIsReady(settings);
   }
@@ -1725,7 +1735,8 @@ class _$_GameIsReady implements _GameIsReady {
     TResult? Function(Word word)? waitingForAnswer,
     TResult? Function()? gamePaused,
     TResult? Function()? lastWord,
-    TResult? Function(List<GameAnswer> answers)? commandMoveIsOver,
+    TResult? Function(List<GameAnswer> answers, int commandScore)?
+        commandMoveIsOver,
   }) {
     return gameIsReady?.call(settings);
   }
@@ -1739,7 +1750,8 @@ class _$_GameIsReady implements _GameIsReady {
     TResult Function(Word word)? waitingForAnswer,
     TResult Function()? gamePaused,
     TResult Function()? lastWord,
-    TResult Function(List<GameAnswer> answers)? commandMoveIsOver,
+    TResult Function(List<GameAnswer> answers, int commandScore)?
+        commandMoveIsOver,
     required TResult orElse(),
   }) {
     if (gameIsReady != null) {
@@ -1885,7 +1897,8 @@ class _$_WaitingForAnswer implements _WaitingForAnswer {
     required TResult Function(Word word) waitingForAnswer,
     required TResult Function() gamePaused,
     required TResult Function() lastWord,
-    required TResult Function(List<GameAnswer> answers) commandMoveIsOver,
+    required TResult Function(List<GameAnswer> answers, int commandScore)
+        commandMoveIsOver,
   }) {
     return waitingForAnswer(word);
   }
@@ -1899,7 +1912,8 @@ class _$_WaitingForAnswer implements _WaitingForAnswer {
     TResult? Function(Word word)? waitingForAnswer,
     TResult? Function()? gamePaused,
     TResult? Function()? lastWord,
-    TResult? Function(List<GameAnswer> answers)? commandMoveIsOver,
+    TResult? Function(List<GameAnswer> answers, int commandScore)?
+        commandMoveIsOver,
   }) {
     return waitingForAnswer?.call(word);
   }
@@ -1913,7 +1927,8 @@ class _$_WaitingForAnswer implements _WaitingForAnswer {
     TResult Function(Word word)? waitingForAnswer,
     TResult Function()? gamePaused,
     TResult Function()? lastWord,
-    TResult Function(List<GameAnswer> answers)? commandMoveIsOver,
+    TResult Function(List<GameAnswer> answers, int commandScore)?
+        commandMoveIsOver,
     required TResult orElse(),
   }) {
     if (waitingForAnswer != null) {
@@ -2023,7 +2038,8 @@ class _$_GamePaused implements _GamePaused {
     required TResult Function(Word word) waitingForAnswer,
     required TResult Function() gamePaused,
     required TResult Function() lastWord,
-    required TResult Function(List<GameAnswer> answers) commandMoveIsOver,
+    required TResult Function(List<GameAnswer> answers, int commandScore)
+        commandMoveIsOver,
   }) {
     return gamePaused();
   }
@@ -2037,7 +2053,8 @@ class _$_GamePaused implements _GamePaused {
     TResult? Function(Word word)? waitingForAnswer,
     TResult? Function()? gamePaused,
     TResult? Function()? lastWord,
-    TResult? Function(List<GameAnswer> answers)? commandMoveIsOver,
+    TResult? Function(List<GameAnswer> answers, int commandScore)?
+        commandMoveIsOver,
   }) {
     return gamePaused?.call();
   }
@@ -2051,7 +2068,8 @@ class _$_GamePaused implements _GamePaused {
     TResult Function(Word word)? waitingForAnswer,
     TResult Function()? gamePaused,
     TResult Function()? lastWord,
-    TResult Function(List<GameAnswer> answers)? commandMoveIsOver,
+    TResult Function(List<GameAnswer> answers, int commandScore)?
+        commandMoveIsOver,
     required TResult orElse(),
   }) {
     if (gamePaused != null) {
@@ -2155,7 +2173,8 @@ class _$_LastWord implements _LastWord {
     required TResult Function(Word word) waitingForAnswer,
     required TResult Function() gamePaused,
     required TResult Function() lastWord,
-    required TResult Function(List<GameAnswer> answers) commandMoveIsOver,
+    required TResult Function(List<GameAnswer> answers, int commandScore)
+        commandMoveIsOver,
   }) {
     return lastWord();
   }
@@ -2169,7 +2188,8 @@ class _$_LastWord implements _LastWord {
     TResult? Function(Word word)? waitingForAnswer,
     TResult? Function()? gamePaused,
     TResult? Function()? lastWord,
-    TResult? Function(List<GameAnswer> answers)? commandMoveIsOver,
+    TResult? Function(List<GameAnswer> answers, int commandScore)?
+        commandMoveIsOver,
   }) {
     return lastWord?.call();
   }
@@ -2183,7 +2203,8 @@ class _$_LastWord implements _LastWord {
     TResult Function(Word word)? waitingForAnswer,
     TResult Function()? gamePaused,
     TResult Function()? lastWord,
-    TResult Function(List<GameAnswer> answers)? commandMoveIsOver,
+    TResult Function(List<GameAnswer> answers, int commandScore)?
+        commandMoveIsOver,
     required TResult orElse(),
   }) {
     if (lastWord != null) {
@@ -2249,7 +2270,7 @@ abstract class _$$_CommandMoveIsOverCopyWith<$Res> {
           $Res Function(_$_CommandMoveIsOver) then) =
       __$$_CommandMoveIsOverCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<GameAnswer> answers});
+  $Res call({List<GameAnswer> answers, int commandScore});
 }
 
 /// @nodoc
@@ -2264,12 +2285,17 @@ class __$$_CommandMoveIsOverCopyWithImpl<$Res>
   @override
   $Res call({
     Object? answers = null,
+    Object? commandScore = null,
   }) {
     return _then(_$_CommandMoveIsOver(
       answers: null == answers
           ? _value._answers
           : answers // ignore: cast_nullable_to_non_nullable
               as List<GameAnswer>,
+      commandScore: null == commandScore
+          ? _value.commandScore
+          : commandScore // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -2277,7 +2303,8 @@ class __$$_CommandMoveIsOverCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_CommandMoveIsOver implements _CommandMoveIsOver {
-  const _$_CommandMoveIsOver({required final List<GameAnswer> answers})
+  const _$_CommandMoveIsOver(
+      {required final List<GameAnswer> answers, required this.commandScore})
       : _answers = answers;
 
   final List<GameAnswer> _answers;
@@ -2289,8 +2316,11 @@ class _$_CommandMoveIsOver implements _CommandMoveIsOver {
   }
 
   @override
+  final int commandScore;
+
+  @override
   String toString() {
-    return 'GameState.commandMoveIsOver(answers: $answers)';
+    return 'GameState.commandMoveIsOver(answers: $answers, commandScore: $commandScore)';
   }
 
   @override
@@ -2298,12 +2328,14 @@ class _$_CommandMoveIsOver implements _CommandMoveIsOver {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CommandMoveIsOver &&
-            const DeepCollectionEquality().equals(other._answers, _answers));
+            const DeepCollectionEquality().equals(other._answers, _answers) &&
+            (identical(other.commandScore, commandScore) ||
+                other.commandScore == commandScore));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_answers));
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_answers), commandScore);
 
   @JsonKey(ignore: true)
   @override
@@ -2321,9 +2353,10 @@ class _$_CommandMoveIsOver implements _CommandMoveIsOver {
     required TResult Function(Word word) waitingForAnswer,
     required TResult Function() gamePaused,
     required TResult Function() lastWord,
-    required TResult Function(List<GameAnswer> answers) commandMoveIsOver,
+    required TResult Function(List<GameAnswer> answers, int commandScore)
+        commandMoveIsOver,
   }) {
-    return commandMoveIsOver(answers);
+    return commandMoveIsOver(answers, commandScore);
   }
 
   @override
@@ -2335,9 +2368,10 @@ class _$_CommandMoveIsOver implements _CommandMoveIsOver {
     TResult? Function(Word word)? waitingForAnswer,
     TResult? Function()? gamePaused,
     TResult? Function()? lastWord,
-    TResult? Function(List<GameAnswer> answers)? commandMoveIsOver,
+    TResult? Function(List<GameAnswer> answers, int commandScore)?
+        commandMoveIsOver,
   }) {
-    return commandMoveIsOver?.call(answers);
+    return commandMoveIsOver?.call(answers, commandScore);
   }
 
   @override
@@ -2349,11 +2383,12 @@ class _$_CommandMoveIsOver implements _CommandMoveIsOver {
     TResult Function(Word word)? waitingForAnswer,
     TResult Function()? gamePaused,
     TResult Function()? lastWord,
-    TResult Function(List<GameAnswer> answers)? commandMoveIsOver,
+    TResult Function(List<GameAnswer> answers, int commandScore)?
+        commandMoveIsOver,
     required TResult orElse(),
   }) {
     if (commandMoveIsOver != null) {
-      return commandMoveIsOver(answers);
+      return commandMoveIsOver(answers, commandScore);
     }
     return orElse();
   }
@@ -2406,10 +2441,12 @@ class _$_CommandMoveIsOver implements _CommandMoveIsOver {
 }
 
 abstract class _CommandMoveIsOver implements GameState {
-  const factory _CommandMoveIsOver({required final List<GameAnswer> answers}) =
-      _$_CommandMoveIsOver;
+  const factory _CommandMoveIsOver(
+      {required final List<GameAnswer> answers,
+      required final int commandScore}) = _$_CommandMoveIsOver;
 
   List<GameAnswer> get answers;
+  int get commandScore;
   @JsonKey(ignore: true)
   _$$_CommandMoveIsOverCopyWith<_$_CommandMoveIsOver> get copyWith =>
       throw _privateConstructorUsedError;

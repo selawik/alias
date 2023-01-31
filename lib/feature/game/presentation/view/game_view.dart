@@ -18,11 +18,11 @@ class GameView extends StatelessWidget {
     return BlocListener<GameBloc, GameState>(
       listenWhen: (prevState, currentState) {
         return prevState.maybeWhen(
-            commandMoveIsOver: (answers) => false, orElse: () => true);
+            commandMoveIsOver: (answers, commandScore) => false, orElse: () => true);
       },
       listener: (context, state) {
         state.whenOrNull(
-          commandMoveIsOver: (answers) => router.push(
+          commandMoveIsOver: (answers, commandScore) => router.push(
             const CommandMoveResultPageRoute(),
           ),
         );

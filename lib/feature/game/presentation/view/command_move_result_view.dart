@@ -2,7 +2,7 @@ import 'package:alias/core/bloc/alias_bloc/alias_bloc.dart';
 import 'package:alias/core/constants/app_colors.dart';
 import 'package:alias/feature/game/domain/game_answer.dart';
 import 'package:alias/feature/game/presentation/bloc/game_bloc.dart';
-import 'package:alias/feature/game_settings/data/models/word.dart';
+import 'package:alias/feature/game/presentation/view/widget/command_mode_result_header.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -13,33 +13,26 @@ class CommandMoveResultView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      fit: StackFit.expand,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        BlocBuilder<GameBloc, GameState>(
-          builder: (context, state) {
-            return state.maybeWhen(
-              orElse: () => _buildEmptyListPlaceholder(context),
-              commandMoveIsOver: (answers) => _buildListView(context, answers: answers),
-            );
-          },
-        ),
-        Positioned(
-          top: 0,
-          left: 0,
-          right: 0,
+        SizedBox(height: MediaQuery.of(context).padding.top),
+        Expanded(
           child: BlocBuilder<GameBloc, GameState>(
             builder: (context, state) {
-              return _buildCommandScore(context, state);
+              return state.maybeWhen(
+                orElse: () => _buildEmptyListPlaceholder(context),
+                commandMoveIsOver: (answers, commandScore) => _buildListView(
+                  context,
+                  answers: answers,
+                  commandScore: commandScore,
+                ),
+              );
             },
           ),
         ),
-        Positioned(
-          bottom: 0,
-          left: 0,
-          right: 0,
-          child: _buildContinueButton(context),
-        ),
+        const SizedBox(height: 16),
+        _buildContinueButton(context),
       ],
     );
   }
@@ -52,63 +45,35 @@ class CommandMoveResultView extends StatelessWidget {
     //   return _buildCommandBlock(context,
     //       command: currentAliasState.command, explainedWords: state.words);
     // }
-    //
+
     return Container();
-  }
-
-  Widget _buildCommandBlock(
-    BuildContext context, {
-    required List<GameAnswer> answers,
-  }) {
-    var addedScore = 0;
-    var textStyle = Theme.of(context).textTheme.headline2;
-
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: const BoxDecoration(
-        color: AppColors.peach,
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(22),
-          bottomRight: Radius.circular(22),
-        ),
-      ),
-      child: Row(
-        children: [
-          Expanded(
-            child: Text(
-              '',
-              style: textStyle,
-            ),
-          ),
-          Text(
-            (0 + addedScore).toString(),
-            style: textStyle,
-          ),
-        ],
-      ),
-    );
   }
 
   Widget _buildListView(
     BuildContext context, {
     required List<GameAnswer> answers,
+    required int commandScore,
   }) {
-    return ListView.separated(
-      padding: EdgeInsets.only(
-        bottom: MediaQuery.of(context).padding.bottom + 92,
-        top: 76,
-        left: 16,
-        right: 16,
-      ),
-      itemCount: answers.length,
-      shrinkWrap: true,
-      itemBuilder: (context, index) {
-        var answer = answers[index];
-        return _buildResultItem(context, answer);
-      },
-      separatorBuilder: (context, index) {
-        return const SizedBox(height: 16);
-      },
+    return Column(
+      children: [
+        CommandModeResultHeader(commandScore: commandScore),
+        const SizedBox(height: 16),
+        Expanded(
+          child: ListView.separated(
+            padding:
+                const EdgeInsets.only(top: 76, left: 16, right: 16, bottom: 8),
+            itemCount: answers.length,
+            shrinkWrap: true,
+            itemBuilder: (context, index) {
+              var answer = answers[index];
+              return _buildResultItem(context, answer);
+            },
+            separatorBuilder: (context, index) {
+              return const SizedBox(height: 16);
+            },
+          ),
+        ),
+      ],
     );
   }
 
@@ -143,9 +108,6 @@ class CommandMoveResultView extends StatelessWidget {
   }
 
   Widget _buildContinueButton(BuildContext context) {
-    var aliasBloc = BlocProvider.of<AliasBloc>(context);
-    var gameBloc = BlocProvider.of<GameBloc>(context);
-
     return Padding(
       padding: EdgeInsets.only(
         bottom: 16 + MediaQuery.of(context).padding.bottom,
@@ -155,8 +117,6 @@ class CommandMoveResultView extends StatelessWidget {
       child: ElevatedButton(
         onPressed: () {
           //HapticFeedback.lightImpact();
-          var gameState = gameBloc.state;
-          var aliasState = aliasBloc.state;
 
           // if (gameState is CommandStepIsOver && aliasState is CommandStep) {
           //   aliasBloc.add(

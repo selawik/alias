@@ -77,7 +77,8 @@ class GameBloc extends Bloc<GameEvent, GameState> {
       emit(const GameState.lastWord());
     } else {
       emit(
-        GameState.commandMoveIsOver(answers: _answers),
+        GameState.commandMoveIsOver(
+            answers: _answers, commandScore: _getCommandScore()),
       );
     }
   }
@@ -92,7 +93,8 @@ class GameBloc extends Bloc<GameEvent, GameState> {
       emit(GameState.waitingForAnswer(word: _words.first));
     } else {
       emit(
-        GameState.commandMoveIsOver(answers: _answers),
+        GameState.commandMoveIsOver(
+            answers: _answers, commandScore: _getCommandScore()),
       );
     }
   }
@@ -106,19 +108,33 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     if (_words.isNotEmpty) {
       emit(GameState.waitingForAnswer(word: _words.first));
     } else {
-      emit(GameState.commandMoveIsOver(answers: _answers));
+      emit(GameState.commandMoveIsOver(
+          answers: _answers, commandScore: _getCommandScore()));
     }
   }
 
   void _onChangeAnswer(_ChangeAnswer event, Emitter emit) {
-    var answers = List<GameAnswer>.from(_answers);
-    
-    var index = answers.indexWhere((element) => element.word == event.answer.word);
+     _answers = List<GameAnswer>.from(_answers);
 
-    answers[index] = event.answer.copyWith(type: event.answer.type.switchedValue);
+    var index =
+    _answers.indexWhere((element) => element.word == event.answer.word);
 
-    emit(GameState.commandMoveIsOver(answers: answers));
+     _answers[index] =
+        event.answer.copyWith(type: event.answer.type.switchedValue);
 
-    _answers = answers;
+    emit(GameState.commandMoveIsOver(
+        answers: _answers, commandScore: _getCommandScore()));
+
+
+  }
+
+  int _getCommandScore() {
+    var countWords = _answers.where((element) => element.type.isCount);
+
+    if (_settings.penaltyMode.isEnabled) {
+      return countWords.length - (_answers.length - countWords.length);
+    }
+
+    return countWords.length;
   }
 }
