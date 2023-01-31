@@ -7,9 +7,15 @@ class CommandMoveResultPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: CustomAppBar(title: 'Счет раунда'),
-      body: CommandMoveResultView(),
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: const Scaffold(
+        appBar: CustomAppBar(
+          title: 'Счет раунда',
+          automaticallyImplyLeading: false,
+        ),
+        body: CommandMoveResultView(),
+      ),
     );
   }
 }
