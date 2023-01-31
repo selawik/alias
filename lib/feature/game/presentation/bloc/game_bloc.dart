@@ -1,3 +1,5 @@
+import 'package:alias/feature/categories/data/models/category.dart';
+import 'package:alias/feature/commands/data/models/command.dart';
 import 'package:alias/feature/game/domain/game_answer.dart';
 import 'package:alias/feature/game/domain/game_settings.dart';
 import 'package:alias/feature/game_settings/data/models/word.dart';
@@ -14,14 +16,19 @@ part 'game_state.dart';
 
 @injectable
 class GameBloc extends Bloc<GameEvent, GameState> {
+  late Category _category;
   late GameSettings _settings;
 
   late List<Word> _words;
 
   List<GameAnswer> _answers = [];
 
+  List<Command> _commands = [];
+
   GameBloc() : super(const GameState.waitingForConfig()) {
-    on<_Initial>(_onInitial);
+    on<_InitializeCategory>(_onCategoryInitialization);
+    on<_InitializeCommands>(_onCommandsInitialization);
+    on<_InitializeSettings>(_onSettingsInitialization);
     on<_StartGame>(_onStartGame);
     on<_PauseGame>(_onPauseGame);
     on<_ResumeGame>(_onResumeGame);
@@ -31,7 +38,15 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     on<_ChangeAnswer>(_onChangeAnswer);
   }
 
-  void _onInitial(_Initial event, Emitter emit) {
+  void _onCategoryInitialization(_InitializeCategory event, Emitter emit) {
+    _category = event.category;
+  }
+
+  void _onCommandsInitialization(_InitializeCommands event, Emitter emit) {
+    _commands = event.commands;
+  }
+
+  void _onSettingsInitialization(_InitializeSettings event, Emitter emit) {
     _settings = event.gameSettings;
 
     _words = [
@@ -78,7 +93,10 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     } else {
       emit(
         GameState.commandMoveIsOver(
-            answers: _answers, commandScore: _getCommandScore()),
+          command: _commands.first,
+          answers: _answers,
+          commandScore: _getCommandScore(),
+        ),
       );
     }
   }
@@ -94,7 +112,10 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     } else {
       emit(
         GameState.commandMoveIsOver(
-            answers: _answers, commandScore: _getCommandScore()),
+          command: _commands.first,
+          answers: _answers,
+          commandScore: _getCommandScore(),
+        ),
       );
     }
   }
@@ -108,24 +129,32 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     if (_words.isNotEmpty) {
       emit(GameState.waitingForAnswer(word: _words.first));
     } else {
-      emit(GameState.commandMoveIsOver(
-          answers: _answers, commandScore: _getCommandScore()));
+      emit(
+        GameState.commandMoveIsOver(
+          command: _commands.first,
+          answers: _answers,
+          commandScore: _getCommandScore(),
+        ),
+      );
     }
   }
 
   void _onChangeAnswer(_ChangeAnswer event, Emitter emit) {
-     _answers = List<GameAnswer>.from(_answers);
+    _answers = List<GameAnswer>.from(_answers);
 
     var index =
-    _answers.indexWhere((element) => element.word == event.answer.word);
+        _answers.indexWhere((element) => element.word == event.answer.word);
 
-     _answers[index] =
+    _answers[index] =
         event.answer.copyWith(type: event.answer.type.switchedValue);
 
-    emit(GameState.commandMoveIsOver(
-        answers: _answers, commandScore: _getCommandScore()));
-
-
+    emit(
+      GameState.commandMoveIsOver(
+        command: _commands.first,
+        answers: _answers,
+        commandScore: _getCommandScore(),
+      ),
+    );
   }
 
   int _getCommandScore() {

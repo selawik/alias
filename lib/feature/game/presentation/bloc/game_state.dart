@@ -17,6 +17,7 @@ class GameState with _$GameState {
   const factory GameState.lastWord() = _LastWord;
 
   const factory GameState.commandMoveIsOver({
+    required Command command,
     required List<GameAnswer> answers,
     required int commandScore,
   }) = _CommandMoveIsOver;
