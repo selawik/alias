@@ -68,7 +68,7 @@ class GameSettingsView extends StatelessWidget {
         aliasBloc
             .add(AliasEvent.gameSettingsSelected(gameSettings: gameSettings));
 
-        gameBloc.add(GameEvent.initial(gameSettings: gameSettings));
+        gameBloc.add(GameEvent.initializeSettings(gameSettings: gameSettings));
       },
     );
 

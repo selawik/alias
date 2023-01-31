@@ -1,11 +1,14 @@
 import 'package:alias/core/constants/app_colors.dart';
+import 'package:alias/feature/commands/data/models/command.dart';
 import 'package:flutter/material.dart';
 
 class CommandModeResultHeader extends StatelessWidget {
   final int commandScore;
+  final Command command;
 
   const CommandModeResultHeader({
     Key? key,
+    required this.command,
     required this.commandScore,
   }) : super(key: key);
 
@@ -26,7 +29,7 @@ class CommandModeResultHeader extends StatelessWidget {
         children: [
           Expanded(
             child: Text(
-              '',
+              command.name,
               style: textStyle,
             ),
           ),

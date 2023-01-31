@@ -1,5 +1,6 @@
 import 'package:alias/core/bloc/alias_bloc/alias_bloc.dart';
 import 'package:alias/core/constants/app_colors.dart';
+import 'package:alias/feature/commands/data/models/command.dart';
 import 'package:alias/feature/game/domain/game_answer.dart';
 import 'package:alias/feature/game/presentation/bloc/game_bloc.dart';
 import 'package:alias/feature/game/presentation/view/widget/command_mode_result_header.dart';
@@ -22,8 +23,10 @@ class CommandMoveResultView extends StatelessWidget {
             builder: (context, state) {
               return state.maybeWhen(
                 orElse: () => _buildEmptyListPlaceholder(context),
-                commandMoveIsOver: (answers, commandScore) => _buildListView(
+                commandMoveIsOver: (command, answers, commandScore) =>
+                    _buildListView(
                   context,
+                  command: command,
                   answers: answers,
                   commandScore: commandScore,
                 ),
@@ -51,12 +54,13 @@ class CommandMoveResultView extends StatelessWidget {
 
   Widget _buildListView(
     BuildContext context, {
+    required Command command,
     required List<GameAnswer> answers,
     required int commandScore,
   }) {
     return Column(
       children: [
-        CommandModeResultHeader(commandScore: commandScore),
+        CommandModeResultHeader(commandScore: commandScore, command: command),
         const SizedBox(height: 16),
         Expanded(
           child: ListView.separated(

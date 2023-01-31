@@ -5,6 +5,7 @@ import 'package:alias/core/theme/theme_builder.dart';
 import 'package:alias/feature/commands/data/models/command.dart';
 import 'package:alias/feature/commands/presentation/bloc/commands_bloc.dart';
 import 'package:alias/feature/commands/presentation/view/widget/command_list_item.dart';
+import 'package:alias/feature/game/presentation/bloc/game_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -99,11 +100,11 @@ class CommandsView extends StatelessWidget {
   void _onContinuePressed(BuildContext context) {
     HapticFeedback.mediumImpact();
     var router = di.locator.get<AppRouter>();
-    var aliasBloc = BlocProvider.of<AliasBloc>(context);
+    var gameBloc = BlocProvider.of<GameBloc>(context);
     var commandsBloc = BlocProvider.of<CommandsBloc>(context);
 
     commandsBloc.state.whenOrNull(loaded: (addedCommands) {
-      aliasBloc.add(AliasEvent.commandsFormed(commands: addedCommands));
+      gameBloc.add(GameEvent.initializeCommands(commands: addedCommands));
     });
 
     router.push(const GameSettingsPageRoute());
