@@ -1,4 +1,3 @@
-import 'package:alias/core/bloc/alias_bloc/alias_bloc.dart';
 import 'package:alias/core/constants/app_colors.dart';
 import 'package:alias/feature/commands/data/models/command.dart';
 import 'package:alias/feature/game/domain/game_answer.dart';
@@ -41,9 +40,6 @@ class CommandMoveResultView extends StatelessWidget {
   }
 
   Widget _buildCommandScore(BuildContext context, GameState state) {
-    var aliasBloc = BlocProvider.of<AliasBloc>(context);
-    var currentAliasState = aliasBloc.state;
-
     // if (state is CommandStepIsOver && currentAliasState is CommandStep) {
     //   return _buildCommandBlock(context,
     //       command: currentAliasState.command, explainedWords: state.words);

@@ -1,4 +1,3 @@
-import 'package:alias/core/bloc/alias_bloc/alias_bloc.dart';
 import 'package:alias/core/router/app_router.dart';
 import 'package:alias/feature/game/domain/game_settings.dart';
 import 'package:alias/feature/game/presentation/bloc/game_bloc.dart';
@@ -55,7 +54,6 @@ class GameSettingsView extends StatelessWidget {
   void _onContinuePressed(BuildContext context) {
     var gameSettingBloc = BlocProvider.of<GameSettingsBloc>(context);
     var gameBloc = BlocProvider.of<GameBloc>(context);
-    var aliasBloc = BlocProvider.of<AliasBloc>(context);
 
     gameSettingBloc.state.whenOrNull(
       ready: (moveTime, lastWordMode, penaltyMode) {
@@ -65,8 +63,6 @@ class GameSettingsView extends StatelessWidget {
           penaltyMode: penaltyMode,
         );
 
-        aliasBloc
-            .add(AliasEvent.gameSettingsSelected(gameSettings: gameSettings));
 
         gameBloc.add(GameEvent.initializeSettings(gameSettings: gameSettings));
       },

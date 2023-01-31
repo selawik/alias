@@ -1,5 +1,4 @@
 import 'package:alias/core/application.dart';
-import 'package:alias/core/bloc/alias_bloc/alias_bloc.dart';
 import 'package:alias/core/injection.dart' as di;
 import 'package:alias/feature/game/presentation/bloc/game_bloc.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';
@@ -24,7 +23,6 @@ void main() async {
     MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => di.locator.get<GameBloc>()),
-        BlocProvider(create: (context) => di.locator.get<AliasBloc>()),
       ],
       child: const Application(),
     ),

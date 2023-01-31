@@ -1,10 +1,10 @@
-import 'package:alias/core/bloc/alias_bloc/alias_bloc.dart';
 import 'package:alias/core/constants/app_colors.dart';
 import 'package:alias/core/injection.dart' as di;
 import 'package:alias/core/router/app_router.dart';
 import 'package:alias/core/theme/theme_builder.dart';
 import 'package:alias/feature/categories/data/models/category.dart';
 import 'package:alias/feature/categories/presentation/bloc/categories_bloc.dart';
+import 'package:alias/feature/game/presentation/bloc/game_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -77,9 +77,9 @@ class CategoriesView extends StatelessWidget {
 
   void _onListItemTap(BuildContext context, Category category) {
     var router = di.locator.get<AppRouter>();
-    var aliasBloc = BlocProvider.of<AliasBloc>(context);
+    var gameBloc = BlocProvider.of<GameBloc>(context);
 
-    aliasBloc.add(AliasEvent.categorySelected(category: category));
+    gameBloc.add(GameEvent.initializeCategory(category: category));
     router.push(const CommandPageRoute());
   }
 }
