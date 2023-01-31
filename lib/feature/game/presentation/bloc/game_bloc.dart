@@ -111,15 +111,14 @@ class GameBloc extends Bloc<GameEvent, GameState> {
   }
 
   void _onChangeAnswer(_ChangeAnswer event, Emitter emit) {
-    print(_answers);
-    var index = _answers.indexWhere((answer) => event.answer.word == answer.word);
+    var answers = List<GameAnswer>.from(_answers);
+    
+    var index = answers.indexWhere((element) => element.word == event.answer.word);
 
+    answers[index] = event.answer.copyWith(type: event.answer.type.switchedValue);
 
-    _answers.replaceRange(index, index, [GameAnswer(word: event.answer.word, type: GameAnswerType.skip)]);
+    emit(GameState.commandMoveIsOver(answers: answers));
 
-    print(GameState.commandMoveIsOver(answers: List.from(_answers)) == state);
-    print(_answers);
-
-    emit(GameState.commandMoveIsOver(answers: List.from(_answers)));
+    _answers = answers;
   }
 }
