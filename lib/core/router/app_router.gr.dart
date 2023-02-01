@@ -59,6 +59,12 @@ class _$AppRouter extends RootStackRouter {
         child: const CommandMoveResultPage(),
       );
     },
+    CommandsStatsPageRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const CommandsStatsPage(),
+      );
+    },
   };
 
   @override
@@ -90,6 +96,10 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(
           CommandMoveResultPageRoute.name,
           path: '/command-move-result-page',
+        ),
+        RouteConfig(
+          CommandsStatsPageRoute.name,
+          path: '/commands-stats-page',
         ),
       ];
 }
@@ -176,4 +186,16 @@ class CommandMoveResultPageRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'CommandMoveResultPageRoute';
+}
+
+/// generated route for
+/// [CommandsStatsPage]
+class CommandsStatsPageRoute extends PageRouteInfo<void> {
+  const CommandsStatsPageRoute()
+      : super(
+          CommandsStatsPageRoute.name,
+          path: '/commands-stats-page',
+        );
+
+  static const String name = 'CommandsStatsPageRoute';
 }
