@@ -53,11 +53,7 @@ class CategoriesView extends StatelessWidget {
 
   Widget _buildListItem(BuildContext context, Category category) {
     return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(22),
-        color: AppColors.white,
-        boxShadow: ThemeBuilder.defaultShadow,
-      ),
+      decoration: ThemeBuilder.cardDecoration,
       child: GestureDetector(
         onTap: () => _onListItemTap(context, category),
         child: Column(

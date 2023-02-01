@@ -7,7 +7,7 @@ class ThemeBuilder {
       useMaterial3: true,
       primaryColor: AppColors.white,
       brightness: Brightness.light,
-      textTheme:  const TextTheme(
+      textTheme: const TextTheme(
         displayLarge: TextStyle(
           fontFamily: 'Roboto',
           fontSize: 24,
@@ -59,7 +59,7 @@ class ThemeBuilder {
         useMaterial3: true,
         primarySwatch: Colors.red,
         brightness: Brightness.dark,
-        textTheme:  const TextTheme(
+        textTheme: const TextTheme(
           displayLarge: TextStyle(
             fontFamily: 'Roboto',
             fontSize: 24,
@@ -137,4 +137,10 @@ class ThemeBuilder {
       tapTargetSize: MaterialTapTargetSize.shrinkWrap,
     );
   }
+
+  static BoxDecoration get cardDecoration => BoxDecoration(
+        borderRadius: defaultBorderRadius,
+        color: AppColors.white,
+        boxShadow: ThemeBuilder.defaultShadow,
+      );
 }

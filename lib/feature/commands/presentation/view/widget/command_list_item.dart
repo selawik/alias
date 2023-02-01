@@ -24,11 +24,7 @@ class CommandListItem extends StatelessWidget {
       height: 80,
       alignment: Alignment.centerLeft,
       padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: AppColors.white,
-        borderRadius: ThemeBuilder.defaultBorderRadius,
-        boxShadow: ThemeBuilder.defaultShadow,
-      ),
+      decoration: ThemeBuilder.cardDecoration,
       child: Row(
         children: [
           Expanded(
