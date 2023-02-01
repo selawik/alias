@@ -1,6 +1,7 @@
 import 'package:alias/core/router/app_router.dart';
 import 'package:alias/feature/game/domain/game_settings.dart';
 import 'package:alias/feature/game/presentation/bloc/game_bloc.dart';
+import 'package:alias/feature/game/presentation/commands_stats_page.dart';
 import 'package:alias/feature/game_settings/presentation/bloc/game_settings_bloc.dart';
 import 'package:alias/feature/game_settings/presentation/view/widget/command_move_time_selector.dart';
 import 'package:alias/feature/game_settings/presentation/view/widget/last_word_selector.dart';
@@ -70,6 +71,6 @@ class GameSettingsView extends StatelessWidget {
 
     var router = di.locator.get<AppRouter>();
 
-    router.push(const GamePageRoute());
+    router.push(const CommandsStatsPageRoute());
   }
 }
