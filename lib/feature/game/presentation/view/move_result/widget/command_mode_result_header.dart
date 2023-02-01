@@ -1,12 +1,10 @@
-import 'package:alias/core/constants/app_colors.dart';
-import 'package:alias/core/theme/theme_builder.dart';
-import 'package:alias/feature/commands/data/models/command.dart';
+import 'package:alias/feature/game/domain/playing_command.dart';
 import 'package:alias/feature/game/presentation/view/move_result/widget/command_score.dart';
 import 'package:flutter/material.dart';
 
 class CommandModeResultHeader extends StatelessWidget {
   final int commandScore;
-  final Command command;
+  final PlayingCommand command;
 
   const CommandModeResultHeader({
     Key? key,

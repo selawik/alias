@@ -1,9 +1,9 @@
 import 'package:alias/core/theme/theme_builder.dart';
-import 'package:alias/feature/commands/data/models/command.dart';
+import 'package:alias/feature/game/domain/playing_command.dart';
 import 'package:flutter/material.dart';
 
 class CommandsList extends StatelessWidget {
-  final List<Command> commands;
+  final List<PlayingCommand> commands;
 
   const CommandsList({
     Key? key,
@@ -16,19 +16,36 @@ class CommandsList extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
       shrinkWrap: true,
       itemBuilder: (context, index) {
-        return Container(
-          padding: const EdgeInsets.all(16),
-          decoration: ThemeBuilder.cardDecoration,
-          child: Text(
-            commands[index].name,
-            style: Theme.of(context).textTheme.displayMedium,
-          ),
-        );
+        var command = commands[index];
+
+        return _buildCommandListItem(context, command);
       },
       separatorBuilder: (context, index) {
         return const SizedBox(height: 16);
       },
       itemCount: commands.length,
+    );
+  }
+
+  Widget _buildCommandListItem(BuildContext context, PlayingCommand command) {
+    var textStyle = Theme.of(context).textTheme.displayMedium;
+    
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: ThemeBuilder.cardDecoration,
+      child: Row(
+        children: [
+          Text(
+            command.name,
+            style: textStyle,
+          ),
+          const Spacer(),
+          Text(
+            command.score.toString(),
+            style: textStyle,
+          )
+        ],
+      ),
     );
   }
 }

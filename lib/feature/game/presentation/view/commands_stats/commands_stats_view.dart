@@ -1,4 +1,5 @@
 import 'package:alias/feature/commands/data/models/command.dart';
+import 'package:alias/feature/game/domain/playing_command.dart';
 import 'package:alias/feature/game/presentation/bloc/game_bloc.dart';
 import 'package:alias/feature/game/presentation/view/commands_stats/widget/commands_list.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +22,7 @@ class CommandsStatsView extends StatelessWidget {
     );
   }
 
-  Widget _buildStatsView(BuildContext context, List<Command> commands) {
+  Widget _buildStatsView(BuildContext context, List<PlayingCommand> commands) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -36,7 +37,7 @@ class CommandsStatsView extends StatelessWidget {
     );
   }
 
-  Widget _buildNextCommandWidget(BuildContext context, Command command) {
+  Widget _buildNextCommandWidget(BuildContext context, PlayingCommand command) {
     return Column(
       children: [
         const Text('Сейчас играет команда'),

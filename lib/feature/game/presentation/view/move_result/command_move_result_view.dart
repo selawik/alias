@@ -2,6 +2,7 @@ import 'package:alias/core/constants/app_colors.dart';
 import 'package:alias/core/theme/theme_builder.dart';
 import 'package:alias/feature/commands/data/models/command.dart';
 import 'package:alias/feature/game/domain/game_answer.dart';
+import 'package:alias/feature/game/domain/playing_command.dart';
 import 'package:alias/feature/game/presentation/bloc/game_bloc.dart';
 import 'package:alias/feature/game/presentation/view/move_result/widget/command_mode_result_header.dart';
 import 'package:flutter/cupertino.dart';
@@ -42,7 +43,7 @@ class CommandMoveResultView extends StatelessWidget {
 
   Widget _buildListView(
     BuildContext context, {
-    required Command command,
+    required PlayingCommand command,
     required List<GameAnswer> answers,
     required int commandScore,
   }) {
