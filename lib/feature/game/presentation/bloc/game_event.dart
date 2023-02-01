@@ -24,4 +24,6 @@ class GameEvent with _$GameEvent {
   const factory GameEvent.changeAnswer({required GameAnswer answer}) =
       _ChangeAnswer;
 
+  const factory GameEvent.moveResultWatched() = _MoveResultWatched;
+
 }

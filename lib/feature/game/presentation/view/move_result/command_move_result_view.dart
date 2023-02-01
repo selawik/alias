@@ -1,4 +1,5 @@
 import 'package:alias/core/constants/app_colors.dart';
+import 'package:alias/core/router/app_router.dart';
 import 'package:alias/core/theme/theme_builder.dart';
 import 'package:alias/feature/game/domain/game_answer.dart';
 import 'package:alias/feature/game/domain/playing_command.dart';
@@ -8,6 +9,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:alias/core/injection.dart' as di;
 
 class CommandMoveResultView extends StatelessWidget {
   const CommandMoveResultView({Key? key}) : super(key: key);
@@ -105,14 +107,10 @@ class CommandMoveResultView extends StatelessWidget {
       ),
       child: ElevatedButton(
         onPressed: () {
-          //HapticFeedback.lightImpact();
-
-          // if (gameState is CommandStepIsOver && aliasState is CommandStep) {
-          //   aliasBloc.add(
-          //     CommandFinishedStepEvent(
-          //         command: aliasState.command, words: gameState.words),
-          //   );
-          // }
+          var gameBloc = BlocProvider.of<GameBloc>(context);
+          gameBloc.add(const GameEvent.moveResultWatched());
+          var router = di.locator.get<AppRouter>();
+          router.replace(const CommandsStatsPageRoute());
         },
         child: const Text('Продолжить'),
       ),

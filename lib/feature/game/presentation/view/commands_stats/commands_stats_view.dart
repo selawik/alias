@@ -1,9 +1,10 @@
-import 'package:alias/feature/commands/data/models/command.dart';
+import 'package:alias/core/router/app_router.dart';
 import 'package:alias/feature/game/domain/playing_command.dart';
 import 'package:alias/feature/game/presentation/bloc/game_bloc.dart';
 import 'package:alias/feature/game/presentation/view/commands_stats/widget/commands_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:alias/core/injection.dart' as di;
 
 class CommandsStatsView extends StatelessWidget {
   const CommandsStatsView({Key? key}) : super(key: key);
@@ -54,7 +55,11 @@ class CommandsStatsView extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          var router = di.locator.get<AppRouter>();
+
+          router.replace(const GamePageRoute());
+        },
         child: const Text('Начать игру'),
       ),
     );
