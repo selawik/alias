@@ -8,7 +8,7 @@ class GameState with _$GameState {
 
   const factory GameState.gameIsReady({
     required GameSettings settings,
-    required List<Command> commands,
+    required List<PlayingCommand> commands,
   }) = _GameIsReady;
 
   const factory GameState.waitingForAnswer({required Word word}) =
@@ -19,7 +19,7 @@ class GameState with _$GameState {
   const factory GameState.lastWord() = _LastWord;
 
   const factory GameState.commandMoveIsOver({
-    required Command command,
+    required PlayingCommand command,
     required List<GameAnswer> answers,
     required int commandScore,
   }) = _CommandMoveIsOver;

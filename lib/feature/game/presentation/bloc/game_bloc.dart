@@ -2,6 +2,7 @@ import 'package:alias/feature/categories/data/models/category.dart';
 import 'package:alias/feature/commands/data/models/command.dart';
 import 'package:alias/feature/game/domain/game_answer.dart';
 import 'package:alias/feature/game/domain/game_settings.dart';
+import 'package:alias/feature/game/domain/playing_command.dart';
 import 'package:alias/feature/game_settings/data/models/word.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -23,7 +24,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
   List<GameAnswer> _answers = [];
 
-  List<Command> _commands = [];
+  List<PlayingCommand> _commands = [];
 
   GameBloc() : super(const GameState.waitingForConfig()) {
     on<_InitializeCategory>(_onCategoryInitialization);
@@ -43,7 +44,12 @@ class GameBloc extends Bloc<GameEvent, GameState> {
   }
 
   void _onCommandsInitialization(_InitializeCommands event, Emitter emit) {
-    _commands = event.commands;
+    _commands = event.commands
+        .map((command) => PlayingCommand(
+              commandId: command.commandId,
+              name: command.name,
+            ))
+        .toList();
   }
 
   void _onSettingsInitialization(_InitializeSettings event, Emitter emit) {
