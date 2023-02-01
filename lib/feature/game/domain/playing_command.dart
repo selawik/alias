@@ -1,4 +1,3 @@
-import 'package:alias/feature/commands/data/models/command.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'playing_command.freezed.dart';

@@ -1,6 +1,5 @@
 import 'package:alias/core/constants/app_colors.dart';
 import 'package:alias/core/theme/theme_builder.dart';
-import 'package:alias/feature/commands/data/models/command.dart';
 import 'package:alias/feature/game/domain/game_answer.dart';
 import 'package:alias/feature/game/domain/playing_command.dart';
 import 'package:alias/feature/game/presentation/bloc/game_bloc.dart';
