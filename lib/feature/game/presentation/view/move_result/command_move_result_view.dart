@@ -76,7 +76,7 @@ class CommandMoveResultView extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: AppColors.yellow,
+        color: AppColors.white,
         borderRadius: BorderRadius.circular(12),
         boxShadow: ThemeBuilder.defaultShadow,
       ),
