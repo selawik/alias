@@ -68,7 +68,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
       const Word(categoryId: 1, wordId: 16, name: 'Слово 16'),
     ];
 
-    emit(GameState.gameIsReady(settings: _settings));
+    emit(GameState.gameIsReady(settings: _settings, commands: _commands));
   }
 
   void _onStartGame(_StartGame event, Emitter emit) {
