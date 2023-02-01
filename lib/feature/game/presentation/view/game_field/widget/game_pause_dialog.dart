@@ -1,4 +1,4 @@
-import 'package:alias/feature/game/presentation/view/widget/game_pause_menu_option.dart';
+import 'package:alias/feature/game/presentation/view/game_field/widget/game_pause_menu_option.dart';
 import 'package:flutter/material.dart';
 
 class GamePauseDialog extends StatelessWidget {

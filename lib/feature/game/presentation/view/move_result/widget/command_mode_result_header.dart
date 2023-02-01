@@ -1,7 +1,7 @@
 import 'package:alias/core/constants/app_colors.dart';
 import 'package:alias/core/theme/theme_builder.dart';
 import 'package:alias/feature/commands/data/models/command.dart';
-import 'package:alias/feature/game/presentation/view/widget/command_score.dart';
+import 'package:alias/feature/game/presentation/view/move_result/widget/command_score.dart';
 import 'package:flutter/material.dart';
 
 class CommandModeResultHeader extends StatelessWidget {

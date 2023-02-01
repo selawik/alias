@@ -1,4 +1,4 @@
-import 'package:alias/feature/game/presentation/view/game_view.dart';
+import 'package:alias/feature/game/presentation/view/game_field/game_view.dart';
 import 'package:flutter/material.dart';
 
 class GamePage extends StatelessWidget {

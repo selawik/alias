@@ -3,7 +3,7 @@ import 'package:alias/core/theme/theme_builder.dart';
 import 'package:alias/feature/commands/data/models/command.dart';
 import 'package:alias/feature/game/domain/game_answer.dart';
 import 'package:alias/feature/game/presentation/bloc/game_bloc.dart';
-import 'package:alias/feature/game/presentation/view/widget/command_mode_result_header.dart';
+import 'package:alias/feature/game/presentation/view/move_result/widget/command_mode_result_header.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
