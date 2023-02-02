@@ -24,6 +24,8 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
   late List<Word> _words;
 
+  List<Word> _countWords = [];
+
   List<GameAnswer> _answers = [];
 
   List<PlayingCommand> _commands = [];
@@ -79,6 +81,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
       const Word(categoryId: 1, wordId: 16, name: 'Слово 16'),
     ];
 
+    _words.shuffle();
     emit(GameState.gameIsReady(settings: _settings, commands: _commands));
   }
 
@@ -135,6 +138,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     var word = _words.first;
 
     _answers.add(GameAnswer(word: word, type: GameAnswerType.count));
+    _countWords.add(word);
     _words.remove(word);
 
     if (_words.isNotEmpty) {
@@ -174,7 +178,12 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     _commands.add(playingCommand.copyWith(score: _getCommandScore()));
     _commands.remove(playingCommand);
 
+    _words.addAll(_answers
+        .where((element) => !element.type.isCount)
+        .map((answer) => answer.word));
+
     _answers.clear();
+    _words.shuffle();
 
     emit(GameState.gameIsReady(settings: _settings, commands: _commands));
   }
