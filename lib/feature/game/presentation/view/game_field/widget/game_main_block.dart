@@ -31,6 +31,7 @@ class GameMainBlock extends StatelessWidget {
             ),
           ),
           waitingForAnswer: (word) => GameWordCard(word: word),
+          lastWord: (word) => GameWordCard(word: word),
         );
       },
     );

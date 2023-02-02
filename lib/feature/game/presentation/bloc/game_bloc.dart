@@ -103,7 +103,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
   void _onTimeIsLeft(_TimeIsLeft event, Emitter emit) {
     if (_settings.lastWordMode.isEnabled) {
-      emit(const GameState.lastWord());
+      emit(GameState.lastWord(word: _words.first));
     } else {
       emit(
         GameState.commandMoveIsOver(
@@ -121,7 +121,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     _answers.add(GameAnswer(word: word, type: GameAnswerType.skip));
     _words.remove(word);
 
-    if (_words.isNotEmpty) {
+    if (_words.isNotEmpty && state is! _LastWord) {
       emit(GameState.waitingForAnswer(word: _words.first));
     } else {
       emit(
@@ -141,7 +141,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     _countWords.add(word);
     _words.remove(word);
 
-    if (_words.isNotEmpty) {
+    if (_words.isNotEmpty && state is! _LastWord) {
       emit(GameState.waitingForAnswer(word: _words.first));
     } else {
       emit(

@@ -16,7 +16,7 @@ class GameState with _$GameState {
 
   const factory GameState.gamePaused() = _GamePaused;
 
-  const factory GameState.lastWord() = _LastWord;
+  const factory GameState.lastWord({required Word word}) = _LastWord;
 
   const factory GameState.commandMoveIsOver({
     required PlayingCommand command,
