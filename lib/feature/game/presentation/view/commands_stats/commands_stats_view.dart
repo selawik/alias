@@ -96,10 +96,15 @@ class CommandsStatsView extends StatelessWidget {
   }
 
   Widget _buildGameOverButton(BuildContext context) {
+    var router = di.locator.get<AppRouter>();
+    var gameBloc = BlocProvider.of<GameBloc>(context);
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: ElevatedButton(
         onPressed: () {
+          gameBloc.add(const GameEvent.resetGame());
+          router.replaceAll([const HomePageRoute()]);
         },
         child: const Text('В меню'),
       ),

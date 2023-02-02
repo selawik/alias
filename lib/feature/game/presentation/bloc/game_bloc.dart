@@ -44,6 +44,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     on<_SkipWord>(_onSkipWord);
     on<_ChangeAnswer>(_onChangeAnswer);
     on<_MoveResultWatched>(_onMoveResultWatched);
+    on<_ResetGame>(_onResetGame);
   }
 
   void _onCategoryInitialization(_InitializeCategory event, Emitter emit) {
@@ -191,6 +192,15 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     } else {
       emit(GameState.gameIsReady(settings: _settings, commands: _commands));
     }
+  }
+
+  void _onResetGame(_ResetGame event, Emitter emit) {
+    _commands.clear();
+    _answers.clear();
+    _words.clear();
+    _countWords.clear();
+
+    emit(const GameState.waitingForConfig());
   }
 
   int _getCommandScore() {

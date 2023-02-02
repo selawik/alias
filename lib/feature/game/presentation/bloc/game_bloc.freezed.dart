@@ -29,6 +29,7 @@ mixin _$GameEvent {
     required TResult Function() countWord,
     required TResult Function(GameAnswer answer) changeAnswer,
     required TResult Function() moveResultWatched,
+    required TResult Function() resetGame,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,6 +45,7 @@ mixin _$GameEvent {
     TResult? Function()? countWord,
     TResult? Function(GameAnswer answer)? changeAnswer,
     TResult? Function()? moveResultWatched,
+    TResult? Function()? resetGame,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -59,6 +61,7 @@ mixin _$GameEvent {
     TResult Function()? countWord,
     TResult Function(GameAnswer answer)? changeAnswer,
     TResult Function()? moveResultWatched,
+    TResult Function()? resetGame,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -75,6 +78,7 @@ mixin _$GameEvent {
     required TResult Function(_CountWord value) countWord,
     required TResult Function(_ChangeAnswer value) changeAnswer,
     required TResult Function(_MoveResultWatched value) moveResultWatched,
+    required TResult Function(_ResetGame value) resetGame,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -90,6 +94,7 @@ mixin _$GameEvent {
     TResult? Function(_CountWord value)? countWord,
     TResult? Function(_ChangeAnswer value)? changeAnswer,
     TResult? Function(_MoveResultWatched value)? moveResultWatched,
+    TResult? Function(_ResetGame value)? resetGame,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -105,6 +110,7 @@ mixin _$GameEvent {
     TResult Function(_CountWord value)? countWord,
     TResult Function(_ChangeAnswer value)? changeAnswer,
     TResult Function(_MoveResultWatched value)? moveResultWatched,
+    TResult Function(_ResetGame value)? resetGame,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -214,6 +220,7 @@ class _$_InitializeCategory implements _InitializeCategory {
     required TResult Function() countWord,
     required TResult Function(GameAnswer answer) changeAnswer,
     required TResult Function() moveResultWatched,
+    required TResult Function() resetGame,
   }) {
     return initializeCategory(category);
   }
@@ -232,6 +239,7 @@ class _$_InitializeCategory implements _InitializeCategory {
     TResult? Function()? countWord,
     TResult? Function(GameAnswer answer)? changeAnswer,
     TResult? Function()? moveResultWatched,
+    TResult? Function()? resetGame,
   }) {
     return initializeCategory?.call(category);
   }
@@ -250,6 +258,7 @@ class _$_InitializeCategory implements _InitializeCategory {
     TResult Function()? countWord,
     TResult Function(GameAnswer answer)? changeAnswer,
     TResult Function()? moveResultWatched,
+    TResult Function()? resetGame,
     required TResult orElse(),
   }) {
     if (initializeCategory != null) {
@@ -272,6 +281,7 @@ class _$_InitializeCategory implements _InitializeCategory {
     required TResult Function(_CountWord value) countWord,
     required TResult Function(_ChangeAnswer value) changeAnswer,
     required TResult Function(_MoveResultWatched value) moveResultWatched,
+    required TResult Function(_ResetGame value) resetGame,
   }) {
     return initializeCategory(this);
   }
@@ -290,6 +300,7 @@ class _$_InitializeCategory implements _InitializeCategory {
     TResult? Function(_CountWord value)? countWord,
     TResult? Function(_ChangeAnswer value)? changeAnswer,
     TResult? Function(_MoveResultWatched value)? moveResultWatched,
+    TResult? Function(_ResetGame value)? resetGame,
   }) {
     return initializeCategory?.call(this);
   }
@@ -308,6 +319,7 @@ class _$_InitializeCategory implements _InitializeCategory {
     TResult Function(_CountWord value)? countWord,
     TResult Function(_ChangeAnswer value)? changeAnswer,
     TResult Function(_MoveResultWatched value)? moveResultWatched,
+    TResult Function(_ResetGame value)? resetGame,
     required TResult orElse(),
   }) {
     if (initializeCategory != null) {
@@ -410,6 +422,7 @@ class _$_InitializeCommands implements _InitializeCommands {
     required TResult Function() countWord,
     required TResult Function(GameAnswer answer) changeAnswer,
     required TResult Function() moveResultWatched,
+    required TResult Function() resetGame,
   }) {
     return initializeCommands(commands);
   }
@@ -428,6 +441,7 @@ class _$_InitializeCommands implements _InitializeCommands {
     TResult? Function()? countWord,
     TResult? Function(GameAnswer answer)? changeAnswer,
     TResult? Function()? moveResultWatched,
+    TResult? Function()? resetGame,
   }) {
     return initializeCommands?.call(commands);
   }
@@ -446,6 +460,7 @@ class _$_InitializeCommands implements _InitializeCommands {
     TResult Function()? countWord,
     TResult Function(GameAnswer answer)? changeAnswer,
     TResult Function()? moveResultWatched,
+    TResult Function()? resetGame,
     required TResult orElse(),
   }) {
     if (initializeCommands != null) {
@@ -468,6 +483,7 @@ class _$_InitializeCommands implements _InitializeCommands {
     required TResult Function(_CountWord value) countWord,
     required TResult Function(_ChangeAnswer value) changeAnswer,
     required TResult Function(_MoveResultWatched value) moveResultWatched,
+    required TResult Function(_ResetGame value) resetGame,
   }) {
     return initializeCommands(this);
   }
@@ -486,6 +502,7 @@ class _$_InitializeCommands implements _InitializeCommands {
     TResult? Function(_CountWord value)? countWord,
     TResult? Function(_ChangeAnswer value)? changeAnswer,
     TResult? Function(_MoveResultWatched value)? moveResultWatched,
+    TResult? Function(_ResetGame value)? resetGame,
   }) {
     return initializeCommands?.call(this);
   }
@@ -504,6 +521,7 @@ class _$_InitializeCommands implements _InitializeCommands {
     TResult Function(_CountWord value)? countWord,
     TResult Function(_ChangeAnswer value)? changeAnswer,
     TResult Function(_MoveResultWatched value)? moveResultWatched,
+    TResult Function(_ResetGame value)? resetGame,
     required TResult orElse(),
   }) {
     if (initializeCommands != null) {
@@ -600,6 +618,7 @@ class _$_InitializeSettings implements _InitializeSettings {
     required TResult Function() countWord,
     required TResult Function(GameAnswer answer) changeAnswer,
     required TResult Function() moveResultWatched,
+    required TResult Function() resetGame,
   }) {
     return initializeSettings(gameSettings);
   }
@@ -618,6 +637,7 @@ class _$_InitializeSettings implements _InitializeSettings {
     TResult? Function()? countWord,
     TResult? Function(GameAnswer answer)? changeAnswer,
     TResult? Function()? moveResultWatched,
+    TResult? Function()? resetGame,
   }) {
     return initializeSettings?.call(gameSettings);
   }
@@ -636,6 +656,7 @@ class _$_InitializeSettings implements _InitializeSettings {
     TResult Function()? countWord,
     TResult Function(GameAnswer answer)? changeAnswer,
     TResult Function()? moveResultWatched,
+    TResult Function()? resetGame,
     required TResult orElse(),
   }) {
     if (initializeSettings != null) {
@@ -658,6 +679,7 @@ class _$_InitializeSettings implements _InitializeSettings {
     required TResult Function(_CountWord value) countWord,
     required TResult Function(_ChangeAnswer value) changeAnswer,
     required TResult Function(_MoveResultWatched value) moveResultWatched,
+    required TResult Function(_ResetGame value) resetGame,
   }) {
     return initializeSettings(this);
   }
@@ -676,6 +698,7 @@ class _$_InitializeSettings implements _InitializeSettings {
     TResult? Function(_CountWord value)? countWord,
     TResult? Function(_ChangeAnswer value)? changeAnswer,
     TResult? Function(_MoveResultWatched value)? moveResultWatched,
+    TResult? Function(_ResetGame value)? resetGame,
   }) {
     return initializeSettings?.call(this);
   }
@@ -694,6 +717,7 @@ class _$_InitializeSettings implements _InitializeSettings {
     TResult Function(_CountWord value)? countWord,
     TResult Function(_ChangeAnswer value)? changeAnswer,
     TResult Function(_MoveResultWatched value)? moveResultWatched,
+    TResult Function(_ResetGame value)? resetGame,
     required TResult orElse(),
   }) {
     if (initializeSettings != null) {
@@ -762,6 +786,7 @@ class _$_StartGame implements _StartGame {
     required TResult Function() countWord,
     required TResult Function(GameAnswer answer) changeAnswer,
     required TResult Function() moveResultWatched,
+    required TResult Function() resetGame,
   }) {
     return startGame();
   }
@@ -780,6 +805,7 @@ class _$_StartGame implements _StartGame {
     TResult? Function()? countWord,
     TResult? Function(GameAnswer answer)? changeAnswer,
     TResult? Function()? moveResultWatched,
+    TResult? Function()? resetGame,
   }) {
     return startGame?.call();
   }
@@ -798,6 +824,7 @@ class _$_StartGame implements _StartGame {
     TResult Function()? countWord,
     TResult Function(GameAnswer answer)? changeAnswer,
     TResult Function()? moveResultWatched,
+    TResult Function()? resetGame,
     required TResult orElse(),
   }) {
     if (startGame != null) {
@@ -820,6 +847,7 @@ class _$_StartGame implements _StartGame {
     required TResult Function(_CountWord value) countWord,
     required TResult Function(_ChangeAnswer value) changeAnswer,
     required TResult Function(_MoveResultWatched value) moveResultWatched,
+    required TResult Function(_ResetGame value) resetGame,
   }) {
     return startGame(this);
   }
@@ -838,6 +866,7 @@ class _$_StartGame implements _StartGame {
     TResult? Function(_CountWord value)? countWord,
     TResult? Function(_ChangeAnswer value)? changeAnswer,
     TResult? Function(_MoveResultWatched value)? moveResultWatched,
+    TResult? Function(_ResetGame value)? resetGame,
   }) {
     return startGame?.call(this);
   }
@@ -856,6 +885,7 @@ class _$_StartGame implements _StartGame {
     TResult Function(_CountWord value)? countWord,
     TResult Function(_ChangeAnswer value)? changeAnswer,
     TResult Function(_MoveResultWatched value)? moveResultWatched,
+    TResult Function(_ResetGame value)? resetGame,
     required TResult orElse(),
   }) {
     if (startGame != null) {
@@ -918,6 +948,7 @@ class _$_PauseGame implements _PauseGame {
     required TResult Function() countWord,
     required TResult Function(GameAnswer answer) changeAnswer,
     required TResult Function() moveResultWatched,
+    required TResult Function() resetGame,
   }) {
     return pauseGame();
   }
@@ -936,6 +967,7 @@ class _$_PauseGame implements _PauseGame {
     TResult? Function()? countWord,
     TResult? Function(GameAnswer answer)? changeAnswer,
     TResult? Function()? moveResultWatched,
+    TResult? Function()? resetGame,
   }) {
     return pauseGame?.call();
   }
@@ -954,6 +986,7 @@ class _$_PauseGame implements _PauseGame {
     TResult Function()? countWord,
     TResult Function(GameAnswer answer)? changeAnswer,
     TResult Function()? moveResultWatched,
+    TResult Function()? resetGame,
     required TResult orElse(),
   }) {
     if (pauseGame != null) {
@@ -976,6 +1009,7 @@ class _$_PauseGame implements _PauseGame {
     required TResult Function(_CountWord value) countWord,
     required TResult Function(_ChangeAnswer value) changeAnswer,
     required TResult Function(_MoveResultWatched value) moveResultWatched,
+    required TResult Function(_ResetGame value) resetGame,
   }) {
     return pauseGame(this);
   }
@@ -994,6 +1028,7 @@ class _$_PauseGame implements _PauseGame {
     TResult? Function(_CountWord value)? countWord,
     TResult? Function(_ChangeAnswer value)? changeAnswer,
     TResult? Function(_MoveResultWatched value)? moveResultWatched,
+    TResult? Function(_ResetGame value)? resetGame,
   }) {
     return pauseGame?.call(this);
   }
@@ -1012,6 +1047,7 @@ class _$_PauseGame implements _PauseGame {
     TResult Function(_CountWord value)? countWord,
     TResult Function(_ChangeAnswer value)? changeAnswer,
     TResult Function(_MoveResultWatched value)? moveResultWatched,
+    TResult Function(_ResetGame value)? resetGame,
     required TResult orElse(),
   }) {
     if (pauseGame != null) {
@@ -1074,6 +1110,7 @@ class _$_ResumeGame implements _ResumeGame {
     required TResult Function() countWord,
     required TResult Function(GameAnswer answer) changeAnswer,
     required TResult Function() moveResultWatched,
+    required TResult Function() resetGame,
   }) {
     return resumeGame();
   }
@@ -1092,6 +1129,7 @@ class _$_ResumeGame implements _ResumeGame {
     TResult? Function()? countWord,
     TResult? Function(GameAnswer answer)? changeAnswer,
     TResult? Function()? moveResultWatched,
+    TResult? Function()? resetGame,
   }) {
     return resumeGame?.call();
   }
@@ -1110,6 +1148,7 @@ class _$_ResumeGame implements _ResumeGame {
     TResult Function()? countWord,
     TResult Function(GameAnswer answer)? changeAnswer,
     TResult Function()? moveResultWatched,
+    TResult Function()? resetGame,
     required TResult orElse(),
   }) {
     if (resumeGame != null) {
@@ -1132,6 +1171,7 @@ class _$_ResumeGame implements _ResumeGame {
     required TResult Function(_CountWord value) countWord,
     required TResult Function(_ChangeAnswer value) changeAnswer,
     required TResult Function(_MoveResultWatched value) moveResultWatched,
+    required TResult Function(_ResetGame value) resetGame,
   }) {
     return resumeGame(this);
   }
@@ -1150,6 +1190,7 @@ class _$_ResumeGame implements _ResumeGame {
     TResult? Function(_CountWord value)? countWord,
     TResult? Function(_ChangeAnswer value)? changeAnswer,
     TResult? Function(_MoveResultWatched value)? moveResultWatched,
+    TResult? Function(_ResetGame value)? resetGame,
   }) {
     return resumeGame?.call(this);
   }
@@ -1168,6 +1209,7 @@ class _$_ResumeGame implements _ResumeGame {
     TResult Function(_CountWord value)? countWord,
     TResult Function(_ChangeAnswer value)? changeAnswer,
     TResult Function(_MoveResultWatched value)? moveResultWatched,
+    TResult Function(_ResetGame value)? resetGame,
     required TResult orElse(),
   }) {
     if (resumeGame != null) {
@@ -1230,6 +1272,7 @@ class _$_TimeIsLeft implements _TimeIsLeft {
     required TResult Function() countWord,
     required TResult Function(GameAnswer answer) changeAnswer,
     required TResult Function() moveResultWatched,
+    required TResult Function() resetGame,
   }) {
     return timeIsLeft();
   }
@@ -1248,6 +1291,7 @@ class _$_TimeIsLeft implements _TimeIsLeft {
     TResult? Function()? countWord,
     TResult? Function(GameAnswer answer)? changeAnswer,
     TResult? Function()? moveResultWatched,
+    TResult? Function()? resetGame,
   }) {
     return timeIsLeft?.call();
   }
@@ -1266,6 +1310,7 @@ class _$_TimeIsLeft implements _TimeIsLeft {
     TResult Function()? countWord,
     TResult Function(GameAnswer answer)? changeAnswer,
     TResult Function()? moveResultWatched,
+    TResult Function()? resetGame,
     required TResult orElse(),
   }) {
     if (timeIsLeft != null) {
@@ -1288,6 +1333,7 @@ class _$_TimeIsLeft implements _TimeIsLeft {
     required TResult Function(_CountWord value) countWord,
     required TResult Function(_ChangeAnswer value) changeAnswer,
     required TResult Function(_MoveResultWatched value) moveResultWatched,
+    required TResult Function(_ResetGame value) resetGame,
   }) {
     return timeIsLeft(this);
   }
@@ -1306,6 +1352,7 @@ class _$_TimeIsLeft implements _TimeIsLeft {
     TResult? Function(_CountWord value)? countWord,
     TResult? Function(_ChangeAnswer value)? changeAnswer,
     TResult? Function(_MoveResultWatched value)? moveResultWatched,
+    TResult? Function(_ResetGame value)? resetGame,
   }) {
     return timeIsLeft?.call(this);
   }
@@ -1324,6 +1371,7 @@ class _$_TimeIsLeft implements _TimeIsLeft {
     TResult Function(_CountWord value)? countWord,
     TResult Function(_ChangeAnswer value)? changeAnswer,
     TResult Function(_MoveResultWatched value)? moveResultWatched,
+    TResult Function(_ResetGame value)? resetGame,
     required TResult orElse(),
   }) {
     if (timeIsLeft != null) {
@@ -1386,6 +1434,7 @@ class _$_SkipWord implements _SkipWord {
     required TResult Function() countWord,
     required TResult Function(GameAnswer answer) changeAnswer,
     required TResult Function() moveResultWatched,
+    required TResult Function() resetGame,
   }) {
     return skipWord();
   }
@@ -1404,6 +1453,7 @@ class _$_SkipWord implements _SkipWord {
     TResult? Function()? countWord,
     TResult? Function(GameAnswer answer)? changeAnswer,
     TResult? Function()? moveResultWatched,
+    TResult? Function()? resetGame,
   }) {
     return skipWord?.call();
   }
@@ -1422,6 +1472,7 @@ class _$_SkipWord implements _SkipWord {
     TResult Function()? countWord,
     TResult Function(GameAnswer answer)? changeAnswer,
     TResult Function()? moveResultWatched,
+    TResult Function()? resetGame,
     required TResult orElse(),
   }) {
     if (skipWord != null) {
@@ -1444,6 +1495,7 @@ class _$_SkipWord implements _SkipWord {
     required TResult Function(_CountWord value) countWord,
     required TResult Function(_ChangeAnswer value) changeAnswer,
     required TResult Function(_MoveResultWatched value) moveResultWatched,
+    required TResult Function(_ResetGame value) resetGame,
   }) {
     return skipWord(this);
   }
@@ -1462,6 +1514,7 @@ class _$_SkipWord implements _SkipWord {
     TResult? Function(_CountWord value)? countWord,
     TResult? Function(_ChangeAnswer value)? changeAnswer,
     TResult? Function(_MoveResultWatched value)? moveResultWatched,
+    TResult? Function(_ResetGame value)? resetGame,
   }) {
     return skipWord?.call(this);
   }
@@ -1480,6 +1533,7 @@ class _$_SkipWord implements _SkipWord {
     TResult Function(_CountWord value)? countWord,
     TResult Function(_ChangeAnswer value)? changeAnswer,
     TResult Function(_MoveResultWatched value)? moveResultWatched,
+    TResult Function(_ResetGame value)? resetGame,
     required TResult orElse(),
   }) {
     if (skipWord != null) {
@@ -1542,6 +1596,7 @@ class _$_CountWord implements _CountWord {
     required TResult Function() countWord,
     required TResult Function(GameAnswer answer) changeAnswer,
     required TResult Function() moveResultWatched,
+    required TResult Function() resetGame,
   }) {
     return countWord();
   }
@@ -1560,6 +1615,7 @@ class _$_CountWord implements _CountWord {
     TResult? Function()? countWord,
     TResult? Function(GameAnswer answer)? changeAnswer,
     TResult? Function()? moveResultWatched,
+    TResult? Function()? resetGame,
   }) {
     return countWord?.call();
   }
@@ -1578,6 +1634,7 @@ class _$_CountWord implements _CountWord {
     TResult Function()? countWord,
     TResult Function(GameAnswer answer)? changeAnswer,
     TResult Function()? moveResultWatched,
+    TResult Function()? resetGame,
     required TResult orElse(),
   }) {
     if (countWord != null) {
@@ -1600,6 +1657,7 @@ class _$_CountWord implements _CountWord {
     required TResult Function(_CountWord value) countWord,
     required TResult Function(_ChangeAnswer value) changeAnswer,
     required TResult Function(_MoveResultWatched value) moveResultWatched,
+    required TResult Function(_ResetGame value) resetGame,
   }) {
     return countWord(this);
   }
@@ -1618,6 +1676,7 @@ class _$_CountWord implements _CountWord {
     TResult? Function(_CountWord value)? countWord,
     TResult? Function(_ChangeAnswer value)? changeAnswer,
     TResult? Function(_MoveResultWatched value)? moveResultWatched,
+    TResult? Function(_ResetGame value)? resetGame,
   }) {
     return countWord?.call(this);
   }
@@ -1636,6 +1695,7 @@ class _$_CountWord implements _CountWord {
     TResult Function(_CountWord value)? countWord,
     TResult Function(_ChangeAnswer value)? changeAnswer,
     TResult Function(_MoveResultWatched value)? moveResultWatched,
+    TResult Function(_ResetGame value)? resetGame,
     required TResult orElse(),
   }) {
     if (countWord != null) {
@@ -1734,6 +1794,7 @@ class _$_ChangeAnswer implements _ChangeAnswer {
     required TResult Function() countWord,
     required TResult Function(GameAnswer answer) changeAnswer,
     required TResult Function() moveResultWatched,
+    required TResult Function() resetGame,
   }) {
     return changeAnswer(answer);
   }
@@ -1752,6 +1813,7 @@ class _$_ChangeAnswer implements _ChangeAnswer {
     TResult? Function()? countWord,
     TResult? Function(GameAnswer answer)? changeAnswer,
     TResult? Function()? moveResultWatched,
+    TResult? Function()? resetGame,
   }) {
     return changeAnswer?.call(answer);
   }
@@ -1770,6 +1832,7 @@ class _$_ChangeAnswer implements _ChangeAnswer {
     TResult Function()? countWord,
     TResult Function(GameAnswer answer)? changeAnswer,
     TResult Function()? moveResultWatched,
+    TResult Function()? resetGame,
     required TResult orElse(),
   }) {
     if (changeAnswer != null) {
@@ -1792,6 +1855,7 @@ class _$_ChangeAnswer implements _ChangeAnswer {
     required TResult Function(_CountWord value) countWord,
     required TResult Function(_ChangeAnswer value) changeAnswer,
     required TResult Function(_MoveResultWatched value) moveResultWatched,
+    required TResult Function(_ResetGame value) resetGame,
   }) {
     return changeAnswer(this);
   }
@@ -1810,6 +1874,7 @@ class _$_ChangeAnswer implements _ChangeAnswer {
     TResult? Function(_CountWord value)? countWord,
     TResult? Function(_ChangeAnswer value)? changeAnswer,
     TResult? Function(_MoveResultWatched value)? moveResultWatched,
+    TResult? Function(_ResetGame value)? resetGame,
   }) {
     return changeAnswer?.call(this);
   }
@@ -1828,6 +1893,7 @@ class _$_ChangeAnswer implements _ChangeAnswer {
     TResult Function(_CountWord value)? countWord,
     TResult Function(_ChangeAnswer value)? changeAnswer,
     TResult Function(_MoveResultWatched value)? moveResultWatched,
+    TResult Function(_ResetGame value)? resetGame,
     required TResult orElse(),
   }) {
     if (changeAnswer != null) {
@@ -1896,6 +1962,7 @@ class _$_MoveResultWatched implements _MoveResultWatched {
     required TResult Function() countWord,
     required TResult Function(GameAnswer answer) changeAnswer,
     required TResult Function() moveResultWatched,
+    required TResult Function() resetGame,
   }) {
     return moveResultWatched();
   }
@@ -1914,6 +1981,7 @@ class _$_MoveResultWatched implements _MoveResultWatched {
     TResult? Function()? countWord,
     TResult? Function(GameAnswer answer)? changeAnswer,
     TResult? Function()? moveResultWatched,
+    TResult? Function()? resetGame,
   }) {
     return moveResultWatched?.call();
   }
@@ -1932,6 +2000,7 @@ class _$_MoveResultWatched implements _MoveResultWatched {
     TResult Function()? countWord,
     TResult Function(GameAnswer answer)? changeAnswer,
     TResult Function()? moveResultWatched,
+    TResult Function()? resetGame,
     required TResult orElse(),
   }) {
     if (moveResultWatched != null) {
@@ -1954,6 +2023,7 @@ class _$_MoveResultWatched implements _MoveResultWatched {
     required TResult Function(_CountWord value) countWord,
     required TResult Function(_ChangeAnswer value) changeAnswer,
     required TResult Function(_MoveResultWatched value) moveResultWatched,
+    required TResult Function(_ResetGame value) resetGame,
   }) {
     return moveResultWatched(this);
   }
@@ -1972,6 +2042,7 @@ class _$_MoveResultWatched implements _MoveResultWatched {
     TResult? Function(_CountWord value)? countWord,
     TResult? Function(_ChangeAnswer value)? changeAnswer,
     TResult? Function(_MoveResultWatched value)? moveResultWatched,
+    TResult? Function(_ResetGame value)? resetGame,
   }) {
     return moveResultWatched?.call(this);
   }
@@ -1990,6 +2061,7 @@ class _$_MoveResultWatched implements _MoveResultWatched {
     TResult Function(_CountWord value)? countWord,
     TResult Function(_ChangeAnswer value)? changeAnswer,
     TResult Function(_MoveResultWatched value)? moveResultWatched,
+    TResult Function(_ResetGame value)? resetGame,
     required TResult orElse(),
   }) {
     if (moveResultWatched != null) {
@@ -2001,6 +2073,168 @@ class _$_MoveResultWatched implements _MoveResultWatched {
 
 abstract class _MoveResultWatched implements GameEvent {
   const factory _MoveResultWatched() = _$_MoveResultWatched;
+}
+
+/// @nodoc
+abstract class _$$_ResetGameCopyWith<$Res> {
+  factory _$$_ResetGameCopyWith(
+          _$_ResetGame value, $Res Function(_$_ResetGame) then) =
+      __$$_ResetGameCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ResetGameCopyWithImpl<$Res>
+    extends _$GameEventCopyWithImpl<$Res, _$_ResetGame>
+    implements _$$_ResetGameCopyWith<$Res> {
+  __$$_ResetGameCopyWithImpl(
+      _$_ResetGame _value, $Res Function(_$_ResetGame) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_ResetGame implements _ResetGame {
+  const _$_ResetGame();
+
+  @override
+  String toString() {
+    return 'GameEvent.resetGame()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_ResetGame);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Category category) initializeCategory,
+    required TResult Function(List<Command> commands) initializeCommands,
+    required TResult Function(GameSettings gameSettings) initializeSettings,
+    required TResult Function() startGame,
+    required TResult Function() pauseGame,
+    required TResult Function() resumeGame,
+    required TResult Function() timeIsLeft,
+    required TResult Function() skipWord,
+    required TResult Function() countWord,
+    required TResult Function(GameAnswer answer) changeAnswer,
+    required TResult Function() moveResultWatched,
+    required TResult Function() resetGame,
+  }) {
+    return resetGame();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Category category)? initializeCategory,
+    TResult? Function(List<Command> commands)? initializeCommands,
+    TResult? Function(GameSettings gameSettings)? initializeSettings,
+    TResult? Function()? startGame,
+    TResult? Function()? pauseGame,
+    TResult? Function()? resumeGame,
+    TResult? Function()? timeIsLeft,
+    TResult? Function()? skipWord,
+    TResult? Function()? countWord,
+    TResult? Function(GameAnswer answer)? changeAnswer,
+    TResult? Function()? moveResultWatched,
+    TResult? Function()? resetGame,
+  }) {
+    return resetGame?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Category category)? initializeCategory,
+    TResult Function(List<Command> commands)? initializeCommands,
+    TResult Function(GameSettings gameSettings)? initializeSettings,
+    TResult Function()? startGame,
+    TResult Function()? pauseGame,
+    TResult Function()? resumeGame,
+    TResult Function()? timeIsLeft,
+    TResult Function()? skipWord,
+    TResult Function()? countWord,
+    TResult Function(GameAnswer answer)? changeAnswer,
+    TResult Function()? moveResultWatched,
+    TResult Function()? resetGame,
+    required TResult orElse(),
+  }) {
+    if (resetGame != null) {
+      return resetGame();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitializeCategory value) initializeCategory,
+    required TResult Function(_InitializeCommands value) initializeCommands,
+    required TResult Function(_InitializeSettings value) initializeSettings,
+    required TResult Function(_StartGame value) startGame,
+    required TResult Function(_PauseGame value) pauseGame,
+    required TResult Function(_ResumeGame value) resumeGame,
+    required TResult Function(_TimeIsLeft value) timeIsLeft,
+    required TResult Function(_SkipWord value) skipWord,
+    required TResult Function(_CountWord value) countWord,
+    required TResult Function(_ChangeAnswer value) changeAnswer,
+    required TResult Function(_MoveResultWatched value) moveResultWatched,
+    required TResult Function(_ResetGame value) resetGame,
+  }) {
+    return resetGame(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InitializeCategory value)? initializeCategory,
+    TResult? Function(_InitializeCommands value)? initializeCommands,
+    TResult? Function(_InitializeSettings value)? initializeSettings,
+    TResult? Function(_StartGame value)? startGame,
+    TResult? Function(_PauseGame value)? pauseGame,
+    TResult? Function(_ResumeGame value)? resumeGame,
+    TResult? Function(_TimeIsLeft value)? timeIsLeft,
+    TResult? Function(_SkipWord value)? skipWord,
+    TResult? Function(_CountWord value)? countWord,
+    TResult? Function(_ChangeAnswer value)? changeAnswer,
+    TResult? Function(_MoveResultWatched value)? moveResultWatched,
+    TResult? Function(_ResetGame value)? resetGame,
+  }) {
+    return resetGame?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitializeCategory value)? initializeCategory,
+    TResult Function(_InitializeCommands value)? initializeCommands,
+    TResult Function(_InitializeSettings value)? initializeSettings,
+    TResult Function(_StartGame value)? startGame,
+    TResult Function(_PauseGame value)? pauseGame,
+    TResult Function(_ResumeGame value)? resumeGame,
+    TResult Function(_TimeIsLeft value)? timeIsLeft,
+    TResult Function(_SkipWord value)? skipWord,
+    TResult Function(_CountWord value)? countWord,
+    TResult Function(_ChangeAnswer value)? changeAnswer,
+    TResult Function(_MoveResultWatched value)? moveResultWatched,
+    TResult Function(_ResetGame value)? resetGame,
+    required TResult orElse(),
+  }) {
+    if (resetGame != null) {
+      return resetGame(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ResetGame implements GameEvent {
+  const factory _ResetGame() = _$_ResetGame;
 }
 
 /// @nodoc

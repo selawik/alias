@@ -26,4 +26,6 @@ class GameEvent with _$GameEvent {
 
   const factory GameEvent.moveResultWatched() = _MoveResultWatched;
 
+  const factory GameEvent.resetGame() = _ResetGame;
+
 }
