@@ -133,8 +133,6 @@ class ThemeBuilder {
         borderRadius: BorderRadius.circular(16),
       ),
       foregroundColor: AppColors.white,
-
-      /// This line removes elevatedButton extra height with empty space
       tapTargetSize: MaterialTapTargetSize.shrinkWrap,
     );
   }
