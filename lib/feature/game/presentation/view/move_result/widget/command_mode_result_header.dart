@@ -1,4 +1,4 @@
-import 'package:alias/feature/game/domain/playing_command.dart';
+import 'package:alias/feature/game/domain/model/playing_command.dart';
 import 'package:alias/feature/game/presentation/view/move_result/widget/command_score.dart';
 import 'package:flutter/material.dart';
 

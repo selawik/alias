@@ -1,5 +1,5 @@
 import 'package:alias/core/theme/theme_builder.dart';
-import 'package:alias/feature/game/domain/playing_command.dart';
+import 'package:alias/feature/game/domain/model/playing_command.dart';
 import 'package:flutter/material.dart';
 
 class CommandsList extends StatelessWidget {

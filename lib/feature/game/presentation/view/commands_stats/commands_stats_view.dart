@@ -1,5 +1,5 @@
 import 'package:alias/core/router/app_router.dart';
-import 'package:alias/feature/game/domain/playing_command.dart';
+import 'package:alias/feature/game/domain/model/playing_command.dart';
 import 'package:alias/feature/game/presentation/bloc/game_bloc.dart';
 import 'package:alias/feature/game/presentation/view/commands_stats/widget/commands_list.dart';
 import 'package:flutter/material.dart';
