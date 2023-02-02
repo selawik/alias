@@ -1,4 +1,5 @@
 import 'package:alias/core/constants/app_colors.dart';
+import 'package:alias/core/theme/theme_builder.dart';
 import 'package:flutter/material.dart';
 
 class GameMainCircleWidget extends StatelessWidget {
@@ -18,9 +19,10 @@ class GameMainCircleWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16),
       height: MediaQuery.of(context).size.height * 0.6,
       width: MediaQuery.of(context).size.width * 0.9,
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         color: AppColors.yellow,
         shape: BoxShape.circle,
+        boxShadow: ThemeBuilder.defaultShadow,
       ),
       child: Center(
         child: Text(

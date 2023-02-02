@@ -128,6 +128,7 @@ class ThemeBuilder {
     return TextButton.styleFrom(
       minimumSize: const Size(0, 60),
       backgroundColor: color,
+      elevation: 10,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
       ),
