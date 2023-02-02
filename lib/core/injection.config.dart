@@ -31,13 +31,15 @@ import 'package:alias/feature/commands/domain/usercases/load_commands.dart'
 import 'package:alias/feature/commands/presentation/bloc/commands_bloc.dart'
     as _i20;
 import 'package:alias/feature/game/data/data_sourse/firebase_words_data_source.dart'
-    as _i18;
-import 'package:alias/feature/game/data/data_sourse/words_data_sourse.dart'
-    as _i17;
-import 'package:alias/feature/game/domain/repository/words_repository.dart'
     as _i16;
-import 'package:alias/feature/game/domain/usecases/load_words.dart' as _i15;
-import 'package:alias/feature/game/presentation/bloc/game_bloc.dart' as _i21;
+import 'package:alias/feature/game/data/data_sourse/words_data_sourse.dart'
+    as _i15;
+import 'package:alias/feature/game/data/repository/words_repository_impl.dart'
+    as _i18;
+import 'package:alias/feature/game/domain/repository/words_repository.dart'
+    as _i17;
+import 'package:alias/feature/game/domain/usecases/load_words.dart' as _i21;
+import 'package:alias/feature/game/presentation/bloc/game_bloc.dart' as _i22;
 import 'package:alias/feature/game_settings/presentation/bloc/game_settings_bloc.dart'
     as _i12;
 import 'package:get_it/get_it.dart' as _i1;
@@ -68,15 +70,16 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i13.LoadCategories(repository: gh<_i6.CategoryRepository>()));
     gh.factory<_i14.LoadCommands>(
         () => _i14.LoadCommands(repository: gh<_i10.CommandsRepository>()));
-    gh.factory<_i15.LoadWords>(
-        () => _i15.LoadWords(repository: gh<_i16.WordsRepository>()));
-    gh.factory<_i17.WordsDataSource>(() => _i18.FirebaseWordsDataSource());
+    gh.factory<_i15.WordsDataSource>(() => _i16.FirebaseWordsDataSource());
+    gh.factory<_i17.WordsRepository>(() => _i18.WordsRepositoryImpl());
     gh.factory<_i19.CategoriesBloc>(
         () => _i19.CategoriesBloc(loadCategories: gh<_i13.LoadCategories>()));
     gh.factory<_i20.CommandsBloc>(
         () => _i20.CommandsBloc(loadCommandsUseCase: gh<_i14.LoadCommands>()));
-    gh.factory<_i21.GameBloc>(
-        () => _i21.GameBloc(loadWords: gh<_i15.LoadWords>()));
+    gh.factory<_i21.LoadWords>(
+        () => _i21.LoadWords(repository: gh<_i17.WordsRepository>()));
+    gh.factory<_i22.GameBloc>(
+        () => _i22.GameBloc(loadWords: gh<_i21.LoadWords>()));
     return this;
   }
 }
