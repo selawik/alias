@@ -1,4 +1,5 @@
 import 'package:alias/core/router/app_router.dart';
+import 'package:alias/feature/commands/data/models/command.dart';
 import 'package:alias/feature/game/domain/model/playing_command.dart';
 import 'package:alias/feature/game/presentation/bloc/game_bloc.dart';
 import 'package:alias/feature/game/presentation/view/commands_stats/widget/commands_list.dart';
@@ -15,11 +16,28 @@ class CommandsStatsView extends StatelessWidget {
       builder: (context, state) {
         return state.maybeWhen(
           orElse: () => Container(),
-          gameIsReady: (settings, commands) {
-            return _buildStatsView(context, commands);
-          },
+          gameIsReady: (settings, commands) =>
+              _buildStatsView(context, commands),
+          gameOver: (commands) => _buildGameOverView(context, commands),
         );
       },
+    );
+  }
+
+  Widget _buildGameOverView(
+    BuildContext context,
+    List<PlayingCommand> commands,
+  ) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Expanded(child: CommandsList(commands: commands)),
+        const SizedBox(height: 16),
+        _buildWonCommandWidget(context, commands.first),
+        const SizedBox(height: 16),
+        _buildGameOverButton(context),
+        SizedBox(height: MediaQuery.of(context).padding.bottom + 16),
+      ],
     );
   }
 
@@ -27,7 +45,6 @@ class CommandsStatsView extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Container(),
         Expanded(child: CommandsList(commands: commands)),
         const SizedBox(height: 16),
         _buildNextCommandWidget(context, commands.first),
@@ -51,6 +68,19 @@ class CommandsStatsView extends StatelessWidget {
     );
   }
 
+  Widget _buildWonCommandWidget(BuildContext context, PlayingCommand command) {
+    return Column(
+      children: [
+        const Text('Победила команда'),
+        const SizedBox(height: 8),
+        Text(
+          command.name,
+          style: Theme.of(context).textTheme.displayMedium,
+        ),
+      ],
+    );
+  }
+
   Widget _buildStartButton(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -61,6 +91,17 @@ class CommandsStatsView extends StatelessWidget {
           router.replace(const GamePageRoute());
         },
         child: const Text('Начать игру'),
+      ),
+    );
+  }
+
+  Widget _buildGameOverButton(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: ElevatedButton(
+        onPressed: () {
+        },
+        child: const Text('В меню'),
       ),
     );
   }

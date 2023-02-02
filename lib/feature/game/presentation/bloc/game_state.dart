@@ -23,4 +23,7 @@ class GameState with _$GameState {
     required List<GameAnswer> answers,
     required int commandScore,
   }) = _CommandMoveIsOver;
+
+
+  const factory GameState.gameOver({required List<PlayingCommand> commands}) = _GameOver;
 }

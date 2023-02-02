@@ -43,7 +43,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     on<_CountWord>(_onCountWord);
     on<_SkipWord>(_onSkipWord);
     on<_ChangeAnswer>(_onChangeAnswer);
-    on<_MoveResultWatched>(_onModeResultWatched);
+    on<_MoveResultWatched>(_onMoveResultWatched);
   }
 
   void _onCategoryInitialization(_InitializeCategory event, Emitter emit) {
@@ -172,7 +172,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     );
   }
 
-  void _onModeResultWatched(_MoveResultWatched event, Emitter emit) {
+  void _onMoveResultWatched(_MoveResultWatched event, Emitter emit) {
     var playingCommand = _commands.first;
 
     _commands.add(playingCommand.copyWith(score: _getCommandScore()));
@@ -185,7 +185,12 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     _answers.clear();
     _words.shuffle();
 
-    emit(GameState.gameIsReady(settings: _settings, commands: _commands));
+    if (_words.isEmpty) {
+      _commands.sort((command1, command2) => command2.score.compareTo(command1.score));
+      emit(GameState.gameOver(commands: _commands));
+    } else {
+      emit(GameState.gameIsReady(settings: _settings, commands: _commands));
+    }
   }
 
   int _getCommandScore() {

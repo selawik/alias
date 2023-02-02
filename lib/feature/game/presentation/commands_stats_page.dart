@@ -8,9 +8,15 @@ class CommandsStatsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: CustomAppBar(title: 'Счет команд'),
-      body: CommandsStatsView(),
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: const Scaffold(
+        appBar: CustomAppBar(
+          title: 'Счет команд',
+          automaticallyImplyLeading: false,
+        ),
+        body: CommandsStatsView(),
+      ),
     );
   }
 }
