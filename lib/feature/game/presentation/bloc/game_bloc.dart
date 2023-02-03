@@ -60,27 +60,22 @@ class GameBloc extends Bloc<GameEvent, GameState> {
         .toList();
   }
 
-  void _onSettingsInitialization(_InitializeSettings event, Emitter emit) {
+  void _onSettingsInitialization(
+      _InitializeSettings event, Emitter emit) async {
     _settings = event.gameSettings;
 
-    _words = [
-      const Word(categoryId: 1, wordId: 1, name: 'Слово 1'),
-      const Word(categoryId: 1, wordId: 2, name: 'Слово 2'),
-      const Word(categoryId: 1, wordId: 3, name: 'Слово 3'),
-      const Word(categoryId: 1, wordId: 4, name: 'Слово 4'),
-      const Word(categoryId: 1, wordId: 5, name: 'Слово 5'),
-      const Word(categoryId: 1, wordId: 6, name: 'Слово 6'),
-      const Word(categoryId: 1, wordId: 7, name: 'Слово 7'),
-      const Word(categoryId: 1, wordId: 8, name: 'Слово 8'),
-      const Word(categoryId: 1, wordId: 9, name: 'Слово 9'),
-      const Word(categoryId: 1, wordId: 10, name: 'Слово 10'),
-      const Word(categoryId: 1, wordId: 11, name: 'Слово 11'),
-      const Word(categoryId: 1, wordId: 12, name: 'Слово 12'),
-      const Word(categoryId: 1, wordId: 13, name: 'Слово 13'),
-      const Word(categoryId: 1, wordId: 14, name: 'Слово 14'),
-      const Word(categoryId: 1, wordId: 15, name: 'Слово 15'),
-      const Word(categoryId: 1, wordId: 16, name: 'Слово 16'),
-    ];
+    emit(const GameState.wordsIsLoading());
+
+    var wordsResult = await _loadWords.execute(
+      category: _category,
+      penaltyMode: _settings.penaltyMode,
+      commandsCount: _commands.length,
+    );
+
+    wordsResult.fold(
+      (failure) => null,
+      (result) => _words = result,
+    );
 
     _words.shuffle();
     emit(GameState.gameIsReady(settings: _settings, commands: _commands));
@@ -187,7 +182,8 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     _words.shuffle();
 
     if (_words.isEmpty) {
-      _commands.sort((command1, command2) => command2.score.compareTo(command1.score));
+      _commands.sort(
+          (command1, command2) => command2.score.compareTo(command1.score));
       emit(GameState.gameOver(commands: _commands));
     } else {
       emit(GameState.gameIsReady(settings: _settings, commands: _commands));

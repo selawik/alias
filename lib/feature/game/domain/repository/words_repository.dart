@@ -1,5 +1,13 @@
+import 'package:alias/core/error/failure.dart';
+import 'package:alias/feature/categories/data/models/category.dart';
 import 'package:alias/feature/game_settings/data/models/word.dart';
+import 'package:alias/feature/game_settings/domain/model/binary_selector_type.dart';
+import 'package:dartz/dartz.dart';
 
 abstract class WordsRepository {
-  Future<List<Word>> loadWords();
+  Future<Either<Failure, List<Word>>> loadWords({
+    required Category category,
+    required int commandsCount,
+    required BinarySelectorMode penaltyMode,
+  });
 }

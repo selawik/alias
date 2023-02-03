@@ -71,7 +71,8 @@ extension GetItInjectableX on _i1.GetIt {
     gh.factory<_i14.LoadCommands>(
         () => _i14.LoadCommands(repository: gh<_i10.CommandsRepository>()));
     gh.factory<_i15.WordsDataSource>(() => _i16.FirebaseWordsDataSource());
-    gh.factory<_i17.WordsRepository>(() => _i18.WordsRepositoryImpl());
+    gh.factory<_i17.WordsRepository>(
+        () => _i18.WordsRepositoryImpl(dataSource: gh<_i15.WordsDataSource>()));
     gh.factory<_i19.CategoriesBloc>(
         () => _i19.CategoriesBloc(loadCategories: gh<_i13.LoadCategories>()));
     gh.factory<_i20.CommandsBloc>(

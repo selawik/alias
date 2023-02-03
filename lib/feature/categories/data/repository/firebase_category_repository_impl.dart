@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:alias/core/error/failure.dart';
 import 'package:alias/feature/categories/data/data_source/category_data_source.dart';
 import 'package:alias/feature/categories/data/models/category.dart';
@@ -33,8 +35,7 @@ class FirebaseCategoryRepositoryImpl implements CategoryRepository {
 
       return Right(await Future.wait(categories));
     } catch (e, stacktrace) {
-      print(e.toString());
-      print(stacktrace);
+      log(e.toString(), stackTrace: stacktrace);
       return const Left(ServerFailure('Error'));
     }
   }
