@@ -51,6 +51,9 @@ class _GameTimerState extends State<GameTimer> with TickerProviderStateMixin {
           gamePaused: () {
             controller.stop();
           },
+          gameOver: (commands) {
+            controller.stop();
+          },
           waitingForAnswer: (word) {
             controller.reverse(
               from: controller.value == 0
