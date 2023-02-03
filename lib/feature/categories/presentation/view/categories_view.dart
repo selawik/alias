@@ -41,6 +41,7 @@ class CategoriesView extends StatelessWidget {
         crossAxisCount: 2,
         mainAxisSpacing: 16,
         crossAxisSpacing: 16,
+        childAspectRatio: 0.95,
       ),
       itemBuilder: (context, index) {
         var item = categories[index];
@@ -53,18 +54,24 @@ class CategoriesView extends StatelessWidget {
 
   Widget _buildListItem(BuildContext context, Category category) {
     return Container(
+      padding: const EdgeInsets.all(8),
       decoration: ThemeBuilder.cardDecoration,
       child: GestureDetector(
         onTap: () => _onListItemTap(context, category),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.network(
-              category.fileName,
-              width: 120,
+            Flexible(
+              child: Image.network(
+                category.fileName,
+                gaplessPlayback: true,
+              ),
             ),
             const SizedBox(height: 16),
-            Text(category.name),
+            Text(
+              category.name,
+              textAlign: TextAlign.center,
+            ),
           ],
         ),
       ),
