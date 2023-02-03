@@ -13,7 +13,7 @@ class GameSettingsBloc extends Bloc<GameSettingsEvent, GameSettingsState> {
   GameSettingsBloc()
       : super(
           const GameSettingsState.ready(
-            time: CommandMoveMode.minute,
+            time: CommandMoveMode.halfAndQuarter,
             lastWordMode: BinarySelectorMode.enabled,
             penaltyMode: BinarySelectorMode.disabled,
           ),
