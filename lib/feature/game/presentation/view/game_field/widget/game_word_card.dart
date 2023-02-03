@@ -16,7 +16,10 @@ class GameWordCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Draggable<int>(
       feedback: GameMainCircleWidget(title: word.name),
-      childWhenDragging: Container(),
+      childWhenDragging: SizedBox(
+        height: MediaQuery.of(context).size.height * 0.6,
+        width: MediaQuery.of(context).size.width * 0.9,
+      ),
       onDragEnd: (details) => _onDragEnd(details, context),
       child: Center(child: GameMainCircleWidget(title: word.name)),
     );
