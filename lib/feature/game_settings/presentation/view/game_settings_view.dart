@@ -1,4 +1,5 @@
 import 'package:alias/core/router/app_router.dart';
+import 'package:alias/core/widget/custom_progress_indicator.dart';
 import 'package:alias/feature/game/domain/model/game_settings.dart';
 import 'package:alias/feature/game/presentation/bloc/game_bloc.dart';
 import 'package:alias/feature/game_settings/presentation/bloc/game_settings_bloc.dart';
@@ -65,7 +66,7 @@ class GameSettingsView extends StatelessWidget {
               return state.maybeWhen(
                 orElse: () => Container(),
                 wordsIsLoading: () =>
-                    const Center(child: CircularProgressIndicator()),
+                    const Center(child: CustomProgressIndicator()),
               );
             },
           ),

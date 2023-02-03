@@ -1,6 +1,7 @@
 import 'package:alias/core/injection.dart' as di;
 import 'package:alias/core/router/app_router.dart';
 import 'package:alias/core/theme/theme_builder.dart';
+import 'package:alias/core/widget/custom_progress_indicator.dart';
 import 'package:alias/feature/commands/data/models/command.dart';
 import 'package:alias/feature/commands/presentation/bloc/commands_bloc.dart';
 import 'package:alias/feature/commands/presentation/view/widget/command_list_item.dart';
@@ -42,7 +43,7 @@ class CommandsView extends StatelessWidget {
       builder: (context, state) {
         return state.when(
           initial: () => Container(),
-          loading: () => const Center(child: CircularProgressIndicator()),
+          loading: () => const Center(child: CustomProgressIndicator()),
           loaded: (addedCommands) => _buildCommandsList(context, addedCommands),
         );
       },

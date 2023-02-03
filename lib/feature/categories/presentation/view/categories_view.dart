@@ -1,7 +1,7 @@
-import 'package:alias/core/constants/app_colors.dart';
 import 'package:alias/core/injection.dart' as di;
 import 'package:alias/core/router/app_router.dart';
 import 'package:alias/core/theme/theme_builder.dart';
+import 'package:alias/core/widget/custom_progress_indicator.dart';
 import 'package:alias/feature/categories/data/models/category.dart';
 import 'package:alias/feature/categories/presentation/bloc/categories_bloc.dart';
 import 'package:alias/feature/game/presentation/bloc/game_bloc.dart';
@@ -30,7 +30,7 @@ class CategoriesView extends StatelessWidget {
 
   Widget _buildProgressIndicator(BuildContext context) {
     return const Center(
-      child: CircularProgressIndicator(),
+      child: CustomProgressIndicator(),
     );
   }
 
