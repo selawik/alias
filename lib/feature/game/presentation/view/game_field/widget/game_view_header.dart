@@ -55,7 +55,10 @@ class GameHeader extends StatelessWidget {
           router.pop();
         },
         //TODO do it another way
-        onExitPressed: () => router.popUntil((route) => route.settings.name == 'CategoryPageRoute'),
+        onExitPressed: () {
+          bloc.add(const GameEvent.resetGame());
+          router.popUntil((route) => route.settings.name == 'CategoryPageRoute');
+        },
       ),
     );
   }
