@@ -1,3 +1,6 @@
+import 'package:alias/core/constants/app_colors.dart';
+import 'package:alias/core/constants/assets_catalog.dart';
+import 'package:alias/core/theme/theme_builder.dart';
 import 'package:alias/feature/game/presentation/bloc/game_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,11 +24,15 @@ class GameViewFooter extends StatelessWidget {
   Widget _buildStartButton(BuildContext context) {
     var gameBloc = BlocProvider.of<GameBloc>(context);
 
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: ElevatedButton(
-        onPressed: () => gameBloc.add(const GameEvent.startGame()),
-        child: const Text('Начать'),
+    return Align(
+      alignment: Alignment.bottomCenter,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        width: MediaQuery.of(context).size.width,
+        child: ElevatedButton(
+          onPressed: () => gameBloc.add(const GameEvent.startGame()),
+          child: const Text('Начать'),
+        ),
       ),
     );
   }
@@ -40,14 +47,28 @@ class GameViewFooter extends StatelessWidget {
           Expanded(
             child: ElevatedButton(
               onPressed: () => gameBloc.add(const GameEvent.skipWord()),
-              child: const Text('Нет'),
+              style: ThemeBuilder.blueButtonStyle.copyWith(
+                shape: const MaterialStatePropertyAll(CircleBorder()),
+                minimumSize: const MaterialStatePropertyAll(Size(100, 100)),
+                backgroundColor: const MaterialStatePropertyAll(AppColors.red),
+              ),
+              child: Image.asset(
+                AssetsCatalog.icCross,
+                color: AppColors.white,
+              ),
             ),
           ),
           const SizedBox(width: 16),
           Expanded(
             child: ElevatedButton(
               onPressed: () => gameBloc.add(const GameEvent.countWord()),
-              child: const Text('Да'),
+              style: ThemeBuilder.blueButtonStyle.copyWith(
+                minimumSize: const MaterialStatePropertyAll(Size(100, 100)),
+                shape: const MaterialStatePropertyAll(CircleBorder()),
+                backgroundColor:
+                    const MaterialStatePropertyAll(AppColors.green),
+              ),
+              child: Image.asset(AssetsCatalog.icDone, color: AppColors.white),
             ),
           ),
         ],

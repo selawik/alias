@@ -35,7 +35,7 @@ class GameView extends StatelessWidget {
           const Spacer(),
           const GameMainBlock(),
           const Spacer(),
-          const GameViewFooter(),
+          const Expanded(flex: 3, child: GameViewFooter()),
           SizedBox(height: MediaQuery.of(context).padding.bottom + 16),
         ],
       ),
