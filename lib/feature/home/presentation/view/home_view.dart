@@ -1,3 +1,4 @@
+import 'package:alias/core/constants/assets_catalog.dart';
 import 'package:alias/core/injection.dart' as di;
 import 'package:alias/core/router/app_router.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,7 @@ class HomeView extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          Expanded(child: Image.asset(AssetsCatalog.icLogo)),
           ElevatedButton(
             onPressed: () => router.push(const CategoryPageRoute()),
             child: const Text('Новая игра'),
