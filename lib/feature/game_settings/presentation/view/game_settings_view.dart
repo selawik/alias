@@ -14,37 +14,60 @@ class GameSettingsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+    return BlocListener<GameBloc, GameState>(
+      listener: (context, state) {
+        state.whenOrNull(
+          gameIsReady: (settings, commands) {
+            var router = di.locator.get<AppRouter>();
+            router.push(const CommandsStatsPageRoute());
+          },
+        );
+      },
       child: Stack(
-        fit: StackFit.expand,
         children: [
-          BlocBuilder<GameSettingsBloc, GameSettingsState>(
-            builder: (context, state) {
-              return SingleChildScrollView(
-                physics: const AlwaysScrollableScrollPhysics(),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    const SizedBox(height: 16),
-                    CommandMoveTimeSelector(selectedItem: state.time),
-                    const SizedBox(height: 24),
-                    LastWordSelector(selectedItem: state.lastWordMode),
-                    const SizedBox(height: 24),
-                    PenaltySelector(selectedItem: state.penaltyMode),
-                  ],
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Stack(
+              fit: StackFit.expand,
+              children: [
+                BlocBuilder<GameSettingsBloc, GameSettingsState>(
+                  builder: (context, state) {
+                    return SingleChildScrollView(
+                      physics: const AlwaysScrollableScrollPhysics(),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          const SizedBox(height: 16),
+                          CommandMoveTimeSelector(selectedItem: state.time),
+                          const SizedBox(height: 24),
+                          LastWordSelector(selectedItem: state.lastWordMode),
+                          const SizedBox(height: 24),
+                          PenaltySelector(selectedItem: state.penaltyMode),
+                        ],
+                      ),
+                    );
+                  },
                 ),
+                Positioned(
+                  bottom: MediaQuery.of(context).padding.bottom + 16,
+                  left: 0,
+                  right: 0,
+                  child: ElevatedButton(
+                    child: const Text('Продолжить'),
+                    onPressed: () => _onContinuePressed(context),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          BlocBuilder<GameBloc, GameState>(
+            builder: (context, state) {
+              return state.maybeWhen(
+                orElse: () => Container(),
+                wordsIsLoading: () =>
+                    const Center(child: CircularProgressIndicator()),
               );
             },
-          ),
-          Positioned(
-            bottom: MediaQuery.of(context).padding.bottom + 16,
-            left: 0,
-            right: 0,
-            child: ElevatedButton(
-              child: const Text('Продолжить'),
-              onPressed: () => _onContinuePressed(context),
-            ),
           ),
         ],
       ),
@@ -63,13 +86,8 @@ class GameSettingsView extends StatelessWidget {
           penaltyMode: penaltyMode,
         );
 
-
         gameBloc.add(GameEvent.initializeSettings(gameSettings: gameSettings));
       },
     );
-
-    var router = di.locator.get<AppRouter>();
-
-    router.push(const CommandsStatsPageRoute());
   }
 }
