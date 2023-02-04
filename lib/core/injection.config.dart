@@ -5,6 +5,7 @@
 // **************************************************************************
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:alias/core/database/database.dart' as _i15;
 import 'package:alias/core/router/app_router.dart' as _i3;
 import 'package:alias/feature/categories/data/data_source/category_data_source.dart'
     as _i4;
@@ -17,7 +18,7 @@ import 'package:alias/feature/categories/domain/repository/category_repository.d
 import 'package:alias/feature/categories/domain/usercases/load_categories.dart'
     as _i13;
 import 'package:alias/feature/categories/presentation/bloc/categories_bloc.dart'
-    as _i19;
+    as _i20;
 import 'package:alias/feature/commands/data/data_source/commands_data_source.dart'
     as _i8;
 import 'package:alias/feature/commands/data/data_source/firebase_commands_data_source.dart'
@@ -29,17 +30,17 @@ import 'package:alias/feature/commands/domain/repository/commands_repository.dar
 import 'package:alias/feature/commands/domain/usercases/load_commands.dart'
     as _i14;
 import 'package:alias/feature/commands/presentation/bloc/commands_bloc.dart'
-    as _i20;
+    as _i21;
 import 'package:alias/feature/game/data/data_sourse/firebase_words_data_source.dart'
-    as _i16;
-import 'package:alias/feature/game/data/data_sourse/words_data_sourse.dart'
-    as _i15;
-import 'package:alias/feature/game/data/repository/words_repository_impl.dart'
-    as _i18;
-import 'package:alias/feature/game/domain/repository/words_repository.dart'
     as _i17;
-import 'package:alias/feature/game/domain/usecases/load_words.dart' as _i21;
-import 'package:alias/feature/game/presentation/bloc/game_bloc.dart' as _i22;
+import 'package:alias/feature/game/data/data_sourse/words_data_sourse.dart'
+    as _i16;
+import 'package:alias/feature/game/data/repository/words_repository_impl.dart'
+    as _i19;
+import 'package:alias/feature/game/domain/repository/words_repository.dart'
+    as _i18;
+import 'package:alias/feature/game/domain/usecases/load_words.dart' as _i22;
+import 'package:alias/feature/game/presentation/bloc/game_bloc.dart' as _i23;
 import 'package:alias/feature/game_settings/presentation/bloc/game_settings_bloc.dart'
     as _i12;
 import 'package:get_it/get_it.dart' as _i1;
@@ -70,17 +71,18 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i13.LoadCategories(repository: gh<_i6.CategoryRepository>()));
     gh.factory<_i14.LoadCommands>(
         () => _i14.LoadCommands(repository: gh<_i10.CommandsRepository>()));
-    gh.factory<_i15.WordsDataSource>(() => _i16.FirebaseWordsDataSource());
-    gh.factory<_i17.WordsRepository>(
-        () => _i18.WordsRepositoryImpl(dataSource: gh<_i15.WordsDataSource>()));
-    gh.factory<_i19.CategoriesBloc>(
-        () => _i19.CategoriesBloc(loadCategories: gh<_i13.LoadCategories>()));
-    gh.factory<_i20.CommandsBloc>(
-        () => _i20.CommandsBloc(loadCommandsUseCase: gh<_i14.LoadCommands>()));
-    gh.factory<_i21.LoadWords>(
-        () => _i21.LoadWords(repository: gh<_i17.WordsRepository>()));
-    gh.factory<_i22.GameBloc>(
-        () => _i22.GameBloc(loadWords: gh<_i21.LoadWords>()));
+    gh.singleton<_i15.MyDatabase>(_i15.MyDatabase());
+    gh.factory<_i16.WordsDataSource>(() => _i17.FirebaseWordsDataSource());
+    gh.factory<_i18.WordsRepository>(
+        () => _i19.WordsRepositoryImpl(dataSource: gh<_i16.WordsDataSource>()));
+    gh.factory<_i20.CategoriesBloc>(
+        () => _i20.CategoriesBloc(loadCategories: gh<_i13.LoadCategories>()));
+    gh.factory<_i21.CommandsBloc>(
+        () => _i21.CommandsBloc(loadCommandsUseCase: gh<_i14.LoadCommands>()));
+    gh.factory<_i22.LoadWords>(
+        () => _i22.LoadWords(repository: gh<_i18.WordsRepository>()));
+    gh.factory<_i23.GameBloc>(
+        () => _i23.GameBloc(loadWords: gh<_i22.LoadWords>()));
     return this;
   }
 }

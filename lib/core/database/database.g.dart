@@ -3,12 +3,12 @@
 part of 'database.dart';
 
 // ignore_for_file: type=lint
-class $CategoriesTableTable extends CategoriesTable
-    with TableInfo<$CategoriesTableTable, Category> {
+class $CategoryTableTable extends CategoryTable
+    with TableInfo<$CategoryTableTable, Category> {
   @override
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
-  $CategoriesTableTable(this.attachedDatabase, [this._alias]);
+  $CategoryTableTable(this.attachedDatabase, [this._alias]);
   static const VerificationMeta _idMeta = const VerificationMeta('id');
   @override
   late final GeneratedColumn<int> id = GeneratedColumn<int>(
@@ -27,9 +27,9 @@ class $CategoriesTableTable extends CategoriesTable
   @override
   List<GeneratedColumn> get $columns => [id, description];
   @override
-  String get aliasedName => _alias ?? 'categories_table';
+  String get aliasedName => _alias ?? 'category_table';
   @override
-  String get actualTableName => 'categories_table';
+  String get actualTableName => 'category_table';
   @override
   VerificationContext validateIntegrity(Insertable<Category> instance,
       {bool isInserting = false}) {
@@ -63,8 +63,8 @@ class $CategoriesTableTable extends CategoriesTable
   }
 
   @override
-  $CategoriesTableTable createAlias(String alias) {
-    return $CategoriesTableTable(attachedDatabase, alias);
+  $CategoryTableTable createAlias(String alias) {
+    return $CategoryTableTable(attachedDatabase, alias);
   }
 }
 
@@ -80,8 +80,8 @@ class Category extends DataClass implements Insertable<Category> {
     return map;
   }
 
-  CategoriesTableCompanion toCompanion(bool nullToAbsent) {
-    return CategoriesTableCompanion(
+  CategoryTableCompanion toCompanion(bool nullToAbsent) {
+    return CategoryTableCompanion(
       id: Value(id),
       description: Value(description),
     );
@@ -127,14 +127,14 @@ class Category extends DataClass implements Insertable<Category> {
           other.description == this.description);
 }
 
-class CategoriesTableCompanion extends UpdateCompanion<Category> {
+class CategoryTableCompanion extends UpdateCompanion<Category> {
   final Value<int> id;
   final Value<String> description;
-  const CategoriesTableCompanion({
+  const CategoryTableCompanion({
     this.id = const Value.absent(),
     this.description = const Value.absent(),
   });
-  CategoriesTableCompanion.insert({
+  CategoryTableCompanion.insert({
     this.id = const Value.absent(),
     required String description,
   }) : description = Value(description);
@@ -148,9 +148,9 @@ class CategoriesTableCompanion extends UpdateCompanion<Category> {
     });
   }
 
-  CategoriesTableCompanion copyWith(
+  CategoryTableCompanion copyWith(
       {Value<int>? id, Value<String>? description}) {
-    return CategoriesTableCompanion(
+    return CategoryTableCompanion(
       id: id ?? this.id,
       description: description ?? this.description,
     );
@@ -170,7 +170,7 @@ class CategoriesTableCompanion extends UpdateCompanion<Category> {
 
   @override
   String toString() {
-    return (StringBuffer('CategoriesTableCompanion(')
+    return (StringBuffer('CategoryTableCompanion(')
           ..write('id: $id, ')
           ..write('description: $description')
           ..write(')'))
@@ -178,170 +178,177 @@ class CategoriesTableCompanion extends UpdateCompanion<Category> {
   }
 }
 
-class $WordsTableTable extends WordsTable
-    with TableInfo<$WordsTableTable, Word> {
+class $PlayedWordTable extends PlayedWord
+    with TableInfo<$PlayedWordTable, PlayedWords> {
   @override
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
-  $WordsTableTable(this.attachedDatabase, [this._alias]);
-  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  $PlayedWordTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _playedWordIdMeta =
+      const VerificationMeta('playedWordId');
   @override
-  late final GeneratedColumn<int> id = GeneratedColumn<int>(
-      'id', aliasedName, false,
+  late final GeneratedColumn<int> playedWordId = GeneratedColumn<int>(
+      'played_word_id', aliasedName, false,
       hasAutoIncrement: true,
       type: DriftSqlType.int,
       requiredDuringInsert: false,
       defaultConstraints:
           GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
-  static const VerificationMeta _titleMeta = const VerificationMeta('title');
+  static const VerificationMeta _nameMeta = const VerificationMeta('name');
   @override
-  late final GeneratedColumn<String> title = GeneratedColumn<String>(
-      'title', aliasedName, false,
+  late final GeneratedColumn<String> name = GeneratedColumn<String>(
+      'name', aliasedName, false,
       type: DriftSqlType.string, requiredDuringInsert: true);
   @override
-  List<GeneratedColumn> get $columns => [id, title];
+  List<GeneratedColumn> get $columns => [playedWordId, name];
   @override
-  String get aliasedName => _alias ?? 'words_table';
+  String get aliasedName => _alias ?? 'played_word';
   @override
-  String get actualTableName => 'words_table';
+  String get actualTableName => 'played_word';
   @override
-  VerificationContext validateIntegrity(Insertable<Word> instance,
+  VerificationContext validateIntegrity(Insertable<PlayedWords> instance,
       {bool isInserting = false}) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
-    if (data.containsKey('id')) {
-      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
-    }
-    if (data.containsKey('title')) {
+    if (data.containsKey('played_word_id')) {
       context.handle(
-          _titleMeta, title.isAcceptableOrUnknown(data['title']!, _titleMeta));
+          _playedWordIdMeta,
+          playedWordId.isAcceptableOrUnknown(
+              data['played_word_id']!, _playedWordIdMeta));
+    }
+    if (data.containsKey('name')) {
+      context.handle(
+          _nameMeta, name.isAcceptableOrUnknown(data['name']!, _nameMeta));
     } else if (isInserting) {
-      context.missing(_titleMeta);
+      context.missing(_nameMeta);
     }
     return context;
   }
 
   @override
-  Set<GeneratedColumn> get $primaryKey => {id};
+  Set<GeneratedColumn> get $primaryKey => {playedWordId};
   @override
-  Word map(Map<String, dynamic> data, {String? tablePrefix}) {
+  PlayedWords map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
-    return Word(
-      id: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
-      title: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}title'])!,
+    return PlayedWords(
+      playedWordId: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}played_word_id'])!,
+      name: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}name'])!,
     );
   }
 
   @override
-  $WordsTableTable createAlias(String alias) {
-    return $WordsTableTable(attachedDatabase, alias);
+  $PlayedWordTable createAlias(String alias) {
+    return $PlayedWordTable(attachedDatabase, alias);
   }
 }
 
-class Word extends DataClass implements Insertable<Word> {
-  final int id;
-  final String title;
-  const Word({required this.id, required this.title});
+class PlayedWords extends DataClass implements Insertable<PlayedWords> {
+  final int playedWordId;
+  final String name;
+  const PlayedWords({required this.playedWordId, required this.name});
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
-    map['id'] = Variable<int>(id);
-    map['title'] = Variable<String>(title);
+    map['played_word_id'] = Variable<int>(playedWordId);
+    map['name'] = Variable<String>(name);
     return map;
   }
 
-  WordsTableCompanion toCompanion(bool nullToAbsent) {
-    return WordsTableCompanion(
-      id: Value(id),
-      title: Value(title),
+  PlayedWordCompanion toCompanion(bool nullToAbsent) {
+    return PlayedWordCompanion(
+      playedWordId: Value(playedWordId),
+      name: Value(name),
     );
   }
 
-  factory Word.fromJson(Map<String, dynamic> json,
+  factory PlayedWords.fromJson(Map<String, dynamic> json,
       {ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
-    return Word(
-      id: serializer.fromJson<int>(json['id']),
-      title: serializer.fromJson<String>(json['title']),
+    return PlayedWords(
+      playedWordId: serializer.fromJson<int>(json['playedWordId']),
+      name: serializer.fromJson<String>(json['name']),
     );
   }
   @override
   Map<String, dynamic> toJson({ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
-      'id': serializer.toJson<int>(id),
-      'title': serializer.toJson<String>(title),
+      'playedWordId': serializer.toJson<int>(playedWordId),
+      'name': serializer.toJson<String>(name),
     };
   }
 
-  Word copyWith({int? id, String? title}) => Word(
-        id: id ?? this.id,
-        title: title ?? this.title,
+  PlayedWords copyWith({int? playedWordId, String? name}) => PlayedWords(
+        playedWordId: playedWordId ?? this.playedWordId,
+        name: name ?? this.name,
       );
   @override
   String toString() {
-    return (StringBuffer('Word(')
-          ..write('id: $id, ')
-          ..write('title: $title')
+    return (StringBuffer('PlayedWords(')
+          ..write('playedWordId: $playedWordId, ')
+          ..write('name: $name')
           ..write(')'))
         .toString();
   }
 
   @override
-  int get hashCode => Object.hash(id, title);
+  int get hashCode => Object.hash(playedWordId, name);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      (other is Word && other.id == this.id && other.title == this.title);
+      (other is PlayedWords &&
+          other.playedWordId == this.playedWordId &&
+          other.name == this.name);
 }
 
-class WordsTableCompanion extends UpdateCompanion<Word> {
-  final Value<int> id;
-  final Value<String> title;
-  const WordsTableCompanion({
-    this.id = const Value.absent(),
-    this.title = const Value.absent(),
+class PlayedWordCompanion extends UpdateCompanion<PlayedWords> {
+  final Value<int> playedWordId;
+  final Value<String> name;
+  const PlayedWordCompanion({
+    this.playedWordId = const Value.absent(),
+    this.name = const Value.absent(),
   });
-  WordsTableCompanion.insert({
-    this.id = const Value.absent(),
-    required String title,
-  }) : title = Value(title);
-  static Insertable<Word> custom({
-    Expression<int>? id,
-    Expression<String>? title,
+  PlayedWordCompanion.insert({
+    this.playedWordId = const Value.absent(),
+    required String name,
+  }) : name = Value(name);
+  static Insertable<PlayedWords> custom({
+    Expression<int>? playedWordId,
+    Expression<String>? name,
   }) {
     return RawValuesInsertable({
-      if (id != null) 'id': id,
-      if (title != null) 'title': title,
+      if (playedWordId != null) 'played_word_id': playedWordId,
+      if (name != null) 'name': name,
     });
   }
 
-  WordsTableCompanion copyWith({Value<int>? id, Value<String>? title}) {
-    return WordsTableCompanion(
-      id: id ?? this.id,
-      title: title ?? this.title,
+  PlayedWordCompanion copyWith(
+      {Value<int>? playedWordId, Value<String>? name}) {
+    return PlayedWordCompanion(
+      playedWordId: playedWordId ?? this.playedWordId,
+      name: name ?? this.name,
     );
   }
 
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
-    if (id.present) {
-      map['id'] = Variable<int>(id.value);
+    if (playedWordId.present) {
+      map['played_word_id'] = Variable<int>(playedWordId.value);
     }
-    if (title.present) {
-      map['title'] = Variable<String>(title.value);
+    if (name.present) {
+      map['name'] = Variable<String>(name.value);
     }
     return map;
   }
 
   @override
   String toString() {
-    return (StringBuffer('WordsTableCompanion(')
-          ..write('id: $id, ')
-          ..write('title: $title')
+    return (StringBuffer('PlayedWordCompanion(')
+          ..write('playedWordId: $playedWordId, ')
+          ..write('name: $name')
           ..write(')'))
         .toString();
   }
@@ -349,13 +356,13 @@ class WordsTableCompanion extends UpdateCompanion<Word> {
 
 abstract class _$MyDatabase extends GeneratedDatabase {
   _$MyDatabase(QueryExecutor e) : super(e);
-  late final $CategoriesTableTable categoriesTable =
-      $CategoriesTableTable(this);
-  late final $WordsTableTable wordsTable = $WordsTableTable(this);
+  late final $CategoryTableTable categoryTable = $CategoryTableTable(this);
+  late final $PlayedWordTable playedWord = $PlayedWordTable(this);
+  late final PlayedWordDao playedWordDao = PlayedWordDao(this as MyDatabase);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
   @override
   List<DatabaseSchemaEntity> get allSchemaEntities =>
-      [categoriesTable, wordsTable];
+      [categoryTable, playedWord];
 }
