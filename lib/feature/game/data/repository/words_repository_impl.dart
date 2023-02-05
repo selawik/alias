@@ -41,4 +41,9 @@ class WordsRepositoryImpl implements WordsRepository {
       return const Left(ServerFailure('error'));
     }
   }
+
+  @override
+  Future<void> setPlayedWords({required List<Word> words}) async {
+    await _localDataSource.setPlayedWords(words: words);
+  }
 }

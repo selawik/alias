@@ -179,6 +179,12 @@ class GameBloc extends Bloc<GameEvent, GameState> {
         .where((element) => !element.type.isCount)
         .map((answer) => answer.word));
 
+    _wordsUseCasesFacade.savePlayedWords(
+        words: _answers
+            .where((element) => element.type.isCount)
+            .map((answer) => answer.word)
+            .toList());
+
     _answers.clear();
     _words.shuffle();
 

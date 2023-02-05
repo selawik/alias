@@ -31,7 +31,7 @@ class WordsUseCasesFacade {
     );
   }
 
-  Future<Either<Failure, bool>> savePlayedWords(List<Word> words) async {
+  Future<Either<Failure, void>> savePlayedWords({required List<Word> words}) async {
     return await _savePlayedWords.execute(
       words: words,
     );

@@ -10,4 +10,7 @@ abstract class WordsRepository {
     required int commandsCount,
     required BinarySelectorMode penaltyMode,
   });
+
+  Future<void> setPlayedWords({required List<Word> words});
 }
+
