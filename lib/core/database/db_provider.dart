@@ -26,7 +26,10 @@ class DbProvider {
   Future<List<Word>> getPlayedWords({required Category category}) async {
     return (await _db.playedWordDao.getPlayedWordsOfCategory(category))
         .map((e) => Word(
-            wordId: e.playedWordId, name: e.name, categoryId: e.categoryId))
+              wordId: e.playedWordId,
+              name: e.name,
+              categoryId: e.categoryId,
+            ))
         .toList();
   }
 }

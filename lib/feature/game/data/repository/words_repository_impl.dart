@@ -26,6 +26,7 @@ class WordsRepositoryImpl implements WordsRepository {
     required Category category,
     required int commandsCount,
     required BinarySelectorMode penaltyMode,
+    List<Word>? playedWords,
   }) async {
     try {
       var result = await _remoteDataSource.loadWords(
@@ -33,6 +34,7 @@ class WordsRepositoryImpl implements WordsRepository {
         limit: penaltyMode.isEnabled
             ? commandsCount * 50 + (commandsCount * 30)
             : commandsCount * 50,
+        playedIds: playedWords?.map((e) => e.wordId).toList(),
       );
 
       return Right(result);

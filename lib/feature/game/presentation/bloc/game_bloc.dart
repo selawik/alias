@@ -8,6 +8,7 @@ import 'package:alias/feature/game/domain/model/playing_command.dart';
 import 'package:alias/feature/game/domain/usecases/load_words.dart';
 import 'package:alias/feature/game/domain/words_usecases_facade.dart';
 import 'package:alias/feature/game_settings/data/models/word.dart';
+import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -69,12 +70,18 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
     emit(const GameState.wordsIsLoading());
 
-    log(( (await _wordsUseCasesFacade.getPlayedWords(category: _category)).toString()));
 
+
+    var result = await _wordsUseCasesFacade.getPlayedWords(category: _category);
+
+    var playedWords = result.fold((failure) => null, (words) =>  words);
+
+    print(playedWords);
     var wordsResult = await _wordsUseCasesFacade.loadWords(
       category: _category,
       penaltyMode: _settings.penaltyMode,
       commandsCount: _commands.length,
+      playedWords: playedWords,
     );
 
     wordsResult.fold(

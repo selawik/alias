@@ -9,10 +9,10 @@ abstract class WordsRepository {
     required Category category,
     required int commandsCount,
     required BinarySelectorMode penaltyMode,
+    List<Word>? playedWords,
   });
 
   Future<void> setPlayedWords({required List<Word> words});
-
 
   Future<Either<Failure, List<Word>>> getPlayedWords({required Category category});
 }

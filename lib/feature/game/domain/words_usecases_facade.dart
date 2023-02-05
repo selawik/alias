@@ -26,11 +26,13 @@ class WordsUseCasesFacade {
     required Category category,
     required int commandsCount,
     required BinarySelectorMode penaltyMode,
+    List<Word>? playedWords,
   }) async {
     return await _loadWords.execute(
       category: category,
       commandsCount: commandsCount,
       penaltyMode: penaltyMode,
+      playedWords: playedWords,
     );
   }
 

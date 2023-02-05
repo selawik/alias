@@ -12,10 +12,13 @@ class FirebaseWordsDataSource implements WordsRemoteDataSource {
   Future<List<Word>> loadWords({
     required int categoryId,
     required int limit,
+    List<int>? playedIds,
   }) async {
+    print(playedIds);
     var wordsData = await FirebaseFirestore.instance
         .collection(FirebaseDataStoreCollections.word)
         .where('categoryId', isEqualTo: categoryId)
+        .where('wordId', whereNotIn: playedIds)
         .limit(limit)
         .get();
 

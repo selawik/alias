@@ -16,11 +16,13 @@ class LoadWords {
     required Category category,
     required int commandsCount,
     required BinarySelectorMode penaltyMode,
+    List<Word>? playedWords,
   }) async {
     return await repository.loadWords(
       commandsCount: commandsCount,
       category: category,
       penaltyMode: penaltyMode,
+      playedWords: playedWords,
     );
   }
 }
