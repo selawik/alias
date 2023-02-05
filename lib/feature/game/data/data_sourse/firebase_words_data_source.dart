@@ -1,13 +1,13 @@
 import 'dart:developer';
 
 import 'package:alias/core/constants/firebase_data_store_collections.dart';
-import 'package:alias/feature/game/data/data_sourse/words_data_sourse.dart';
+import 'package:alias/feature/game/data/data_sourse/words_remote_data_sourse.dart';
 import 'package:alias/feature/game_settings/data/models/word.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:injectable/injectable.dart';
 
-@Injectable(as: WordsDataSource)
-class FirebaseWordsDataSource implements WordsDataSource {
+@Injectable(as: WordsRemoteDataSource)
+class FirebaseWordsDataSource implements WordsRemoteDataSource {
   @override
   Future<List<Word>> loadWords({
     required int categoryId,

@@ -2,7 +2,8 @@ import 'dart:developer';
 
 import 'package:alias/core/error/failure.dart';
 import 'package:alias/feature/categories/data/models/category.dart';
-import 'package:alias/feature/game/data/data_sourse/words_data_sourse.dart';
+import 'package:alias/feature/game/data/data_sourse/words_local_data_source.dart';
+import 'package:alias/feature/game/data/data_sourse/words_remote_data_sourse.dart';
 import 'package:alias/feature/game/domain/repository/words_repository.dart';
 import 'package:alias/feature/game_settings/data/models/word.dart';
 import 'package:alias/feature/game_settings/domain/model/binary_selector_type.dart';
@@ -11,9 +12,14 @@ import 'package:injectable/injectable.dart';
 
 @Injectable(as: WordsRepository)
 class WordsRepositoryImpl implements WordsRepository {
-  final WordsDataSource dataSource;
+  final WordsRemoteDataSource _remoteDataSource;
+  final WordsLocalDataSource _localDataSource;
 
-  WordsRepositoryImpl({required this.dataSource});
+  WordsRepositoryImpl({
+    required WordsRemoteDataSource remoteDataSource,
+    required WordsLocalDataSource localDataSource,
+  })  : _localDataSource = localDataSource,
+        _remoteDataSource = remoteDataSource;
 
   @override
   Future<Either<Failure, List<Word>>> loadWords({
@@ -22,7 +28,7 @@ class WordsRepositoryImpl implements WordsRepository {
     required BinarySelectorMode penaltyMode,
   }) async {
     try {
-      var result = await dataSource.loadWords(
+      var result = await _remoteDataSource.loadWords(
         categoryId: category.categoryId,
         limit: penaltyMode.isEnabled
             ? commandsCount * 50 + (commandsCount * 30)

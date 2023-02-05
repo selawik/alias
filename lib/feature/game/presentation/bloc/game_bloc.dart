@@ -4,6 +4,7 @@ import 'package:alias/feature/game/domain/model/game_answer.dart';
 import 'package:alias/feature/game/domain/model/game_settings.dart';
 import 'package:alias/feature/game/domain/model/playing_command.dart';
 import 'package:alias/feature/game/domain/usecases/load_words.dart';
+import 'package:alias/feature/game/domain/words_usecases_facade.dart';
 import 'package:alias/feature/game_settings/data/models/word.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -17,7 +18,7 @@ part 'game_state.dart';
 
 @injectable
 class GameBloc extends Bloc<GameEvent, GameState> {
-  final LoadWords _loadWords;
+  final WordsUseCasesFacade _wordsUseCasesFacade;
 
   late Category _category;
   late GameSettings _settings;
@@ -30,8 +31,8 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
   List<PlayingCommand> _commands = [];
 
-  GameBloc({required LoadWords loadWords})
-      : _loadWords = loadWords,
+  GameBloc({required WordsUseCasesFacade wordsUseCasesFacade})
+      : _wordsUseCasesFacade = wordsUseCasesFacade,
         super(const GameState.waitingForConfig()) {
     on<_InitializeCategory>(_onCategoryInitialization);
     on<_InitializeCommands>(_onCommandsInitialization);
@@ -66,7 +67,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
     emit(const GameState.wordsIsLoading());
 
-    var wordsResult = await _loadWords.execute(
+    var wordsResult = await _wordsUseCasesFacade.loadWords(
       category: _category,
       penaltyMode: _settings.penaltyMode,
       commandsCount: _commands.length,
