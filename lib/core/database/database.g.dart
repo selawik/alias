@@ -189,11 +189,9 @@ class $PlayedWordTable extends PlayedWord
   @override
   late final GeneratedColumn<int> playedWordId = GeneratedColumn<int>(
       'played_word_id', aliasedName, false,
-      hasAutoIncrement: true,
       type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultConstraints:
-          GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
+      requiredDuringInsert: true,
+      defaultConstraints: GeneratedColumn.constraintIsAlways('UNIQUE'));
   static const VerificationMeta _nameMeta = const VerificationMeta('name');
   @override
   late final GeneratedColumn<String> name = GeneratedColumn<String>(
@@ -215,6 +213,8 @@ class $PlayedWordTable extends PlayedWord
           _playedWordIdMeta,
           playedWordId.isAcceptableOrUnknown(
               data['played_word_id']!, _playedWordIdMeta));
+    } else if (isInserting) {
+      context.missing(_playedWordIdMeta);
     }
     if (data.containsKey('name')) {
       context.handle(
@@ -226,7 +226,7 @@ class $PlayedWordTable extends PlayedWord
   }
 
   @override
-  Set<GeneratedColumn> get $primaryKey => {playedWordId};
+  Set<GeneratedColumn> get $primaryKey => const {};
   @override
   PlayedWords map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
@@ -311,9 +311,10 @@ class PlayedWordCompanion extends UpdateCompanion<PlayedWords> {
     this.name = const Value.absent(),
   });
   PlayedWordCompanion.insert({
-    this.playedWordId = const Value.absent(),
+    required int playedWordId,
     required String name,
-  }) : name = Value(name);
+  })  : playedWordId = Value(playedWordId),
+        name = Value(name);
   static Insertable<PlayedWords> custom({
     Expression<int>? playedWordId,
     Expression<String>? name,
@@ -358,7 +359,7 @@ abstract class _$MyDatabase extends GeneratedDatabase {
   _$MyDatabase(QueryExecutor e) : super(e);
   late final $CategoryTableTable categoryTable = $CategoryTableTable(this);
   late final $PlayedWordTable playedWord = $PlayedWordTable(this);
-  late final PlayedWordDao playedWordDao = PlayedWordDao(this as MyDatabase);
+  late final PlayedWordDao playedWordDao = PlayedWordDao(this as Database);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();

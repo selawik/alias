@@ -16,9 +16,9 @@ part 'database.g.dart';
 
 @DriftDatabase(tables: [CategoryTable, PlayedWord], daos: [PlayedWordDao])
 @singleton
-class MyDatabase extends _$MyDatabase {
+class Database extends _$MyDatabase {
   // we tell the database where to store the data with this constructor
-  MyDatabase() : super(_openConnection());
+  Database() : super(_openConnection());
 
   // you should bump this number whenever you change or add a table definition.
   // Migrations are covered later in the documentation.
