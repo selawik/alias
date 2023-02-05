@@ -355,8 +355,8 @@ class PlayedWordCompanion extends UpdateCompanion<PlayedWords> {
   }
 }
 
-abstract class _$MyDatabase extends GeneratedDatabase {
-  _$MyDatabase(QueryExecutor e) : super(e);
+abstract class _$Database extends GeneratedDatabase {
+  _$Database(QueryExecutor e) : super(e);
   late final $CategoryTableTable categoryTable = $CategoryTableTable(this);
   late final $PlayedWordTable playedWord = $PlayedWordTable(this);
   late final PlayedWordDao playedWordDao = PlayedWordDao(this as Database);
