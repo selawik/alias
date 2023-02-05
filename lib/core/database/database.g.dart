@@ -192,13 +192,19 @@ class $PlayedWordTable extends PlayedWord
       type: DriftSqlType.int,
       requiredDuringInsert: true,
       defaultConstraints: GeneratedColumn.constraintIsAlways('UNIQUE'));
+  static const VerificationMeta _categoryIdMeta =
+      const VerificationMeta('categoryId');
+  @override
+  late final GeneratedColumn<int> categoryId = GeneratedColumn<int>(
+      'category_id', aliasedName, false,
+      type: DriftSqlType.int, requiredDuringInsert: true);
   static const VerificationMeta _nameMeta = const VerificationMeta('name');
   @override
   late final GeneratedColumn<String> name = GeneratedColumn<String>(
       'name', aliasedName, false,
       type: DriftSqlType.string, requiredDuringInsert: true);
   @override
-  List<GeneratedColumn> get $columns => [playedWordId, name];
+  List<GeneratedColumn> get $columns => [playedWordId, categoryId, name];
   @override
   String get aliasedName => _alias ?? 'played_word';
   @override
@@ -215,6 +221,14 @@ class $PlayedWordTable extends PlayedWord
               data['played_word_id']!, _playedWordIdMeta));
     } else if (isInserting) {
       context.missing(_playedWordIdMeta);
+    }
+    if (data.containsKey('category_id')) {
+      context.handle(
+          _categoryIdMeta,
+          categoryId.isAcceptableOrUnknown(
+              data['category_id']!, _categoryIdMeta));
+    } else if (isInserting) {
+      context.missing(_categoryIdMeta);
     }
     if (data.containsKey('name')) {
       context.handle(
@@ -233,6 +247,8 @@ class $PlayedWordTable extends PlayedWord
     return PlayedWords(
       playedWordId: attachedDatabase.typeMapping
           .read(DriftSqlType.int, data['${effectivePrefix}played_word_id'])!,
+      categoryId: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}category_id'])!,
       name: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}name'])!,
     );
@@ -246,12 +262,17 @@ class $PlayedWordTable extends PlayedWord
 
 class PlayedWords extends DataClass implements Insertable<PlayedWords> {
   final int playedWordId;
+  final int categoryId;
   final String name;
-  const PlayedWords({required this.playedWordId, required this.name});
+  const PlayedWords(
+      {required this.playedWordId,
+      required this.categoryId,
+      required this.name});
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
     map['played_word_id'] = Variable<int>(playedWordId);
+    map['category_id'] = Variable<int>(categoryId);
     map['name'] = Variable<String>(name);
     return map;
   }
@@ -259,6 +280,7 @@ class PlayedWords extends DataClass implements Insertable<PlayedWords> {
   PlayedWordCompanion toCompanion(bool nullToAbsent) {
     return PlayedWordCompanion(
       playedWordId: Value(playedWordId),
+      categoryId: Value(categoryId),
       name: Value(name),
     );
   }
@@ -268,6 +290,7 @@ class PlayedWords extends DataClass implements Insertable<PlayedWords> {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return PlayedWords(
       playedWordId: serializer.fromJson<int>(json['playedWordId']),
+      categoryId: serializer.fromJson<int>(json['categoryId']),
       name: serializer.fromJson<String>(json['name']),
     );
   }
@@ -276,59 +299,71 @@ class PlayedWords extends DataClass implements Insertable<PlayedWords> {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
       'playedWordId': serializer.toJson<int>(playedWordId),
+      'categoryId': serializer.toJson<int>(categoryId),
       'name': serializer.toJson<String>(name),
     };
   }
 
-  PlayedWords copyWith({int? playedWordId, String? name}) => PlayedWords(
+  PlayedWords copyWith({int? playedWordId, int? categoryId, String? name}) =>
+      PlayedWords(
         playedWordId: playedWordId ?? this.playedWordId,
+        categoryId: categoryId ?? this.categoryId,
         name: name ?? this.name,
       );
   @override
   String toString() {
     return (StringBuffer('PlayedWords(')
           ..write('playedWordId: $playedWordId, ')
+          ..write('categoryId: $categoryId, ')
           ..write('name: $name')
           ..write(')'))
         .toString();
   }
 
   @override
-  int get hashCode => Object.hash(playedWordId, name);
+  int get hashCode => Object.hash(playedWordId, categoryId, name);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       (other is PlayedWords &&
           other.playedWordId == this.playedWordId &&
+          other.categoryId == this.categoryId &&
           other.name == this.name);
 }
 
 class PlayedWordCompanion extends UpdateCompanion<PlayedWords> {
   final Value<int> playedWordId;
+  final Value<int> categoryId;
   final Value<String> name;
   const PlayedWordCompanion({
     this.playedWordId = const Value.absent(),
+    this.categoryId = const Value.absent(),
     this.name = const Value.absent(),
   });
   PlayedWordCompanion.insert({
     required int playedWordId,
+    required int categoryId,
     required String name,
   })  : playedWordId = Value(playedWordId),
+        categoryId = Value(categoryId),
         name = Value(name);
   static Insertable<PlayedWords> custom({
     Expression<int>? playedWordId,
+    Expression<int>? categoryId,
     Expression<String>? name,
   }) {
     return RawValuesInsertable({
       if (playedWordId != null) 'played_word_id': playedWordId,
+      if (categoryId != null) 'category_id': categoryId,
       if (name != null) 'name': name,
     });
   }
 
   PlayedWordCompanion copyWith(
-      {Value<int>? playedWordId, Value<String>? name}) {
+      {Value<int>? playedWordId, Value<int>? categoryId, Value<String>? name}) {
     return PlayedWordCompanion(
       playedWordId: playedWordId ?? this.playedWordId,
+      categoryId: categoryId ?? this.categoryId,
       name: name ?? this.name,
     );
   }
@@ -338,6 +373,9 @@ class PlayedWordCompanion extends UpdateCompanion<PlayedWords> {
     final map = <String, Expression>{};
     if (playedWordId.present) {
       map['played_word_id'] = Variable<int>(playedWordId.value);
+    }
+    if (categoryId.present) {
+      map['category_id'] = Variable<int>(categoryId.value);
     }
     if (name.present) {
       map['name'] = Variable<String>(name.value);
@@ -349,6 +387,7 @@ class PlayedWordCompanion extends UpdateCompanion<PlayedWords> {
   String toString() {
     return (StringBuffer('PlayedWordCompanion(')
           ..write('playedWordId: $playedWordId, ')
+          ..write('categoryId: $categoryId, ')
           ..write('name: $name')
           ..write(')'))
         .toString();

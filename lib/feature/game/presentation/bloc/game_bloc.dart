@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:alias/feature/categories/data/models/category.dart';
 import 'package:alias/feature/commands/data/models/command.dart';
 import 'package:alias/feature/game/domain/model/game_answer.dart';
@@ -66,6 +68,8 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     _settings = event.gameSettings;
 
     emit(const GameState.wordsIsLoading());
+
+    log(( (await _wordsUseCasesFacade.getPlayedWords(category: _category)).toString()));
 
     var wordsResult = await _wordsUseCasesFacade.loadWords(
       category: _category,

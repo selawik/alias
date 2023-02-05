@@ -1,4 +1,5 @@
-import 'package:alias/core/database/database.dart';
+import 'package:alias/core/database/database.dart' hide Category;
+import 'package:alias/feature/categories/data/models/category.dart';
 import 'package:alias/feature/game_settings/data/models/word.dart';
 import 'package:injectable/injectable.dart';
 
@@ -13,8 +14,19 @@ class DbProvider {
   Future<void> insertPlayedWords({required List<Word> playedWords}) async {
     for (var word in playedWords) {
       await _db.playedWordDao.setPlayedWords(
-        PlayedWordCompanion.insert(playedWordId: word.wordId, name: word.name),
+        PlayedWordCompanion.insert(
+          playedWordId: word.wordId,
+          name: word.name,
+          categoryId: word.categoryId,
+        ),
       );
     }
+  }
+
+  Future<List<Word>> getPlayedWords({required Category category}) async {
+    return (await _db.playedWordDao.getPlayedWordsOfCategory(category))
+        .map((e) => Word(
+            wordId: e.playedWordId, name: e.name, categoryId: e.categoryId))
+        .toList();
   }
 }

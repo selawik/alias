@@ -46,4 +46,9 @@ class WordsRepositoryImpl implements WordsRepository {
   Future<void> setPlayedWords({required List<Word> words}) async {
     await _localDataSource.setPlayedWords(words: words);
   }
+
+  @override
+  Future<Either<Failure, List<Word>>> getPlayedWords({required Category category}) async {
+    return Right(await _localDataSource.getPlayedWords(category: category));
+  }
 }
