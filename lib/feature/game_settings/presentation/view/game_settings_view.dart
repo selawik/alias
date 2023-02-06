@@ -1,6 +1,8 @@
+import 'package:alias/core/mixin/snackbar_mixin.dart';
 import 'package:alias/core/router/app_router.dart';
 import 'package:alias/core/widget/custom_progress_indicator.dart';
 import 'package:alias/feature/game/domain/model/game_settings.dart';
+import 'package:alias/feature/game/domain/model/playing_command.dart';
 import 'package:alias/feature/game/presentation/bloc/game_bloc.dart';
 import 'package:alias/feature/game_settings/presentation/bloc/game_settings_bloc.dart';
 import 'package:alias/feature/game_settings/presentation/view/widget/command_move_time_selector.dart';
@@ -10,7 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:alias/core/injection.dart' as di;
 
-class GameSettingsView extends StatelessWidget {
+class GameSettingsView extends StatelessWidget with SnackbarMixin {
   const GameSettingsView({Key? key}) : super(key: key);
 
   @override
@@ -18,10 +20,8 @@ class GameSettingsView extends StatelessWidget {
     return BlocListener<GameBloc, GameState>(
       listener: (context, state) {
         state.whenOrNull(
-          gameIsReady: (settings, commands) {
-            var router = di.locator.get<AppRouter>();
-            router.push(const CommandsStatsPageRoute());
-          },
+          gameIsReady: _onGameIsReady,
+          noWords: () => _onNoWords(context),
         );
       },
       child: Stack(
@@ -90,5 +90,18 @@ class GameSettingsView extends StatelessWidget {
         gameBloc.add(GameEvent.initializeSettings(gameSettings: gameSettings));
       },
     );
+  }
+
+  void _onGameIsReady(GameSettings settings, List<PlayingCommand> commands) {
+    var router = di.locator.get<AppRouter>();
+    router.push(const CommandsStatsPageRoute());
+  }
+
+  void _onNoWords(BuildContext context) {
+    var router = di.locator.get<AppRouter>();
+    router.popUntil((route) => route.settings.name == 'CategoryPageRoute');
+
+    showMessage(context,
+        'Вы отгалади все слова категории! Очистите историю в настройках, чтобы играть снова');
   }
 }
