@@ -103,7 +103,7 @@ class GameSettingsView extends StatelessWidget with SnackbarMixin {
 
     showMessage(
       context,
-      'Вы отгалади все слова категории! Очистите историю в настройках, чтобы играть снова',
+      'Вы отгадали все слова категории! Очистите историю в настройках, чтобы играть снова',
     );
   }
 }

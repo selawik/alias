@@ -32,4 +32,10 @@ class DbProvider {
             ))
         .toList();
   }
+
+  Future<void> resetGameHistory() async {
+    await _db.playedWordDao.deleteWords();
+  }
+  
+  
 }

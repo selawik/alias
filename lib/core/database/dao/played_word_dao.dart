@@ -19,10 +19,13 @@ class PlayedWordDao extends DatabaseAccessor<Database>
   }
 
   Future<int> setPlayedWords(PlayedWordCompanion entity) async {
-    var result =
-        await into(playedWord).insert(entity, mode: InsertMode.replace);
+    var result = await into(playedWord).insert(entity, mode: InsertMode.replace);
     log(entity.toString());
     log('insert $result');
     return result;
+  }
+
+  Future<void> deleteWords() async {
+    delete(playedWord).go();
   }
 }

@@ -20,4 +20,9 @@ class DriftLocalDataSource implements WordsLocalDataSource {
   Future<List<Word>> getPlayedWords({required Category category}) async {
     return await _dbProvider.getPlayedWords(category: category);
   }
+
+  @override
+  Future<void> resetGameHistory() async {
+    return await _dbProvider.resetGameHistory();
+  }
 }

@@ -46,7 +46,6 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     on<_MoveResultWatched>(_onMoveResultWatched);
     on<_ResetGame>(_onResetGame);
     on<_ResetGameHistory>(_onResetGameHistory);
-
   }
 
   void _onCategoryInitialization(_InitializeCategory event, Emitter emit) {
@@ -77,10 +76,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
       playedWords: playedWords,
     );
 
-    _words = wordsResult.fold(
-      (failure) => null,
-      (words) => words,
-    ) ?? [];
+    _words = wordsResult.fold((failure) => null, (words) => words) ?? [];
 
     if (_words.isEmpty) {
       emit(const GameState.noWords());
@@ -94,10 +90,9 @@ class GameBloc extends Bloc<GameEvent, GameState> {
   Future<List<Word>?> _loadPlayedWords() async {
     var result = await _wordsUseCasesFacade.getPlayedWords(category: _category);
 
-    var playedWords = result.fold((failure) => null, (words) =>  words);
+    var playedWords = result.fold((failure) => null, (words) => words);
 
-
-    return playedWords;
+    return (playedWords?.isEmpty ?? false) ? null : playedWords;
   }
 
   void _onStartGame(_StartGame event, Emitter emit) {
@@ -224,8 +219,8 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     emit(const GameState.waitingForConfig());
   }
 
-  void _onResetGameHistory(_ResetGameHistory event, Emitter emit) {
-
+  void _onResetGameHistory(_ResetGameHistory event, Emitter emit) async {
+    await _wordsUseCasesFacade.resetGameHistory();
   }
 
   int _getCommandScore() {
