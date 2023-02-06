@@ -1,15 +1,10 @@
-import 'dart:developer';
-
-import 'package:alias/core/error/failure.dart';
 import 'package:alias/feature/categories/data/models/category.dart';
 import 'package:alias/feature/commands/data/models/command.dart';
 import 'package:alias/feature/game/domain/model/game_answer.dart';
 import 'package:alias/feature/game/domain/model/game_settings.dart';
 import 'package:alias/feature/game/domain/model/playing_command.dart';
-import 'package:alias/feature/game/domain/usecases/load_words.dart';
 import 'package:alias/feature/game/domain/words_usecases_facade.dart';
 import 'package:alias/feature/game_settings/data/models/word.dart';
-import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -50,6 +45,8 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     on<_ChangeAnswer>(_onChangeAnswer);
     on<_MoveResultWatched>(_onMoveResultWatched);
     on<_ResetGame>(_onResetGame);
+    on<_ResetGameHistory>(_onResetGameHistory);
+
   }
 
   void _onCategoryInitialization(_InitializeCategory event, Emitter emit) {
@@ -225,6 +222,10 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     _countWords.clear();
 
     emit(const GameState.waitingForConfig());
+  }
+
+  void _onResetGameHistory(_ResetGameHistory event, Emitter emit) {
+
   }
 
   int _getCommandScore() {

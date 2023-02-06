@@ -101,7 +101,9 @@ class GameSettingsView extends StatelessWidget with SnackbarMixin {
     var router = di.locator.get<AppRouter>();
     router.popUntil((route) => route.settings.name == 'CategoryPageRoute');
 
-    showMessage(context,
-        'Вы отгалади все слова категории! Очистите историю в настройках, чтобы играть снова');
+    showMessage(
+      context,
+      'Вы отгалади все слова категории! Очистите историю в настройках, чтобы играть снова',
+    );
   }
 }

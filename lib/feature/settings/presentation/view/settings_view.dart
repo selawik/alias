@@ -1,3 +1,4 @@
+import 'package:alias/feature/settings/presentation/view/widget/clear_game_history_row.dart';
 import 'package:alias/feature/settings/presentation/view/widget/language_settings_row.dart';
 import 'package:alias/feature/settings/presentation/view/widget/sound_settings_row.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,8 @@ class SettingsView extends StatelessWidget {
         LanguageSettingsRow(),
         SizedBox(height: 16),
         SoundSettingsRow(),
+        SizedBox(height: 16),
+        ClearGameHistoryRow(),
       ],
     );
   }

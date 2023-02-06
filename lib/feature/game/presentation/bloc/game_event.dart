@@ -28,4 +28,6 @@ class GameEvent with _$GameEvent {
 
   const factory GameEvent.resetGame() = _ResetGame;
 
+  const factory GameEvent.resetGameHistory() = _ResetGameHistory;
+
 }
