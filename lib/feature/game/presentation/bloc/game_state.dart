@@ -6,6 +6,8 @@ class GameState with _$GameState {
 
   const factory GameState.wordsIsLoading() = _WordsIsLoading;
 
+  const factory GameState.noWords() = _NoWords;
+
   const factory GameState.gameIsReady({
     required GameSettings settings,
     required List<PlayingCommand> commands,

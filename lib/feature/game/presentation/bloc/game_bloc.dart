@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:alias/core/error/failure.dart';
 import 'package:alias/feature/categories/data/models/category.dart';
 import 'package:alias/feature/commands/data/models/command.dart';
 import 'package:alias/feature/game/domain/model/game_answer.dart';
@@ -70,13 +71,8 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
     emit(const GameState.wordsIsLoading());
 
+    var playedWords = await _loadPlayedWords();
 
-
-    var result = await _wordsUseCasesFacade.getPlayedWords(category: _category);
-
-    var playedWords = result.fold((failure) => null, (words) =>  words);
-
-    print(playedWords);
     var wordsResult = await _wordsUseCasesFacade.loadWords(
       category: _category,
       penaltyMode: _settings.penaltyMode,
@@ -84,13 +80,27 @@ class GameBloc extends Bloc<GameEvent, GameState> {
       playedWords: playedWords,
     );
 
-    wordsResult.fold(
+    _words = wordsResult.fold(
       (failure) => null,
-      (result) => _words = result,
-    );
+      (words) => words,
+    ) ?? [];
+
+    if (_words.isEmpty) {
+      emit(const GameState.noWords());
+      return;
+    }
 
     _words.shuffle();
     emit(GameState.gameIsReady(settings: _settings, commands: _commands));
+  }
+
+  Future<List<Word>?> _loadPlayedWords() async {
+    var result = await _wordsUseCasesFacade.getPlayedWords(category: _category);
+
+    var playedWords = result.fold((failure) => null, (words) =>  words);
+
+
+    return playedWords;
   }
 
   void _onStartGame(_StartGame event, Emitter emit) {
