@@ -23,6 +23,11 @@ class HomeView extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           ElevatedButton(
+            onPressed: () => router.push(const CategoryPageRoute()),
+            child: const Text('Продолжить игру'),
+          ),
+          const SizedBox(height: 12),
+          ElevatedButton(
             onPressed: () => router.push(const SettingsPageRoute()),
             child: const Text('Настройки'),
           ),
