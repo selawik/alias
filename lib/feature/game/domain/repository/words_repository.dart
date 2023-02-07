@@ -17,6 +17,6 @@ abstract class WordsRepository {
   Future<Either<Failure, List<Word>>> getPlayedWords({required Category category});
 
 
-  Future<void> resetGameHistory();
+  Future<Either<Failure, void>> resetGameHistory();
 }
 

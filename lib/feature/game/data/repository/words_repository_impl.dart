@@ -45,8 +45,9 @@ class WordsRepositoryImpl implements WordsRepository {
   }
 
   @override
-  Future<Either<Failure, void>> setPlayedWords(
-      {required List<Word> words}) async {
+  Future<Either<Failure, void>> setPlayedWords({
+    required List<Word> words,
+  }) async {
     try {
       return Right(await _localDataSource.setPlayedWords(words: words));
     } catch (e, stacktrace) {
@@ -59,11 +60,21 @@ class WordsRepositoryImpl implements WordsRepository {
   Future<Either<Failure, List<Word>>> getPlayedWords({
     required Category category,
   }) async {
-    return Right(await _localDataSource.getPlayedWords(category: category));
+    try {
+      return Right(await _localDataSource.getPlayedWords(category: category));
+    } catch (e, stacktrace) {
+      log(e.toString(), stackTrace: stacktrace);
+      return Left(DatabaseFailure(e.toString()));
+    }
   }
 
   @override
-  Future<void> resetGameHistory() {
-    return _localDataSource.resetGameHistory();
+  Future<Either<Failure, void>> resetGameHistory() async {
+    try {
+      return Right(await _localDataSource.resetGameHistory());
+    } catch (e, stacktrace) {
+      log(e.toString(), stackTrace: stacktrace);
+      return Left(DatabaseFailure(e.toString()));
+    }
   }
 }
