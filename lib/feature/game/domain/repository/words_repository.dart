@@ -12,7 +12,7 @@ abstract class WordsRepository {
     List<Word>? playedWords,
   });
 
-  Future<void> setPlayedWords({required List<Word> words});
+  Future<Either<Failure, void>> setPlayedWords({required List<Word> words});
 
   Future<Either<Failure, List<Word>>> getPlayedWords({required Category category});
 

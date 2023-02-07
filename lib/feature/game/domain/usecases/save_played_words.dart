@@ -6,12 +6,11 @@ import 'package:injectable/injectable.dart';
 
 @Injectable()
 class SavePlayedWords {
-
   final WordsRepository repository;
 
   SavePlayedWords({required this.repository});
 
   Future<Either<Failure, void>> execute({required List<Word> words}) async {
-    return Right(await repository.setPlayedWords(words: words));
+    return await repository.setPlayedWords(words: words);
   }
 }
