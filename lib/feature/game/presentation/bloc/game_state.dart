@@ -2,7 +2,7 @@ part of 'game_bloc.dart';
 
 @freezed
 class GameState with _$GameState {
-  const factory GameState.waitingForConfig() = _WaitingForConfig;
+  const factory GameState.waitingForConfig({Game? game}) = _WaitingForConfig;
 
   const factory GameState.wordsIsLoading() = _WordsIsLoading;
 

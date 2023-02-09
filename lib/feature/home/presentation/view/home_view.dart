@@ -11,7 +11,18 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var gameBloc = BlocProvider.of<GameBloc>(context);
+    return BlocBuilder<GameBloc, GameState>(
+      builder: (context, state) {
+        return state.maybeWhen(
+          orElse: () => Container(),
+          waitingForConfig: (game) =>
+              _buildBody(context, canContinueGame: game != null),
+        );
+      },
+    );
+  }
+
+  Widget _buildBody(BuildContext context, {required bool canContinueGame}) {
     var router = di.locator.get<AppRouter>();
 
     return Stack(
@@ -28,11 +39,12 @@ class HomeView extends StatelessWidget {
                 child: const Text('Новая игра'),
               ),
               const SizedBox(height: 12),
-              ElevatedButton(
-                onPressed: () => router.push(const CategoryPageRoute()),
-                child: const Text('Продолжить игру'),
-              ),
-              const SizedBox(height: 12),
+              if (canContinueGame) ...[
+                ElevatedButton(
+                  onPressed: () => router.push(const CategoryPageRoute()),
+                  child: const Text('Продолжить игру'),
+                ),
+              ],
               SizedBox(height: MediaQuery.of(context).padding.bottom + 16),
             ],
           ),

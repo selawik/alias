@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:alias/feature/categories/data/models/category.dart';
 import 'package:alias/feature/commands/data/models/command.dart';
+import 'package:alias/feature/game/domain/model/game.dart';
 import 'package:alias/feature/game/domain/model/game_answer.dart';
 import 'package:alias/feature/game/domain/model/game_settings.dart';
 import 'package:alias/feature/game/domain/model/playing_command.dart';
@@ -52,10 +53,11 @@ class GameBloc extends Bloc<GameEvent, GameState> {
   }
 
   void _onInit(_Init event, Emitter emit) async {
-    print('123');
-    var game = await _wordsUseCasesFacade.loadUnfinishedGame();
+    var result = await _wordsUseCasesFacade.loadUnfinishedGame();
 
-    game.fold((failure) => null, (game) => log(game.toString()));
+    var game = result.fold((failure) => null, (game) => game);
+
+    emit(GameState.waitingForConfig(game: game));
   }
 
   void _onCategoryInitialization(_InitializeCategory event, Emitter emit) {

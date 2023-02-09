@@ -2742,7 +2742,7 @@ abstract class _ResetGameHistory implements GameEvent {
 mixin _$GameState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() waitingForConfig,
+    required TResult Function(Game? game) waitingForConfig,
     required TResult Function() wordsIsLoading,
     required TResult Function() noWords,
     required TResult Function(
@@ -2759,7 +2759,7 @@ mixin _$GameState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? waitingForConfig,
+    TResult? Function(Game? game)? waitingForConfig,
     TResult? Function()? wordsIsLoading,
     TResult? Function()? noWords,
     TResult? Function(GameSettings settings, List<PlayingCommand> commands)?
@@ -2775,7 +2775,7 @@ mixin _$GameState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? waitingForConfig,
+    TResult Function(Game? game)? waitingForConfig,
     TResult Function()? wordsIsLoading,
     TResult Function()? noWords,
     TResult Function(GameSettings settings, List<PlayingCommand> commands)?
@@ -2854,6 +2854,10 @@ abstract class _$$_WaitingForConfigCopyWith<$Res> {
   factory _$$_WaitingForConfigCopyWith(
           _$_WaitingForConfig value, $Res Function(_$_WaitingForConfig) then) =
       __$$_WaitingForConfigCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Game? game});
+
+  $GameCopyWith<$Res>? get game;
 }
 
 /// @nodoc
@@ -2863,31 +2867,67 @@ class __$$_WaitingForConfigCopyWithImpl<$Res>
   __$$_WaitingForConfigCopyWithImpl(
       _$_WaitingForConfig _value, $Res Function(_$_WaitingForConfig) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? game = freezed,
+  }) {
+    return _then(_$_WaitingForConfig(
+      game: freezed == game
+          ? _value.game
+          : game // ignore: cast_nullable_to_non_nullable
+              as Game?,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $GameCopyWith<$Res>? get game {
+    if (_value.game == null) {
+      return null;
+    }
+
+    return $GameCopyWith<$Res>(_value.game!, (value) {
+      return _then(_value.copyWith(game: value));
+    });
+  }
 }
 
 /// @nodoc
 
 class _$_WaitingForConfig implements _WaitingForConfig {
-  const _$_WaitingForConfig();
+  const _$_WaitingForConfig({this.game});
+
+  @override
+  final Game? game;
 
   @override
   String toString() {
-    return 'GameState.waitingForConfig()';
+    return 'GameState.waitingForConfig(game: $game)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_WaitingForConfig);
+        (other.runtimeType == runtimeType &&
+            other is _$_WaitingForConfig &&
+            (identical(other.game, game) || other.game == game));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, game);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_WaitingForConfigCopyWith<_$_WaitingForConfig> get copyWith =>
+      __$$_WaitingForConfigCopyWithImpl<_$_WaitingForConfig>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() waitingForConfig,
+    required TResult Function(Game? game) waitingForConfig,
     required TResult Function() wordsIsLoading,
     required TResult Function() noWords,
     required TResult Function(
@@ -2901,13 +2941,13 @@ class _$_WaitingForConfig implements _WaitingForConfig {
         commandMoveIsOver,
     required TResult Function(List<PlayingCommand> commands) gameOver,
   }) {
-    return waitingForConfig();
+    return waitingForConfig(game);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? waitingForConfig,
+    TResult? Function(Game? game)? waitingForConfig,
     TResult? Function()? wordsIsLoading,
     TResult? Function()? noWords,
     TResult? Function(GameSettings settings, List<PlayingCommand> commands)?
@@ -2920,13 +2960,13 @@ class _$_WaitingForConfig implements _WaitingForConfig {
         commandMoveIsOver,
     TResult? Function(List<PlayingCommand> commands)? gameOver,
   }) {
-    return waitingForConfig?.call();
+    return waitingForConfig?.call(game);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? waitingForConfig,
+    TResult Function(Game? game)? waitingForConfig,
     TResult Function()? wordsIsLoading,
     TResult Function()? noWords,
     TResult Function(GameSettings settings, List<PlayingCommand> commands)?
@@ -2941,7 +2981,7 @@ class _$_WaitingForConfig implements _WaitingForConfig {
     required TResult orElse(),
   }) {
     if (waitingForConfig != null) {
-      return waitingForConfig();
+      return waitingForConfig(game);
     }
     return orElse();
   }
@@ -3000,7 +3040,12 @@ class _$_WaitingForConfig implements _WaitingForConfig {
 }
 
 abstract class _WaitingForConfig implements GameState {
-  const factory _WaitingForConfig() = _$_WaitingForConfig;
+  const factory _WaitingForConfig({final Game? game}) = _$_WaitingForConfig;
+
+  Game? get game;
+  @JsonKey(ignore: true)
+  _$$_WaitingForConfigCopyWith<_$_WaitingForConfig> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -3041,7 +3086,7 @@ class _$_WordsIsLoading implements _WordsIsLoading {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() waitingForConfig,
+    required TResult Function(Game? game) waitingForConfig,
     required TResult Function() wordsIsLoading,
     required TResult Function() noWords,
     required TResult Function(
@@ -3061,7 +3106,7 @@ class _$_WordsIsLoading implements _WordsIsLoading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? waitingForConfig,
+    TResult? Function(Game? game)? waitingForConfig,
     TResult? Function()? wordsIsLoading,
     TResult? Function()? noWords,
     TResult? Function(GameSettings settings, List<PlayingCommand> commands)?
@@ -3080,7 +3125,7 @@ class _$_WordsIsLoading implements _WordsIsLoading {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? waitingForConfig,
+    TResult Function(Game? game)? waitingForConfig,
     TResult Function()? wordsIsLoading,
     TResult Function()? noWords,
     TResult Function(GameSettings settings, List<PlayingCommand> commands)?
@@ -3194,7 +3239,7 @@ class _$_NoWords implements _NoWords {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() waitingForConfig,
+    required TResult Function(Game? game) waitingForConfig,
     required TResult Function() wordsIsLoading,
     required TResult Function() noWords,
     required TResult Function(
@@ -3214,7 +3259,7 @@ class _$_NoWords implements _NoWords {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? waitingForConfig,
+    TResult? Function(Game? game)? waitingForConfig,
     TResult? Function()? wordsIsLoading,
     TResult? Function()? noWords,
     TResult? Function(GameSettings settings, List<PlayingCommand> commands)?
@@ -3233,7 +3278,7 @@ class _$_NoWords implements _NoWords {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? waitingForConfig,
+    TResult Function(Game? game)? waitingForConfig,
     TResult Function()? wordsIsLoading,
     TResult Function()? noWords,
     TResult Function(GameSettings settings, List<PlayingCommand> commands)?
@@ -3391,7 +3436,7 @@ class _$_GameIsReady implements _GameIsReady {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() waitingForConfig,
+    required TResult Function(Game? game) waitingForConfig,
     required TResult Function() wordsIsLoading,
     required TResult Function() noWords,
     required TResult Function(
@@ -3411,7 +3456,7 @@ class _$_GameIsReady implements _GameIsReady {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? waitingForConfig,
+    TResult? Function(Game? game)? waitingForConfig,
     TResult? Function()? wordsIsLoading,
     TResult? Function()? noWords,
     TResult? Function(GameSettings settings, List<PlayingCommand> commands)?
@@ -3430,7 +3475,7 @@ class _$_GameIsReady implements _GameIsReady {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? waitingForConfig,
+    TResult Function(Game? game)? waitingForConfig,
     TResult Function()? wordsIsLoading,
     TResult Function()? noWords,
     TResult Function(GameSettings settings, List<PlayingCommand> commands)?
@@ -3589,7 +3634,7 @@ class _$_WaitingForAnswer implements _WaitingForAnswer {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() waitingForConfig,
+    required TResult Function(Game? game) waitingForConfig,
     required TResult Function() wordsIsLoading,
     required TResult Function() noWords,
     required TResult Function(
@@ -3609,7 +3654,7 @@ class _$_WaitingForAnswer implements _WaitingForAnswer {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? waitingForConfig,
+    TResult? Function(Game? game)? waitingForConfig,
     TResult? Function()? wordsIsLoading,
     TResult? Function()? noWords,
     TResult? Function(GameSettings settings, List<PlayingCommand> commands)?
@@ -3628,7 +3673,7 @@ class _$_WaitingForAnswer implements _WaitingForAnswer {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? waitingForConfig,
+    TResult Function(Game? game)? waitingForConfig,
     TResult Function()? wordsIsLoading,
     TResult Function()? noWords,
     TResult Function(GameSettings settings, List<PlayingCommand> commands)?
@@ -3749,7 +3794,7 @@ class _$_GamePaused implements _GamePaused {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() waitingForConfig,
+    required TResult Function(Game? game) waitingForConfig,
     required TResult Function() wordsIsLoading,
     required TResult Function() noWords,
     required TResult Function(
@@ -3769,7 +3814,7 @@ class _$_GamePaused implements _GamePaused {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? waitingForConfig,
+    TResult? Function(Game? game)? waitingForConfig,
     TResult? Function()? wordsIsLoading,
     TResult? Function()? noWords,
     TResult? Function(GameSettings settings, List<PlayingCommand> commands)?
@@ -3788,7 +3833,7 @@ class _$_GamePaused implements _GamePaused {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? waitingForConfig,
+    TResult Function(Game? game)? waitingForConfig,
     TResult Function()? wordsIsLoading,
     TResult Function()? noWords,
     TResult Function(GameSettings settings, List<PlayingCommand> commands)?
@@ -3939,7 +3984,7 @@ class _$_LastWord implements _LastWord {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() waitingForConfig,
+    required TResult Function(Game? game) waitingForConfig,
     required TResult Function() wordsIsLoading,
     required TResult Function() noWords,
     required TResult Function(
@@ -3959,7 +4004,7 @@ class _$_LastWord implements _LastWord {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? waitingForConfig,
+    TResult? Function(Game? game)? waitingForConfig,
     TResult? Function()? wordsIsLoading,
     TResult? Function()? noWords,
     TResult? Function(GameSettings settings, List<PlayingCommand> commands)?
@@ -3978,7 +4023,7 @@ class _$_LastWord implements _LastWord {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? waitingForConfig,
+    TResult Function(Game? game)? waitingForConfig,
     TResult Function()? wordsIsLoading,
     TResult Function()? noWords,
     TResult Function(GameSettings settings, List<PlayingCommand> commands)?
@@ -4164,7 +4209,7 @@ class _$_CommandMoveIsOver implements _CommandMoveIsOver {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() waitingForConfig,
+    required TResult Function(Game? game) waitingForConfig,
     required TResult Function() wordsIsLoading,
     required TResult Function() noWords,
     required TResult Function(
@@ -4184,7 +4229,7 @@ class _$_CommandMoveIsOver implements _CommandMoveIsOver {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? waitingForConfig,
+    TResult? Function(Game? game)? waitingForConfig,
     TResult? Function()? wordsIsLoading,
     TResult? Function()? noWords,
     TResult? Function(GameSettings settings, List<PlayingCommand> commands)?
@@ -4203,7 +4248,7 @@ class _$_CommandMoveIsOver implements _CommandMoveIsOver {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? waitingForConfig,
+    TResult Function(Game? game)? waitingForConfig,
     TResult Function()? wordsIsLoading,
     TResult Function()? noWords,
     TResult Function(GameSettings settings, List<PlayingCommand> commands)?
@@ -4361,7 +4406,7 @@ class _$_GameOver implements _GameOver {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() waitingForConfig,
+    required TResult Function(Game? game) waitingForConfig,
     required TResult Function() wordsIsLoading,
     required TResult Function() noWords,
     required TResult Function(
@@ -4381,7 +4426,7 @@ class _$_GameOver implements _GameOver {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? waitingForConfig,
+    TResult? Function(Game? game)? waitingForConfig,
     TResult? Function()? wordsIsLoading,
     TResult? Function()? noWords,
     TResult? Function(GameSettings settings, List<PlayingCommand> commands)?
@@ -4400,7 +4445,7 @@ class _$_GameOver implements _GameOver {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? waitingForConfig,
+    TResult Function(Game? game)? waitingForConfig,
     TResult Function()? wordsIsLoading,
     TResult Function()? noWords,
     TResult Function(GameSettings settings, List<PlayingCommand> commands)?
