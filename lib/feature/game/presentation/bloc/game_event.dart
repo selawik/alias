@@ -2,6 +2,8 @@ part of 'game_bloc.dart';
 
 @freezed
 class GameEvent with _$GameEvent {
+  const factory GameEvent.init() = _Init;
+
   const factory GameEvent.initializeCategory({required Category category}) = _InitializeCategory;
 
   const factory GameEvent.initializeCommands({required List<Command> commands}) = _InitializeCommands;

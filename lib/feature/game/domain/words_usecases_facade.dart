@@ -1,6 +1,8 @@
 import 'package:alias/core/error/failure.dart';
 import 'package:alias/feature/categories/data/models/category.dart';
+import 'package:alias/feature/game/domain/model/game.dart';
 import 'package:alias/feature/game/domain/usecases/get_played_words.dart';
+import 'package:alias/feature/game/domain/usecases/get_unfinished_game.dart';
 import 'package:alias/feature/game/domain/usecases/load_words.dart';
 import 'package:alias/feature/game/domain/usecases/reset_game_history.dart';
 import 'package:alias/feature/game/domain/usecases/save_played_words.dart';
@@ -15,16 +17,19 @@ class WordsUseCasesFacade {
   final SavePlayedWords _savePlayedWords;
   final GetPlayedWords _getPlayedWords;
   final ResetGameHistory _resetGameHistory;
+  final GetUnfinishedGame _getUnfinishedGame;
 
   WordsUseCasesFacade({
     required LoadWords loadWords,
     required SavePlayedWords savePlayedWords,
     required GetPlayedWords getPlayedWords,
     required ResetGameHistory resetGameHistory,
+    required GetUnfinishedGame getUnfinishedGame,
   })  : _loadWords = loadWords,
         _savePlayedWords = savePlayedWords,
         _getPlayedWords = getPlayedWords,
-        _resetGameHistory = resetGameHistory;
+        _resetGameHistory = resetGameHistory,
+        _getUnfinishedGame = getUnfinishedGame;
 
   Future<Either<Failure, List<Word>>> loadWords({
     required Category category,
@@ -58,5 +63,9 @@ class WordsUseCasesFacade {
 
   Future<Either<Failure, void>> resetGameHistory() async {
     return await _resetGameHistory.execute();
+  }
+
+  Future<Either<Failure, Game>> loadUnfinishedGame() async {
+    return await _getUnfinishedGame.execute();
   }
 }

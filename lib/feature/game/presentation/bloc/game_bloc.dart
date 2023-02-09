@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:alias/feature/categories/data/models/category.dart';
 import 'package:alias/feature/commands/data/models/command.dart';
 import 'package:alias/feature/game/domain/model/game_answer.dart';
@@ -33,6 +35,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
   GameBloc({required WordsUseCasesFacade wordsUseCasesFacade})
       : _wordsUseCasesFacade = wordsUseCasesFacade,
         super(const GameState.waitingForConfig()) {
+    on<_Init>(_onInit);
     on<_InitializeCategory>(_onCategoryInitialization);
     on<_InitializeCommands>(_onCommandsInitialization);
     on<_InitializeSettings>(_onSettingsInitialization);
@@ -46,6 +49,13 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     on<_MoveResultWatched>(_onMoveResultWatched);
     on<_ResetGame>(_onResetGame);
     on<_ResetGameHistory>(_onResetGameHistory);
+  }
+
+  void _onInit(_Init event, Emitter emit) async {
+    print('123');
+    var game = await _wordsUseCasesFacade.loadUnfinishedGame();
+
+    game.fold((failure) => null, (game) => log(game.toString()));
   }
 
   void _onCategoryInitialization(_InitializeCategory event, Emitter emit) {

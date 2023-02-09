@@ -2,13 +2,16 @@ import 'package:alias/core/constants/app_colors.dart';
 import 'package:alias/core/constants/assets_catalog.dart';
 import 'package:alias/core/injection.dart' as di;
 import 'package:alias/core/router/app_router.dart';
+import 'package:alias/feature/game/presentation/bloc/game_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var gameBloc = BlocProvider.of<GameBloc>(context);
     var router = di.locator.get<AppRouter>();
 
     return Stack(

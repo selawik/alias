@@ -32,13 +32,13 @@ import 'package:alias/feature/commands/domain/usercases/load_commands.dart'
     as _i16;
 import 'package:alias/feature/commands/presentation/bloc/commands_bloc.dart'
     as _i24;
-import 'package:alias/feature/game/data/data_sourse/drift_local_data_source.dart'
+import 'package:alias/feature/game/data/data_source/drift_local_data_source.dart'
     as _i18;
-import 'package:alias/feature/game/data/data_sourse/firebase_words_data_source.dart'
+import 'package:alias/feature/game/data/data_source/firebase_words_data_source.dart'
     as _i20;
-import 'package:alias/feature/game/data/data_sourse/words_local_data_source.dart'
+import 'package:alias/feature/game/data/data_source/words_local_data_source.dart'
     as _i17;
-import 'package:alias/feature/game/data/data_sourse/words_remote_data_sourse.dart'
+import 'package:alias/feature/game/data/data_source/words_remote_data_source.dart'
     as _i19;
 import 'package:alias/feature/game/data/repository/words_repository_impl.dart'
     as _i22;
@@ -46,13 +46,15 @@ import 'package:alias/feature/game/domain/repository/words_repository.dart'
     as _i21;
 import 'package:alias/feature/game/domain/usecases/get_played_words.dart'
     as _i25;
-import 'package:alias/feature/game/domain/usecases/load_words.dart' as _i26;
+import 'package:alias/feature/game/domain/usecases/get_unfinished_game.dart'
+    as _i26;
+import 'package:alias/feature/game/domain/usecases/load_words.dart' as _i27;
 import 'package:alias/feature/game/domain/usecases/reset_game_history.dart'
-    as _i27;
-import 'package:alias/feature/game/domain/usecases/save_played_words.dart'
     as _i28;
-import 'package:alias/feature/game/domain/words_usecases_facade.dart' as _i29;
-import 'package:alias/feature/game/presentation/bloc/game_bloc.dart' as _i30;
+import 'package:alias/feature/game/domain/usecases/save_played_words.dart'
+    as _i29;
+import 'package:alias/feature/game/domain/words_usecases_facade.dart' as _i30;
+import 'package:alias/feature/game/presentation/bloc/game_bloc.dart' as _i31;
 import 'package:alias/feature/game_settings/presentation/bloc/game_settings_bloc.dart'
     as _i14;
 import 'package:get_it/get_it.dart' as _i1;
@@ -99,20 +101,23 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i24.CommandsBloc(loadCommandsUseCase: gh<_i16.LoadCommands>()));
     gh.factory<_i25.GetPlayedWords>(
         () => _i25.GetPlayedWords(repository: gh<_i21.WordsRepository>()));
-    gh.factory<_i26.LoadWords>(
-        () => _i26.LoadWords(repository: gh<_i21.WordsRepository>()));
-    gh.factory<_i27.ResetGameHistory>(
-        () => _i27.ResetGameHistory(repository: gh<_i21.WordsRepository>()));
-    gh.factory<_i28.SavePlayedWords>(
-        () => _i28.SavePlayedWords(repository: gh<_i21.WordsRepository>()));
-    gh.factory<_i29.WordsUseCasesFacade>(() => _i29.WordsUseCasesFacade(
-          loadWords: gh<_i26.LoadWords>(),
-          savePlayedWords: gh<_i28.SavePlayedWords>(),
+    gh.factory<_i26.GetUnfinishedGame>(
+        () => _i26.GetUnfinishedGame(repository: gh<_i21.WordsRepository>()));
+    gh.factory<_i27.LoadWords>(
+        () => _i27.LoadWords(repository: gh<_i21.WordsRepository>()));
+    gh.factory<_i28.ResetGameHistory>(
+        () => _i28.ResetGameHistory(repository: gh<_i21.WordsRepository>()));
+    gh.factory<_i29.SavePlayedWords>(
+        () => _i29.SavePlayedWords(repository: gh<_i21.WordsRepository>()));
+    gh.factory<_i30.WordsUseCasesFacade>(() => _i30.WordsUseCasesFacade(
+          loadWords: gh<_i27.LoadWords>(),
+          savePlayedWords: gh<_i29.SavePlayedWords>(),
           getPlayedWords: gh<_i25.GetPlayedWords>(),
-          resetGameHistory: gh<_i27.ResetGameHistory>(),
+          resetGameHistory: gh<_i28.ResetGameHistory>(),
+          getUnfinishedGame: gh<_i26.GetUnfinishedGame>(),
         ));
-    gh.factory<_i30.GameBloc>(() =>
-        _i30.GameBloc(wordsUseCasesFacade: gh<_i29.WordsUseCasesFacade>()));
+    gh.factory<_i31.GameBloc>(() =>
+        _i31.GameBloc(wordsUseCasesFacade: gh<_i30.WordsUseCasesFacade>()));
     return this;
   }
 }

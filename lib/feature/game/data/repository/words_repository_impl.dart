@@ -2,8 +2,9 @@ import 'dart:developer';
 
 import 'package:alias/core/error/failure.dart';
 import 'package:alias/feature/categories/data/models/category.dart';
-import 'package:alias/feature/game/data/data_sourse/words_local_data_source.dart';
-import 'package:alias/feature/game/data/data_sourse/words_remote_data_sourse.dart';
+import 'package:alias/feature/game/data/data_source/words_local_data_source.dart';
+import 'package:alias/feature/game/data/data_source/words_remote_data_source.dart';
+import 'package:alias/feature/game/domain/model/game.dart';
 import 'package:alias/feature/game/domain/repository/words_repository.dart';
 import 'package:alias/feature/game_settings/data/models/word.dart';
 import 'package:alias/feature/game_settings/domain/model/binary_selector_type.dart';
@@ -72,6 +73,18 @@ class WordsRepositoryImpl implements WordsRepository {
   Future<Either<Failure, void>> resetGameHistory() async {
     try {
       return Right(await _localDataSource.resetGameHistory());
+    } catch (e, stacktrace) {
+      log(e.toString(), stackTrace: stacktrace);
+      return Left(DatabaseFailure(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, Game>> loadUnfinishedGame() async {
+    try {
+      var gameDto = await _localDataSource.getUnfinishedGame();
+
+      return Right(Game(nextPlayingCommandId: gameDto.nextPlayingCommandId));
     } catch (e, stacktrace) {
       log(e.toString(), stackTrace: stacktrace);
       return Left(DatabaseFailure(e.toString()));

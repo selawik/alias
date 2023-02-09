@@ -23,7 +23,9 @@ void main() async {
   runApp(
     MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => di.locator.get<GameBloc>()),
+        BlocProvider(
+          create: (context) => di.locator.get<GameBloc>()
+        ),
       ],
       child: const Application(),
     ),

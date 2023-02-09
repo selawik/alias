@@ -1,5 +1,6 @@
 import 'package:alias/core/error/failure.dart';
 import 'package:alias/feature/categories/data/models/category.dart';
+import 'package:alias/feature/game/domain/model/game.dart';
 import 'package:alias/feature/game_settings/data/models/word.dart';
 import 'package:alias/feature/game_settings/domain/model/binary_selector_type.dart';
 import 'package:dartz/dartz.dart';
@@ -16,7 +17,8 @@ abstract class WordsRepository {
 
   Future<Either<Failure, List<Word>>> getPlayedWords({required Category category});
 
-
   Future<Either<Failure, void>> resetGameHistory();
+
+  Future<Either<Failure, Game>> loadUnfinishedGame();
 }
 

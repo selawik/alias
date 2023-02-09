@@ -578,6 +578,7 @@ abstract class _$Database extends GeneratedDatabase {
   late final $PlayedWordTable playedWord = $PlayedWordTable(this);
   late final $GameTableTable gameTable = $GameTableTable(this);
   late final PlayedWordDao playedWordDao = PlayedWordDao(this as Database);
+  late final GameDao gameDao = GameDao(this as Database);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();

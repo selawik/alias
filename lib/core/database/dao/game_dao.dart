@@ -8,7 +8,7 @@ part 'game_dao.g.dart';
 class GameDao extends DatabaseAccessor<Database> with _$GameDaoMixin {
   GameDao(Database db) : super(db);
 
-  Future<Game> getLastGame() async {
+  Future<Game> getUnfinishedGame() async {
     return await select(gameTable).getSingle();
   }
 
