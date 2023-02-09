@@ -19,6 +19,6 @@ abstract class WordsRepository {
 
   Future<Either<Failure, void>> resetGameHistory();
 
-  Future<Either<Failure, Game>> loadUnfinishedGame();
+  Future<Either<Failure, Game?>> loadUnfinishedGame();
 }
 

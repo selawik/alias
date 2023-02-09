@@ -12,7 +12,7 @@ class GetUnfinishedGame {
 
   GetUnfinishedGame({required WordsRepository repository}) : _repository = repository;
 
-  Future<Either<Failure, Game>> execute() async {
+  Future<Either<Failure, Game?>> execute() async {
     return await _repository.loadUnfinishedGame();
   }
 }

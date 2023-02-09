@@ -6,5 +6,5 @@ abstract class WordsLocalDataSource {
   Future<void> setPlayedWords({required List<Word> words});
   Future<List<Word>> getPlayedWords({required Category category});
   Future<void> resetGameHistory();
-  Future<GameDto> getUnfinishedGame();
+  Future<GameDto?> getUnfinishedGame();
 }

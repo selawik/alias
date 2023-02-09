@@ -57,6 +57,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
     var game = result.fold((failure) => null, (game) => game);
 
+    log(game.toString());
     emit(GameState.waitingForConfig(game: game));
   }
 

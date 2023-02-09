@@ -29,9 +29,14 @@ class DriftLocalDataSource implements WordsLocalDataSource {
   }
 
   @override
-  Future<GameDto> getUnfinishedGame() async {
+  Future<GameDto?> getUnfinishedGame() async {
     var game = await _dbProvider.getUnfinishedGame();
-    
-    return GameDto(nextPlayingCommandId: game.nextPlayingCommandId);
+
+    if (game != null) {
+      return GameDto(nextPlayingCommandId: game.nextPlayingCommandId);
+    }
+
+    return null;
+
   }
 }

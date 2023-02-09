@@ -80,11 +80,15 @@ class WordsRepositoryImpl implements WordsRepository {
   }
 
   @override
-  Future<Either<Failure, Game>> loadUnfinishedGame() async {
+  Future<Either<Failure, Game?>> loadUnfinishedGame() async {
     try {
       var gameDto = await _localDataSource.getUnfinishedGame();
 
-      return Right(Game(nextPlayingCommandId: gameDto.nextPlayingCommandId));
+      if (gameDto != null) {
+        return Right(Game(nextPlayingCommandId: gameDto.nextPlayingCommandId));
+      }
+
+      return const Right(null);
     } catch (e, stacktrace) {
       log(e.toString(), stackTrace: stacktrace);
       return Left(DatabaseFailure(e.toString()));

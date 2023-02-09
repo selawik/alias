@@ -65,7 +65,7 @@ class WordsUseCasesFacade {
     return await _resetGameHistory.execute();
   }
 
-  Future<Either<Failure, Game>> loadUnfinishedGame() async {
+  Future<Either<Failure, Game?>> loadUnfinishedGame() async {
     return await _getUnfinishedGame.execute();
   }
 }
