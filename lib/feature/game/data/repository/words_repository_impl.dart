@@ -4,6 +4,7 @@ import 'package:alias/core/error/failure.dart';
 import 'package:alias/feature/categories/data/models/category.dart';
 import 'package:alias/feature/game/data/data_source/words_local_data_source.dart';
 import 'package:alias/feature/game/data/data_source/words_remote_data_source.dart';
+import 'package:alias/feature/game/data/mapper/words_mapper.dart';
 import 'package:alias/feature/game/domain/model/game.dart';
 import 'package:alias/feature/game/domain/repository/words_repository.dart';
 import 'package:alias/feature/game/domain/model/word.dart';
@@ -15,11 +16,14 @@ import 'package:injectable/injectable.dart';
 class WordsRepositoryImpl implements WordsRepository {
   final WordsRemoteDataSource _remoteDataSource;
   final WordsLocalDataSource _localDataSource;
+  final WordsMapper _mapper;
 
   WordsRepositoryImpl({
     required WordsRemoteDataSource remoteDataSource,
     required WordsLocalDataSource localDataSource,
-  })  : _localDataSource = localDataSource,
+    required WordsMapper mapper,
+  })  : _mapper = mapper,
+        _localDataSource = localDataSource,
         _remoteDataSource = remoteDataSource;
 
   @override
@@ -38,10 +42,7 @@ class WordsRepositoryImpl implements WordsRepository {
         playedIds: playedWords?.map((e) => e.wordId).toList(),
       );
 
-      var words = result.map((wordDto) => Word(
-          wordId: wordDto.wordId,
-          name: wordDto.name,
-          categoryId: wordDto.categoryId)).toList();
+      var words = result.map(_mapper.mapToModel).toList();
 
       return Right(words);
     } catch (e, stacktrace) {
