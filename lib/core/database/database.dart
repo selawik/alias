@@ -4,6 +4,7 @@ import 'dart:io';
 
 import 'package:alias/core/database/dao/played_word_dao.dart';
 import 'package:alias/core/database/tables/category.dart';
+import 'package:alias/core/database/tables/game.dart';
 import 'package:alias/core/database/tables/played_word.dart';
 import 'package:alias/core/database/tables/words.dart';
 import 'package:drift/drift.dart';
@@ -14,7 +15,7 @@ import 'package:path_provider/path_provider.dart';
 
 part 'database.g.dart';
 
-@DriftDatabase(tables: [CategoryTable, PlayedWord], daos: [PlayedWordDao])
+@DriftDatabase(tables: [CategoryTable, PlayedWord, GameTable], daos: [PlayedWordDao])
 @singleton
 class Database extends _$Database{
   // we tell the database where to store the data with this constructor

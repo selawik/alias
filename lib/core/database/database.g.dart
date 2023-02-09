@@ -394,15 +394,194 @@ class PlayedWordCompanion extends UpdateCompanion<PlayedWords> {
   }
 }
 
+class $GameTableTable extends GameTable with TableInfo<$GameTableTable, Game> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $GameTableTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _gameIdMeta = const VerificationMeta('gameId');
+  @override
+  late final GeneratedColumn<int> gameId = GeneratedColumn<int>(
+      'game_id', aliasedName, false,
+      hasAutoIncrement: true,
+      type: DriftSqlType.int,
+      requiredDuringInsert: false,
+      defaultConstraints:
+          GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
+  static const VerificationMeta _nextPlayingCommandIdMeta =
+      const VerificationMeta('nextPlayingCommandId');
+  @override
+  late final GeneratedColumn<int> nextPlayingCommandId = GeneratedColumn<int>(
+      'next_playing_command_id', aliasedName, false,
+      type: DriftSqlType.int, requiredDuringInsert: true);
+  @override
+  List<GeneratedColumn> get $columns => [gameId, nextPlayingCommandId];
+  @override
+  String get aliasedName => _alias ?? 'game_table';
+  @override
+  String get actualTableName => 'game_table';
+  @override
+  VerificationContext validateIntegrity(Insertable<Game> instance,
+      {bool isInserting = false}) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('game_id')) {
+      context.handle(_gameIdMeta,
+          gameId.isAcceptableOrUnknown(data['game_id']!, _gameIdMeta));
+    }
+    if (data.containsKey('next_playing_command_id')) {
+      context.handle(
+          _nextPlayingCommandIdMeta,
+          nextPlayingCommandId.isAcceptableOrUnknown(
+              data['next_playing_command_id']!, _nextPlayingCommandIdMeta));
+    } else if (isInserting) {
+      context.missing(_nextPlayingCommandIdMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {gameId};
+  @override
+  Game map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return Game(
+      gameId: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}game_id'])!,
+      nextPlayingCommandId: attachedDatabase.typeMapping.read(
+          DriftSqlType.int, data['${effectivePrefix}next_playing_command_id'])!,
+    );
+  }
+
+  @override
+  $GameTableTable createAlias(String alias) {
+    return $GameTableTable(attachedDatabase, alias);
+  }
+}
+
+class Game extends DataClass implements Insertable<Game> {
+  final int gameId;
+  final int nextPlayingCommandId;
+  const Game({required this.gameId, required this.nextPlayingCommandId});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['game_id'] = Variable<int>(gameId);
+    map['next_playing_command_id'] = Variable<int>(nextPlayingCommandId);
+    return map;
+  }
+
+  GameTableCompanion toCompanion(bool nullToAbsent) {
+    return GameTableCompanion(
+      gameId: Value(gameId),
+      nextPlayingCommandId: Value(nextPlayingCommandId),
+    );
+  }
+
+  factory Game.fromJson(Map<String, dynamic> json,
+      {ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return Game(
+      gameId: serializer.fromJson<int>(json['gameId']),
+      nextPlayingCommandId:
+          serializer.fromJson<int>(json['nextPlayingCommandId']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'gameId': serializer.toJson<int>(gameId),
+      'nextPlayingCommandId': serializer.toJson<int>(nextPlayingCommandId),
+    };
+  }
+
+  Game copyWith({int? gameId, int? nextPlayingCommandId}) => Game(
+        gameId: gameId ?? this.gameId,
+        nextPlayingCommandId: nextPlayingCommandId ?? this.nextPlayingCommandId,
+      );
+  @override
+  String toString() {
+    return (StringBuffer('Game(')
+          ..write('gameId: $gameId, ')
+          ..write('nextPlayingCommandId: $nextPlayingCommandId')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(gameId, nextPlayingCommandId);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is Game &&
+          other.gameId == this.gameId &&
+          other.nextPlayingCommandId == this.nextPlayingCommandId);
+}
+
+class GameTableCompanion extends UpdateCompanion<Game> {
+  final Value<int> gameId;
+  final Value<int> nextPlayingCommandId;
+  const GameTableCompanion({
+    this.gameId = const Value.absent(),
+    this.nextPlayingCommandId = const Value.absent(),
+  });
+  GameTableCompanion.insert({
+    this.gameId = const Value.absent(),
+    required int nextPlayingCommandId,
+  }) : nextPlayingCommandId = Value(nextPlayingCommandId);
+  static Insertable<Game> custom({
+    Expression<int>? gameId,
+    Expression<int>? nextPlayingCommandId,
+  }) {
+    return RawValuesInsertable({
+      if (gameId != null) 'game_id': gameId,
+      if (nextPlayingCommandId != null)
+        'next_playing_command_id': nextPlayingCommandId,
+    });
+  }
+
+  GameTableCompanion copyWith(
+      {Value<int>? gameId, Value<int>? nextPlayingCommandId}) {
+    return GameTableCompanion(
+      gameId: gameId ?? this.gameId,
+      nextPlayingCommandId: nextPlayingCommandId ?? this.nextPlayingCommandId,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (gameId.present) {
+      map['game_id'] = Variable<int>(gameId.value);
+    }
+    if (nextPlayingCommandId.present) {
+      map['next_playing_command_id'] =
+          Variable<int>(nextPlayingCommandId.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('GameTableCompanion(')
+          ..write('gameId: $gameId, ')
+          ..write('nextPlayingCommandId: $nextPlayingCommandId')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$Database extends GeneratedDatabase {
   _$Database(QueryExecutor e) : super(e);
   late final $CategoryTableTable categoryTable = $CategoryTableTable(this);
   late final $PlayedWordTable playedWord = $PlayedWordTable(this);
+  late final $GameTableTable gameTable = $GameTableTable(this);
   late final PlayedWordDao playedWordDao = PlayedWordDao(this as Database);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
   @override
   List<DatabaseSchemaEntity> get allSchemaEntities =>
-      [categoryTable, playedWord];
+      [categoryTable, playedWord, gameTable];
 }
