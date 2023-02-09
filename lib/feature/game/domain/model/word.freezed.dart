@@ -14,17 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Word _$WordFromJson(Map<String, dynamic> json) {
-  return _Word.fromJson(json);
-}
-
 /// @nodoc
 mixin _$Word {
   int get wordId => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   int get categoryId => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $WordCopyWith<Word> get copyWith => throw _privateConstructorUsedError;
 }
@@ -111,12 +106,10 @@ class __$$_WordCopyWithImpl<$Res> extends _$WordCopyWithImpl<$Res, _$_Word>
 }
 
 /// @nodoc
-@JsonSerializable()
+
 class _$_Word implements _Word {
   const _$_Word(
       {required this.wordId, required this.name, required this.categoryId});
-
-  factory _$_Word.fromJson(Map<String, dynamic> json) => _$$_WordFromJson(json);
 
   @override
   final int wordId;
@@ -141,7 +134,6 @@ class _$_Word implements _Word {
                 other.categoryId == categoryId));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, wordId, name, categoryId);
 
@@ -150,13 +142,6 @@ class _$_Word implements _Word {
   @pragma('vm:prefer-inline')
   _$$_WordCopyWith<_$_Word> get copyWith =>
       __$$_WordCopyWithImpl<_$_Word>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_WordToJson(
-      this,
-    );
-  }
 }
 
 abstract class _Word implements Word {
@@ -164,8 +149,6 @@ abstract class _Word implements Word {
       {required final int wordId,
       required final String name,
       required final int categoryId}) = _$_Word;
-
-  factory _Word.fromJson(Map<String, dynamic> json) = _$_Word.fromJson;
 
   @override
   int get wordId;

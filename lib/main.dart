@@ -1,5 +1,4 @@
 import 'package:alias/core/application.dart';
-import 'package:alias/core/firestore_filler.dart';
 import 'package:alias/core/injection.dart' as di;
 import 'package:alias/feature/game/presentation/bloc/game_bloc.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';

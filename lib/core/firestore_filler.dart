@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:alias/core/constants/firebase_data_store_collections.dart';
-import 'package:alias/feature/game_settings/data/models/word.dart';
+import 'package:alias/feature/game/data/model/word_dto.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/services.dart';
 
@@ -27,7 +27,7 @@ class FirestoreFiller {
         continue;
       }
 
-      var newWord = Word(wordId: wordId, categoryId: categoryId, name: word);
+      var newWord = WordDto(wordId: wordId, categoryId: categoryId, name: word);
 
       await FirebaseFirestore.instance
           .collection(FirebaseDataStoreCollections.word)
@@ -47,7 +47,7 @@ class FirestoreFiller {
         .get();
 
     var lastAddedWord =
-        words.docs.map((item) => Word.fromJson(item.data())).first;
+        words.docs.map((item) => WordDto.fromJson(item.data())).first;
 
     return lastAddedWord.wordId + 1;
   }

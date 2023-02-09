@@ -1,7 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'word.freezed.dart';
-part 'word.g.dart';
 
 @freezed
 class Word with _$Word {
@@ -11,5 +10,4 @@ class Word with _$Word {
     required int categoryId,
   }) = _Word;
 
-  factory Word.fromJson(Map<String, dynamic> json) => _$WordFromJson(json);
 }

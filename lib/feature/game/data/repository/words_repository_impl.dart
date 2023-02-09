@@ -6,7 +6,7 @@ import 'package:alias/feature/game/data/data_source/words_local_data_source.dart
 import 'package:alias/feature/game/data/data_source/words_remote_data_source.dart';
 import 'package:alias/feature/game/domain/model/game.dart';
 import 'package:alias/feature/game/domain/repository/words_repository.dart';
-import 'package:alias/feature/game_settings/data/models/word.dart';
+import 'package:alias/feature/game/domain/model/word.dart';
 import 'package:alias/feature/game_settings/domain/model/binary_selector_type.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
@@ -38,7 +38,12 @@ class WordsRepositoryImpl implements WordsRepository {
         playedIds: playedWords?.map((e) => e.wordId).toList(),
       );
 
-      return Right(result);
+      var words = result.map((wordDto) => Word(
+          wordId: wordDto.wordId,
+          name: wordDto.name,
+          categoryId: wordDto.categoryId)).toList();
+
+      return Right(words);
     } catch (e, stacktrace) {
       log(e.toString(), stackTrace: stacktrace);
       return const Left(ServerFailure('error'));

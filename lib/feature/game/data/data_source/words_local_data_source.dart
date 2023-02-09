@@ -1,6 +1,6 @@
 import 'package:alias/feature/categories/data/models/category.dart';
 import 'package:alias/feature/game/data/model/game_dto.dart';
-import 'package:alias/feature/game_settings/data/models/word.dart' ;
+import 'package:alias/feature/game/domain/model/word.dart' ;
 
 abstract class WordsLocalDataSource {
   Future<void> setPlayedWords({required List<Word> words});

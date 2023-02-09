@@ -1,9 +1,8 @@
-import 'package:alias/core/database/database.dart' hide Category;
 import 'package:alias/core/database/db_provider.dart';
 import 'package:alias/feature/categories/data/models/category.dart';
 import 'package:alias/feature/game/data/data_source/words_local_data_source.dart';
 import 'package:alias/feature/game/data/model/game_dto.dart';
-import 'package:alias/feature/game_settings/data/models/word.dart';
+import 'package:alias/feature/game/domain/model/word.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable(as: WordsLocalDataSource)

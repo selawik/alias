@@ -7,7 +7,7 @@ import 'package:alias/feature/game/domain/model/game_answer.dart';
 import 'package:alias/feature/game/domain/model/game_settings.dart';
 import 'package:alias/feature/game/domain/model/playing_command.dart';
 import 'package:alias/feature/game/domain/words_usecases_facade.dart';
-import 'package:alias/feature/game_settings/data/models/word.dart';
+import 'package:alias/feature/game/domain/model/word.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';

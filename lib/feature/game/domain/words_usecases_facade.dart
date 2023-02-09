@@ -6,7 +6,7 @@ import 'package:alias/feature/game/domain/usecases/get_unfinished_game.dart';
 import 'package:alias/feature/game/domain/usecases/load_words.dart';
 import 'package:alias/feature/game/domain/usecases/reset_game_history.dart';
 import 'package:alias/feature/game/domain/usecases/save_played_words.dart';
-import 'package:alias/feature/game_settings/data/models/word.dart';
+import 'package:alias/feature/game/domain/model/word.dart';
 import 'package:alias/feature/game_settings/domain/model/binary_selector_type.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';

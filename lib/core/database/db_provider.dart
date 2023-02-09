@@ -1,6 +1,6 @@
 import 'package:alias/core/database/database.dart' hide Category;
 import 'package:alias/feature/categories/data/models/category.dart';
-import 'package:alias/feature/game_settings/data/models/word.dart';
+import 'package:alias/feature/game/domain/model/word.dart';
 import 'package:injectable/injectable.dart';
 
 @singleton

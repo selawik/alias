@@ -1,7 +1,7 @@
-import 'package:alias/feature/game_settings/data/models/word.dart';
+import 'package:alias/feature/game/data/model/word_dto.dart';
 
 abstract class WordsRemoteDataSource {
-  Future<List<Word>> loadWords({
+  Future<List<WordDto>> loadWords({
     required int categoryId,
     required int limit,
     List<int>? playedIds,
