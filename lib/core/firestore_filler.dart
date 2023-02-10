@@ -14,7 +14,7 @@ class FirestoreFiller {
 
     var words = wordsJson.map((data) => data as String);
 
-    await addWords(words: words.toList(), categoryId: 6);
+    await addWords(words: words.toList(), categoryId: 7);
   }
 
   static Future<void> addWords({required List<String> words, required int categoryId}) async {
