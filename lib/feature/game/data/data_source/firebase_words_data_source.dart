@@ -17,7 +17,6 @@ class FirebaseWordsDataSource implements WordsRemoteDataSource {
     var wordsData = await FirebaseFirestore.instance
         .collection(FirebaseDataStoreCollections.word)
         .where('categoryId', isEqualTo: categoryId)
-        .where('wordId', whereNotIn: playedIds)
         .limit(limit)
         .get();
 

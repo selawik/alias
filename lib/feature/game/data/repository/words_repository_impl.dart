@@ -34,13 +34,21 @@ class WordsRepositoryImpl implements WordsRepository {
     List<Word>? playedWords,
   }) async {
     try {
+      var playedWordIds = playedWords?.map((e) => e.wordId).toList();
+
       var result = await _remoteDataSource.loadWords(
         categoryId: category.categoryId,
         limit: penaltyMode.isEnabled
             ? commandsCount * 50 + (commandsCount * 30)
             : commandsCount * 50,
-        playedIds: playedWords?.map((e) => e.wordId).toList(),
+        playedIds: playedWordIds,
       );
+
+      if (playedWordIds != null) {
+        result = result
+            .where((element) => !playedWordIds.contains(element.wordId))
+            .toList();
+      }
 
       var words = result.map(_mapper.mapToModel).toList();
 
