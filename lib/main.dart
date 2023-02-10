@@ -20,8 +20,6 @@ void main() async {
 
   await FirebaseAppCheck.instance.activate();
 
-  FirestoreFiller.loadWordsFromJson(filename: 'assets/words/famous.json');
-
   runApp(
     MultiBlocProvider(
       providers: [
