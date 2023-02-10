@@ -198,8 +198,8 @@ class GameBloc extends Bloc<GameEvent, GameState> {
   void _onMoveResultWatched(_MoveResultWatched event, Emitter emit) {
     var playingCommand = _commands.first;
 
-    _commands.add(playingCommand.copyWith(score: _getCommandScore()));
     _commands.remove(playingCommand);
+    _commands.add(playingCommand.copyWith(score: playingCommand.score + _getCommandScore()));
 
     _words.addAll(_answers
         .where((element) => !element.type.isCount)
