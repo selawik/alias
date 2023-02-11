@@ -1,3 +1,4 @@
+import 'package:alias/core/constants/app_colors.dart';
 import 'package:alias/core/injection.dart' as di;
 import 'package:alias/core/router/app_router.dart';
 import 'package:alias/core/theme/theme_builder.dart';
@@ -53,28 +54,46 @@ class CategoriesView extends StatelessWidget {
   }
 
   Widget _buildListItem(BuildContext context, Category category) {
-    return Container(
-      padding: const EdgeInsets.all(8),
-      decoration: ThemeBuilder.cardDecoration,
-      child: GestureDetector(
-        onTap: () => _onListItemTap(context, category),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Flexible(
-              child: Image.network(
-                category.fileUrl,
-                gaplessPlayback: true,
-              ),
+    return Stack(
+      fit: StackFit.expand,
+      children: [
+        GestureDetector(
+          onTap: () => _onListItemTap(context, category),
+          child: Container(
+            padding: const EdgeInsets.all(8),
+            decoration: ThemeBuilder.cardDecoration,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Flexible(
+                  child: Image.network(
+                    category.fileUrl,
+                    gaplessPlayback: true,
+                  ),
+                ),
+                const SizedBox(height: 16),
+                Text(
+                  category.name,
+                  textAlign: TextAlign.center,
+                ),
+              ],
             ),
-            const SizedBox(height: 16),
-            Text(
-              category.name,
-              textAlign: TextAlign.center,
-            ),
-          ],
+          ),
         ),
-      ),
+        Positioned(
+          left: 8,
+          top: 8,
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+            decoration: ThemeBuilder.cardDecoration
+                .copyWith(color: AppColors.buttonColor),
+            child: Text(
+              category.wordsCount.toString(),
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: AppColors.white),
+            ),
+          ),
+        )
+      ],
     );
   }
 
