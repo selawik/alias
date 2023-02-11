@@ -63,7 +63,7 @@ class CategoriesView extends StatelessWidget {
           children: [
             Flexible(
               child: Image.network(
-                category.url,
+                category.fileUrl,
                 gaplessPlayback: true,
               ),
             ),

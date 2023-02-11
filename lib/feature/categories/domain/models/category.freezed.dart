@@ -18,9 +18,8 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$Category {
   int get categoryId => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  String get url => throw _privateConstructorUsedError;
   int get wordsCount => throw _privateConstructorUsedError;
-  String? get fileUrl => throw _privateConstructorUsedError;
+  String get fileUrl => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CategoryCopyWith<Category> get copyWith =>
@@ -32,12 +31,7 @@ abstract class $CategoryCopyWith<$Res> {
   factory $CategoryCopyWith(Category value, $Res Function(Category) then) =
       _$CategoryCopyWithImpl<$Res, Category>;
   @useResult
-  $Res call(
-      {int categoryId,
-      String name,
-      String url,
-      int wordsCount,
-      String? fileUrl});
+  $Res call({int categoryId, String name, int wordsCount, String fileUrl});
 }
 
 /// @nodoc
@@ -55,9 +49,8 @@ class _$CategoryCopyWithImpl<$Res, $Val extends Category>
   $Res call({
     Object? categoryId = null,
     Object? name = null,
-    Object? url = null,
     Object? wordsCount = null,
-    Object? fileUrl = freezed,
+    Object? fileUrl = null,
   }) {
     return _then(_value.copyWith(
       categoryId: null == categoryId
@@ -68,18 +61,14 @@ class _$CategoryCopyWithImpl<$Res, $Val extends Category>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      url: null == url
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String,
       wordsCount: null == wordsCount
           ? _value.wordsCount
           : wordsCount // ignore: cast_nullable_to_non_nullable
               as int,
-      fileUrl: freezed == fileUrl
+      fileUrl: null == fileUrl
           ? _value.fileUrl
           : fileUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ) as $Val);
   }
 }
@@ -91,12 +80,7 @@ abstract class _$$_CategoryCopyWith<$Res> implements $CategoryCopyWith<$Res> {
       __$$_CategoryCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {int categoryId,
-      String name,
-      String url,
-      int wordsCount,
-      String? fileUrl});
+  $Res call({int categoryId, String name, int wordsCount, String fileUrl});
 }
 
 /// @nodoc
@@ -112,9 +96,8 @@ class __$$_CategoryCopyWithImpl<$Res>
   $Res call({
     Object? categoryId = null,
     Object? name = null,
-    Object? url = null,
     Object? wordsCount = null,
-    Object? fileUrl = freezed,
+    Object? fileUrl = null,
   }) {
     return _then(_$_Category(
       categoryId: null == categoryId
@@ -125,18 +108,14 @@ class __$$_CategoryCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      url: null == url
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String,
       wordsCount: null == wordsCount
           ? _value.wordsCount
           : wordsCount // ignore: cast_nullable_to_non_nullable
               as int,
-      fileUrl: freezed == fileUrl
+      fileUrl: null == fileUrl
           ? _value.fileUrl
           : fileUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ));
   }
 }
@@ -147,25 +126,22 @@ class _$_Category implements _Category {
   const _$_Category(
       {required this.categoryId,
       required this.name,
-      required this.url,
       this.wordsCount = 0,
-      this.fileUrl});
+      required this.fileUrl});
 
   @override
   final int categoryId;
   @override
   final String name;
   @override
-  final String url;
-  @override
   @JsonKey()
   final int wordsCount;
   @override
-  final String? fileUrl;
+  final String fileUrl;
 
   @override
   String toString() {
-    return 'Category(categoryId: $categoryId, name: $name, url: $url, wordsCount: $wordsCount, fileUrl: $fileUrl)';
+    return 'Category(categoryId: $categoryId, name: $name, wordsCount: $wordsCount, fileUrl: $fileUrl)';
   }
 
   @override
@@ -176,7 +152,6 @@ class _$_Category implements _Category {
             (identical(other.categoryId, categoryId) ||
                 other.categoryId == categoryId) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.url, url) || other.url == url) &&
             (identical(other.wordsCount, wordsCount) ||
                 other.wordsCount == wordsCount) &&
             (identical(other.fileUrl, fileUrl) || other.fileUrl == fileUrl));
@@ -184,7 +159,7 @@ class _$_Category implements _Category {
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, categoryId, name, url, wordsCount, fileUrl);
+      Object.hash(runtimeType, categoryId, name, wordsCount, fileUrl);
 
   @JsonKey(ignore: true)
   @override
@@ -197,20 +172,17 @@ abstract class _Category implements Category {
   const factory _Category(
       {required final int categoryId,
       required final String name,
-      required final String url,
       final int wordsCount,
-      final String? fileUrl}) = _$_Category;
+      required final String fileUrl}) = _$_Category;
 
   @override
   int get categoryId;
   @override
   String get name;
   @override
-  String get url;
-  @override
   int get wordsCount;
   @override
-  String? get fileUrl;
+  String get fileUrl;
   @override
   @JsonKey(ignore: true)
   _$$_CategoryCopyWith<_$_Category> get copyWith =>

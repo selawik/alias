@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:alias/core/error/failure.dart';
 import 'package:alias/feature/categories/data/data_source/category_data_source.dart';
+import 'package:alias/feature/categories/data/mapper/category_mapper.dart';
 import 'package:alias/feature/categories/data/models/category_dto.dart';
 import 'package:alias/feature/categories/domain/models/category.dart';
 import 'package:alias/feature/categories/domain/repository/category_repository.dart';
@@ -11,14 +12,19 @@ import 'package:injectable/injectable.dart';
 
 @Injectable(as: CategoryRepository)
 class CategoryRepositoryImpl implements CategoryRepository {
-  final CategoryDataSource dataSource;
+  final CategoryDataSource _dataSource;
+  final CategoryMapper _mapper;
 
-  CategoryRepositoryImpl({required this.dataSource});
+  CategoryRepositoryImpl({
+    required CategoryDataSource dataSource,
+    required CategoryMapper mapper,
+  })  : _mapper = mapper,
+        _dataSource = dataSource;
 
   @override
   Future<Either<Failure, List<Category>>> loadCategories() async {
     try {
-      final categoriesDto = await dataSource.getAllCategories();
+      final categoriesDto = await _dataSource.getAllCategories();
 
       if (categoriesDto.isEmpty) {
         return const Left(NoDataFailure('There is no categories'));
@@ -28,21 +34,23 @@ class CategoryRepositoryImpl implements CategoryRepository {
 
       for (var categoryDto in categoriesDto) {
         var categoryWordsCount =
-            await dataSource.getCategoryWordsCount(categoryDto.categoryId);
+            await _dataSource.getCategoryWordsCount(categoryDto.categoryId);
 
         var imageUrl = await FirebaseStorage.instance
             .ref()
             .child(categoryDto.fileName)
             .getDownloadURL();
 
-        categories.add(Category(
-            categoryId: categoryDto.categoryId,
-            name: categoryDto.name,
-            url: imageUrl));
+        categories.add(
+          _mapper.mapToModel(
+            categoryDto.copyWith(
+                fileUrl: imageUrl, wordsCount: categoryWordsCount),
+          ),
+        );
       }
 
-      log(categories.toString());
 
+      log(categories.toString());
       return Right(categories);
     } catch (e, stacktrace) {
       log(e.toString(), stackTrace: stacktrace);

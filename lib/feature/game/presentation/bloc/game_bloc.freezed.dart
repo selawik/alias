@@ -323,6 +323,8 @@ abstract class _$$_InitializeCategoryCopyWith<$Res> {
       __$$_InitializeCategoryCopyWithImpl<$Res>;
   @useResult
   $Res call({Category category});
+
+  $CategoryCopyWith<$Res> get category;
 }
 
 /// @nodoc
@@ -336,14 +338,22 @@ class __$$_InitializeCategoryCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? category = freezed,
+    Object? category = null,
   }) {
     return _then(_$_InitializeCategory(
-      category: freezed == category
+      category: null == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
               as Category,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CategoryCopyWith<$Res> get category {
+    return $CategoryCopyWith<$Res>(_value.category, (value) {
+      return _then(_value.copyWith(category: value));
+    });
   }
 }
 
@@ -365,12 +375,12 @@ class _$_InitializeCategory implements _InitializeCategory {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_InitializeCategory &&
-            const DeepCollectionEquality().equals(other.category, category));
+            (identical(other.category, category) ||
+                other.category == category));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(category));
+  int get hashCode => Object.hash(runtimeType, category);
 
   @JsonKey(ignore: true)
   @override
