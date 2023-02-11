@@ -1,5 +1,5 @@
 import 'package:alias/core/database/db_provider.dart';
-import 'package:alias/feature/categories/data/models/category.dart';
+import 'package:alias/feature/categories/domain/models/category.dart';
 import 'package:alias/feature/game/data/data_source/words_local_data_source.dart';
 import 'package:alias/feature/game/data/model/game_dto.dart';
 import 'package:alias/feature/game/domain/model/word.dart';

@@ -1,6 +1,6 @@
-import 'package:alias/feature/categories/data/models/category.dart';
+import 'package:alias/feature/categories/data/models/category_dto.dart';
 
 abstract class CategoryDataSource {
-  Future<List<Category>> getAllCategories();
+  Future<List<CategoryDto>> getAllCategories();
   Future<int> getCategoryWordsCount(int categoryId);
 }

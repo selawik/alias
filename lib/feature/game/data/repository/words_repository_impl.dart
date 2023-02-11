@@ -1,7 +1,8 @@
 import 'dart:developer';
 
 import 'package:alias/core/error/failure.dart';
-import 'package:alias/feature/categories/data/models/category.dart';
+import 'package:alias/feature/categories/data/models/category_dto.dart';
+import 'package:alias/feature/categories/domain/models/category.dart';
 import 'package:alias/feature/game/data/data_source/words_local_data_source.dart';
 import 'package:alias/feature/game/data/data_source/words_remote_data_source.dart';
 import 'package:alias/feature/game/data/mapper/words_mapper.dart';

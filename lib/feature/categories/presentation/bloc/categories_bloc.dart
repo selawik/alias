@@ -1,4 +1,4 @@
-import 'package:alias/feature/categories/data/models/category.dart';
+import 'package:alias/feature/categories/domain/models/category.dart';
 import 'package:alias/feature/categories/domain/usercases/load_categories.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';

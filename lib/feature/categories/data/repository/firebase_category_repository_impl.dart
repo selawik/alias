@@ -2,7 +2,8 @@ import 'dart:developer';
 
 import 'package:alias/core/error/failure.dart';
 import 'package:alias/feature/categories/data/data_source/category_data_source.dart';
-import 'package:alias/feature/categories/data/models/category.dart';
+import 'package:alias/feature/categories/data/models/category_dto.dart';
+import 'package:alias/feature/categories/domain/models/category.dart';
 import 'package:alias/feature/categories/domain/repository/category_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -25,17 +26,19 @@ class FirebaseCategoryRepositoryImpl implements CategoryRepository {
 
       var categories = <Category>[];
 
-      for (var category in categoriesDto) {
+      for (var categoryDto in categoriesDto) {
         var categoryWordsCount =
-            await dataSource.getCategoryWordsCount(category.categoryId);
+            await dataSource.getCategoryWordsCount(categoryDto.categoryId);
 
         var imageUrl = await FirebaseStorage.instance
             .ref()
-            .child(category.fileName)
+            .child(categoryDto.fileName)
             .getDownloadURL();
 
-        categories.add(category.copyWith(
-            fileName: imageUrl, wordsCount: categoryWordsCount));
+        categories.add(Category(
+            categoryId: categoryDto.categoryId,
+            name: categoryDto.name,
+            url: imageUrl));
       }
 
       log(categories.toString());

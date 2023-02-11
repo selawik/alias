@@ -1,4 +1,4 @@
-import 'package:alias/feature/categories/data/models/category.dart';
+import 'package:alias/feature/categories/domain/models/category.dart';
 import 'package:alias/feature/game/data/model/game_dto.dart';
 import 'package:alias/feature/game/domain/model/word.dart' ;
 

@@ -1,5 +1,5 @@
 import 'package:alias/core/error/failure.dart';
-import 'package:alias/feature/categories/data/models/category.dart';
+import 'package:alias/feature/categories/domain/models/category.dart';
 import 'package:alias/feature/game/domain/repository/words_repository.dart';
 import 'package:alias/feature/game/domain/model/word.dart';
 import 'package:alias/feature/game_settings/domain/model/binary_selector_type.dart';

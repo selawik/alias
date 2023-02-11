@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'category.dart';
+part of 'category_dto.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Category _$CategoryFromJson(Map<String, dynamic> json) {
-  return _Category.fromJson(json);
+CategoryDto _$CategoryDtoFromJson(Map<String, dynamic> json) {
+  return _CategoryDto.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Category {
+mixin _$CategoryDto {
   int get categoryId => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get fileName => throw _privateConstructorUsedError;
@@ -28,14 +28,15 @@ mixin _$Category {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $CategoryCopyWith<Category> get copyWith =>
+  $CategoryDtoCopyWith<CategoryDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CategoryCopyWith<$Res> {
-  factory $CategoryCopyWith(Category value, $Res Function(Category) then) =
-      _$CategoryCopyWithImpl<$Res, Category>;
+abstract class $CategoryDtoCopyWith<$Res> {
+  factory $CategoryDtoCopyWith(
+          CategoryDto value, $Res Function(CategoryDto) then) =
+      _$CategoryDtoCopyWithImpl<$Res, CategoryDto>;
   @useResult
   $Res call(
       {int categoryId,
@@ -46,9 +47,9 @@ abstract class $CategoryCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$CategoryCopyWithImpl<$Res, $Val extends Category>
-    implements $CategoryCopyWith<$Res> {
-  _$CategoryCopyWithImpl(this._value, this._then);
+class _$CategoryDtoCopyWithImpl<$Res, $Val extends CategoryDto>
+    implements $CategoryDtoCopyWith<$Res> {
+  _$CategoryDtoCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -90,10 +91,11 @@ class _$CategoryCopyWithImpl<$Res, $Val extends Category>
 }
 
 /// @nodoc
-abstract class _$$_CategoryCopyWith<$Res> implements $CategoryCopyWith<$Res> {
-  factory _$$_CategoryCopyWith(
-          _$_Category value, $Res Function(_$_Category) then) =
-      __$$_CategoryCopyWithImpl<$Res>;
+abstract class _$$_CategoryDtoCopyWith<$Res>
+    implements $CategoryDtoCopyWith<$Res> {
+  factory _$$_CategoryDtoCopyWith(
+          _$_CategoryDto value, $Res Function(_$_CategoryDto) then) =
+      __$$_CategoryDtoCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -105,11 +107,11 @@ abstract class _$$_CategoryCopyWith<$Res> implements $CategoryCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_CategoryCopyWithImpl<$Res>
-    extends _$CategoryCopyWithImpl<$Res, _$_Category>
-    implements _$$_CategoryCopyWith<$Res> {
-  __$$_CategoryCopyWithImpl(
-      _$_Category _value, $Res Function(_$_Category) _then)
+class __$$_CategoryDtoCopyWithImpl<$Res>
+    extends _$CategoryDtoCopyWithImpl<$Res, _$_CategoryDto>
+    implements _$$_CategoryDtoCopyWith<$Res> {
+  __$$_CategoryDtoCopyWithImpl(
+      _$_CategoryDto _value, $Res Function(_$_CategoryDto) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -121,7 +123,7 @@ class __$$_CategoryCopyWithImpl<$Res>
     Object? wordsCount = null,
     Object? fileUrl = freezed,
   }) {
-    return _then(_$_Category(
+    return _then(_$_CategoryDto(
       categoryId: null == categoryId
           ? _value.categoryId
           : categoryId // ignore: cast_nullable_to_non_nullable
@@ -148,16 +150,16 @@ class __$$_CategoryCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Category implements _Category {
-  const _$_Category(
+class _$_CategoryDto implements _CategoryDto {
+  const _$_CategoryDto(
       {required this.categoryId,
       required this.name,
       required this.fileName,
       this.wordsCount = 0,
       this.fileUrl});
 
-  factory _$_Category.fromJson(Map<String, dynamic> json) =>
-      _$$_CategoryFromJson(json);
+  factory _$_CategoryDto.fromJson(Map<String, dynamic> json) =>
+      _$$_CategoryDtoFromJson(json);
 
   @override
   final int categoryId;
@@ -173,14 +175,14 @@ class _$_Category implements _Category {
 
   @override
   String toString() {
-    return 'Category(categoryId: $categoryId, name: $name, fileName: $fileName, wordsCount: $wordsCount, fileUrl: $fileUrl)';
+    return 'CategoryDto(categoryId: $categoryId, name: $name, fileName: $fileName, wordsCount: $wordsCount, fileUrl: $fileUrl)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Category &&
+            other is _$_CategoryDto &&
             (identical(other.categoryId, categoryId) ||
                 other.categoryId == categoryId) &&
             (identical(other.name, name) || other.name == name) &&
@@ -199,26 +201,27 @@ class _$_Category implements _Category {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CategoryCopyWith<_$_Category> get copyWith =>
-      __$$_CategoryCopyWithImpl<_$_Category>(this, _$identity);
+  _$$_CategoryDtoCopyWith<_$_CategoryDto> get copyWith =>
+      __$$_CategoryDtoCopyWithImpl<_$_CategoryDto>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CategoryToJson(
+    return _$$_CategoryDtoToJson(
       this,
     );
   }
 }
 
-abstract class _Category implements Category {
-  const factory _Category(
+abstract class _CategoryDto implements CategoryDto {
+  const factory _CategoryDto(
       {required final int categoryId,
       required final String name,
       required final String fileName,
       final int wordsCount,
-      final String? fileUrl}) = _$_Category;
+      final String? fileUrl}) = _$_CategoryDto;
 
-  factory _Category.fromJson(Map<String, dynamic> json) = _$_Category.fromJson;
+  factory _CategoryDto.fromJson(Map<String, dynamic> json) =
+      _$_CategoryDto.fromJson;
 
   @override
   int get categoryId;
@@ -232,6 +235,6 @@ abstract class _Category implements Category {
   String? get fileUrl;
   @override
   @JsonKey(ignore: true)
-  _$$_CategoryCopyWith<_$_Category> get copyWith =>
+  _$$_CategoryDtoCopyWith<_$_CategoryDto> get copyWith =>
       throw _privateConstructorUsedError;
 }

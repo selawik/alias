@@ -1,5 +1,5 @@
 import 'package:alias/core/error/failure.dart';
-import 'package:alias/feature/categories/data/models/category.dart';
+import 'package:alias/feature/categories/domain/models/category.dart';
 import 'package:alias/feature/game/domain/model/game.dart';
 import 'package:alias/feature/game/domain/usecases/get_played_words.dart';
 import 'package:alias/feature/game/domain/usecases/get_unfinished_game.dart';
