@@ -10,10 +10,10 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable(as: CategoryRepository)
-class FirebaseCategoryRepositoryImpl implements CategoryRepository {
+class CategoryRepositoryImpl implements CategoryRepository {
   final CategoryDataSource dataSource;
 
-  FirebaseCategoryRepositoryImpl({required this.dataSource});
+  CategoryRepositoryImpl({required this.dataSource});
 
   @override
   Future<Either<Failure, List<Category>>> loadCategories() async {
