@@ -9,6 +9,7 @@ class Category with _$Category {
     required int categoryId,
     required String name,
     required String fileName,
+    @Default(0) int wordsCount,
     String? fileUrl,
   }) = _Category;
 

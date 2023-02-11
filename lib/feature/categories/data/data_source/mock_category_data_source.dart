@@ -9,9 +9,15 @@ class MockCategoryDataSource implements CategoryDataSource {
     await Future.delayed(const Duration(seconds: 2));
 
     return [
-      const Category(categoryId: 1, name: 'Книги', fileName: ''),
-      const Category(categoryId: 2, name: 'Кино', fileName: ''),
-      const Category(categoryId: 3, name: 'Музыка', fileName: ''),
+      const Category(categoryId: 1, name: 'Книги', fileName: '', wordsCount: 0),
+      const Category(categoryId: 2, name: 'Кино', fileName: '', wordsCount: 0),
+      const Category(categoryId: 3, name: 'Музыка', fileName: '', wordsCount: 0),
     ];
+  }
+
+  @override
+  Future<int> getCategoryWordsCount(int categoryId) {
+    // TODO: implement getCategoryWordsCount
+    throw UnimplementedError();
   }
 }

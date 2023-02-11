@@ -17,23 +17,30 @@ class FirebaseCategoryRepositoryImpl implements CategoryRepository {
   @override
   Future<Either<Failure, List<Category>>> loadCategories() async {
     try {
-      final result = await dataSource.getAllCategories();
+      final categoriesDto = await dataSource.getAllCategories();
 
-      if (result.isEmpty) {
+      if (categoriesDto.isEmpty) {
         return const Left(NoDataFailure('There is no categories'));
       }
 
-      var categories = result.map(
-        (category) async {
-          var imageUrl = await FirebaseStorage.instance
-              .ref()
-              .child(category.fileName)
-              .getDownloadURL();
-          return category.copyWith(fileName: imageUrl);
-        },
-      ).toList();
+      var categories = <Category>[];
 
-      return Right(await Future.wait(categories));
+      for (var category in categoriesDto) {
+        var categoryWordsCount =
+            await dataSource.getCategoryWordsCount(category.categoryId);
+
+        var imageUrl = await FirebaseStorage.instance
+            .ref()
+            .child(category.fileName)
+            .getDownloadURL();
+
+        categories.add(category.copyWith(
+            fileName: imageUrl, wordsCount: categoryWordsCount));
+      }
+
+      log(categories.toString());
+
+      return Right(categories);
     } catch (e, stacktrace) {
       log(e.toString(), stackTrace: stacktrace);
       return const Left(ServerFailure('Error'));

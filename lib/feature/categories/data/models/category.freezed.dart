@@ -23,6 +23,7 @@ mixin _$Category {
   int get categoryId => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get fileName => throw _privateConstructorUsedError;
+  int get wordsCount => throw _privateConstructorUsedError;
   String? get fileUrl => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -36,7 +37,12 @@ abstract class $CategoryCopyWith<$Res> {
   factory $CategoryCopyWith(Category value, $Res Function(Category) then) =
       _$CategoryCopyWithImpl<$Res, Category>;
   @useResult
-  $Res call({int categoryId, String name, String fileName, String? fileUrl});
+  $Res call(
+      {int categoryId,
+      String name,
+      String fileName,
+      int wordsCount,
+      String? fileUrl});
 }
 
 /// @nodoc
@@ -55,6 +61,7 @@ class _$CategoryCopyWithImpl<$Res, $Val extends Category>
     Object? categoryId = null,
     Object? name = null,
     Object? fileName = null,
+    Object? wordsCount = null,
     Object? fileUrl = freezed,
   }) {
     return _then(_value.copyWith(
@@ -70,6 +77,10 @@ class _$CategoryCopyWithImpl<$Res, $Val extends Category>
           ? _value.fileName
           : fileName // ignore: cast_nullable_to_non_nullable
               as String,
+      wordsCount: null == wordsCount
+          ? _value.wordsCount
+          : wordsCount // ignore: cast_nullable_to_non_nullable
+              as int,
       fileUrl: freezed == fileUrl
           ? _value.fileUrl
           : fileUrl // ignore: cast_nullable_to_non_nullable
@@ -85,7 +96,12 @@ abstract class _$$_CategoryCopyWith<$Res> implements $CategoryCopyWith<$Res> {
       __$$_CategoryCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int categoryId, String name, String fileName, String? fileUrl});
+  $Res call(
+      {int categoryId,
+      String name,
+      String fileName,
+      int wordsCount,
+      String? fileUrl});
 }
 
 /// @nodoc
@@ -102,6 +118,7 @@ class __$$_CategoryCopyWithImpl<$Res>
     Object? categoryId = null,
     Object? name = null,
     Object? fileName = null,
+    Object? wordsCount = null,
     Object? fileUrl = freezed,
   }) {
     return _then(_$_Category(
@@ -117,6 +134,10 @@ class __$$_CategoryCopyWithImpl<$Res>
           ? _value.fileName
           : fileName // ignore: cast_nullable_to_non_nullable
               as String,
+      wordsCount: null == wordsCount
+          ? _value.wordsCount
+          : wordsCount // ignore: cast_nullable_to_non_nullable
+              as int,
       fileUrl: freezed == fileUrl
           ? _value.fileUrl
           : fileUrl // ignore: cast_nullable_to_non_nullable
@@ -132,6 +153,7 @@ class _$_Category implements _Category {
       {required this.categoryId,
       required this.name,
       required this.fileName,
+      this.wordsCount = 0,
       this.fileUrl});
 
   factory _$_Category.fromJson(Map<String, dynamic> json) =>
@@ -144,11 +166,14 @@ class _$_Category implements _Category {
   @override
   final String fileName;
   @override
+  @JsonKey()
+  final int wordsCount;
+  @override
   final String? fileUrl;
 
   @override
   String toString() {
-    return 'Category(categoryId: $categoryId, name: $name, fileName: $fileName, fileUrl: $fileUrl)';
+    return 'Category(categoryId: $categoryId, name: $name, fileName: $fileName, wordsCount: $wordsCount, fileUrl: $fileUrl)';
   }
 
   @override
@@ -161,13 +186,15 @@ class _$_Category implements _Category {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.fileName, fileName) ||
                 other.fileName == fileName) &&
+            (identical(other.wordsCount, wordsCount) ||
+                other.wordsCount == wordsCount) &&
             (identical(other.fileUrl, fileUrl) || other.fileUrl == fileUrl));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, categoryId, name, fileName, fileUrl);
+      Object.hash(runtimeType, categoryId, name, fileName, wordsCount, fileUrl);
 
   @JsonKey(ignore: true)
   @override
@@ -188,6 +215,7 @@ abstract class _Category implements Category {
       {required final int categoryId,
       required final String name,
       required final String fileName,
+      final int wordsCount,
       final String? fileUrl}) = _$_Category;
 
   factory _Category.fromJson(Map<String, dynamic> json) = _$_Category.fromJson;
@@ -198,6 +226,8 @@ abstract class _Category implements Category {
   String get name;
   @override
   String get fileName;
+  @override
+  int get wordsCount;
   @override
   String? get fileUrl;
   @override

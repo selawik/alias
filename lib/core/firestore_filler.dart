@@ -7,14 +7,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/services.dart';
 
 class FirestoreFiller {
-  static Future<void> loadWordsFromJson({required String filename}) async {
+  static Future<void> loadWordsFromJson({required String filename, required int categoryId}) async {
     var jsonData = await rootBundle.loadString(filename);
 
     final wordsJson = jsonDecode(jsonData) as List;
 
     var words = wordsJson.map((data) => data as String);
 
-    await addWords(words: words.toList(), categoryId: 7);
+    await addWords(words: words.toList(), categoryId: categoryId);
   }
 
   static Future<void> addWords({required List<String> words, required int categoryId}) async {

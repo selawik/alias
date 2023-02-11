@@ -18,4 +18,15 @@ class FirebaseCategoryDataSource implements CategoryDataSource {
         .map((item) => Category.fromJson(item.data()))
         .toList();
   }
+
+  @override
+  Future<int> getCategoryWordsCount(int categoryId) async {
+    var wordsCount = await (FirebaseFirestore.instance
+        .collection(FirebaseDataStoreCollections.word)
+        .where('categoryId', isEqualTo: categoryId)
+        .count())
+        .get();
+
+    return wordsCount.count;
+  }
 }
