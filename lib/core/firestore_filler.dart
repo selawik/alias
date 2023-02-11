@@ -8,7 +8,7 @@ import 'package:flutter/services.dart';
 
 class FirestoreFiller {
   static Future<void> loadWordsFromJson({required String filename, required int categoryId}) async {
-    var jsonData = await rootBundle.loadString(filename);
+    var jsonData = await rootBundle.loadString('assets/words/$filename');
 
     final wordsJson = jsonDecode(jsonData) as List;
 
