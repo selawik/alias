@@ -5,7 +5,7 @@ import 'package:alias/feature/game/presentation/view/game_field/widget/game_view
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:alias/core/injection.dart' as di;
-import 'widget/game_view_header.dart';
+import 'package:alias/feature/game/presentation/view/game_field/widget/game_view_header.dart';
 
 class GameView extends StatelessWidget {
   const GameView({Key? key}) : super(key: key);

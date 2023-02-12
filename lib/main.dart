@@ -7,7 +7,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'firebase_options.dart';
+import 'package:alias/firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,7 +19,9 @@ void main() async {
   );
 
   await FirebaseAppCheck.instance.activate();
-
+  
+  FirestoreFiller.loadWordsFromJson(filename: 'famous.json', categoryId: 7);
+  
   runApp(
     MultiBlocProvider(
       providers: [

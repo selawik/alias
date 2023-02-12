@@ -3,7 +3,6 @@ import 'dart:developer';
 import 'package:alias/core/error/failure.dart';
 import 'package:alias/feature/categories/data/data_source/category_data_source.dart';
 import 'package:alias/feature/categories/data/mapper/category_mapper.dart';
-import 'package:alias/feature/categories/data/models/category_dto.dart';
 import 'package:alias/feature/categories/domain/models/category.dart';
 import 'package:alias/feature/categories/domain/repository/category_repository.dart';
 import 'package:dartz/dartz.dart';

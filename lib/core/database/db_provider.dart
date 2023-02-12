@@ -1,5 +1,4 @@
 import 'package:alias/core/database/database.dart' hide Category;
-import 'package:alias/feature/categories/data/models/category_dto.dart';
 import 'package:alias/feature/categories/domain/models/category.dart';
 import 'package:alias/feature/game/domain/model/word.dart';
 import 'package:injectable/injectable.dart';

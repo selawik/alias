@@ -14,7 +14,7 @@ class FirestoreFiller {
 
     var words = wordsJson.map((data) => data as String);
 
-    await addWords(words: words.toList(), categoryId: categoryId);
+    await addWords(words: words.toSet().toList(), categoryId: categoryId);
   }
 
   static Future<void> addWords({required List<String> words, required int categoryId}) async {
@@ -23,7 +23,7 @@ class FirestoreFiller {
     log('Words will be added: ${words.length}');
     for (var word in words) {
       if (await _isWordAlreadyExists(word: word)) {
-        log('Слово уже добавлено!');
+        //log('Слово уже добавлено ${word.toString()}!');
         continue;
       }
 
