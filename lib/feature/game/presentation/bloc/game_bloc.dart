@@ -97,6 +97,13 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     }
 
     _words.shuffle();
+
+    await _wordsUseCasesFacade.saveStartedGame(
+      settings: _settings,
+      category: _category,
+      commands: _commands,
+    );
+
     emit(GameState.gameIsReady(settings: _settings, commands: _commands));
   }
 
@@ -199,7 +206,8 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     var playingCommand = _commands.first;
 
     _commands.remove(playingCommand);
-    _commands.add(playingCommand.copyWith(score: playingCommand.score + _getCommandScore()));
+    _commands.add(playingCommand.copyWith(
+        score: playingCommand.score + _getCommandScore()));
 
     _words.addAll(_answers
         .where((element) => !element.type.isCount)

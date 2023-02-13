@@ -1,12 +1,15 @@
 import 'package:alias/core/error/failure.dart';
 import 'package:alias/feature/categories/domain/models/category.dart';
 import 'package:alias/feature/game/domain/model/game.dart';
+import 'package:alias/feature/game/domain/model/game_settings.dart';
+import 'package:alias/feature/game/domain/model/playing_command.dart';
 import 'package:alias/feature/game/domain/usecases/get_played_words.dart';
 import 'package:alias/feature/game/domain/usecases/get_unfinished_game.dart';
 import 'package:alias/feature/game/domain/usecases/load_words.dart';
 import 'package:alias/feature/game/domain/usecases/reset_game_history.dart';
 import 'package:alias/feature/game/domain/usecases/save_played_words.dart';
 import 'package:alias/feature/game/domain/model/word.dart';
+import 'package:alias/feature/game/domain/usecases/save_started_game.dart';
 import 'package:alias/feature/game_settings/domain/model/binary_selector_type.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
@@ -18,6 +21,7 @@ class WordsUseCasesFacade {
   final GetPlayedWords _getPlayedWords;
   final ResetGameHistory _resetGameHistory;
   final GetUnfinishedGame _getUnfinishedGame;
+  final SaveStartedGame _saveStartedGame;
 
   WordsUseCasesFacade({
     required LoadWords loadWords,
@@ -25,11 +29,13 @@ class WordsUseCasesFacade {
     required GetPlayedWords getPlayedWords,
     required ResetGameHistory resetGameHistory,
     required GetUnfinishedGame getUnfinishedGame,
+    required SaveStartedGame saveStartedGame,
   })  : _loadWords = loadWords,
         _savePlayedWords = savePlayedWords,
         _getPlayedWords = getPlayedWords,
         _resetGameHistory = resetGameHistory,
-        _getUnfinishedGame = getUnfinishedGame;
+        _getUnfinishedGame = getUnfinishedGame,
+        _saveStartedGame = saveStartedGame;
 
   Future<Either<Failure, List<Word>>> loadWords({
     required Category category,
@@ -67,5 +73,17 @@ class WordsUseCasesFacade {
 
   Future<Either<Failure, Game?>> loadUnfinishedGame() async {
     return await _getUnfinishedGame.execute();
+  }
+
+  Future<Either<Failure, void>> saveStartedGame({
+    required GameSettings settings,
+    required Category category,
+    required List<PlayingCommand> commands,
+  }) async {
+    return await _saveStartedGame.execute(
+      category: category,
+      gameSettings: settings,
+      commands: commands,
+    );
   }
 }
