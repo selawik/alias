@@ -53,11 +53,8 @@ class GameBloc extends Bloc<GameEvent, GameState> {
   }
 
   void _onInit(_Init event, Emitter emit) async {
-    var result = await _wordsUseCasesFacade.loadUnfinishedGame();
+    var game = await _tryToLoadStartedGame();
 
-    var game = result.fold((failure) => null, (game) => game);
-
-    log(game.toString());
     emit(GameState.waitingForConfig(game: game));
   }
 
@@ -231,13 +228,15 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     }
   }
 
-  void _onResetGame(_ResetGame event, Emitter emit) {
+  void _onResetGame(_ResetGame event, Emitter emit) async {
     _commands.clear();
     _answers.clear();
     _words.clear();
     _countWords.clear();
 
-    emit(const GameState.waitingForConfig());
+    var game = await _tryToLoadStartedGame();
+
+    emit(GameState.waitingForConfig(game: game));
   }
 
   void _onResetGameHistory(_ResetGameHistory event, Emitter emit) async {
@@ -252,5 +251,11 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     }
 
     return countWords.length;
+  }
+
+  Future<Game?> _tryToLoadStartedGame() async {
+    var result = await _wordsUseCasesFacade.loadUnfinishedGame();
+
+    return result.fold((failure) => null, (game) => game);
   }
 }
