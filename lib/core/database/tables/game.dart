@@ -1,3 +1,4 @@
+import 'package:alias/feature/game_settings/domain/model/binary_selector_type.dart';
 import 'package:drift/drift.dart';
 
 import 'package:alias/feature/game_settings/domain/model/command_move_selector_type.dart';
@@ -10,9 +11,9 @@ class GameTable extends Table {
 
   IntColumn get categoryId => integer()();
 
-  BoolColumn get lastWordEnabled => boolean()();
+  IntColumn get lastWordEnabled => intEnum<BinarySelectorMode>()();
 
-  BoolColumn get penaltyEnabled => boolean()();
+  IntColumn get penaltyEnabled => intEnum<BinarySelectorMode>()();
 
   IntColumn get moveDuration => intEnum<CommandMoveMode>()();
 }

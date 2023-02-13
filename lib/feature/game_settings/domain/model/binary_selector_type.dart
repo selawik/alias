@@ -1,3 +1,4 @@
+
 enum BinarySelectorMode {
   enabled,
   disabled;

@@ -7,6 +7,8 @@ import 'package:alias/core/database/dao/played_word_dao.dart';
 import 'package:alias/core/database/tables/category.dart';
 import 'package:alias/core/database/tables/game.dart';
 import 'package:alias/core/database/tables/played_word.dart';
+import 'package:alias/feature/game_settings/domain/model/binary_selector_type.dart';
+import 'package:alias/feature/game_settings/domain/model/command_move_selector_type.dart';
 import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
 import 'package:injectable/injectable.dart';

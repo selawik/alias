@@ -423,27 +423,21 @@ class $GameTableTable extends GameTable with TableInfo<$GameTableTable, Game> {
   static const VerificationMeta _lastWordEnabledMeta =
       const VerificationMeta('lastWordEnabled');
   @override
-  late final GeneratedColumn<bool> lastWordEnabled =
-      GeneratedColumn<bool>('last_word_enabled', aliasedName, false,
-          type: DriftSqlType.bool,
-          requiredDuringInsert: true,
-          defaultConstraints: GeneratedColumn.constraintsDependsOnDialect({
-            SqlDialect.sqlite: 'CHECK ("last_word_enabled" IN (0, 1))',
-            SqlDialect.mysql: '',
-            SqlDialect.postgres: '',
-          }));
+  late final GeneratedColumnWithTypeConverter<BinarySelectorMode, int>
+      lastWordEnabled = GeneratedColumn<int>(
+              'last_word_enabled', aliasedName, false,
+              type: DriftSqlType.int, requiredDuringInsert: true)
+          .withConverter<BinarySelectorMode>(
+              $GameTableTable.$converterlastWordEnabled);
   static const VerificationMeta _penaltyEnabledMeta =
       const VerificationMeta('penaltyEnabled');
   @override
-  late final GeneratedColumn<bool> penaltyEnabled =
-      GeneratedColumn<bool>('penalty_enabled', aliasedName, false,
-          type: DriftSqlType.bool,
-          requiredDuringInsert: true,
-          defaultConstraints: GeneratedColumn.constraintsDependsOnDialect({
-            SqlDialect.sqlite: 'CHECK ("penalty_enabled" IN (0, 1))',
-            SqlDialect.mysql: '',
-            SqlDialect.postgres: '',
-          }));
+  late final GeneratedColumnWithTypeConverter<BinarySelectorMode, int>
+      penaltyEnabled = GeneratedColumn<int>(
+              'penalty_enabled', aliasedName, false,
+              type: DriftSqlType.int, requiredDuringInsert: true)
+          .withConverter<BinarySelectorMode>(
+              $GameTableTable.$converterpenaltyEnabled);
   static const VerificationMeta _moveDurationMeta =
       const VerificationMeta('moveDuration');
   @override
@@ -490,22 +484,8 @@ class $GameTableTable extends GameTable with TableInfo<$GameTableTable, Game> {
     } else if (isInserting) {
       context.missing(_categoryIdMeta);
     }
-    if (data.containsKey('last_word_enabled')) {
-      context.handle(
-          _lastWordEnabledMeta,
-          lastWordEnabled.isAcceptableOrUnknown(
-              data['last_word_enabled']!, _lastWordEnabledMeta));
-    } else if (isInserting) {
-      context.missing(_lastWordEnabledMeta);
-    }
-    if (data.containsKey('penalty_enabled')) {
-      context.handle(
-          _penaltyEnabledMeta,
-          penaltyEnabled.isAcceptableOrUnknown(
-              data['penalty_enabled']!, _penaltyEnabledMeta));
-    } else if (isInserting) {
-      context.missing(_penaltyEnabledMeta);
-    }
+    context.handle(_lastWordEnabledMeta, const VerificationResult.success());
+    context.handle(_penaltyEnabledMeta, const VerificationResult.success());
     context.handle(_moveDurationMeta, const VerificationResult.success());
     return context;
   }
@@ -522,10 +502,12 @@ class $GameTableTable extends GameTable with TableInfo<$GameTableTable, Game> {
           DriftSqlType.int, data['${effectivePrefix}next_playing_command_id'])!,
       categoryId: attachedDatabase.typeMapping
           .read(DriftSqlType.int, data['${effectivePrefix}category_id'])!,
-      lastWordEnabled: attachedDatabase.typeMapping.read(
-          DriftSqlType.bool, data['${effectivePrefix}last_word_enabled'])!,
-      penaltyEnabled: attachedDatabase.typeMapping
-          .read(DriftSqlType.bool, data['${effectivePrefix}penalty_enabled'])!,
+      lastWordEnabled: $GameTableTable.$converterlastWordEnabled.fromSql(
+          attachedDatabase.typeMapping.read(
+              DriftSqlType.int, data['${effectivePrefix}last_word_enabled'])!),
+      penaltyEnabled: $GameTableTable.$converterpenaltyEnabled.fromSql(
+          attachedDatabase.typeMapping.read(
+              DriftSqlType.int, data['${effectivePrefix}penalty_enabled'])!),
       moveDuration: $GameTableTable.$convertermoveDuration.fromSql(
           attachedDatabase.typeMapping.read(
               DriftSqlType.int, data['${effectivePrefix}move_duration'])!),
@@ -537,6 +519,12 @@ class $GameTableTable extends GameTable with TableInfo<$GameTableTable, Game> {
     return $GameTableTable(attachedDatabase, alias);
   }
 
+  static JsonTypeConverter2<BinarySelectorMode, int, int>
+      $converterlastWordEnabled =
+      const EnumIndexConverter<BinarySelectorMode>(BinarySelectorMode.values);
+  static JsonTypeConverter2<BinarySelectorMode, int, int>
+      $converterpenaltyEnabled =
+      const EnumIndexConverter<BinarySelectorMode>(BinarySelectorMode.values);
   static JsonTypeConverter2<CommandMoveMode, int, int> $convertermoveDuration =
       const EnumIndexConverter<CommandMoveMode>(CommandMoveMode.values);
 }
@@ -545,8 +533,8 @@ class Game extends DataClass implements Insertable<Game> {
   final int gameId;
   final int nextPlayingCommandId;
   final int categoryId;
-  final bool lastWordEnabled;
-  final bool penaltyEnabled;
+  final BinarySelectorMode lastWordEnabled;
+  final BinarySelectorMode penaltyEnabled;
   final CommandMoveMode moveDuration;
   const Game(
       {required this.gameId,
@@ -561,8 +549,15 @@ class Game extends DataClass implements Insertable<Game> {
     map['game_id'] = Variable<int>(gameId);
     map['next_playing_command_id'] = Variable<int>(nextPlayingCommandId);
     map['category_id'] = Variable<int>(categoryId);
-    map['last_word_enabled'] = Variable<bool>(lastWordEnabled);
-    map['penalty_enabled'] = Variable<bool>(penaltyEnabled);
+    {
+      final converter = $GameTableTable.$converterlastWordEnabled;
+      map['last_word_enabled'] =
+          Variable<int>(converter.toSql(lastWordEnabled));
+    }
+    {
+      final converter = $GameTableTable.$converterpenaltyEnabled;
+      map['penalty_enabled'] = Variable<int>(converter.toSql(penaltyEnabled));
+    }
     {
       final converter = $GameTableTable.$convertermoveDuration;
       map['move_duration'] = Variable<int>(converter.toSql(moveDuration));
@@ -589,8 +584,10 @@ class Game extends DataClass implements Insertable<Game> {
       nextPlayingCommandId:
           serializer.fromJson<int>(json['nextPlayingCommandId']),
       categoryId: serializer.fromJson<int>(json['categoryId']),
-      lastWordEnabled: serializer.fromJson<bool>(json['lastWordEnabled']),
-      penaltyEnabled: serializer.fromJson<bool>(json['penaltyEnabled']),
+      lastWordEnabled: $GameTableTable.$converterlastWordEnabled
+          .fromJson(serializer.fromJson<int>(json['lastWordEnabled'])),
+      penaltyEnabled: $GameTableTable.$converterpenaltyEnabled
+          .fromJson(serializer.fromJson<int>(json['penaltyEnabled'])),
       moveDuration: $GameTableTable.$convertermoveDuration
           .fromJson(serializer.fromJson<int>(json['moveDuration'])),
     );
@@ -602,8 +599,10 @@ class Game extends DataClass implements Insertable<Game> {
       'gameId': serializer.toJson<int>(gameId),
       'nextPlayingCommandId': serializer.toJson<int>(nextPlayingCommandId),
       'categoryId': serializer.toJson<int>(categoryId),
-      'lastWordEnabled': serializer.toJson<bool>(lastWordEnabled),
-      'penaltyEnabled': serializer.toJson<bool>(penaltyEnabled),
+      'lastWordEnabled': serializer.toJson<int>(
+          $GameTableTable.$converterlastWordEnabled.toJson(lastWordEnabled)),
+      'penaltyEnabled': serializer.toJson<int>(
+          $GameTableTable.$converterpenaltyEnabled.toJson(penaltyEnabled)),
       'moveDuration': serializer.toJson<int>(
           $GameTableTable.$convertermoveDuration.toJson(moveDuration)),
     };
@@ -613,8 +612,8 @@ class Game extends DataClass implements Insertable<Game> {
           {int? gameId,
           int? nextPlayingCommandId,
           int? categoryId,
-          bool? lastWordEnabled,
-          bool? penaltyEnabled,
+          BinarySelectorMode? lastWordEnabled,
+          BinarySelectorMode? penaltyEnabled,
           CommandMoveMode? moveDuration}) =>
       Game(
         gameId: gameId ?? this.gameId,
@@ -656,8 +655,8 @@ class GameTableCompanion extends UpdateCompanion<Game> {
   final Value<int> gameId;
   final Value<int> nextPlayingCommandId;
   final Value<int> categoryId;
-  final Value<bool> lastWordEnabled;
-  final Value<bool> penaltyEnabled;
+  final Value<BinarySelectorMode> lastWordEnabled;
+  final Value<BinarySelectorMode> penaltyEnabled;
   final Value<CommandMoveMode> moveDuration;
   const GameTableCompanion({
     this.gameId = const Value.absent(),
@@ -671,8 +670,8 @@ class GameTableCompanion extends UpdateCompanion<Game> {
     this.gameId = const Value.absent(),
     required int nextPlayingCommandId,
     required int categoryId,
-    required bool lastWordEnabled,
-    required bool penaltyEnabled,
+    required BinarySelectorMode lastWordEnabled,
+    required BinarySelectorMode penaltyEnabled,
     required CommandMoveMode moveDuration,
   })  : nextPlayingCommandId = Value(nextPlayingCommandId),
         categoryId = Value(categoryId),
@@ -683,8 +682,8 @@ class GameTableCompanion extends UpdateCompanion<Game> {
     Expression<int>? gameId,
     Expression<int>? nextPlayingCommandId,
     Expression<int>? categoryId,
-    Expression<bool>? lastWordEnabled,
-    Expression<bool>? penaltyEnabled,
+    Expression<int>? lastWordEnabled,
+    Expression<int>? penaltyEnabled,
     Expression<int>? moveDuration,
   }) {
     return RawValuesInsertable({
@@ -702,8 +701,8 @@ class GameTableCompanion extends UpdateCompanion<Game> {
       {Value<int>? gameId,
       Value<int>? nextPlayingCommandId,
       Value<int>? categoryId,
-      Value<bool>? lastWordEnabled,
-      Value<bool>? penaltyEnabled,
+      Value<BinarySelectorMode>? lastWordEnabled,
+      Value<BinarySelectorMode>? penaltyEnabled,
       Value<CommandMoveMode>? moveDuration}) {
     return GameTableCompanion(
       gameId: gameId ?? this.gameId,
@@ -729,10 +728,14 @@ class GameTableCompanion extends UpdateCompanion<Game> {
       map['category_id'] = Variable<int>(categoryId.value);
     }
     if (lastWordEnabled.present) {
-      map['last_word_enabled'] = Variable<bool>(lastWordEnabled.value);
+      final converter = $GameTableTable.$converterlastWordEnabled;
+      map['last_word_enabled'] =
+          Variable<int>(converter.toSql(lastWordEnabled.value));
     }
     if (penaltyEnabled.present) {
-      map['penalty_enabled'] = Variable<bool>(penaltyEnabled.value);
+      final converter = $GameTableTable.$converterpenaltyEnabled;
+      map['penalty_enabled'] =
+          Variable<int>(converter.toSql(penaltyEnabled.value));
     }
     if (moveDuration.present) {
       final converter = $GameTableTable.$convertermoveDuration;

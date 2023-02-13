@@ -1,5 +1,6 @@
 import 'package:alias/core/database/database.dart' hide Category;
 import 'package:alias/feature/categories/domain/models/category.dart';
+import 'package:alias/feature/game/data/model/game_dto.dart';
 import 'package:alias/feature/game/domain/model/word.dart';
 import 'package:injectable/injectable.dart';
 
@@ -39,5 +40,17 @@ class DbProvider {
 
   Future<Game?> getUnfinishedGame() async {
     return await _db.gameDao.getUnfinishedGame();
+  }
+
+  Future<void> saveStartedGame({required GameDto gameDto}) async {
+    return await _db.gameDao.saveStartedGame(
+      GameTableCompanion.insert(
+        nextPlayingCommandId: gameDto.nextPlayingCommandId,
+        categoryId: gameDto.categoryId,
+        lastWordEnabled: gameDto.lastWordMode,
+        penaltyEnabled: gameDto.penaltyMode,
+        moveDuration: gameDto.moveTime,
+      ),
+    );
   }
 }

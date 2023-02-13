@@ -2,10 +2,13 @@ import 'dart:developer';
 
 import 'package:alias/core/error/failure.dart';
 import 'package:alias/feature/categories/domain/models/category.dart';
+import 'package:alias/feature/commands/data/models/command.dart';
 import 'package:alias/feature/game/data/data_source/words_local_data_source.dart';
 import 'package:alias/feature/game/data/data_source/words_remote_data_source.dart';
 import 'package:alias/feature/game/data/mapper/words_mapper.dart';
+import 'package:alias/feature/game/data/model/game_dto.dart';
 import 'package:alias/feature/game/domain/model/game.dart';
+import 'package:alias/feature/game/domain/model/game_settings.dart';
 import 'package:alias/feature/game/domain/repository/words_repository.dart';
 import 'package:alias/feature/game/domain/model/word.dart';
 import 'package:alias/feature/game_settings/domain/model/binary_selector_type.dart';
@@ -101,6 +104,30 @@ class WordsRepositoryImpl implements WordsRepository {
       if (gameDto != null) {
         return Right(Game(nextPlayingCommandId: gameDto.nextPlayingCommandId));
       }
+
+      return const Right(null);
+    } catch (e, stacktrace) {
+      log(e.toString(), stackTrace: stacktrace);
+      return Left(DatabaseFailure(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, void>> saveStartedGame({
+    required List<Command> commands,
+    required GameSettings gameSettings,
+    required Category category,
+  }) async {
+    try {
+      var gameDto = GameDto(
+        nextPlayingCommandId: commands.first.commandId,
+        lastWordMode: gameSettings.lastWordMode,
+        penaltyMode: gameSettings.penaltyMode,
+        moveTime: gameSettings.moveTime,
+        categoryId: category.categoryId,
+      );
+
+      await _localDataSource.saveStartedGame(game: gameDto);
 
       return const Right(null);
     } catch (e, stacktrace) {
