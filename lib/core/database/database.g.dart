@@ -414,8 +414,53 @@ class $GameTableTable extends GameTable with TableInfo<$GameTableTable, Game> {
   late final GeneratedColumn<int> nextPlayingCommandId = GeneratedColumn<int>(
       'next_playing_command_id', aliasedName, false,
       type: DriftSqlType.int, requiredDuringInsert: true);
+  static const VerificationMeta _categoryIdMeta =
+      const VerificationMeta('categoryId');
   @override
-  List<GeneratedColumn> get $columns => [gameId, nextPlayingCommandId];
+  late final GeneratedColumn<int> categoryId = GeneratedColumn<int>(
+      'category_id', aliasedName, false,
+      type: DriftSqlType.int, requiredDuringInsert: true);
+  static const VerificationMeta _lastWordEnabledMeta =
+      const VerificationMeta('lastWordEnabled');
+  @override
+  late final GeneratedColumn<bool> lastWordEnabled =
+      GeneratedColumn<bool>('last_word_enabled', aliasedName, false,
+          type: DriftSqlType.bool,
+          requiredDuringInsert: true,
+          defaultConstraints: GeneratedColumn.constraintsDependsOnDialect({
+            SqlDialect.sqlite: 'CHECK ("last_word_enabled" IN (0, 1))',
+            SqlDialect.mysql: '',
+            SqlDialect.postgres: '',
+          }));
+  static const VerificationMeta _penaltyEnabledMeta =
+      const VerificationMeta('penaltyEnabled');
+  @override
+  late final GeneratedColumn<bool> penaltyEnabled =
+      GeneratedColumn<bool>('penalty_enabled', aliasedName, false,
+          type: DriftSqlType.bool,
+          requiredDuringInsert: true,
+          defaultConstraints: GeneratedColumn.constraintsDependsOnDialect({
+            SqlDialect.sqlite: 'CHECK ("penalty_enabled" IN (0, 1))',
+            SqlDialect.mysql: '',
+            SqlDialect.postgres: '',
+          }));
+  static const VerificationMeta _moveDurationMeta =
+      const VerificationMeta('moveDuration');
+  @override
+  late final GeneratedColumnWithTypeConverter<CommandMoveMode, int>
+      moveDuration = GeneratedColumn<int>('move_duration', aliasedName, false,
+              type: DriftSqlType.int, requiredDuringInsert: true)
+          .withConverter<CommandMoveMode>(
+              $GameTableTable.$convertermoveDuration);
+  @override
+  List<GeneratedColumn> get $columns => [
+        gameId,
+        nextPlayingCommandId,
+        categoryId,
+        lastWordEnabled,
+        penaltyEnabled,
+        moveDuration
+      ];
   @override
   String get aliasedName => _alias ?? 'game_table';
   @override
@@ -437,6 +482,31 @@ class $GameTableTable extends GameTable with TableInfo<$GameTableTable, Game> {
     } else if (isInserting) {
       context.missing(_nextPlayingCommandIdMeta);
     }
+    if (data.containsKey('category_id')) {
+      context.handle(
+          _categoryIdMeta,
+          categoryId.isAcceptableOrUnknown(
+              data['category_id']!, _categoryIdMeta));
+    } else if (isInserting) {
+      context.missing(_categoryIdMeta);
+    }
+    if (data.containsKey('last_word_enabled')) {
+      context.handle(
+          _lastWordEnabledMeta,
+          lastWordEnabled.isAcceptableOrUnknown(
+              data['last_word_enabled']!, _lastWordEnabledMeta));
+    } else if (isInserting) {
+      context.missing(_lastWordEnabledMeta);
+    }
+    if (data.containsKey('penalty_enabled')) {
+      context.handle(
+          _penaltyEnabledMeta,
+          penaltyEnabled.isAcceptableOrUnknown(
+              data['penalty_enabled']!, _penaltyEnabledMeta));
+    } else if (isInserting) {
+      context.missing(_penaltyEnabledMeta);
+    }
+    context.handle(_moveDurationMeta, const VerificationResult.success());
     return context;
   }
 
@@ -450,6 +520,15 @@ class $GameTableTable extends GameTable with TableInfo<$GameTableTable, Game> {
           .read(DriftSqlType.int, data['${effectivePrefix}game_id'])!,
       nextPlayingCommandId: attachedDatabase.typeMapping.read(
           DriftSqlType.int, data['${effectivePrefix}next_playing_command_id'])!,
+      categoryId: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}category_id'])!,
+      lastWordEnabled: attachedDatabase.typeMapping.read(
+          DriftSqlType.bool, data['${effectivePrefix}last_word_enabled'])!,
+      penaltyEnabled: attachedDatabase.typeMapping
+          .read(DriftSqlType.bool, data['${effectivePrefix}penalty_enabled'])!,
+      moveDuration: $GameTableTable.$convertermoveDuration.fromSql(
+          attachedDatabase.typeMapping.read(
+              DriftSqlType.int, data['${effectivePrefix}move_duration'])!),
     );
   }
 
@@ -457,17 +536,37 @@ class $GameTableTable extends GameTable with TableInfo<$GameTableTable, Game> {
   $GameTableTable createAlias(String alias) {
     return $GameTableTable(attachedDatabase, alias);
   }
+
+  static JsonTypeConverter2<CommandMoveMode, int, int> $convertermoveDuration =
+      const EnumIndexConverter<CommandMoveMode>(CommandMoveMode.values);
 }
 
 class Game extends DataClass implements Insertable<Game> {
   final int gameId;
   final int nextPlayingCommandId;
-  const Game({required this.gameId, required this.nextPlayingCommandId});
+  final int categoryId;
+  final bool lastWordEnabled;
+  final bool penaltyEnabled;
+  final CommandMoveMode moveDuration;
+  const Game(
+      {required this.gameId,
+      required this.nextPlayingCommandId,
+      required this.categoryId,
+      required this.lastWordEnabled,
+      required this.penaltyEnabled,
+      required this.moveDuration});
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
     map['game_id'] = Variable<int>(gameId);
     map['next_playing_command_id'] = Variable<int>(nextPlayingCommandId);
+    map['category_id'] = Variable<int>(categoryId);
+    map['last_word_enabled'] = Variable<bool>(lastWordEnabled);
+    map['penalty_enabled'] = Variable<bool>(penaltyEnabled);
+    {
+      final converter = $GameTableTable.$convertermoveDuration;
+      map['move_duration'] = Variable<int>(converter.toSql(moveDuration));
+    }
     return map;
   }
 
@@ -475,6 +574,10 @@ class Game extends DataClass implements Insertable<Game> {
     return GameTableCompanion(
       gameId: Value(gameId),
       nextPlayingCommandId: Value(nextPlayingCommandId),
+      categoryId: Value(categoryId),
+      lastWordEnabled: Value(lastWordEnabled),
+      penaltyEnabled: Value(penaltyEnabled),
+      moveDuration: Value(moveDuration),
     );
   }
 
@@ -485,6 +588,11 @@ class Game extends DataClass implements Insertable<Game> {
       gameId: serializer.fromJson<int>(json['gameId']),
       nextPlayingCommandId:
           serializer.fromJson<int>(json['nextPlayingCommandId']),
+      categoryId: serializer.fromJson<int>(json['categoryId']),
+      lastWordEnabled: serializer.fromJson<bool>(json['lastWordEnabled']),
+      penaltyEnabled: serializer.fromJson<bool>(json['penaltyEnabled']),
+      moveDuration: $GameTableTable.$convertermoveDuration
+          .fromJson(serializer.fromJson<int>(json['moveDuration'])),
     );
   }
   @override
@@ -493,59 +601,117 @@ class Game extends DataClass implements Insertable<Game> {
     return <String, dynamic>{
       'gameId': serializer.toJson<int>(gameId),
       'nextPlayingCommandId': serializer.toJson<int>(nextPlayingCommandId),
+      'categoryId': serializer.toJson<int>(categoryId),
+      'lastWordEnabled': serializer.toJson<bool>(lastWordEnabled),
+      'penaltyEnabled': serializer.toJson<bool>(penaltyEnabled),
+      'moveDuration': serializer.toJson<int>(
+          $GameTableTable.$convertermoveDuration.toJson(moveDuration)),
     };
   }
 
-  Game copyWith({int? gameId, int? nextPlayingCommandId}) => Game(
+  Game copyWith(
+          {int? gameId,
+          int? nextPlayingCommandId,
+          int? categoryId,
+          bool? lastWordEnabled,
+          bool? penaltyEnabled,
+          CommandMoveMode? moveDuration}) =>
+      Game(
         gameId: gameId ?? this.gameId,
         nextPlayingCommandId: nextPlayingCommandId ?? this.nextPlayingCommandId,
+        categoryId: categoryId ?? this.categoryId,
+        lastWordEnabled: lastWordEnabled ?? this.lastWordEnabled,
+        penaltyEnabled: penaltyEnabled ?? this.penaltyEnabled,
+        moveDuration: moveDuration ?? this.moveDuration,
       );
   @override
   String toString() {
     return (StringBuffer('Game(')
           ..write('gameId: $gameId, ')
-          ..write('nextPlayingCommandId: $nextPlayingCommandId')
+          ..write('nextPlayingCommandId: $nextPlayingCommandId, ')
+          ..write('categoryId: $categoryId, ')
+          ..write('lastWordEnabled: $lastWordEnabled, ')
+          ..write('penaltyEnabled: $penaltyEnabled, ')
+          ..write('moveDuration: $moveDuration')
           ..write(')'))
         .toString();
   }
 
   @override
-  int get hashCode => Object.hash(gameId, nextPlayingCommandId);
+  int get hashCode => Object.hash(gameId, nextPlayingCommandId, categoryId,
+      lastWordEnabled, penaltyEnabled, moveDuration);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       (other is Game &&
           other.gameId == this.gameId &&
-          other.nextPlayingCommandId == this.nextPlayingCommandId);
+          other.nextPlayingCommandId == this.nextPlayingCommandId &&
+          other.categoryId == this.categoryId &&
+          other.lastWordEnabled == this.lastWordEnabled &&
+          other.penaltyEnabled == this.penaltyEnabled &&
+          other.moveDuration == this.moveDuration);
 }
 
 class GameTableCompanion extends UpdateCompanion<Game> {
   final Value<int> gameId;
   final Value<int> nextPlayingCommandId;
+  final Value<int> categoryId;
+  final Value<bool> lastWordEnabled;
+  final Value<bool> penaltyEnabled;
+  final Value<CommandMoveMode> moveDuration;
   const GameTableCompanion({
     this.gameId = const Value.absent(),
     this.nextPlayingCommandId = const Value.absent(),
+    this.categoryId = const Value.absent(),
+    this.lastWordEnabled = const Value.absent(),
+    this.penaltyEnabled = const Value.absent(),
+    this.moveDuration = const Value.absent(),
   });
   GameTableCompanion.insert({
     this.gameId = const Value.absent(),
     required int nextPlayingCommandId,
-  }) : nextPlayingCommandId = Value(nextPlayingCommandId);
+    required int categoryId,
+    required bool lastWordEnabled,
+    required bool penaltyEnabled,
+    required CommandMoveMode moveDuration,
+  })  : nextPlayingCommandId = Value(nextPlayingCommandId),
+        categoryId = Value(categoryId),
+        lastWordEnabled = Value(lastWordEnabled),
+        penaltyEnabled = Value(penaltyEnabled),
+        moveDuration = Value(moveDuration);
   static Insertable<Game> custom({
     Expression<int>? gameId,
     Expression<int>? nextPlayingCommandId,
+    Expression<int>? categoryId,
+    Expression<bool>? lastWordEnabled,
+    Expression<bool>? penaltyEnabled,
+    Expression<int>? moveDuration,
   }) {
     return RawValuesInsertable({
       if (gameId != null) 'game_id': gameId,
       if (nextPlayingCommandId != null)
         'next_playing_command_id': nextPlayingCommandId,
+      if (categoryId != null) 'category_id': categoryId,
+      if (lastWordEnabled != null) 'last_word_enabled': lastWordEnabled,
+      if (penaltyEnabled != null) 'penalty_enabled': penaltyEnabled,
+      if (moveDuration != null) 'move_duration': moveDuration,
     });
   }
 
   GameTableCompanion copyWith(
-      {Value<int>? gameId, Value<int>? nextPlayingCommandId}) {
+      {Value<int>? gameId,
+      Value<int>? nextPlayingCommandId,
+      Value<int>? categoryId,
+      Value<bool>? lastWordEnabled,
+      Value<bool>? penaltyEnabled,
+      Value<CommandMoveMode>? moveDuration}) {
     return GameTableCompanion(
       gameId: gameId ?? this.gameId,
       nextPlayingCommandId: nextPlayingCommandId ?? this.nextPlayingCommandId,
+      categoryId: categoryId ?? this.categoryId,
+      lastWordEnabled: lastWordEnabled ?? this.lastWordEnabled,
+      penaltyEnabled: penaltyEnabled ?? this.penaltyEnabled,
+      moveDuration: moveDuration ?? this.moveDuration,
     );
   }
 
@@ -559,6 +725,19 @@ class GameTableCompanion extends UpdateCompanion<Game> {
       map['next_playing_command_id'] =
           Variable<int>(nextPlayingCommandId.value);
     }
+    if (categoryId.present) {
+      map['category_id'] = Variable<int>(categoryId.value);
+    }
+    if (lastWordEnabled.present) {
+      map['last_word_enabled'] = Variable<bool>(lastWordEnabled.value);
+    }
+    if (penaltyEnabled.present) {
+      map['penalty_enabled'] = Variable<bool>(penaltyEnabled.value);
+    }
+    if (moveDuration.present) {
+      final converter = $GameTableTable.$convertermoveDuration;
+      map['move_duration'] = Variable<int>(converter.toSql(moveDuration.value));
+    }
     return map;
   }
 
@@ -566,7 +745,11 @@ class GameTableCompanion extends UpdateCompanion<Game> {
   String toString() {
     return (StringBuffer('GameTableCompanion(')
           ..write('gameId: $gameId, ')
-          ..write('nextPlayingCommandId: $nextPlayingCommandId')
+          ..write('nextPlayingCommandId: $nextPlayingCommandId, ')
+          ..write('categoryId: $categoryId, ')
+          ..write('lastWordEnabled: $lastWordEnabled, ')
+          ..write('penaltyEnabled: $penaltyEnabled, ')
+          ..write('moveDuration: $moveDuration')
           ..write(')'))
         .toString();
   }
