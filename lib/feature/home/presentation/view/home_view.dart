@@ -3,6 +3,7 @@ import 'package:alias/core/constants/assets_catalog.dart';
 import 'package:alias/core/injection.dart' as di;
 import 'package:alias/core/router/app_router.dart';
 import 'package:alias/feature/game/presentation/bloc/game_bloc.dart';
+import 'package:alias/feature/home/presentation/view/widget/reset_unfinished_game_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -35,7 +36,10 @@ class HomeView extends StatelessWidget {
             children: [
               Expanded(child: Image.asset(AssetsCatalog.icLogo)),
               ElevatedButton(
-                onPressed: () => router.push(const CategoryPageRoute()),
+                onPressed: () => _onNewGamePressed(
+                  context,
+                  canContinueGame: canContinueGame,
+                ),
                 child: const Text('Новая игра'),
               ),
               const SizedBox(height: 12),
@@ -64,5 +68,25 @@ class HomeView extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  void _onNewGamePressed(BuildContext context, {bool canContinueGame = false}) async {
+    var router = di.locator.get<AppRouter>();
+
+    if (canContinueGame) {
+      var gameResetConfirmed = await showDialog<bool>(
+        context: context,
+        builder: (context) => const ResetUnfinishedGameDialog(),
+      );
+
+      if (gameResetConfirmed ?? false) {
+        router.push(const CategoryPageRoute());
+        //resetGame
+      }
+    } else {
+      router.push(const CategoryPageRoute());
+    }
+
+
   }
 }
