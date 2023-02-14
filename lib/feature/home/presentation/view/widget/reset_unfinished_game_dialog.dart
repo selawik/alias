@@ -11,7 +11,8 @@ class ResetUnfinishedGameDialog extends StatelessWidget {
 
     return CupertinoAlertDialog(
       content: const Text(
-          'Хотите начать новую игру? Прогресс по текущей игре будет стерт'),
+        'Хотите начать новую игру? Прогресс по текущей игре будет стерт',
+      ),
       actions: [
         CupertinoDialogAction(
           onPressed: () => router.pop(true),

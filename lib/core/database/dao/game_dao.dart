@@ -15,4 +15,8 @@ class GameDao extends DatabaseAccessor<Database> with _$GameDaoMixin {
   Future<void> saveStartedGame(GameTableCompanion entity) async {
     await into(gameTable).insert(entity, mode: InsertMode.replace);
   }
+
+  Future<void> deleteUnfinishedGame() async {
+    delete(gameTable).go();
+  }
 }

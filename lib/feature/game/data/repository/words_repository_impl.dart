@@ -2,7 +2,6 @@ import 'dart:developer';
 
 import 'package:alias/core/error/failure.dart';
 import 'package:alias/feature/categories/domain/models/category.dart';
-import 'package:alias/feature/commands/data/models/command.dart';
 import 'package:alias/feature/game/data/data_source/words_local_data_source.dart';
 import 'package:alias/feature/game/data/data_source/words_remote_data_source.dart';
 import 'package:alias/feature/game/data/mapper/words_mapper.dart';
@@ -131,6 +130,16 @@ class WordsRepositoryImpl implements WordsRepository {
       await _localDataSource.saveStartedGame(game: gameDto);
 
       return const Right(null);
+    } catch (e, stacktrace) {
+      log(e.toString(), stackTrace: stacktrace);
+      return Left(DatabaseFailure(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, void>> resetUnfinishedGame() async {
+    try {
+      return Right(await _localDataSource.resetUnfinishedGame());
     } catch (e, stacktrace) {
       log(e.toString(), stackTrace: stacktrace);
       return Left(DatabaseFailure(e.toString()));

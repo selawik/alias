@@ -80,7 +80,9 @@ class HomeView extends StatelessWidget {
       );
 
       if (gameResetConfirmed ?? false) {
+        di.locator.get<GameBloc>().add(const GameEvent.resetGame());
         router.push(const CategoryPageRoute());
+        
         //resetGame
       }
     } else {

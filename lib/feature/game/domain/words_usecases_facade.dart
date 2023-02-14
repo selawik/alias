@@ -7,6 +7,7 @@ import 'package:alias/feature/game/domain/usecases/get_played_words.dart';
 import 'package:alias/feature/game/domain/usecases/get_unfinished_game.dart';
 import 'package:alias/feature/game/domain/usecases/load_words.dart';
 import 'package:alias/feature/game/domain/usecases/reset_game_history.dart';
+import 'package:alias/feature/game/domain/usecases/reset_unfinished_game.dart';
 import 'package:alias/feature/game/domain/usecases/save_played_words.dart';
 import 'package:alias/feature/game/domain/model/word.dart';
 import 'package:alias/feature/game/domain/usecases/save_started_game.dart';
@@ -22,6 +23,7 @@ class WordsUseCasesFacade {
   final ResetGameHistory _resetGameHistory;
   final GetUnfinishedGame _getUnfinishedGame;
   final SaveStartedGame _saveStartedGame;
+  final ResetUnfinishedGame _resetUnfinishedGame;
 
   WordsUseCasesFacade({
     required LoadWords loadWords,
@@ -30,12 +32,14 @@ class WordsUseCasesFacade {
     required ResetGameHistory resetGameHistory,
     required GetUnfinishedGame getUnfinishedGame,
     required SaveStartedGame saveStartedGame,
+    required ResetUnfinishedGame resetUnfinishedGame,
   })  : _loadWords = loadWords,
         _savePlayedWords = savePlayedWords,
         _getPlayedWords = getPlayedWords,
         _resetGameHistory = resetGameHistory,
         _getUnfinishedGame = getUnfinishedGame,
-        _saveStartedGame = saveStartedGame;
+        _saveStartedGame = saveStartedGame,
+        _resetUnfinishedGame= resetUnfinishedGame;
 
   Future<Either<Failure, List<Word>>> loadWords({
     required Category category,

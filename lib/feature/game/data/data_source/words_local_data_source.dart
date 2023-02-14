@@ -8,4 +8,5 @@ abstract class WordsLocalDataSource {
   Future<void> resetGameHistory();
   Future<GameDto?> getUnfinishedGame();
   Future<void> saveStartedGame({required GameDto game});
+  Future<void> resetUnfinishedGame();
 }

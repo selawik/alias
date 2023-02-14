@@ -29,4 +29,6 @@ abstract class WordsRepository {
     required GameSettings gameSettings,
     required Category category,
   });
+
+  Future<Either<Failure, void>> resetUnfinishedGame();
 }

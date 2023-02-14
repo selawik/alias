@@ -38,6 +38,10 @@ class DbProvider {
     await _db.playedWordDao.deleteWords();
   }
 
+  Future<void> resetUnfinishedGame() async {
+    await _db.gameDao.deleteUnfinishedGame();
+  }
+
   Future<Game?> getUnfinishedGame() async {
     return await _db.gameDao.getUnfinishedGame();
   }
