@@ -54,12 +54,14 @@ import 'package:alias/feature/game/domain/usecases/get_unfinished_game.dart'
 import 'package:alias/feature/game/domain/usecases/load_words.dart' as _i29;
 import 'package:alias/feature/game/domain/usecases/reset_game_history.dart'
     as _i30;
-import 'package:alias/feature/game/domain/usecases/save_played_words.dart'
+import 'package:alias/feature/game/domain/usecases/reset_unfinished_game.dart'
     as _i31;
-import 'package:alias/feature/game/domain/usecases/save_started_game.dart'
+import 'package:alias/feature/game/domain/usecases/save_played_words.dart'
     as _i32;
-import 'package:alias/feature/game/domain/words_usecases_facade.dart' as _i33;
-import 'package:alias/feature/game/presentation/bloc/game_bloc.dart' as _i34;
+import 'package:alias/feature/game/domain/usecases/save_started_game.dart'
+    as _i33;
+import 'package:alias/feature/game/domain/words_usecases_facade.dart' as _i34;
+import 'package:alias/feature/game/presentation/bloc/game_bloc.dart' as _i35;
 import 'package:alias/feature/game_settings/presentation/bloc/game_settings_bloc.dart'
     as _i15;
 import 'package:get_it/get_it.dart' as _i1;
@@ -117,20 +119,23 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i29.LoadWords(repository: gh<_i23.WordsRepository>()));
     gh.factory<_i30.ResetGameHistory>(
         () => _i30.ResetGameHistory(repository: gh<_i23.WordsRepository>()));
-    gh.factory<_i31.SavePlayedWords>(
-        () => _i31.SavePlayedWords(repository: gh<_i23.WordsRepository>()));
-    gh.factory<_i32.SaveStartedGame>(
-        () => _i32.SaveStartedGame(repository: gh<_i23.WordsRepository>()));
-    gh.factory<_i33.WordsUseCasesFacade>(() => _i33.WordsUseCasesFacade(
+    gh.factory<_i31.ResetUnfinishedGame>(
+        () => _i31.ResetUnfinishedGame(repository: gh<_i23.WordsRepository>()));
+    gh.factory<_i32.SavePlayedWords>(
+        () => _i32.SavePlayedWords(repository: gh<_i23.WordsRepository>()));
+    gh.factory<_i33.SaveStartedGame>(
+        () => _i33.SaveStartedGame(repository: gh<_i23.WordsRepository>()));
+    gh.factory<_i34.WordsUseCasesFacade>(() => _i34.WordsUseCasesFacade(
           loadWords: gh<_i29.LoadWords>(),
-          savePlayedWords: gh<_i31.SavePlayedWords>(),
+          savePlayedWords: gh<_i32.SavePlayedWords>(),
           getPlayedWords: gh<_i27.GetPlayedWords>(),
           resetGameHistory: gh<_i30.ResetGameHistory>(),
           getUnfinishedGame: gh<_i28.GetUnfinishedGame>(),
-          saveStartedGame: gh<_i32.SaveStartedGame>(),
+          saveStartedGame: gh<_i33.SaveStartedGame>(),
+          resetUnfinishedGame: gh<_i31.ResetUnfinishedGame>(),
         ));
-    gh.factory<_i34.GameBloc>(() =>
-        _i34.GameBloc(wordsUseCasesFacade: gh<_i33.WordsUseCasesFacade>()));
+    gh.factory<_i35.GameBloc>(() =>
+        _i35.GameBloc(wordsUseCasesFacade: gh<_i34.WordsUseCasesFacade>()));
     return this;
   }
 }
