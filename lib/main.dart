@@ -19,9 +19,7 @@ void main() async {
   );
 
   await FirebaseAppCheck.instance.activate();
-  
-  FirestoreFiller.loadWordsFromJson(filename: 'famous.json', categoryId: 7);
-  
+
   runApp(
     MultiBlocProvider(
       providers: [
