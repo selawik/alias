@@ -26,7 +26,8 @@ void main() async {
     MultiBlocProvider(
       providers: [
         BlocProvider<DictionaryBloc>(
-          create: (context) => di.locator.get<DictionaryBloc>(),
+          create: (context) => di.locator.get<DictionaryBloc>()
+            ..add(const DictionaryEvent.syncDictionary()),
         ),
         BlocProvider<GameBloc>(
           create: (context) =>

@@ -169,32 +169,38 @@ mixin _$DictionaryState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() isLoading,
+    required TResult Function() sync,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? isLoading,
+    TResult? Function()? sync,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? isLoading,
+    TResult Function()? sync,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_IsLoading value) isLoading,
+    required TResult Function(_Sync value) sync,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_IsLoading value)? isLoading,
+    TResult? Function(_Sync value)? sync,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_IsLoading value)? isLoading,
+    TResult Function(_Sync value)? sync,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -257,6 +263,7 @@ class _$_IsLoading implements _IsLoading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() isLoading,
+    required TResult Function() sync,
   }) {
     return isLoading();
   }
@@ -265,6 +272,7 @@ class _$_IsLoading implements _IsLoading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? isLoading,
+    TResult? Function()? sync,
   }) {
     return isLoading?.call();
   }
@@ -273,6 +281,7 @@ class _$_IsLoading implements _IsLoading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? isLoading,
+    TResult Function()? sync,
     required TResult orElse(),
   }) {
     if (isLoading != null) {
@@ -285,6 +294,7 @@ class _$_IsLoading implements _IsLoading {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_IsLoading value) isLoading,
+    required TResult Function(_Sync value) sync,
   }) {
     return isLoading(this);
   }
@@ -293,6 +303,7 @@ class _$_IsLoading implements _IsLoading {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_IsLoading value)? isLoading,
+    TResult? Function(_Sync value)? sync,
   }) {
     return isLoading?.call(this);
   }
@@ -301,6 +312,7 @@ class _$_IsLoading implements _IsLoading {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_IsLoading value)? isLoading,
+    TResult Function(_Sync value)? sync,
     required TResult orElse(),
   }) {
     if (isLoading != null) {
@@ -312,4 +324,104 @@ class _$_IsLoading implements _IsLoading {
 
 abstract class _IsLoading implements DictionaryState {
   const factory _IsLoading() = _$_IsLoading;
+}
+
+/// @nodoc
+abstract class _$$_SyncCopyWith<$Res> {
+  factory _$$_SyncCopyWith(_$_Sync value, $Res Function(_$_Sync) then) =
+      __$$_SyncCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_SyncCopyWithImpl<$Res>
+    extends _$DictionaryStateCopyWithImpl<$Res, _$_Sync>
+    implements _$$_SyncCopyWith<$Res> {
+  __$$_SyncCopyWithImpl(_$_Sync _value, $Res Function(_$_Sync) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_Sync implements _Sync {
+  const _$_Sync();
+
+  @override
+  String toString() {
+    return 'DictionaryState.sync()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Sync);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() isLoading,
+    required TResult Function() sync,
+  }) {
+    return sync();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? isLoading,
+    TResult? Function()? sync,
+  }) {
+    return sync?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? isLoading,
+    TResult Function()? sync,
+    required TResult orElse(),
+  }) {
+    if (sync != null) {
+      return sync();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_IsLoading value) isLoading,
+    required TResult Function(_Sync value) sync,
+  }) {
+    return sync(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_IsLoading value)? isLoading,
+    TResult? Function(_Sync value)? sync,
+  }) {
+    return sync?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_IsLoading value)? isLoading,
+    TResult Function(_Sync value)? sync,
+    required TResult orElse(),
+  }) {
+    if (sync != null) {
+      return sync(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Sync implements DictionaryState {
+  const factory _Sync() = _$_Sync;
 }
