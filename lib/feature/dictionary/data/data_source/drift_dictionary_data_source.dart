@@ -1,7 +1,10 @@
 import 'package:alias/core/error/failure.dart';
 import 'package:alias/feature/dictionary/data/data_source/dictionary_local_data_source.dart';
 import 'package:dartz/dartz.dart';
+import 'package:injectable/injectable.dart';
 
+
+@Injectable(as: DictionaryLocalDataSource)
 class DriftDictionaryDataSource implements DictionaryLocalDataSource {
   @override
   Future<Either<Failure, void>> saveWords() {
