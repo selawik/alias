@@ -1,8 +1,8 @@
 import 'package:alias/core/error/failure.dart';
 import 'package:alias/feature/categories/data/models/category_dto.dart';
 import 'package:alias/feature/commands/data/models/command.dart';
-import 'package:alias/feature/dictionary/data/data_source/dictionary_remote_data_source.dart';
 import 'package:alias/feature/game/data/model/word_dto.dart';
+import 'package:alias/feature/sync/data/data_source/dictionary_remote_data_source.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 

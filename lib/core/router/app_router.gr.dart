@@ -65,13 +65,19 @@ class _$AppRouter extends RootStackRouter {
         child: const CommandsStatsPage(),
       );
     },
+    SynchronizationPageRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const SynchronizationPage(),
+      );
+    },
   };
 
   @override
   List<RouteConfig> get routes => [
         RouteConfig(
           HomePageRoute.name,
-          path: '/',
+          path: '/home-page',
         ),
         RouteConfig(
           CategoryPageRoute.name,
@@ -101,6 +107,10 @@ class _$AppRouter extends RootStackRouter {
           CommandsStatsPageRoute.name,
           path: '/commands-stats-page',
         ),
+        RouteConfig(
+          SynchronizationPageRoute.name,
+          path: '/',
+        ),
       ];
 }
 
@@ -110,7 +120,7 @@ class HomePageRoute extends PageRouteInfo<void> {
   const HomePageRoute()
       : super(
           HomePageRoute.name,
-          path: '/',
+          path: '/home-page',
         );
 
   static const String name = 'HomePageRoute';
@@ -198,4 +208,16 @@ class CommandsStatsPageRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'CommandsStatsPageRoute';
+}
+
+/// generated route for
+/// [SynchronizationPage]
+class SynchronizationPageRoute extends PageRouteInfo<void> {
+  const SynchronizationPageRoute()
+      : super(
+          SynchronizationPageRoute.name,
+          path: '/',
+        );
+
+  static const String name = 'SynchronizationPageRoute';
 }

@@ -18,33 +18,33 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$DictionaryEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function() syncDictionary,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function()? syncDictionary,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function()? syncDictionary,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(_SyncDictionary value) syncDictionary,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(_SyncDictionary value)? syncDictionary,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(_SyncDictionary value)? syncDictionary,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -69,34 +69,35 @@ class _$DictionaryEventCopyWithImpl<$Res, $Val extends DictionaryEvent>
 }
 
 /// @nodoc
-abstract class _$$_StartedCopyWith<$Res> {
-  factory _$$_StartedCopyWith(
-          _$_Started value, $Res Function(_$_Started) then) =
-      __$$_StartedCopyWithImpl<$Res>;
+abstract class _$$_SyncDictionaryCopyWith<$Res> {
+  factory _$$_SyncDictionaryCopyWith(
+          _$_SyncDictionary value, $Res Function(_$_SyncDictionary) then) =
+      __$$_SyncDictionaryCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_StartedCopyWithImpl<$Res>
-    extends _$DictionaryEventCopyWithImpl<$Res, _$_Started>
-    implements _$$_StartedCopyWith<$Res> {
-  __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
+class __$$_SyncDictionaryCopyWithImpl<$Res>
+    extends _$DictionaryEventCopyWithImpl<$Res, _$_SyncDictionary>
+    implements _$$_SyncDictionaryCopyWith<$Res> {
+  __$$_SyncDictionaryCopyWithImpl(
+      _$_SyncDictionary _value, $Res Function(_$_SyncDictionary) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Started implements _Started {
-  const _$_Started();
+class _$_SyncDictionary implements _SyncDictionary {
+  const _$_SyncDictionary();
 
   @override
   String toString() {
-    return 'DictionaryEvent.started()';
+    return 'DictionaryEvent.syncDictionary()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Started);
+        (other.runtimeType == runtimeType && other is _$_SyncDictionary);
   }
 
   @override
@@ -105,27 +106,27 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function() syncDictionary,
   }) {
-    return started();
+    return syncDictionary();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function()? syncDictionary,
   }) {
-    return started?.call();
+    return syncDictionary?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function()? syncDictionary,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started();
+    if (syncDictionary != null) {
+      return syncDictionary();
     }
     return orElse();
   }
@@ -133,67 +134,67 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(_SyncDictionary value) syncDictionary,
   }) {
-    return started(this);
+    return syncDictionary(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(_SyncDictionary value)? syncDictionary,
   }) {
-    return started?.call(this);
+    return syncDictionary?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(_SyncDictionary value)? syncDictionary,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started(this);
+    if (syncDictionary != null) {
+      return syncDictionary(this);
     }
     return orElse();
   }
 }
 
-abstract class _Started implements DictionaryEvent {
-  const factory _Started() = _$_Started;
+abstract class _SyncDictionary implements DictionaryEvent {
+  const factory _SyncDictionary() = _$_SyncDictionary;
 }
 
 /// @nodoc
 mixin _$DictionaryState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
+    required TResult Function() isLoading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
+    TResult? Function()? isLoading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
+    TResult Function()? isLoading,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
+    required TResult Function(_IsLoading value) isLoading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
+    TResult? Function(_IsLoading value)? isLoading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
+    TResult Function(_IsLoading value)? isLoading,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -218,34 +219,35 @@ class _$DictionaryStateCopyWithImpl<$Res, $Val extends DictionaryState>
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+abstract class _$$_IsLoadingCopyWith<$Res> {
+  factory _$$_IsLoadingCopyWith(
+          _$_IsLoading value, $Res Function(_$_IsLoading) then) =
+      __$$_IsLoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$DictionaryStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$_IsLoadingCopyWithImpl<$Res>
+    extends _$DictionaryStateCopyWithImpl<$Res, _$_IsLoading>
+    implements _$$_IsLoadingCopyWith<$Res> {
+  __$$_IsLoadingCopyWithImpl(
+      _$_IsLoading _value, $Res Function(_$_IsLoading) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial();
+class _$_IsLoading implements _IsLoading {
+  const _$_IsLoading();
 
   @override
   String toString() {
-    return 'DictionaryState.initial()';
+    return 'DictionaryState.isLoading()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
+        (other.runtimeType == runtimeType && other is _$_IsLoading);
   }
 
   @override
@@ -254,27 +256,27 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
+    required TResult Function() isLoading,
   }) {
-    return initial();
+    return isLoading();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
+    TResult? Function()? isLoading,
   }) {
-    return initial?.call();
+    return isLoading?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
+    TResult Function()? isLoading,
     required TResult orElse(),
   }) {
-    if (initial != null) {
-      return initial();
+    if (isLoading != null) {
+      return isLoading();
     }
     return orElse();
   }
@@ -282,32 +284,32 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
+    required TResult Function(_IsLoading value) isLoading,
   }) {
-    return initial(this);
+    return isLoading(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
+    TResult? Function(_IsLoading value)? isLoading,
   }) {
-    return initial?.call(this);
+    return isLoading?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
+    TResult Function(_IsLoading value)? isLoading,
     required TResult orElse(),
   }) {
-    if (initial != null) {
-      return initial(this);
+    if (isLoading != null) {
+      return isLoading(this);
     }
     return orElse();
   }
 }
 
-abstract class _Initial implements DictionaryState {
-  const factory _Initial() = _$_Initial;
+abstract class _IsLoading implements DictionaryState {
+  const factory _IsLoading() = _$_IsLoading;
 }

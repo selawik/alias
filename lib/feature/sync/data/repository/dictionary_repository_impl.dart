@@ -1,8 +1,8 @@
 import 'package:alias/core/error/failure.dart';
 import 'package:alias/feature/categories/domain/models/category.dart';
-import 'package:alias/feature/dictionary/data/data_source/dictionary_local_data_source.dart';
-import 'package:alias/feature/dictionary/data/data_source/dictionary_remote_data_source.dart';
-import 'package:alias/feature/dictionary/domain/repository/dictionary_repository.dart';
+import 'package:alias/feature/sync/data/data_source/dictionary_local_data_source.dart';
+import 'package:alias/feature/sync/data/data_source/dictionary_remote_data_source.dart';
+import 'package:alias/feature/sync/domain/repository/dictionary_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 

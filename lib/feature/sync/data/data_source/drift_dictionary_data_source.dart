@@ -1,5 +1,5 @@
 import 'package:alias/core/error/failure.dart';
-import 'package:alias/feature/dictionary/data/data_source/dictionary_local_data_source.dart';
+import 'package:alias/feature/sync/data/data_source/dictionary_local_data_source.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
