@@ -17,11 +17,20 @@ class FirebaseWordsDataSource implements WordsRemoteDataSource {
     var wordsData = await FirebaseFirestore.instance
         .collection(FirebaseDataStoreCollections.word)
         .where('categoryId', isEqualTo: categoryId)
-        .limit(limit)
+        .orderBy('wordId')
         .get();
 
     log('Words will be played: ${wordsData.docs.length}');
+    var docs = wordsData.docs;
+    docs.shuffle();
 
-    return wordsData.docs.map((item) => WordDto.fromJson(item.data())).toList();
+    log('${docs.length} - docs');
+    if (limit >= docs.length) {
+      limit = docs.length;
+    }
+
+    var limitedWords = docs.getRange(0, limit);
+
+    return limitedWords.map((item) => WordDto.fromJson(item.data())).toList();
   }
 }
