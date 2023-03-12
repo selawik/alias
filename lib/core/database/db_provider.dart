@@ -57,4 +57,8 @@ class DbProvider {
       ),
     );
   }
+
+  Future<int?> getLastCategoryId() async {
+    return await _db.categoryDao.getLastCategoryId();
+  }
 }

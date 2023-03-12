@@ -6,7 +6,8 @@ import 'package:dartz/dartz.dart';
 import 'package:alias/feature/commands/data/models/command.dart';
 
 abstract class DictionaryRemoteDataSource {
-  Future<Either<Failure, List<WordDto>>> loadWords();
-  Future<Either<Failure, List<CategoryDto>>> loadCategories();
-  Future<Either<Failure, List<Command>>> loadCommands();
+  Future<List<WordDto>> loadWords();
+  Future<List<CategoryDto>> loadCategories();
+  Future<List<Command>> loadCommands();
+  Future<CategoryDto> loadLastCategory();
 }

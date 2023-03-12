@@ -7,4 +7,5 @@ abstract class DictionaryLocalDataSource {
   Future<Either<Failure, void>> saveWords();
   Future<Either<Failure, void>> saveCommands();
   Future<Either<Failure, void>> saveCategories();
+  Future<int?> getLastCategoryId();
 }

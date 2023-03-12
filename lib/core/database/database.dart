@@ -2,6 +2,7 @@
 // database class. They are used to open the database.
 import 'dart:io';
 
+import 'package:alias/core/database/dao/category_dao.dart';
 import 'package:alias/core/database/dao/game_dao.dart';
 import 'package:alias/core/database/dao/played_word_dao.dart';
 import 'package:alias/core/database/tables/category.dart';
@@ -17,7 +18,7 @@ import 'package:path_provider/path_provider.dart';
 
 part 'database.g.dart';
 
-@DriftDatabase(tables: [CategoryTable, PlayedWord, GameTable], daos: [PlayedWordDao, GameDao])
+@DriftDatabase(tables: [CategoryTable, PlayedWord, GameTable], daos: [PlayedWordDao, GameDao, CategoryDao])
 @singleton
 class Database extends _$Database{
   // we tell the database where to store the data with this constructor
