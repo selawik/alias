@@ -15,10 +15,11 @@ class FirebaseDictionaryDataSource implements DictionaryRemoteDataSource {
   }
 
   @override
-  Future<List<CategoryDto>> loadCategories() async {
+  Future<List<CategoryDto>> loadCategories({int? startFromId}) async {
     var categoriesData = await FirebaseFirestore.instance
         .collection(FirebaseDataStoreCollections.category)
         .orderBy('categoryId')
+        .startAt([startFromId])
         .get();
 
     return categoriesData.docs

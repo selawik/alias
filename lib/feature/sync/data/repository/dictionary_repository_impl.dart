@@ -41,9 +41,9 @@ class DictionaryRepositoryImpl implements DictionaryRepository {
   }
 
   @override
-  Future<Either<Failure, List<Category>>> loadCategories() async {
+  Future<Either<Failure, List<Category>>> loadCategories({int? startFromId}) async {
     try {
-      var categoryDtos = await _remoteDataSource.loadCategories();
+      var categoryDtos = await _remoteDataSource.loadCategories(startFromId: startFromId);
 
       return Right(
           categoryDtos.map((dto) => _categoryMapper.mapToModel(dto)).toList());

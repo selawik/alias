@@ -7,7 +7,7 @@ import 'package:alias/feature/commands/data/models/command.dart';
 
 abstract class DictionaryRemoteDataSource {
   Future<List<WordDto>> loadWords();
-  Future<List<CategoryDto>> loadCategories();
+  Future<List<CategoryDto>> loadCategories({int? startFromId});
   Future<List<Command>> loadCommands();
   Future<CategoryDto> loadLastCategory();
 }
