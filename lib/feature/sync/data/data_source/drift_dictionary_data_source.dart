@@ -1,7 +1,6 @@
 import 'package:alias/core/database/db_provider.dart';
-import 'package:alias/core/error/failure.dart';
+import 'package:alias/feature/categories/data/models/category_dto.dart';
 import 'package:alias/feature/sync/data/data_source/dictionary_local_data_source.dart';
-import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable(as: DictionaryLocalDataSource)
@@ -11,19 +10,18 @@ class DriftDictionaryDataSource implements DictionaryLocalDataSource {
   DriftDictionaryDataSource(DbProvider dbProvider) : _dbProvider = dbProvider;
 
   @override
-  Future<Either<Failure, void>> saveWords() {
+  Future<void> saveWords() {
     // TODO: implement saveWords
     throw UnimplementedError();
   }
 
   @override
-  Future<Either<Failure, void>> saveCategories() {
-    // TODO: implement saveCategories
-    throw UnimplementedError();
+  Future<void> saveCategories({required List<CategoryDto> categories}) async {
+    return await _dbProvider.saveCategories(categories);
   }
 
   @override
-  Future<Either<Failure, void>> saveCommands() {
+  Future<void> saveCommands() {
     // TODO: implement saveCommands
     throw UnimplementedError();
   }

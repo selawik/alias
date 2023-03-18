@@ -1,4 +1,5 @@
 import 'package:alias/core/database/database.dart' hide Category;
+import 'package:alias/feature/categories/data/models/category_dto.dart';
 import 'package:alias/feature/categories/domain/models/category.dart';
 import 'package:alias/feature/game/data/model/game_dto.dart';
 import 'package:alias/feature/game/domain/model/word.dart';
@@ -60,5 +61,16 @@ class DbProvider {
 
   Future<int?> getLastCategoryId() async {
     return await _db.categoryDao.getLastCategoryId();
+  }
+
+  Future<void> saveCategories(List<CategoryDto> categories) async {
+    var categoryCompanions = categories.map(
+      (category) => CategoryTableCompanion.insert(
+        categoryId: category.categoryId,
+        name: category.name,
+      ),
+    );
+
+    return await _db.categoryDao.saveCategories(categoryCompanions.toList());
   }
 }

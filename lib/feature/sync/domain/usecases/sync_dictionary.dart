@@ -20,7 +20,7 @@ class SyncDictionary {
     }
 
     var lastLocalCategoryId = (lastLocalCategoryIdResult as Right).value;
-    var lastRemoteCategoryResult = await _repository.getLastRemoveCategoryId();
+    var lastRemoteCategoryResult = await _repository.getLastRemoteCategoryId();
 
     if (lastRemoteCategoryResult.isLeft()) {
       return Left((lastRemoteCategoryResult as Left).value);
@@ -28,8 +28,11 @@ class SyncDictionary {
 
     var lastRemoteCategoryId = (lastRemoteCategoryResult as Right).value;
 
-    if (lastLocalCategoryId != lastRemoteCategoryResult) {
-      _syncCategories(
+    log('Last local category id $lastLocalCategoryId');
+    log('Last remote category id $lastRemoteCategoryId');
+
+    if (lastLocalCategoryId != lastRemoteCategoryId) {
+      await _syncCategories(
         lastRemoveCategoryId: lastRemoteCategoryId,
         lastLocalCategoryId: lastLocalCategoryId,
       );
@@ -38,15 +41,14 @@ class SyncDictionary {
     return const Right(false);
   }
 
-  void _syncCategories({
+  Future<void> _syncCategories({
     required int? lastLocalCategoryId,
     required int lastRemoveCategoryId,
   }) async {
+    var categoriesResult = await _repository.loadCategories(startFromId: lastLocalCategoryId);
 
-    var categoriesResult = await _repository.loadCategories(startFromId: 2);
-
-
-
-    log('categ ${categoriesResult.getOrElse(() => []).toString()}');
+    if (categoriesResult.isRight()) {
+      await _repository.saveCategories((categoriesResult as Right).value);
+    }
   }
 }

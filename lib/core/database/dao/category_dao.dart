@@ -2,7 +2,6 @@ import 'dart:developer';
 
 import 'package:alias/core/database/database.dart' hide Category;
 import 'package:alias/core/database/tables/category.dart';
-import 'package:alias/core/database/tables/game.dart';
 import 'package:drift/drift.dart';
 
 part 'category_dao.g.dart';
@@ -13,16 +12,19 @@ class CategoryDao extends DatabaseAccessor<Database> with _$CategoryDaoMixin {
 
   Future<int?> getLastCategoryId() async {
     var query = select(categoryTable)
-        ..orderBy([(table) => OrderingTerm(expression: table.id)]);
+        ..orderBy([(table) => OrderingTerm(expression: table.categoryId)]);
 
     var categories = await query.get();
-
-    log(categories.toString());
 
     if (categories.isEmpty) {
       return null;
     }
 
-    return categories.last.id;
+    return categories.last.categoryId;
+  }
+
+
+  Future<void> saveCategories(List<CategoryTableCompanion> categories) async {
+    await batch((batch) => batch.insertAll(categoryTable, categories));
   }
 }

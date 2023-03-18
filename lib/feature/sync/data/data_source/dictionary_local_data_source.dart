@@ -1,11 +1,8 @@
-
-
-import 'package:alias/core/error/failure.dart';
-import 'package:dartz/dartz.dart';
+import 'package:alias/feature/categories/data/models/category_dto.dart';
 
 abstract class DictionaryLocalDataSource {
-  Future<Either<Failure, void>> saveWords();
-  Future<Either<Failure, void>> saveCommands();
-  Future<Either<Failure, void>> saveCategories();
+  Future<void> saveWords();
+  Future<void> saveCommands();
+  Future<void> saveCategories({required List<CategoryDto> categories});
   Future<int?> getLastCategoryId();
 }

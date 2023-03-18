@@ -41,9 +41,11 @@ class DictionaryRepositoryImpl implements DictionaryRepository {
   }
 
   @override
-  Future<Either<Failure, List<Category>>> loadCategories({int? startFromId}) async {
+  Future<Either<Failure, List<Category>>> loadCategories(
+      {int? startFromId}) async {
     try {
-      var categoryDtos = await _remoteDataSource.loadCategories(startFromId: startFromId);
+      var categoryDtos =
+          await _remoteDataSource.loadCategories(startFromId: startFromId);
 
       return Right(
           categoryDtos.map((dto) => _categoryMapper.mapToModel(dto)).toList());
@@ -54,7 +56,7 @@ class DictionaryRepositoryImpl implements DictionaryRepository {
   }
 
   @override
-  Future<Either<Failure, int>> getLastRemoveCategoryId() async {
+  Future<Either<Failure, int>> getLastRemoteCategoryId() async {
     try {
       var categoryDto = await _remoteDataSource.loadLastCategory();
 
@@ -62,6 +64,24 @@ class DictionaryRepositoryImpl implements DictionaryRepository {
     } catch (e, stacktrace) {
       log(e.toString(), stackTrace: stacktrace);
       return const Left(ServerFailure('Error during loading last category'));
+    }
+  }
+
+  @override
+  Future<Either<Failure, void>> saveCategories(
+      List<Category> categories) async {
+    try {
+      var categoryDtos =
+          categories.map((category) => _categoryMapper.mapFromModel(category));
+
+      return Right(
+        await _localDataSource.saveCategories(
+          categories: categoryDtos.toList(),
+        ),
+      );
+    } catch (e, stacktrace) {
+      log(e.toString(), stackTrace: stacktrace);
+      return const Left(ServerFailure('Error during loading category'));
     }
   }
 }
