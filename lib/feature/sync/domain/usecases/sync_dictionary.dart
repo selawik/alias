@@ -23,9 +23,23 @@ class SyncDictionary {
     var lastLocalWordResult = await _repository.getLastLocalWordId();
     var lastRemoteWordResult = await _repository.getLastRemoteWordId();
 
+    if (lastRemoteWordResult.isLeft() || lastLocalWordResult.isLeft()) {
+      return;
+    }
 
-    log(lastLocalWordResult.toString());
-    log(lastRemoteWordResult.toString());
+    int lastRemoteWordId = (lastRemoteWordResult as Right).value;
+    int? lastLocalWordId = (lastLocalWordResult as Right).value;
+
+    log('Last local word id $lastRemoteWordId');
+    log('Last remote word id $lastLocalWordId');
+
+    if (lastRemoteWordId != lastLocalWordId)  {
+      await _saveWords();
+    }
+  }
+
+  Future<void> _saveWords() async {
+
   }
 
   Future<void> _syncCategories() async {
