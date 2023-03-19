@@ -63,6 +63,10 @@ class DbProvider {
     return await _db.categoryDao.getLastCategoryId();
   }
 
+  Future<int?> getLastWordId() async {
+    return await _db.wordDao.getLastWordId();
+  }
+
   Future<void> saveCategories(List<CategoryDto> categories) async {
     var categoryCompanions = categories.map(
       (category) => CategoryTableCompanion.insert(

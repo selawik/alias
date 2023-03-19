@@ -758,18 +758,228 @@ class GameTableCompanion extends UpdateCompanion<Game> {
   }
 }
 
+class $WordsTableTable extends WordsTable
+    with TableInfo<$WordsTableTable, WordTable> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $WordsTableTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _wordIdMeta = const VerificationMeta('wordId');
+  @override
+  late final GeneratedColumn<int> wordId = GeneratedColumn<int>(
+      'word_id', aliasedName, false,
+      type: DriftSqlType.int, requiredDuringInsert: true);
+  static const VerificationMeta _categoryIdMeta =
+      const VerificationMeta('categoryId');
+  @override
+  late final GeneratedColumn<int> categoryId = GeneratedColumn<int>(
+      'category_id', aliasedName, false,
+      type: DriftSqlType.int, requiredDuringInsert: true);
+  static const VerificationMeta _nameMeta = const VerificationMeta('name');
+  @override
+  late final GeneratedColumn<String> name = GeneratedColumn<String>(
+      'name', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  @override
+  List<GeneratedColumn> get $columns => [wordId, categoryId, name];
+  @override
+  String get aliasedName => _alias ?? 'words_table';
+  @override
+  String get actualTableName => 'words_table';
+  @override
+  VerificationContext validateIntegrity(Insertable<WordTable> instance,
+      {bool isInserting = false}) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('word_id')) {
+      context.handle(_wordIdMeta,
+          wordId.isAcceptableOrUnknown(data['word_id']!, _wordIdMeta));
+    } else if (isInserting) {
+      context.missing(_wordIdMeta);
+    }
+    if (data.containsKey('category_id')) {
+      context.handle(
+          _categoryIdMeta,
+          categoryId.isAcceptableOrUnknown(
+              data['category_id']!, _categoryIdMeta));
+    } else if (isInserting) {
+      context.missing(_categoryIdMeta);
+    }
+    if (data.containsKey('name')) {
+      context.handle(
+          _nameMeta, name.isAcceptableOrUnknown(data['name']!, _nameMeta));
+    } else if (isInserting) {
+      context.missing(_nameMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => const {};
+  @override
+  WordTable map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return WordTable(
+      wordId: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}word_id'])!,
+      categoryId: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}category_id'])!,
+      name: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}name'])!,
+    );
+  }
+
+  @override
+  $WordsTableTable createAlias(String alias) {
+    return $WordsTableTable(attachedDatabase, alias);
+  }
+}
+
+class WordTable extends DataClass implements Insertable<WordTable> {
+  final int wordId;
+  final int categoryId;
+  final String name;
+  const WordTable(
+      {required this.wordId, required this.categoryId, required this.name});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['word_id'] = Variable<int>(wordId);
+    map['category_id'] = Variable<int>(categoryId);
+    map['name'] = Variable<String>(name);
+    return map;
+  }
+
+  WordsTableCompanion toCompanion(bool nullToAbsent) {
+    return WordsTableCompanion(
+      wordId: Value(wordId),
+      categoryId: Value(categoryId),
+      name: Value(name),
+    );
+  }
+
+  factory WordTable.fromJson(Map<String, dynamic> json,
+      {ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return WordTable(
+      wordId: serializer.fromJson<int>(json['wordId']),
+      categoryId: serializer.fromJson<int>(json['categoryId']),
+      name: serializer.fromJson<String>(json['name']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'wordId': serializer.toJson<int>(wordId),
+      'categoryId': serializer.toJson<int>(categoryId),
+      'name': serializer.toJson<String>(name),
+    };
+  }
+
+  WordTable copyWith({int? wordId, int? categoryId, String? name}) => WordTable(
+        wordId: wordId ?? this.wordId,
+        categoryId: categoryId ?? this.categoryId,
+        name: name ?? this.name,
+      );
+  @override
+  String toString() {
+    return (StringBuffer('WordTable(')
+          ..write('wordId: $wordId, ')
+          ..write('categoryId: $categoryId, ')
+          ..write('name: $name')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(wordId, categoryId, name);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is WordTable &&
+          other.wordId == this.wordId &&
+          other.categoryId == this.categoryId &&
+          other.name == this.name);
+}
+
+class WordsTableCompanion extends UpdateCompanion<WordTable> {
+  final Value<int> wordId;
+  final Value<int> categoryId;
+  final Value<String> name;
+  const WordsTableCompanion({
+    this.wordId = const Value.absent(),
+    this.categoryId = const Value.absent(),
+    this.name = const Value.absent(),
+  });
+  WordsTableCompanion.insert({
+    required int wordId,
+    required int categoryId,
+    required String name,
+  })  : wordId = Value(wordId),
+        categoryId = Value(categoryId),
+        name = Value(name);
+  static Insertable<WordTable> custom({
+    Expression<int>? wordId,
+    Expression<int>? categoryId,
+    Expression<String>? name,
+  }) {
+    return RawValuesInsertable({
+      if (wordId != null) 'word_id': wordId,
+      if (categoryId != null) 'category_id': categoryId,
+      if (name != null) 'name': name,
+    });
+  }
+
+  WordsTableCompanion copyWith(
+      {Value<int>? wordId, Value<int>? categoryId, Value<String>? name}) {
+    return WordsTableCompanion(
+      wordId: wordId ?? this.wordId,
+      categoryId: categoryId ?? this.categoryId,
+      name: name ?? this.name,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (wordId.present) {
+      map['word_id'] = Variable<int>(wordId.value);
+    }
+    if (categoryId.present) {
+      map['category_id'] = Variable<int>(categoryId.value);
+    }
+    if (name.present) {
+      map['name'] = Variable<String>(name.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('WordsTableCompanion(')
+          ..write('wordId: $wordId, ')
+          ..write('categoryId: $categoryId, ')
+          ..write('name: $name')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$Database extends GeneratedDatabase {
   _$Database(QueryExecutor e) : super(e);
   late final $CategoryTableTable categoryTable = $CategoryTableTable(this);
   late final $PlayedWordTable playedWord = $PlayedWordTable(this);
   late final $GameTableTable gameTable = $GameTableTable(this);
+  late final $WordsTableTable wordsTable = $WordsTableTable(this);
   late final PlayedWordDao playedWordDao = PlayedWordDao(this as Database);
   late final GameDao gameDao = GameDao(this as Database);
   late final CategoryDao categoryDao = CategoryDao(this as Database);
+  late final WordDao wordDao = WordDao(this as Database);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
   @override
   List<DatabaseSchemaEntity> get allSchemaEntities =>
-      [categoryTable, playedWord, gameTable];
+      [categoryTable, playedWord, gameTable, wordsTable];
 }

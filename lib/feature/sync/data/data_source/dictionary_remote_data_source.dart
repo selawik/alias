@@ -1,5 +1,6 @@
 import 'package:alias/core/error/failure.dart';
 import 'package:alias/feature/categories/data/models/category_dto.dart';
+import 'package:alias/feature/game/data/model/game_dto.dart';
 import 'package:alias/feature/game/data/model/word_dto.dart';
 import 'package:dartz/dartz.dart';
 
@@ -10,4 +11,5 @@ abstract class DictionaryRemoteDataSource {
   Future<List<CategoryDto>> loadCategories({int? startFromId});
   Future<List<Command>> loadCommands();
   Future<CategoryDto> loadLastCategory();
+  Future<WordDto> loadLastWord();
 }

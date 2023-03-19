@@ -29,18 +29,6 @@ class DictionaryRepositoryImpl implements DictionaryRepository {
   }
 
   @override
-  Future<Either<Failure, int?>> getLastLocalCategoryId() async {
-    try {
-      var lastCategoryId = await _localDataSource.getLastCategoryId();
-
-      return Right(lastCategoryId);
-    } catch (e, stacktrace) {
-      log(e.toString(), stackTrace: stacktrace);
-      return const Left(ServerFailure('Error during loading category'));
-    }
-  }
-
-  @override
   Future<Either<Failure, List<Category>>> loadCategories(
       {int? startFromId}) async {
     try {
@@ -52,6 +40,18 @@ class DictionaryRepositoryImpl implements DictionaryRepository {
     } catch (e, stacktrace) {
       log(e.toString(), stackTrace: stacktrace);
       return const Left(ServerFailure('Error during loading categories'));
+    }
+  }
+
+  @override
+  Future<Either<Failure, int?>> getLastLocalCategoryId() async {
+    try {
+      var lastCategoryId = await _localDataSource.getLastCategoryId();
+
+      return Right(lastCategoryId);
+    } catch (e, stacktrace) {
+      log(e.toString(), stackTrace: stacktrace);
+      return const Left(ServerFailure('Error during loading category'));
     }
   }
 
@@ -82,6 +82,30 @@ class DictionaryRepositoryImpl implements DictionaryRepository {
     } catch (e, stacktrace) {
       log(e.toString(), stackTrace: stacktrace);
       return const Left(ServerFailure('Error during loading category'));
+    }
+  }
+
+  @override
+  Future<Either<Failure, int?>> getLastLocalWordId() async {
+    try {
+      var lastWordId = await _localDataSource.getLastWordId();
+
+      return Right(lastWordId);
+    } catch (e, stacktrace) {
+      log(e.toString(), stackTrace: stacktrace);
+      return const Left(ServerFailure('Error during loading words'));
+    }
+  }
+
+  @override
+  Future<Either<Failure, int>> getLastRemoteWordId() async {
+    try {
+      var wordDto = await _remoteDataSource.loadLastWord();
+
+      return Right(wordDto.wordId);
+    } catch (e, stacktrace) {
+      log(e.toString(), stackTrace: stacktrace);
+      return const Left(ServerFailure('Error during loading last category'));
     }
   }
 }

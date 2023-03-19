@@ -5,9 +5,11 @@ import 'dart:io';
 import 'package:alias/core/database/dao/category_dao.dart';
 import 'package:alias/core/database/dao/game_dao.dart';
 import 'package:alias/core/database/dao/played_word_dao.dart';
+import 'package:alias/core/database/dao/word_dao.dart';
 import 'package:alias/core/database/tables/category.dart';
 import 'package:alias/core/database/tables/game.dart';
 import 'package:alias/core/database/tables/played_word.dart';
+import 'package:alias/core/database/tables/words.dart';
 import 'package:alias/feature/game_settings/domain/model/binary_selector_type.dart';
 import 'package:alias/feature/game_settings/domain/model/command_move_selector_type.dart';
 import 'package:drift/drift.dart';
@@ -18,7 +20,17 @@ import 'package:path_provider/path_provider.dart';
 
 part 'database.g.dart';
 
-@DriftDatabase(tables: [CategoryTable, PlayedWord, GameTable], daos: [PlayedWordDao, GameDao, CategoryDao])
+@DriftDatabase(tables: [
+  CategoryTable,
+  PlayedWord,
+  GameTable,
+  WordsTable
+], daos: [
+  PlayedWordDao,
+  GameDao,
+  CategoryDao,
+  WordDao
+])
 @singleton
 class Database extends _$Database {
   // we tell the database where to store the data with this constructor

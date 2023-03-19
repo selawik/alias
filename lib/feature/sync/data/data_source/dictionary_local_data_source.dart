@@ -5,4 +5,6 @@ abstract class DictionaryLocalDataSource {
   Future<void> saveCommands();
   Future<void> saveCategories({required List<CategoryDto> categories});
   Future<int?> getLastCategoryId();
+
+  Future<int?> getLastWordId();
 }
