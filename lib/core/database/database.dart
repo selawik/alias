@@ -20,7 +20,7 @@ part 'database.g.dart';
 
 @DriftDatabase(tables: [CategoryTable, PlayedWord, GameTable], daos: [PlayedWordDao, GameDao, CategoryDao])
 @singleton
-class Database extends _$Database{
+class Database extends _$Database {
   // we tell the database where to store the data with this constructor
   Database() : super(_openConnection());
 
