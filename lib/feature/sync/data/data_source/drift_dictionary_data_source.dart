@@ -1,5 +1,6 @@
 import 'package:alias/core/database/db_provider.dart';
 import 'package:alias/feature/categories/data/models/category_dto.dart';
+import 'package:alias/feature/game/data/model/word_dto.dart';
 import 'package:alias/feature/sync/data/data_source/dictionary_local_data_source.dart';
 import 'package:injectable/injectable.dart';
 
@@ -10,9 +11,8 @@ class DriftDictionaryDataSource implements DictionaryLocalDataSource {
   DriftDictionaryDataSource(DbProvider dbProvider) : _dbProvider = dbProvider;
 
   @override
-  Future<void> saveWords() {
-    // TODO: implement saveWords
-    throw UnimplementedError();
+  Future<void> saveWords({required List<WordDto> words}) async {
+    await _dbProvider.saveWords(words: words);
   }
 
   @override

@@ -2,6 +2,7 @@ import 'package:alias/core/database/database.dart' hide Category;
 import 'package:alias/feature/categories/data/models/category_dto.dart';
 import 'package:alias/feature/categories/domain/models/category.dart';
 import 'package:alias/feature/game/data/model/game_dto.dart';
+import 'package:alias/feature/game/data/model/word_dto.dart';
 import 'package:alias/feature/game/domain/model/word.dart';
 import 'package:injectable/injectable.dart';
 
@@ -76,5 +77,17 @@ class DbProvider {
     );
 
     return await _db.categoryDao.saveCategories(categoryCompanions.toList());
+  }
+
+  Future<void> saveWords({required List<WordDto> words}) async {
+    var wordCompanions = words.map(
+      (word) => WordsTableCompanion.insert(
+        wordId: word.wordId,
+        categoryId: word.categoryId,
+        name: word.name,
+      ),
+    );
+
+    return await _db.wordDao.saveWords(words: wordCompanions.toList());
   }
 }

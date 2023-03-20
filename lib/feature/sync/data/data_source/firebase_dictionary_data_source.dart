@@ -27,7 +27,7 @@ class FirebaseDictionaryDataSource implements DictionaryRemoteDataSource {
     var categoriesData = await FirebaseFirestore.instance
         .collection(FirebaseDataStoreCollections.category)
         .orderBy('categoryId')
-        .startAt([startFromId]).get();
+        .startAfter([startFromId]).get();
 
     return categoriesData.docs
         .map((item) => CategoryDto.fromJson(item.data()))

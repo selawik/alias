@@ -40,6 +40,8 @@ class SyncDictionary {
         lastRemoveWordId: lastRemoteWordId,
       );
     }
+
+    log('Words Synced Local: $lastLocalWordId Remote: $lastRemoteWordId');
   }
 
   Future<void> _saveWords({
@@ -47,7 +49,7 @@ class SyncDictionary {
     required int? lastLocalWordId,
   }) async {
 
-    while (lastLocalWordId != lastRemoveWordId) {
+    while ((lastLocalWordId ?? 0) < lastRemoveWordId) {
       var wordsBatchResult = await _repository.loadWordsBatch(lastLocalWordId: lastLocalWordId);
 
       if (wordsBatchResult.isLeft()) {
@@ -55,6 +57,12 @@ class SyncDictionary {
       }
 
       var wordsList = (wordsBatchResult as Right).value as List<Word>;
+
+      var wordsSavingResult = await _repository.saveWords(words: wordsList);
+
+      if (wordsSavingResult.isLeft()) {
+        return;
+      }
 
       lastLocalWordId = wordsList.last.wordId;
     }

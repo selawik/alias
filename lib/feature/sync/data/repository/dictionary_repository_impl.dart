@@ -73,24 +73,6 @@ class DictionaryRepositoryImpl implements DictionaryRepository {
   }
 
   @override
-  Future<Either<Failure, void>> saveCategories(
-      List<Category> categories) async {
-    try {
-      var categoryDtos =
-          categories.map((category) => _categoryMapper.mapFromModel(category));
-
-      return Right(
-        await _localDataSource.saveCategories(
-          categories: categoryDtos.toList(),
-        ),
-      );
-    } catch (e, stacktrace) {
-      log(e.toString(), stackTrace: stacktrace);
-      return const Left(ServerFailure('Error during loading category'));
-    }
-  }
-
-  @override
   Future<Either<Failure, int?>> getLastLocalWordId() async {
     try {
       var lastWordId = await _localDataSource.getLastWordId();
@@ -127,6 +109,40 @@ class DictionaryRepositoryImpl implements DictionaryRepository {
     } catch (e, stacktrace) {
       log(e.toString(), stackTrace: stacktrace);
       return const Left(ServerFailure('Error during loading last category'));
+    }
+  }
+
+  @override
+  Future<Either<Failure, void>> saveWords({required List<Word> words}) async {
+    try {
+      var wordDtos = words.map((word) => _wordsMapper.mapFromModel(word));
+
+      return Right(
+        await _localDataSource.saveWords(
+          words: wordDtos.toList(),
+        ),
+      );
+    } catch (e, stacktrace) {
+      log(e.toString(), stackTrace: stacktrace);
+      return const Left(ServerFailure('Error during loading category'));
+    }
+  }
+
+  @override
+  Future<Either<Failure, void>> saveCategories(
+      List<Category> categories) async {
+    try {
+      var categoryDtos =
+          categories.map((category) => _categoryMapper.mapFromModel(category));
+
+      return Right(
+        await _localDataSource.saveCategories(
+          categories: categoryDtos.toList(),
+        ),
+      );
+    } catch (e, stacktrace) {
+      log(e.toString(), stackTrace: stacktrace);
+      return const Left(ServerFailure('Error during loading category'));
     }
   }
 }

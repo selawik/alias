@@ -23,7 +23,7 @@ class WordDao extends DatabaseAccessor<Database> with _$WordDaoMixin {
   }
 
 
-  Future<void> saveWords(List<CategoryTableCompanion> categories) async {
-    // await batch((batch) => batch.insertAll(categoryTable, categories));
+  Future<void> saveWords({required List<WordsTableCompanion> words}) async {
+    await batch((batch) => batch.insertAll(wordsTable, words));
   }
 }

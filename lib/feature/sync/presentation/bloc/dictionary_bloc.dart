@@ -21,11 +21,8 @@ class DictionaryBloc extends Bloc<DictionaryEvent, DictionaryState> {
   }
 
   Future<void> _onSyncDictionary(_SyncDictionary event, Emitter emit) async {
-    var result = _syncDictionary.execute();
+    _syncDictionary.execute();
 
-
-
-    await Future.delayed(const Duration(seconds: 3));
     emit(const DictionaryState.sync());
   }
 }
