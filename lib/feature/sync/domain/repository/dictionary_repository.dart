@@ -2,6 +2,7 @@
 
 import 'package:alias/core/error/failure.dart';
 import 'package:alias/feature/categories/domain/models/category.dart';
+import 'package:alias/feature/game/domain/model/word.dart';
 import 'package:dartz/dartz.dart';
 
 abstract class DictionaryRepository {
@@ -15,4 +16,9 @@ abstract class DictionaryRepository {
 
   Future<Either<Failure, int?>> getLastLocalWordId();
   Future<Either<Failure, int>> getLastRemoteWordId();
+
+
+  Future<Either<Failure, List<Word>>> loadWordsBatch({
+    int? lastLocalWordId,
+  });
 }

@@ -3,6 +3,8 @@ import 'dart:developer';
 import 'package:alias/core/error/failure.dart';
 import 'package:alias/feature/categories/data/mapper/category_mapper.dart';
 import 'package:alias/feature/categories/domain/models/category.dart';
+import 'package:alias/feature/game/data/mapper/words_mapper.dart';
+import 'package:alias/feature/game/domain/model/word.dart';
 import 'package:alias/feature/sync/data/data_source/dictionary_local_data_source.dart';
 import 'package:alias/feature/sync/data/data_source/dictionary_remote_data_source.dart';
 import 'package:alias/feature/sync/domain/repository/dictionary_repository.dart';
@@ -14,14 +16,17 @@ class DictionaryRepositoryImpl implements DictionaryRepository {
   final DictionaryLocalDataSource _localDataSource;
   final DictionaryRemoteDataSource _remoteDataSource;
   final CategoryMapper _categoryMapper;
+  final WordsMapper _wordsMapper;
 
   DictionaryRepositoryImpl(
     DictionaryRemoteDataSource remoteDataSource,
     DictionaryLocalDataSource localDataSource,
     CategoryMapper categoryMapper,
+    WordsMapper wordsMapper,
   )   : _localDataSource = localDataSource,
         _remoteDataSource = remoteDataSource,
-        _categoryMapper = categoryMapper;
+        _categoryMapper = categoryMapper,
+        _wordsMapper = wordsMapper;
 
   @override
   Future<Either<Failure, bool>> loadDictionary() async {
@@ -103,6 +108,22 @@ class DictionaryRepositoryImpl implements DictionaryRepository {
       var wordDto = await _remoteDataSource.loadLastWord();
 
       return Right(wordDto.wordId);
+    } catch (e, stacktrace) {
+      log(e.toString(), stackTrace: stacktrace);
+      return const Left(ServerFailure('Error during loading last category'));
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<Word>>> loadWordsBatch({
+    int? lastLocalWordId,
+  }) async {
+    try {
+      var wordDtos =
+          await _remoteDataSource.loadWords(lastLocalWordId: lastLocalWordId);
+      var words = wordDtos.map((dto) => _wordsMapper.mapToModel(dto));
+
+      return Right(words.toList());
     } catch (e, stacktrace) {
       log(e.toString(), stackTrace: stacktrace);
       return const Left(ServerFailure('Error during loading last category'));
