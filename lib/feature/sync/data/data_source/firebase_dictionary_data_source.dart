@@ -9,7 +9,7 @@ import 'package:injectable/injectable.dart';
 @Injectable(as: DictionaryRemoteDataSource)
 class FirebaseDictionaryDataSource implements DictionaryRemoteDataSource {
   @override
-  Future<List<WordDto>> loadWords({int? lastLocalWordId}) async {
+  Future<Iterable<WordDto>> loadWords({int? lastLocalWordId}) async {
     var wordsData = await FirebaseFirestore.instance
         .collection(FirebaseDataStoreCollections.word)
         .orderBy('wordId')
@@ -18,20 +18,18 @@ class FirebaseDictionaryDataSource implements DictionaryRemoteDataSource {
         .get();
 
     return wordsData.docs
-        .map((item) => WordDto.fromJson(item.data()))
-        .toList();
+        .map((item) => WordDto.fromJson(item.data()));
   }
 
   @override
-  Future<List<CategoryDto>> loadCategories({int? startFromId}) async {
+  Future<Iterable<CategoryDto>> loadCategories({int? startFromId}) async {
     var categoriesData = await FirebaseFirestore.instance
         .collection(FirebaseDataStoreCollections.category)
         .orderBy('categoryId')
         .startAfter([startFromId]).get();
 
     return categoriesData.docs
-        .map((item) => CategoryDto.fromJson(item.data()))
-        .toList();
+        .map((item) => CategoryDto.fromJson(item.data()));
   }
 
   @override
