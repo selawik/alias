@@ -12,12 +12,12 @@ abstract class WordsRepository {
     required Category category,
     required int commandsCount,
     required BinarySelectorMode penaltyMode,
-    List<Word>? playedWords,
+    Iterable<Word>? playedWords,
   });
 
   Future<Either<Failure, void>> setPlayedWords({required List<Word> words});
 
-  Future<Either<Failure, List<Word>>> getPlayedWords(
+  Future<Either<Failure, Iterable<Word>>> getPlayedWords(
       {required Category category});
 
   Future<Either<Failure, void>> resetGameHistory();

@@ -34,12 +34,12 @@ class WordsRepositoryImpl implements WordsRepository {
     required Category category,
     required int commandsCount,
     required BinarySelectorMode penaltyMode,
-    List<Word>? playedWords,
+    Iterable<Word>? playedWords,
   }) async {
     try {
       var playedWordIds = playedWords?.map((e) => e.wordId).toList();
 
-      var result = await _remoteDataSource.loadWords(
+      var result = await _localDataSource.loadWords(
         categoryId: category.categoryId,
         limit: penaltyMode.isEnabled
             ? commandsCount * 50 + (commandsCount * 30)
@@ -75,7 +75,7 @@ class WordsRepositoryImpl implements WordsRepository {
   }
 
   @override
-  Future<Either<Failure, List<Word>>> getPlayedWords({
+  Future<Either<Failure, Iterable<Word>>> getPlayedWords({
     required Category category,
   }) async {
     try {

@@ -45,7 +45,7 @@ class WordsUseCasesFacade {
     required Category category,
     required int commandsCount,
     required BinarySelectorMode penaltyMode,
-    List<Word>? playedWords,
+    Iterable<Word>? playedWords,
   }) async {
     return await _loadWords.execute(
       category: category,
@@ -63,7 +63,7 @@ class WordsUseCasesFacade {
     );
   }
 
-  Future<Either<Failure, List<Word>>> getPlayedWords({
+  Future<Either<Failure, Iterable<Word>>> getPlayedWords({
     required Category category,
   }) async {
     return await _getPlayedWords.execute(

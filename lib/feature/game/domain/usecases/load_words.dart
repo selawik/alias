@@ -16,7 +16,7 @@ class LoadWords {
     required Category category,
     required int commandsCount,
     required BinarySelectorMode penaltyMode,
-    List<Word>? playedWords,
+    Iterable<Word>? playedWords,
   }) async {
     return await repository.loadWords(
       commandsCount: commandsCount,

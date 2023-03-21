@@ -11,8 +11,9 @@ class GetPlayedWords {
 
   GetPlayedWords({required this.repository});
 
-  Future<Either<Failure, List<Word>>> execute(
-      {required Category category}) async {
+  Future<Either<Failure, Iterable<Word>>> execute({
+    required Category category,
+  }) async {
     return await repository.getPlayedWords(category: category);
   }
 }

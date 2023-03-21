@@ -104,7 +104,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     emit(GameState.gameIsReady(settings: _settings, commands: _commands));
   }
 
-  Future<List<Word>?> _loadPlayedWords() async {
+  Future<Iterable<Word>?> _loadPlayedWords() async {
     var result = await _wordsUseCasesFacade.getPlayedWords(category: _category);
 
     var playedWords = result.fold((failure) => null, (words) => words);
