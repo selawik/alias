@@ -1,4 +1,4 @@
-import 'package:alias/core/database/database.dart' hide Category;
+import 'package:alias/core/database/database.dart' hide Category, Word;
 import 'package:alias/feature/categories/data/models/category_dto.dart';
 import 'package:alias/feature/categories/domain/models/category.dart';
 import 'package:alias/feature/game/data/model/game_dto.dart';
@@ -89,5 +89,18 @@ class DbProvider {
     );
 
     return await _db.wordDao.saveWords(words: wordCompanions.toList());
+  }
+
+  Future<Iterable<WordDto>> getWords({
+    required int categoryId,
+    required int limit,
+    Iterable<int>? playedIds,
+  }) async {
+    var wordDbEntities = await _db.wordDao
+        .getWords(categoryId: categoryId, limit: limit, playedIds: playedIds);
+
+    return wordDbEntities.map(
+      (e) => WordDto(wordId: e.wordId, name: e.name, categoryId: e.categoryId),
+    );
   }
 }

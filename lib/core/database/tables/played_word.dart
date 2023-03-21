@@ -6,6 +6,4 @@ class PlayedWord extends Table {
   IntColumn get categoryId => integer()();
 
   TextColumn get name => text()();
-
-
 }

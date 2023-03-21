@@ -759,7 +759,7 @@ class GameTableCompanion extends UpdateCompanion<Game> {
 }
 
 class $WordsTableTable extends WordsTable
-    with TableInfo<$WordsTableTable, WordTable> {
+    with TableInfo<$WordsTableTable, Word> {
   @override
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
@@ -787,7 +787,7 @@ class $WordsTableTable extends WordsTable
   @override
   String get actualTableName => 'words_table';
   @override
-  VerificationContext validateIntegrity(Insertable<WordTable> instance,
+  VerificationContext validateIntegrity(Insertable<Word> instance,
       {bool isInserting = false}) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
@@ -817,9 +817,9 @@ class $WordsTableTable extends WordsTable
   @override
   Set<GeneratedColumn> get $primaryKey => const {};
   @override
-  WordTable map(Map<String, dynamic> data, {String? tablePrefix}) {
+  Word map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
-    return WordTable(
+    return Word(
       wordId: attachedDatabase.typeMapping
           .read(DriftSqlType.int, data['${effectivePrefix}word_id'])!,
       categoryId: attachedDatabase.typeMapping
@@ -835,11 +835,11 @@ class $WordsTableTable extends WordsTable
   }
 }
 
-class WordTable extends DataClass implements Insertable<WordTable> {
+class Word extends DataClass implements Insertable<Word> {
   final int wordId;
   final int categoryId;
   final String name;
-  const WordTable(
+  const Word(
       {required this.wordId, required this.categoryId, required this.name});
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
@@ -858,10 +858,10 @@ class WordTable extends DataClass implements Insertable<WordTable> {
     );
   }
 
-  factory WordTable.fromJson(Map<String, dynamic> json,
+  factory Word.fromJson(Map<String, dynamic> json,
       {ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
-    return WordTable(
+    return Word(
       wordId: serializer.fromJson<int>(json['wordId']),
       categoryId: serializer.fromJson<int>(json['categoryId']),
       name: serializer.fromJson<String>(json['name']),
@@ -877,14 +877,14 @@ class WordTable extends DataClass implements Insertable<WordTable> {
     };
   }
 
-  WordTable copyWith({int? wordId, int? categoryId, String? name}) => WordTable(
+  Word copyWith({int? wordId, int? categoryId, String? name}) => Word(
         wordId: wordId ?? this.wordId,
         categoryId: categoryId ?? this.categoryId,
         name: name ?? this.name,
       );
   @override
   String toString() {
-    return (StringBuffer('WordTable(')
+    return (StringBuffer('Word(')
           ..write('wordId: $wordId, ')
           ..write('categoryId: $categoryId, ')
           ..write('name: $name')
@@ -897,13 +897,13 @@ class WordTable extends DataClass implements Insertable<WordTable> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      (other is WordTable &&
+      (other is Word &&
           other.wordId == this.wordId &&
           other.categoryId == this.categoryId &&
           other.name == this.name);
 }
 
-class WordsTableCompanion extends UpdateCompanion<WordTable> {
+class WordsTableCompanion extends UpdateCompanion<Word> {
   final Value<int> wordId;
   final Value<int> categoryId;
   final Value<String> name;
@@ -919,7 +919,7 @@ class WordsTableCompanion extends UpdateCompanion<WordTable> {
   })  : wordId = Value(wordId),
         categoryId = Value(categoryId),
         name = Value(name);
-  static Insertable<WordTable> custom({
+  static Insertable<Word> custom({
     Expression<int>? wordId,
     Expression<int>? categoryId,
     Expression<String>? name,

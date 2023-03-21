@@ -2,6 +2,7 @@ import 'package:alias/core/database/db_provider.dart';
 import 'package:alias/feature/categories/domain/models/category.dart';
 import 'package:alias/feature/game/data/data_source/words_local_data_source.dart';
 import 'package:alias/feature/game/data/model/game_dto.dart';
+import 'package:alias/feature/game/data/model/word_dto.dart';
 import 'package:alias/feature/game/domain/model/word.dart';
 import 'package:injectable/injectable.dart';
 
@@ -52,5 +53,18 @@ class DriftLocalDataSource implements WordsLocalDataSource {
   @override
   Future<void> resetUnfinishedGame() async {
     await _dbProvider.resetUnfinishedGame();
+  }
+
+  @override
+  Future<Iterable<WordDto>> loadWords({
+    required int categoryId,
+    required int limit,
+    Iterable<int>? playedIds,
+  }) async {
+    return await _dbProvider.getWords(
+      categoryId: categoryId,
+      limit: limit,
+      playedIds: playedIds,
+    );
   }
 }
