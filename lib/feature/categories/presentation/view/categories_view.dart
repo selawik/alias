@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:alias/core/constants/app_colors.dart';
 import 'package:alias/core/injection.dart' as di;
 import 'package:alias/core/router/app_router.dart';
@@ -37,7 +39,12 @@ class CategoriesView extends StatelessWidget {
 
   Widget _buildCategoriesList(BuildContext context, List<Category> categories) {
     return GridView.builder(
-      padding: const EdgeInsets.all(16),
+      padding: EdgeInsets.only(
+        left: 16,
+        right: 16,
+        top: 16,
+        bottom: MediaQuery.of(context).padding.bottom + 16,
+      ),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         mainAxisSpacing: 16,
@@ -89,7 +96,10 @@ class CategoriesView extends StatelessWidget {
                 .copyWith(color: AppColors.buttonColor),
             child: Text(
               category.wordsCount.toString(),
-              style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: AppColors.white),
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyMedium
+                  ?.copyWith(color: AppColors.white),
             ),
           ),
         )
