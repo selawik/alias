@@ -17,8 +17,9 @@ abstract class WordsRepository {
 
   Future<Either<Failure, void>> setPlayedWords({required List<Word> words});
 
-  Future<Either<Failure, Iterable<Word>>> getPlayedWords(
-      {required Category category});
+  Future<Either<Failure, Iterable<Word>>> getPlayedWords({
+    required Category category,
+  });
 
   Future<Either<Failure, void>> resetGameHistory();
 

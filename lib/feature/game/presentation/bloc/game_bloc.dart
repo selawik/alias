@@ -25,7 +25,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
   late Category _category;
   late GameSettings _settings;
 
-  late List<Word> _words;
+  List<Word> _words = [];
 
   List<Word> _countWords = [];
 
