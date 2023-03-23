@@ -32,8 +32,7 @@ class WordsRepositoryImpl implements WordsRepository {
   @override
   Future<Either<Failure, List<Word>>> loadWords({
     required Category category,
-    required int commandsCount,
-    required BinarySelectorMode penaltyMode,
+    required int wordCount,
     Iterable<Word>? playedWords,
   }) async {
     try {
@@ -41,9 +40,7 @@ class WordsRepositoryImpl implements WordsRepository {
 
       var result = await _localDataSource.loadWords(
         categoryId: category.categoryId,
-        limit: penaltyMode.isEnabled
-            ? commandsCount * 50 + (commandsCount * 30)
-            : commandsCount * 50,
+        limit: wordCount,
         playedIds: playedWordIds,
       );
 

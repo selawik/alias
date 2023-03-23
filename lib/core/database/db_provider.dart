@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:alias/core/database/database.dart' hide Category, Word;
 import 'package:alias/feature/categories/data/models/category_dto.dart';
 import 'package:alias/feature/categories/domain/models/category.dart';
@@ -98,6 +100,8 @@ class DbProvider {
   }) async {
     var wordDbEntities = await _db.wordDao
         .getWords(categoryId: categoryId, limit: limit, playedIds: playedIds);
+
+    log(wordDbEntities.toString());
 
     return wordDbEntities.map(
       (e) => WordDto(wordId: e.wordId, name: e.name, categoryId: e.categoryId),

@@ -10,8 +10,7 @@ import 'package:dartz/dartz.dart';
 abstract class WordsRepository {
   Future<Either<Failure, List<Word>>> loadWords({
     required Category category,
-    required int commandsCount,
-    required BinarySelectorMode penaltyMode,
+    required int wordCount,
     Iterable<Word>? playedWords,
   });
 

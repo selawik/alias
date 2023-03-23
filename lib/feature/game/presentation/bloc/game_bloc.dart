@@ -84,6 +84,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
       penaltyMode: _settings.penaltyMode,
       commandsCount: _commands.length,
       playedWords: playedWords,
+      moveTime: _settings.moveTime,
     );
 
     _words = wordsResult.fold((failure) => null, (words) => words) ?? [];

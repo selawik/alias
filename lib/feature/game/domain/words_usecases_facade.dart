@@ -12,6 +12,7 @@ import 'package:alias/feature/game/domain/usecases/save_played_words.dart';
 import 'package:alias/feature/game/domain/model/word.dart';
 import 'package:alias/feature/game/domain/usecases/save_started_game.dart';
 import 'package:alias/feature/game_settings/domain/model/binary_selector_type.dart';
+import 'package:alias/feature/game_settings/domain/model/command_move_selector_type.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
@@ -39,12 +40,13 @@ class WordsUseCasesFacade {
         _resetGameHistory = resetGameHistory,
         _getUnfinishedGame = getUnfinishedGame,
         _saveStartedGame = saveStartedGame,
-        _resetUnfinishedGame= resetUnfinishedGame;
+        _resetUnfinishedGame = resetUnfinishedGame;
 
   Future<Either<Failure, List<Word>>> loadWords({
     required Category category,
     required int commandsCount,
     required BinarySelectorMode penaltyMode,
+    required CommandMoveMode moveTime,
     Iterable<Word>? playedWords,
   }) async {
     return await _loadWords.execute(
@@ -52,6 +54,7 @@ class WordsUseCasesFacade {
       commandsCount: commandsCount,
       penaltyMode: penaltyMode,
       playedWords: playedWords,
+      moveTime: moveTime,
     );
   }
 
