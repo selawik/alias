@@ -50,6 +50,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     on<_MoveResultWatched>(_onMoveResultWatched);
     on<_ResetGame>(_onResetGame);
     on<_ResetGameHistory>(_onResetGameHistory);
+    on<_ResetLastGame>(_onResetLastGame);
   }
 
   void _onInit(_Init event, Emitter emit) async {
@@ -258,5 +259,11 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     var result = await _wordsUseCasesFacade.loadUnfinishedGame();
 
     return result.fold((failure) => null, (game) => game);
+  }
+
+  Future<void> _onResetLastGame(_ResetLastGame event, Emitter emit) async {
+    await _wordsUseCasesFacade.resetUnfinishedGame();
+
+    emit(const GameState.waitingForConfig());
   }
 }

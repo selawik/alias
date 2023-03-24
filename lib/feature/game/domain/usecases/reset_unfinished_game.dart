@@ -7,11 +7,11 @@ import 'package:injectable/injectable.dart';
 
 @Injectable()
 class ResetUnfinishedGame {
-  final WordsRepository repository;
+  final WordsRepository _repository;
 
-  ResetUnfinishedGame({required this.repository});
+  ResetUnfinishedGame({required WordsRepository repository}) : _repository = repository;
 
   Future<Either<Failure, void>> execute() async {
-    return Right(await repository.resetUnfinishedGame());
+    return Right(await _repository.resetUnfinishedGame());
   }
 }

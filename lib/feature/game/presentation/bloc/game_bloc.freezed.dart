@@ -32,6 +32,7 @@ mixin _$GameEvent {
     required TResult Function() moveResultWatched,
     required TResult Function() resetGame,
     required TResult Function() resetGameHistory,
+    required TResult Function() resetLastGame,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +51,7 @@ mixin _$GameEvent {
     TResult? Function()? moveResultWatched,
     TResult? Function()? resetGame,
     TResult? Function()? resetGameHistory,
+    TResult? Function()? resetLastGame,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -68,6 +70,7 @@ mixin _$GameEvent {
     TResult Function()? moveResultWatched,
     TResult Function()? resetGame,
     TResult Function()? resetGameHistory,
+    TResult Function()? resetLastGame,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -87,6 +90,7 @@ mixin _$GameEvent {
     required TResult Function(_MoveResultWatched value) moveResultWatched,
     required TResult Function(_ResetGame value) resetGame,
     required TResult Function(_ResetGameHistory value) resetGameHistory,
+    required TResult Function(_ResetLastGame value) resetLastGame,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -105,6 +109,7 @@ mixin _$GameEvent {
     TResult? Function(_MoveResultWatched value)? moveResultWatched,
     TResult? Function(_ResetGame value)? resetGame,
     TResult? Function(_ResetGameHistory value)? resetGameHistory,
+    TResult? Function(_ResetLastGame value)? resetLastGame,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -123,6 +128,7 @@ mixin _$GameEvent {
     TResult Function(_MoveResultWatched value)? moveResultWatched,
     TResult Function(_ResetGame value)? resetGame,
     TResult Function(_ResetGameHistory value)? resetGameHistory,
+    TResult Function(_ResetLastGame value)? resetLastGame,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -194,6 +200,7 @@ class _$_Init implements _Init {
     required TResult Function() moveResultWatched,
     required TResult Function() resetGame,
     required TResult Function() resetGameHistory,
+    required TResult Function() resetLastGame,
   }) {
     return init();
   }
@@ -215,6 +222,7 @@ class _$_Init implements _Init {
     TResult? Function()? moveResultWatched,
     TResult? Function()? resetGame,
     TResult? Function()? resetGameHistory,
+    TResult? Function()? resetLastGame,
   }) {
     return init?.call();
   }
@@ -236,6 +244,7 @@ class _$_Init implements _Init {
     TResult Function()? moveResultWatched,
     TResult Function()? resetGame,
     TResult Function()? resetGameHistory,
+    TResult Function()? resetLastGame,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -261,6 +270,7 @@ class _$_Init implements _Init {
     required TResult Function(_MoveResultWatched value) moveResultWatched,
     required TResult Function(_ResetGame value) resetGame,
     required TResult Function(_ResetGameHistory value) resetGameHistory,
+    required TResult Function(_ResetLastGame value) resetLastGame,
   }) {
     return init(this);
   }
@@ -282,6 +292,7 @@ class _$_Init implements _Init {
     TResult? Function(_MoveResultWatched value)? moveResultWatched,
     TResult? Function(_ResetGame value)? resetGame,
     TResult? Function(_ResetGameHistory value)? resetGameHistory,
+    TResult? Function(_ResetLastGame value)? resetLastGame,
   }) {
     return init?.call(this);
   }
@@ -303,6 +314,7 @@ class _$_Init implements _Init {
     TResult Function(_MoveResultWatched value)? moveResultWatched,
     TResult Function(_ResetGame value)? resetGame,
     TResult Function(_ResetGameHistory value)? resetGameHistory,
+    TResult Function(_ResetLastGame value)? resetLastGame,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -406,6 +418,7 @@ class _$_InitializeCategory implements _InitializeCategory {
     required TResult Function() moveResultWatched,
     required TResult Function() resetGame,
     required TResult Function() resetGameHistory,
+    required TResult Function() resetLastGame,
   }) {
     return initializeCategory(category);
   }
@@ -427,6 +440,7 @@ class _$_InitializeCategory implements _InitializeCategory {
     TResult? Function()? moveResultWatched,
     TResult? Function()? resetGame,
     TResult? Function()? resetGameHistory,
+    TResult? Function()? resetLastGame,
   }) {
     return initializeCategory?.call(category);
   }
@@ -448,6 +462,7 @@ class _$_InitializeCategory implements _InitializeCategory {
     TResult Function()? moveResultWatched,
     TResult Function()? resetGame,
     TResult Function()? resetGameHistory,
+    TResult Function()? resetLastGame,
     required TResult orElse(),
   }) {
     if (initializeCategory != null) {
@@ -473,6 +488,7 @@ class _$_InitializeCategory implements _InitializeCategory {
     required TResult Function(_MoveResultWatched value) moveResultWatched,
     required TResult Function(_ResetGame value) resetGame,
     required TResult Function(_ResetGameHistory value) resetGameHistory,
+    required TResult Function(_ResetLastGame value) resetLastGame,
   }) {
     return initializeCategory(this);
   }
@@ -494,6 +510,7 @@ class _$_InitializeCategory implements _InitializeCategory {
     TResult? Function(_MoveResultWatched value)? moveResultWatched,
     TResult? Function(_ResetGame value)? resetGame,
     TResult? Function(_ResetGameHistory value)? resetGameHistory,
+    TResult? Function(_ResetLastGame value)? resetLastGame,
   }) {
     return initializeCategory?.call(this);
   }
@@ -515,6 +532,7 @@ class _$_InitializeCategory implements _InitializeCategory {
     TResult Function(_MoveResultWatched value)? moveResultWatched,
     TResult Function(_ResetGame value)? resetGame,
     TResult Function(_ResetGameHistory value)? resetGameHistory,
+    TResult Function(_ResetLastGame value)? resetLastGame,
     required TResult orElse(),
   }) {
     if (initializeCategory != null) {
@@ -620,6 +638,7 @@ class _$_InitializeCommands implements _InitializeCommands {
     required TResult Function() moveResultWatched,
     required TResult Function() resetGame,
     required TResult Function() resetGameHistory,
+    required TResult Function() resetLastGame,
   }) {
     return initializeCommands(commands);
   }
@@ -641,6 +660,7 @@ class _$_InitializeCommands implements _InitializeCommands {
     TResult? Function()? moveResultWatched,
     TResult? Function()? resetGame,
     TResult? Function()? resetGameHistory,
+    TResult? Function()? resetLastGame,
   }) {
     return initializeCommands?.call(commands);
   }
@@ -662,6 +682,7 @@ class _$_InitializeCommands implements _InitializeCommands {
     TResult Function()? moveResultWatched,
     TResult Function()? resetGame,
     TResult Function()? resetGameHistory,
+    TResult Function()? resetLastGame,
     required TResult orElse(),
   }) {
     if (initializeCommands != null) {
@@ -687,6 +708,7 @@ class _$_InitializeCommands implements _InitializeCommands {
     required TResult Function(_MoveResultWatched value) moveResultWatched,
     required TResult Function(_ResetGame value) resetGame,
     required TResult Function(_ResetGameHistory value) resetGameHistory,
+    required TResult Function(_ResetLastGame value) resetLastGame,
   }) {
     return initializeCommands(this);
   }
@@ -708,6 +730,7 @@ class _$_InitializeCommands implements _InitializeCommands {
     TResult? Function(_MoveResultWatched value)? moveResultWatched,
     TResult? Function(_ResetGame value)? resetGame,
     TResult? Function(_ResetGameHistory value)? resetGameHistory,
+    TResult? Function(_ResetLastGame value)? resetLastGame,
   }) {
     return initializeCommands?.call(this);
   }
@@ -729,6 +752,7 @@ class _$_InitializeCommands implements _InitializeCommands {
     TResult Function(_MoveResultWatched value)? moveResultWatched,
     TResult Function(_ResetGame value)? resetGame,
     TResult Function(_ResetGameHistory value)? resetGameHistory,
+    TResult Function(_ResetLastGame value)? resetLastGame,
     required TResult orElse(),
   }) {
     if (initializeCommands != null) {
@@ -828,6 +852,7 @@ class _$_InitializeSettings implements _InitializeSettings {
     required TResult Function() moveResultWatched,
     required TResult Function() resetGame,
     required TResult Function() resetGameHistory,
+    required TResult Function() resetLastGame,
   }) {
     return initializeSettings(gameSettings);
   }
@@ -849,6 +874,7 @@ class _$_InitializeSettings implements _InitializeSettings {
     TResult? Function()? moveResultWatched,
     TResult? Function()? resetGame,
     TResult? Function()? resetGameHistory,
+    TResult? Function()? resetLastGame,
   }) {
     return initializeSettings?.call(gameSettings);
   }
@@ -870,6 +896,7 @@ class _$_InitializeSettings implements _InitializeSettings {
     TResult Function()? moveResultWatched,
     TResult Function()? resetGame,
     TResult Function()? resetGameHistory,
+    TResult Function()? resetLastGame,
     required TResult orElse(),
   }) {
     if (initializeSettings != null) {
@@ -895,6 +922,7 @@ class _$_InitializeSettings implements _InitializeSettings {
     required TResult Function(_MoveResultWatched value) moveResultWatched,
     required TResult Function(_ResetGame value) resetGame,
     required TResult Function(_ResetGameHistory value) resetGameHistory,
+    required TResult Function(_ResetLastGame value) resetLastGame,
   }) {
     return initializeSettings(this);
   }
@@ -916,6 +944,7 @@ class _$_InitializeSettings implements _InitializeSettings {
     TResult? Function(_MoveResultWatched value)? moveResultWatched,
     TResult? Function(_ResetGame value)? resetGame,
     TResult? Function(_ResetGameHistory value)? resetGameHistory,
+    TResult? Function(_ResetLastGame value)? resetLastGame,
   }) {
     return initializeSettings?.call(this);
   }
@@ -937,6 +966,7 @@ class _$_InitializeSettings implements _InitializeSettings {
     TResult Function(_MoveResultWatched value)? moveResultWatched,
     TResult Function(_ResetGame value)? resetGame,
     TResult Function(_ResetGameHistory value)? resetGameHistory,
+    TResult Function(_ResetLastGame value)? resetLastGame,
     required TResult orElse(),
   }) {
     if (initializeSettings != null) {
@@ -1008,6 +1038,7 @@ class _$_StartGame implements _StartGame {
     required TResult Function() moveResultWatched,
     required TResult Function() resetGame,
     required TResult Function() resetGameHistory,
+    required TResult Function() resetLastGame,
   }) {
     return startGame();
   }
@@ -1029,6 +1060,7 @@ class _$_StartGame implements _StartGame {
     TResult? Function()? moveResultWatched,
     TResult? Function()? resetGame,
     TResult? Function()? resetGameHistory,
+    TResult? Function()? resetLastGame,
   }) {
     return startGame?.call();
   }
@@ -1050,6 +1082,7 @@ class _$_StartGame implements _StartGame {
     TResult Function()? moveResultWatched,
     TResult Function()? resetGame,
     TResult Function()? resetGameHistory,
+    TResult Function()? resetLastGame,
     required TResult orElse(),
   }) {
     if (startGame != null) {
@@ -1075,6 +1108,7 @@ class _$_StartGame implements _StartGame {
     required TResult Function(_MoveResultWatched value) moveResultWatched,
     required TResult Function(_ResetGame value) resetGame,
     required TResult Function(_ResetGameHistory value) resetGameHistory,
+    required TResult Function(_ResetLastGame value) resetLastGame,
   }) {
     return startGame(this);
   }
@@ -1096,6 +1130,7 @@ class _$_StartGame implements _StartGame {
     TResult? Function(_MoveResultWatched value)? moveResultWatched,
     TResult? Function(_ResetGame value)? resetGame,
     TResult? Function(_ResetGameHistory value)? resetGameHistory,
+    TResult? Function(_ResetLastGame value)? resetLastGame,
   }) {
     return startGame?.call(this);
   }
@@ -1117,6 +1152,7 @@ class _$_StartGame implements _StartGame {
     TResult Function(_MoveResultWatched value)? moveResultWatched,
     TResult Function(_ResetGame value)? resetGame,
     TResult Function(_ResetGameHistory value)? resetGameHistory,
+    TResult Function(_ResetLastGame value)? resetLastGame,
     required TResult orElse(),
   }) {
     if (startGame != null) {
@@ -1182,6 +1218,7 @@ class _$_PauseGame implements _PauseGame {
     required TResult Function() moveResultWatched,
     required TResult Function() resetGame,
     required TResult Function() resetGameHistory,
+    required TResult Function() resetLastGame,
   }) {
     return pauseGame();
   }
@@ -1203,6 +1240,7 @@ class _$_PauseGame implements _PauseGame {
     TResult? Function()? moveResultWatched,
     TResult? Function()? resetGame,
     TResult? Function()? resetGameHistory,
+    TResult? Function()? resetLastGame,
   }) {
     return pauseGame?.call();
   }
@@ -1224,6 +1262,7 @@ class _$_PauseGame implements _PauseGame {
     TResult Function()? moveResultWatched,
     TResult Function()? resetGame,
     TResult Function()? resetGameHistory,
+    TResult Function()? resetLastGame,
     required TResult orElse(),
   }) {
     if (pauseGame != null) {
@@ -1249,6 +1288,7 @@ class _$_PauseGame implements _PauseGame {
     required TResult Function(_MoveResultWatched value) moveResultWatched,
     required TResult Function(_ResetGame value) resetGame,
     required TResult Function(_ResetGameHistory value) resetGameHistory,
+    required TResult Function(_ResetLastGame value) resetLastGame,
   }) {
     return pauseGame(this);
   }
@@ -1270,6 +1310,7 @@ class _$_PauseGame implements _PauseGame {
     TResult? Function(_MoveResultWatched value)? moveResultWatched,
     TResult? Function(_ResetGame value)? resetGame,
     TResult? Function(_ResetGameHistory value)? resetGameHistory,
+    TResult? Function(_ResetLastGame value)? resetLastGame,
   }) {
     return pauseGame?.call(this);
   }
@@ -1291,6 +1332,7 @@ class _$_PauseGame implements _PauseGame {
     TResult Function(_MoveResultWatched value)? moveResultWatched,
     TResult Function(_ResetGame value)? resetGame,
     TResult Function(_ResetGameHistory value)? resetGameHistory,
+    TResult Function(_ResetLastGame value)? resetLastGame,
     required TResult orElse(),
   }) {
     if (pauseGame != null) {
@@ -1356,6 +1398,7 @@ class _$_ResumeGame implements _ResumeGame {
     required TResult Function() moveResultWatched,
     required TResult Function() resetGame,
     required TResult Function() resetGameHistory,
+    required TResult Function() resetLastGame,
   }) {
     return resumeGame();
   }
@@ -1377,6 +1420,7 @@ class _$_ResumeGame implements _ResumeGame {
     TResult? Function()? moveResultWatched,
     TResult? Function()? resetGame,
     TResult? Function()? resetGameHistory,
+    TResult? Function()? resetLastGame,
   }) {
     return resumeGame?.call();
   }
@@ -1398,6 +1442,7 @@ class _$_ResumeGame implements _ResumeGame {
     TResult Function()? moveResultWatched,
     TResult Function()? resetGame,
     TResult Function()? resetGameHistory,
+    TResult Function()? resetLastGame,
     required TResult orElse(),
   }) {
     if (resumeGame != null) {
@@ -1423,6 +1468,7 @@ class _$_ResumeGame implements _ResumeGame {
     required TResult Function(_MoveResultWatched value) moveResultWatched,
     required TResult Function(_ResetGame value) resetGame,
     required TResult Function(_ResetGameHistory value) resetGameHistory,
+    required TResult Function(_ResetLastGame value) resetLastGame,
   }) {
     return resumeGame(this);
   }
@@ -1444,6 +1490,7 @@ class _$_ResumeGame implements _ResumeGame {
     TResult? Function(_MoveResultWatched value)? moveResultWatched,
     TResult? Function(_ResetGame value)? resetGame,
     TResult? Function(_ResetGameHistory value)? resetGameHistory,
+    TResult? Function(_ResetLastGame value)? resetLastGame,
   }) {
     return resumeGame?.call(this);
   }
@@ -1465,6 +1512,7 @@ class _$_ResumeGame implements _ResumeGame {
     TResult Function(_MoveResultWatched value)? moveResultWatched,
     TResult Function(_ResetGame value)? resetGame,
     TResult Function(_ResetGameHistory value)? resetGameHistory,
+    TResult Function(_ResetLastGame value)? resetLastGame,
     required TResult orElse(),
   }) {
     if (resumeGame != null) {
@@ -1530,6 +1578,7 @@ class _$_TimeIsLeft implements _TimeIsLeft {
     required TResult Function() moveResultWatched,
     required TResult Function() resetGame,
     required TResult Function() resetGameHistory,
+    required TResult Function() resetLastGame,
   }) {
     return timeIsLeft();
   }
@@ -1551,6 +1600,7 @@ class _$_TimeIsLeft implements _TimeIsLeft {
     TResult? Function()? moveResultWatched,
     TResult? Function()? resetGame,
     TResult? Function()? resetGameHistory,
+    TResult? Function()? resetLastGame,
   }) {
     return timeIsLeft?.call();
   }
@@ -1572,6 +1622,7 @@ class _$_TimeIsLeft implements _TimeIsLeft {
     TResult Function()? moveResultWatched,
     TResult Function()? resetGame,
     TResult Function()? resetGameHistory,
+    TResult Function()? resetLastGame,
     required TResult orElse(),
   }) {
     if (timeIsLeft != null) {
@@ -1597,6 +1648,7 @@ class _$_TimeIsLeft implements _TimeIsLeft {
     required TResult Function(_MoveResultWatched value) moveResultWatched,
     required TResult Function(_ResetGame value) resetGame,
     required TResult Function(_ResetGameHistory value) resetGameHistory,
+    required TResult Function(_ResetLastGame value) resetLastGame,
   }) {
     return timeIsLeft(this);
   }
@@ -1618,6 +1670,7 @@ class _$_TimeIsLeft implements _TimeIsLeft {
     TResult? Function(_MoveResultWatched value)? moveResultWatched,
     TResult? Function(_ResetGame value)? resetGame,
     TResult? Function(_ResetGameHistory value)? resetGameHistory,
+    TResult? Function(_ResetLastGame value)? resetLastGame,
   }) {
     return timeIsLeft?.call(this);
   }
@@ -1639,6 +1692,7 @@ class _$_TimeIsLeft implements _TimeIsLeft {
     TResult Function(_MoveResultWatched value)? moveResultWatched,
     TResult Function(_ResetGame value)? resetGame,
     TResult Function(_ResetGameHistory value)? resetGameHistory,
+    TResult Function(_ResetLastGame value)? resetLastGame,
     required TResult orElse(),
   }) {
     if (timeIsLeft != null) {
@@ -1704,6 +1758,7 @@ class _$_SkipWord implements _SkipWord {
     required TResult Function() moveResultWatched,
     required TResult Function() resetGame,
     required TResult Function() resetGameHistory,
+    required TResult Function() resetLastGame,
   }) {
     return skipWord();
   }
@@ -1725,6 +1780,7 @@ class _$_SkipWord implements _SkipWord {
     TResult? Function()? moveResultWatched,
     TResult? Function()? resetGame,
     TResult? Function()? resetGameHistory,
+    TResult? Function()? resetLastGame,
   }) {
     return skipWord?.call();
   }
@@ -1746,6 +1802,7 @@ class _$_SkipWord implements _SkipWord {
     TResult Function()? moveResultWatched,
     TResult Function()? resetGame,
     TResult Function()? resetGameHistory,
+    TResult Function()? resetLastGame,
     required TResult orElse(),
   }) {
     if (skipWord != null) {
@@ -1771,6 +1828,7 @@ class _$_SkipWord implements _SkipWord {
     required TResult Function(_MoveResultWatched value) moveResultWatched,
     required TResult Function(_ResetGame value) resetGame,
     required TResult Function(_ResetGameHistory value) resetGameHistory,
+    required TResult Function(_ResetLastGame value) resetLastGame,
   }) {
     return skipWord(this);
   }
@@ -1792,6 +1850,7 @@ class _$_SkipWord implements _SkipWord {
     TResult? Function(_MoveResultWatched value)? moveResultWatched,
     TResult? Function(_ResetGame value)? resetGame,
     TResult? Function(_ResetGameHistory value)? resetGameHistory,
+    TResult? Function(_ResetLastGame value)? resetLastGame,
   }) {
     return skipWord?.call(this);
   }
@@ -1813,6 +1872,7 @@ class _$_SkipWord implements _SkipWord {
     TResult Function(_MoveResultWatched value)? moveResultWatched,
     TResult Function(_ResetGame value)? resetGame,
     TResult Function(_ResetGameHistory value)? resetGameHistory,
+    TResult Function(_ResetLastGame value)? resetLastGame,
     required TResult orElse(),
   }) {
     if (skipWord != null) {
@@ -1878,6 +1938,7 @@ class _$_CountWord implements _CountWord {
     required TResult Function() moveResultWatched,
     required TResult Function() resetGame,
     required TResult Function() resetGameHistory,
+    required TResult Function() resetLastGame,
   }) {
     return countWord();
   }
@@ -1899,6 +1960,7 @@ class _$_CountWord implements _CountWord {
     TResult? Function()? moveResultWatched,
     TResult? Function()? resetGame,
     TResult? Function()? resetGameHistory,
+    TResult? Function()? resetLastGame,
   }) {
     return countWord?.call();
   }
@@ -1920,6 +1982,7 @@ class _$_CountWord implements _CountWord {
     TResult Function()? moveResultWatched,
     TResult Function()? resetGame,
     TResult Function()? resetGameHistory,
+    TResult Function()? resetLastGame,
     required TResult orElse(),
   }) {
     if (countWord != null) {
@@ -1945,6 +2008,7 @@ class _$_CountWord implements _CountWord {
     required TResult Function(_MoveResultWatched value) moveResultWatched,
     required TResult Function(_ResetGame value) resetGame,
     required TResult Function(_ResetGameHistory value) resetGameHistory,
+    required TResult Function(_ResetLastGame value) resetLastGame,
   }) {
     return countWord(this);
   }
@@ -1966,6 +2030,7 @@ class _$_CountWord implements _CountWord {
     TResult? Function(_MoveResultWatched value)? moveResultWatched,
     TResult? Function(_ResetGame value)? resetGame,
     TResult? Function(_ResetGameHistory value)? resetGameHistory,
+    TResult? Function(_ResetLastGame value)? resetLastGame,
   }) {
     return countWord?.call(this);
   }
@@ -1987,6 +2052,7 @@ class _$_CountWord implements _CountWord {
     TResult Function(_MoveResultWatched value)? moveResultWatched,
     TResult Function(_ResetGame value)? resetGame,
     TResult Function(_ResetGameHistory value)? resetGameHistory,
+    TResult Function(_ResetLastGame value)? resetLastGame,
     required TResult orElse(),
   }) {
     if (countWord != null) {
@@ -2088,6 +2154,7 @@ class _$_ChangeAnswer implements _ChangeAnswer {
     required TResult Function() moveResultWatched,
     required TResult Function() resetGame,
     required TResult Function() resetGameHistory,
+    required TResult Function() resetLastGame,
   }) {
     return changeAnswer(answer);
   }
@@ -2109,6 +2176,7 @@ class _$_ChangeAnswer implements _ChangeAnswer {
     TResult? Function()? moveResultWatched,
     TResult? Function()? resetGame,
     TResult? Function()? resetGameHistory,
+    TResult? Function()? resetLastGame,
   }) {
     return changeAnswer?.call(answer);
   }
@@ -2130,6 +2198,7 @@ class _$_ChangeAnswer implements _ChangeAnswer {
     TResult Function()? moveResultWatched,
     TResult Function()? resetGame,
     TResult Function()? resetGameHistory,
+    TResult Function()? resetLastGame,
     required TResult orElse(),
   }) {
     if (changeAnswer != null) {
@@ -2155,6 +2224,7 @@ class _$_ChangeAnswer implements _ChangeAnswer {
     required TResult Function(_MoveResultWatched value) moveResultWatched,
     required TResult Function(_ResetGame value) resetGame,
     required TResult Function(_ResetGameHistory value) resetGameHistory,
+    required TResult Function(_ResetLastGame value) resetLastGame,
   }) {
     return changeAnswer(this);
   }
@@ -2176,6 +2246,7 @@ class _$_ChangeAnswer implements _ChangeAnswer {
     TResult? Function(_MoveResultWatched value)? moveResultWatched,
     TResult? Function(_ResetGame value)? resetGame,
     TResult? Function(_ResetGameHistory value)? resetGameHistory,
+    TResult? Function(_ResetLastGame value)? resetLastGame,
   }) {
     return changeAnswer?.call(this);
   }
@@ -2197,6 +2268,7 @@ class _$_ChangeAnswer implements _ChangeAnswer {
     TResult Function(_MoveResultWatched value)? moveResultWatched,
     TResult Function(_ResetGame value)? resetGame,
     TResult Function(_ResetGameHistory value)? resetGameHistory,
+    TResult Function(_ResetLastGame value)? resetLastGame,
     required TResult orElse(),
   }) {
     if (changeAnswer != null) {
@@ -2268,6 +2340,7 @@ class _$_MoveResultWatched implements _MoveResultWatched {
     required TResult Function() moveResultWatched,
     required TResult Function() resetGame,
     required TResult Function() resetGameHistory,
+    required TResult Function() resetLastGame,
   }) {
     return moveResultWatched();
   }
@@ -2289,6 +2362,7 @@ class _$_MoveResultWatched implements _MoveResultWatched {
     TResult? Function()? moveResultWatched,
     TResult? Function()? resetGame,
     TResult? Function()? resetGameHistory,
+    TResult? Function()? resetLastGame,
   }) {
     return moveResultWatched?.call();
   }
@@ -2310,6 +2384,7 @@ class _$_MoveResultWatched implements _MoveResultWatched {
     TResult Function()? moveResultWatched,
     TResult Function()? resetGame,
     TResult Function()? resetGameHistory,
+    TResult Function()? resetLastGame,
     required TResult orElse(),
   }) {
     if (moveResultWatched != null) {
@@ -2335,6 +2410,7 @@ class _$_MoveResultWatched implements _MoveResultWatched {
     required TResult Function(_MoveResultWatched value) moveResultWatched,
     required TResult Function(_ResetGame value) resetGame,
     required TResult Function(_ResetGameHistory value) resetGameHistory,
+    required TResult Function(_ResetLastGame value) resetLastGame,
   }) {
     return moveResultWatched(this);
   }
@@ -2356,6 +2432,7 @@ class _$_MoveResultWatched implements _MoveResultWatched {
     TResult? Function(_MoveResultWatched value)? moveResultWatched,
     TResult? Function(_ResetGame value)? resetGame,
     TResult? Function(_ResetGameHistory value)? resetGameHistory,
+    TResult? Function(_ResetLastGame value)? resetLastGame,
   }) {
     return moveResultWatched?.call(this);
   }
@@ -2377,6 +2454,7 @@ class _$_MoveResultWatched implements _MoveResultWatched {
     TResult Function(_MoveResultWatched value)? moveResultWatched,
     TResult Function(_ResetGame value)? resetGame,
     TResult Function(_ResetGameHistory value)? resetGameHistory,
+    TResult Function(_ResetLastGame value)? resetLastGame,
     required TResult orElse(),
   }) {
     if (moveResultWatched != null) {
@@ -2442,6 +2520,7 @@ class _$_ResetGame implements _ResetGame {
     required TResult Function() moveResultWatched,
     required TResult Function() resetGame,
     required TResult Function() resetGameHistory,
+    required TResult Function() resetLastGame,
   }) {
     return resetGame();
   }
@@ -2463,6 +2542,7 @@ class _$_ResetGame implements _ResetGame {
     TResult? Function()? moveResultWatched,
     TResult? Function()? resetGame,
     TResult? Function()? resetGameHistory,
+    TResult? Function()? resetLastGame,
   }) {
     return resetGame?.call();
   }
@@ -2484,6 +2564,7 @@ class _$_ResetGame implements _ResetGame {
     TResult Function()? moveResultWatched,
     TResult Function()? resetGame,
     TResult Function()? resetGameHistory,
+    TResult Function()? resetLastGame,
     required TResult orElse(),
   }) {
     if (resetGame != null) {
@@ -2509,6 +2590,7 @@ class _$_ResetGame implements _ResetGame {
     required TResult Function(_MoveResultWatched value) moveResultWatched,
     required TResult Function(_ResetGame value) resetGame,
     required TResult Function(_ResetGameHistory value) resetGameHistory,
+    required TResult Function(_ResetLastGame value) resetLastGame,
   }) {
     return resetGame(this);
   }
@@ -2530,6 +2612,7 @@ class _$_ResetGame implements _ResetGame {
     TResult? Function(_MoveResultWatched value)? moveResultWatched,
     TResult? Function(_ResetGame value)? resetGame,
     TResult? Function(_ResetGameHistory value)? resetGameHistory,
+    TResult? Function(_ResetLastGame value)? resetLastGame,
   }) {
     return resetGame?.call(this);
   }
@@ -2551,6 +2634,7 @@ class _$_ResetGame implements _ResetGame {
     TResult Function(_MoveResultWatched value)? moveResultWatched,
     TResult Function(_ResetGame value)? resetGame,
     TResult Function(_ResetGameHistory value)? resetGameHistory,
+    TResult Function(_ResetLastGame value)? resetLastGame,
     required TResult orElse(),
   }) {
     if (resetGame != null) {
@@ -2616,6 +2700,7 @@ class _$_ResetGameHistory implements _ResetGameHistory {
     required TResult Function() moveResultWatched,
     required TResult Function() resetGame,
     required TResult Function() resetGameHistory,
+    required TResult Function() resetLastGame,
   }) {
     return resetGameHistory();
   }
@@ -2637,6 +2722,7 @@ class _$_ResetGameHistory implements _ResetGameHistory {
     TResult? Function()? moveResultWatched,
     TResult? Function()? resetGame,
     TResult? Function()? resetGameHistory,
+    TResult? Function()? resetLastGame,
   }) {
     return resetGameHistory?.call();
   }
@@ -2658,6 +2744,7 @@ class _$_ResetGameHistory implements _ResetGameHistory {
     TResult Function()? moveResultWatched,
     TResult Function()? resetGame,
     TResult Function()? resetGameHistory,
+    TResult Function()? resetLastGame,
     required TResult orElse(),
   }) {
     if (resetGameHistory != null) {
@@ -2683,6 +2770,7 @@ class _$_ResetGameHistory implements _ResetGameHistory {
     required TResult Function(_MoveResultWatched value) moveResultWatched,
     required TResult Function(_ResetGame value) resetGame,
     required TResult Function(_ResetGameHistory value) resetGameHistory,
+    required TResult Function(_ResetLastGame value) resetLastGame,
   }) {
     return resetGameHistory(this);
   }
@@ -2704,6 +2792,7 @@ class _$_ResetGameHistory implements _ResetGameHistory {
     TResult? Function(_MoveResultWatched value)? moveResultWatched,
     TResult? Function(_ResetGame value)? resetGame,
     TResult? Function(_ResetGameHistory value)? resetGameHistory,
+    TResult? Function(_ResetLastGame value)? resetLastGame,
   }) {
     return resetGameHistory?.call(this);
   }
@@ -2725,6 +2814,7 @@ class _$_ResetGameHistory implements _ResetGameHistory {
     TResult Function(_MoveResultWatched value)? moveResultWatched,
     TResult Function(_ResetGame value)? resetGame,
     TResult Function(_ResetGameHistory value)? resetGameHistory,
+    TResult Function(_ResetLastGame value)? resetLastGame,
     required TResult orElse(),
   }) {
     if (resetGameHistory != null) {
@@ -2736,6 +2826,186 @@ class _$_ResetGameHistory implements _ResetGameHistory {
 
 abstract class _ResetGameHistory implements GameEvent {
   const factory _ResetGameHistory() = _$_ResetGameHistory;
+}
+
+/// @nodoc
+abstract class _$$_ResetLastGameCopyWith<$Res> {
+  factory _$$_ResetLastGameCopyWith(
+          _$_ResetLastGame value, $Res Function(_$_ResetLastGame) then) =
+      __$$_ResetLastGameCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ResetLastGameCopyWithImpl<$Res>
+    extends _$GameEventCopyWithImpl<$Res, _$_ResetLastGame>
+    implements _$$_ResetLastGameCopyWith<$Res> {
+  __$$_ResetLastGameCopyWithImpl(
+      _$_ResetLastGame _value, $Res Function(_$_ResetLastGame) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_ResetLastGame implements _ResetLastGame {
+  const _$_ResetLastGame();
+
+  @override
+  String toString() {
+    return 'GameEvent.resetLastGame()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_ResetLastGame);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function(Category category) initializeCategory,
+    required TResult Function(List<Command> commands) initializeCommands,
+    required TResult Function(GameSettings gameSettings) initializeSettings,
+    required TResult Function() startGame,
+    required TResult Function() pauseGame,
+    required TResult Function() resumeGame,
+    required TResult Function() timeIsLeft,
+    required TResult Function() skipWord,
+    required TResult Function() countWord,
+    required TResult Function(GameAnswer answer) changeAnswer,
+    required TResult Function() moveResultWatched,
+    required TResult Function() resetGame,
+    required TResult Function() resetGameHistory,
+    required TResult Function() resetLastGame,
+  }) {
+    return resetLastGame();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function(Category category)? initializeCategory,
+    TResult? Function(List<Command> commands)? initializeCommands,
+    TResult? Function(GameSettings gameSettings)? initializeSettings,
+    TResult? Function()? startGame,
+    TResult? Function()? pauseGame,
+    TResult? Function()? resumeGame,
+    TResult? Function()? timeIsLeft,
+    TResult? Function()? skipWord,
+    TResult? Function()? countWord,
+    TResult? Function(GameAnswer answer)? changeAnswer,
+    TResult? Function()? moveResultWatched,
+    TResult? Function()? resetGame,
+    TResult? Function()? resetGameHistory,
+    TResult? Function()? resetLastGame,
+  }) {
+    return resetLastGame?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function(Category category)? initializeCategory,
+    TResult Function(List<Command> commands)? initializeCommands,
+    TResult Function(GameSettings gameSettings)? initializeSettings,
+    TResult Function()? startGame,
+    TResult Function()? pauseGame,
+    TResult Function()? resumeGame,
+    TResult Function()? timeIsLeft,
+    TResult Function()? skipWord,
+    TResult Function()? countWord,
+    TResult Function(GameAnswer answer)? changeAnswer,
+    TResult Function()? moveResultWatched,
+    TResult Function()? resetGame,
+    TResult Function()? resetGameHistory,
+    TResult Function()? resetLastGame,
+    required TResult orElse(),
+  }) {
+    if (resetLastGame != null) {
+      return resetLastGame();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_InitializeCategory value) initializeCategory,
+    required TResult Function(_InitializeCommands value) initializeCommands,
+    required TResult Function(_InitializeSettings value) initializeSettings,
+    required TResult Function(_StartGame value) startGame,
+    required TResult Function(_PauseGame value) pauseGame,
+    required TResult Function(_ResumeGame value) resumeGame,
+    required TResult Function(_TimeIsLeft value) timeIsLeft,
+    required TResult Function(_SkipWord value) skipWord,
+    required TResult Function(_CountWord value) countWord,
+    required TResult Function(_ChangeAnswer value) changeAnswer,
+    required TResult Function(_MoveResultWatched value) moveResultWatched,
+    required TResult Function(_ResetGame value) resetGame,
+    required TResult Function(_ResetGameHistory value) resetGameHistory,
+    required TResult Function(_ResetLastGame value) resetLastGame,
+  }) {
+    return resetLastGame(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_InitializeCategory value)? initializeCategory,
+    TResult? Function(_InitializeCommands value)? initializeCommands,
+    TResult? Function(_InitializeSettings value)? initializeSettings,
+    TResult? Function(_StartGame value)? startGame,
+    TResult? Function(_PauseGame value)? pauseGame,
+    TResult? Function(_ResumeGame value)? resumeGame,
+    TResult? Function(_TimeIsLeft value)? timeIsLeft,
+    TResult? Function(_SkipWord value)? skipWord,
+    TResult? Function(_CountWord value)? countWord,
+    TResult? Function(_ChangeAnswer value)? changeAnswer,
+    TResult? Function(_MoveResultWatched value)? moveResultWatched,
+    TResult? Function(_ResetGame value)? resetGame,
+    TResult? Function(_ResetGameHistory value)? resetGameHistory,
+    TResult? Function(_ResetLastGame value)? resetLastGame,
+  }) {
+    return resetLastGame?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_InitializeCategory value)? initializeCategory,
+    TResult Function(_InitializeCommands value)? initializeCommands,
+    TResult Function(_InitializeSettings value)? initializeSettings,
+    TResult Function(_StartGame value)? startGame,
+    TResult Function(_PauseGame value)? pauseGame,
+    TResult Function(_ResumeGame value)? resumeGame,
+    TResult Function(_TimeIsLeft value)? timeIsLeft,
+    TResult Function(_SkipWord value)? skipWord,
+    TResult Function(_CountWord value)? countWord,
+    TResult Function(_ChangeAnswer value)? changeAnswer,
+    TResult Function(_MoveResultWatched value)? moveResultWatched,
+    TResult Function(_ResetGame value)? resetGame,
+    TResult Function(_ResetGameHistory value)? resetGameHistory,
+    TResult Function(_ResetLastGame value)? resetLastGame,
+    required TResult orElse(),
+  }) {
+    if (resetLastGame != null) {
+      return resetLastGame(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ResetLastGame implements GameEvent {
+  const factory _ResetLastGame() = _$_ResetLastGame;
 }
 
 /// @nodoc

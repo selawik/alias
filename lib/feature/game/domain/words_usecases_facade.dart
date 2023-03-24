@@ -93,4 +93,8 @@ class WordsUseCasesFacade {
       commands: commands,
     );
   }
+
+  Future<Either<Failure, void>> resetUnfinishedGame() async {
+    return await _resetUnfinishedGame.execute();
+  }
 }

@@ -12,14 +12,19 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<GameBloc, GameState>(
-      builder: (context, state) {
-        return state.maybeWhen(
-          orElse: () => Container(),
-          waitingForConfig: (game) =>
-              _buildBody(context, canContinueGame: game != null),
-        );
+    return BlocListener<GameBloc, GameState>(
+      listener: (context, state) {
+        print(state);
       },
+      child: BlocBuilder<GameBloc, GameState>(
+        builder: (context, state) {
+          return state.maybeWhen(
+            orElse: () => Container(),
+            waitingForConfig: (game) =>
+                _buildBody(context, canContinueGame: game != null),
+          );
+        },
+      ),
     );
   }
 
@@ -70,7 +75,10 @@ class HomeView extends StatelessWidget {
     );
   }
 
-  void _onNewGamePressed(BuildContext context, {bool canContinueGame = false}) async {
+  void _onNewGamePressed(
+    BuildContext context, {
+    bool canContinueGame = false,
+  }) async {
     var router = di.locator.get<AppRouter>();
 
     if (canContinueGame) {
@@ -80,15 +88,13 @@ class HomeView extends StatelessWidget {
       );
 
       if (gameResetConfirmed ?? false) {
-        di.locator.get<GameBloc>().add(const GameEvent.resetGame());
+        context.read<GameBloc>().add(const GameEvent.resetLastGame());
         router.push(const CategoryPageRoute());
-        
+
         //resetGame
       }
     } else {
       router.push(const CategoryPageRoute());
     }
-
-
   }
 }
