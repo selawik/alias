@@ -37,7 +37,7 @@ class CategoryRepositoryImpl implements CategoryRepository {
 
       for (var categoryDto in categoriesDto) {
         var categoryWordsCount =
-            await _remoteDataSource.getCategoryWordsCount(categoryDto.categoryId);
+            await _localDataSource.getCategoryWordsCount(categoryDto.categoryId);
 
         var imageUrl =
             'https://s0.rbk.ru/v6_top_pics/resized/590xH/media/img/1/83/756079611261831.jpg';
