@@ -107,8 +107,10 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i6.FirebaseCategoryDataSource());
     gh.factory<_i7.CommandMapper>(() => _i7.CommandMapper());
     gh.factory<_i8.CommandsDataSource>(() => _i9.FirebaseCommandsDataSource());
-    gh.factory<_i10.CommandsRepository>(() =>
-        _i11.CommandsRepositoryImpl(dataSource: gh<_i8.CommandsDataSource>()));
+    gh.factory<_i10.CommandsRepository>(() => _i11.CommandsRepositoryImpl(
+          dataSource: gh<_i8.CommandsDataSource>(),
+          commandMapper: gh<_i7.CommandMapper>(),
+        ));
     gh.singleton<_i12.Database>(_i12.Database());
     gh.singleton<_i13.DbProvider>(_i13.DbProvider(db: gh<_i12.Database>()));
     gh.factory<_i14.DictionaryLocalDataSource>(

@@ -5,6 +5,6 @@ class CommandsState with _$CommandsState {
   const factory CommandsState.initial() = _Initial;
   const factory CommandsState.loading() = _Loading;
   const factory CommandsState.loaded({
-    required List<CommandDto> addedCommands,
+    required List<Command> addedCommands,
   }) = _Loaded;
 }

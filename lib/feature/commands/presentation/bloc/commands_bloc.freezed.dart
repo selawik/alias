@@ -20,21 +20,21 @@ mixin _$CommandsEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() loadCommands,
     required TResult Function() addCommand,
-    required TResult Function(CommandDto command) removeCommand,
+    required TResult Function(Command command) removeCommand,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadCommands,
     TResult? Function()? addCommand,
-    TResult? Function(CommandDto command)? removeCommand,
+    TResult? Function(Command command)? removeCommand,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadCommands,
     TResult Function()? addCommand,
-    TResult Function(CommandDto command)? removeCommand,
+    TResult Function(Command command)? removeCommand,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,7 +120,7 @@ class _$_LoadCommands implements _LoadCommands {
   TResult when<TResult extends Object?>({
     required TResult Function() loadCommands,
     required TResult Function() addCommand,
-    required TResult Function(CommandDto command) removeCommand,
+    required TResult Function(Command command) removeCommand,
   }) {
     return loadCommands();
   }
@@ -130,7 +130,7 @@ class _$_LoadCommands implements _LoadCommands {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadCommands,
     TResult? Function()? addCommand,
-    TResult? Function(CommandDto command)? removeCommand,
+    TResult? Function(Command command)? removeCommand,
   }) {
     return loadCommands?.call();
   }
@@ -140,7 +140,7 @@ class _$_LoadCommands implements _LoadCommands {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadCommands,
     TResult Function()? addCommand,
-    TResult Function(CommandDto command)? removeCommand,
+    TResult Function(Command command)? removeCommand,
     required TResult orElse(),
   }) {
     if (loadCommands != null) {
@@ -228,7 +228,7 @@ class _$_AddCommand implements _AddCommand {
   TResult when<TResult extends Object?>({
     required TResult Function() loadCommands,
     required TResult Function() addCommand,
-    required TResult Function(CommandDto command) removeCommand,
+    required TResult Function(Command command) removeCommand,
   }) {
     return addCommand();
   }
@@ -238,7 +238,7 @@ class _$_AddCommand implements _AddCommand {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadCommands,
     TResult? Function()? addCommand,
-    TResult? Function(CommandDto command)? removeCommand,
+    TResult? Function(Command command)? removeCommand,
   }) {
     return addCommand?.call();
   }
@@ -248,7 +248,7 @@ class _$_AddCommand implements _AddCommand {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadCommands,
     TResult Function()? addCommand,
-    TResult Function(CommandDto command)? removeCommand,
+    TResult Function(Command command)? removeCommand,
     required TResult orElse(),
   }) {
     if (addCommand != null) {
@@ -302,9 +302,9 @@ abstract class _$$_RemoveCommandCopyWith<$Res> {
           _$_RemoveCommand value, $Res Function(_$_RemoveCommand) then) =
       __$$_RemoveCommandCopyWithImpl<$Res>;
   @useResult
-  $Res call({CommandDto command});
+  $Res call({Command command});
 
-  $CommandDtoCopyWith<$Res> get command;
+  $CommandCopyWith<$Res> get command;
 }
 
 /// @nodoc
@@ -324,14 +324,14 @@ class __$$_RemoveCommandCopyWithImpl<$Res>
       command: null == command
           ? _value.command
           : command // ignore: cast_nullable_to_non_nullable
-              as CommandDto,
+              as Command,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $CommandDtoCopyWith<$Res> get command {
-    return $CommandDtoCopyWith<$Res>(_value.command, (value) {
+  $CommandCopyWith<$Res> get command {
+    return $CommandCopyWith<$Res>(_value.command, (value) {
       return _then(_value.copyWith(command: value));
     });
   }
@@ -343,7 +343,7 @@ class _$_RemoveCommand implements _RemoveCommand {
   const _$_RemoveCommand({required this.command});
 
   @override
-  final CommandDto command;
+  final Command command;
 
   @override
   String toString() {
@@ -372,7 +372,7 @@ class _$_RemoveCommand implements _RemoveCommand {
   TResult when<TResult extends Object?>({
     required TResult Function() loadCommands,
     required TResult Function() addCommand,
-    required TResult Function(CommandDto command) removeCommand,
+    required TResult Function(Command command) removeCommand,
   }) {
     return removeCommand(command);
   }
@@ -382,7 +382,7 @@ class _$_RemoveCommand implements _RemoveCommand {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadCommands,
     TResult? Function()? addCommand,
-    TResult? Function(CommandDto command)? removeCommand,
+    TResult? Function(Command command)? removeCommand,
   }) {
     return removeCommand?.call(command);
   }
@@ -392,7 +392,7 @@ class _$_RemoveCommand implements _RemoveCommand {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadCommands,
     TResult Function()? addCommand,
-    TResult Function(CommandDto command)? removeCommand,
+    TResult Function(Command command)? removeCommand,
     required TResult orElse(),
   }) {
     if (removeCommand != null) {
@@ -437,10 +437,10 @@ class _$_RemoveCommand implements _RemoveCommand {
 }
 
 abstract class _RemoveCommand implements CommandsEvent {
-  const factory _RemoveCommand({required final CommandDto command}) =
+  const factory _RemoveCommand({required final Command command}) =
       _$_RemoveCommand;
 
-  CommandDto get command;
+  Command get command;
   @JsonKey(ignore: true)
   _$$_RemoveCommandCopyWith<_$_RemoveCommand> get copyWith =>
       throw _privateConstructorUsedError;
@@ -452,21 +452,21 @@ mixin _$CommandsState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<CommandDto> addedCommands) loaded,
+    required TResult Function(List<Command> addedCommands) loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<CommandDto> addedCommands)? loaded,
+    TResult? Function(List<Command> addedCommands)? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<CommandDto> addedCommands)? loaded,
+    TResult Function(List<Command> addedCommands)? loaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -551,7 +551,7 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<CommandDto> addedCommands) loaded,
+    required TResult Function(List<Command> addedCommands) loaded,
   }) {
     return initial();
   }
@@ -561,7 +561,7 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<CommandDto> addedCommands)? loaded,
+    TResult? Function(List<Command> addedCommands)? loaded,
   }) {
     return initial?.call();
   }
@@ -571,7 +571,7 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<CommandDto> addedCommands)? loaded,
+    TResult Function(List<Command> addedCommands)? loaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -658,7 +658,7 @@ class _$_Loading implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<CommandDto> addedCommands) loaded,
+    required TResult Function(List<Command> addedCommands) loaded,
   }) {
     return loading();
   }
@@ -668,7 +668,7 @@ class _$_Loading implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<CommandDto> addedCommands)? loaded,
+    TResult? Function(List<Command> addedCommands)? loaded,
   }) {
     return loading?.call();
   }
@@ -678,7 +678,7 @@ class _$_Loading implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<CommandDto> addedCommands)? loaded,
+    TResult Function(List<Command> addedCommands)? loaded,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -731,7 +731,7 @@ abstract class _$$_LoadedCopyWith<$Res> {
   factory _$$_LoadedCopyWith(_$_Loaded value, $Res Function(_$_Loaded) then) =
       __$$_LoadedCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<CommandDto> addedCommands});
+  $Res call({List<Command> addedCommands});
 }
 
 /// @nodoc
@@ -750,7 +750,7 @@ class __$$_LoadedCopyWithImpl<$Res>
       addedCommands: null == addedCommands
           ? _value._addedCommands
           : addedCommands // ignore: cast_nullable_to_non_nullable
-              as List<CommandDto>,
+              as List<Command>,
     ));
   }
 }
@@ -758,12 +758,12 @@ class __$$_LoadedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Loaded implements _Loaded {
-  const _$_Loaded({required final List<CommandDto> addedCommands})
+  const _$_Loaded({required final List<Command> addedCommands})
       : _addedCommands = addedCommands;
 
-  final List<CommandDto> _addedCommands;
+  final List<Command> _addedCommands;
   @override
-  List<CommandDto> get addedCommands {
+  List<Command> get addedCommands {
     if (_addedCommands is EqualUnmodifiableListView) return _addedCommands;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_addedCommands);
@@ -798,7 +798,7 @@ class _$_Loaded implements _Loaded {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<CommandDto> addedCommands) loaded,
+    required TResult Function(List<Command> addedCommands) loaded,
   }) {
     return loaded(addedCommands);
   }
@@ -808,7 +808,7 @@ class _$_Loaded implements _Loaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<CommandDto> addedCommands)? loaded,
+    TResult? Function(List<Command> addedCommands)? loaded,
   }) {
     return loaded?.call(addedCommands);
   }
@@ -818,7 +818,7 @@ class _$_Loaded implements _Loaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<CommandDto> addedCommands)? loaded,
+    TResult Function(List<Command> addedCommands)? loaded,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -863,10 +863,10 @@ class _$_Loaded implements _Loaded {
 }
 
 abstract class _Loaded implements CommandsState {
-  const factory _Loaded({required final List<CommandDto> addedCommands}) =
+  const factory _Loaded({required final List<Command> addedCommands}) =
       _$_Loaded;
 
-  List<CommandDto> get addedCommands;
+  List<Command> get addedCommands;
   @JsonKey(ignore: true)
   _$$_LoadedCopyWith<_$_Loaded> get copyWith =>
       throw _privateConstructorUsedError;

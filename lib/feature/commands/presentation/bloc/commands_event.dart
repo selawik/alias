@@ -6,6 +6,6 @@ class CommandsEvent with _$CommandsEvent {
 
   const factory CommandsEvent.addCommand() = _AddCommand;
 
-  const factory CommandsEvent.removeCommand({required CommandDto command}) =
+  const factory CommandsEvent.removeCommand({required Command command}) =
       _RemoveCommand;
 }

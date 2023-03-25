@@ -6,7 +6,7 @@ class GameEvent with _$GameEvent {
 
   const factory GameEvent.initializeCategory({required Category category}) = _InitializeCategory;
 
-  const factory GameEvent.initializeCommands({required List<CommandDto> commands}) = _InitializeCommands;
+  const factory GameEvent.initializeCommands({required List<Command> commands}) = _InitializeCommands;
 
   const factory GameEvent.initializeSettings(
       {required GameSettings gameSettings}) = _InitializeSettings;
