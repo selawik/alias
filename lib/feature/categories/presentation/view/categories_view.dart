@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:alias/core/constants/app_colors.dart';
+import 'package:alias/core/constants/assets_catalog.dart';
 import 'package:alias/core/injection.dart' as di;
 import 'package:alias/core/router/app_router.dart';
 import 'package:alias/core/theme/theme_builder.dart';
@@ -76,6 +77,9 @@ class CategoriesView extends StatelessWidget {
                   child: Image.network(
                     category.fileUrl,
                     gaplessPlayback: true,
+                    errorBuilder: (context, value, stacktrace) {
+                      return Image.asset(AssetsCatalog.placeholder);
+                    },
                   ),
                 ),
                 const SizedBox(height: 16),
