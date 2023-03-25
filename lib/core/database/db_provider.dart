@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:alias/core/database/database.dart' hide Category, Word;
 import 'package:alias/feature/categories/data/models/category_dto.dart';
 import 'package:alias/feature/categories/domain/models/category.dart';
+import 'package:alias/feature/commands/data/models/command_dto.dart';
 import 'package:alias/feature/game/data/model/game_dto.dart';
 import 'package:alias/feature/game/data/model/word_dto.dart';
 import 'package:alias/feature/game/domain/model/word.dart';
@@ -70,7 +71,11 @@ class DbProvider {
     return await _db.wordDao.getLastWordId();
   }
 
-  Future<void> saveCategories(List<CategoryDto> categories) async {
+  Future<int?> getLastCommandId() async {
+    return await _db.commandDao.getLastCommandId();
+  }
+
+  Future<void> saveCategories(Iterable<CategoryDto> categories) async {
     var categoryCompanions = categories.map(
       (category) => CategoryTableCompanion.insert(
         categoryId: category.categoryId,
@@ -91,6 +96,17 @@ class DbProvider {
     );
 
     return await _db.wordDao.saveWords(words: wordCompanions.toList());
+  }
+
+  Future<void> saveCommands(Iterable<CommandDto> commands) async {
+    var commandCompanions = commands.map(
+      (category) => CommandTableCompanion.insert(
+        commandId: category.commandId,
+        name: category.name,
+      ),
+    );
+
+    return await _db.commandDao.saveCommands(commandCompanions);
   }
 
   Future<Iterable<WordDto>> getWords({

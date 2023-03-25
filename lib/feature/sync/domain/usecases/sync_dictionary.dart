@@ -16,6 +16,7 @@ class SyncDictionary {
   Future<Either<Failure, bool?>> execute() async {
     await _syncCategories();
     await _syncWords();
+    await _syncCommand();
 
     return const Right(false);
   }
@@ -48,9 +49,9 @@ class SyncDictionary {
     required int lastRemoveWordId,
     required int? lastLocalWordId,
   }) async {
-
     while ((lastLocalWordId ?? 0) < lastRemoveWordId) {
-      var wordsBatchResult = await _repository.loadWordsBatch(lastLocalWordId: lastLocalWordId);
+      var wordsBatchResult =
+          await _repository.loadWordsBatch(startFromId: lastLocalWordId);
 
       if (wordsBatchResult.isLeft()) {
         return;
@@ -108,6 +109,50 @@ class SyncDictionary {
 
       if (categorySavingResult.isRight()) {
         log('Category Synced');
+      }
+    }
+  }
+
+  Future<void> _syncCommand() async {
+    var lastLocalCommandIdResult = await _repository.getLastLocalCommandId();
+
+    if (lastLocalCommandIdResult.isLeft()) {
+      return;
+    }
+
+    var lastRemoteCommandIdResult = await _repository.getLastRemoteCommandId();
+
+    if (lastRemoteCommandIdResult.isLeft()) {
+      return;
+    }
+
+    var lastRemoteCommandId = (lastRemoteCommandIdResult as Right).value;
+    var lastLocalCommandId = (lastLocalCommandIdResult as Right).value;
+
+    log('Last local command id $lastLocalCommandId');
+    log('Last remote command id $lastRemoteCommandId');
+
+    if (lastRemoteCommandId != lastLocalCommandId) {
+      await _saveCommands(
+        lastLocalCommandId: lastLocalCommandId,
+        lastRemoveCommandId: lastRemoteCommandId,
+      );
+    }
+  }
+
+  Future<void> _saveCommands({
+    required int? lastLocalCommandId,
+    required int lastRemoveCommandId,
+  }) async {
+    var commandsResult =
+        await _repository.loadCommands(startFromId: lastLocalCommandId);
+
+    if (commandsResult.isRight()) {
+      var commandsSaveResult = await _repository.saveCommands(
+          commands: (commandsResult as Right).value.toList());
+
+      if (commandsSaveResult.isRight()) {
+        log('Commands Synced');
       }
     }
   }

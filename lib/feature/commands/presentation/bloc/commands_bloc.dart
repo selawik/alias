@@ -1,4 +1,4 @@
-import 'package:alias/feature/commands/data/models/command.dart';
+import 'package:alias/feature/commands/data/models/command_dto.dart';
 import 'package:alias/feature/commands/domain/usercases/load_commands.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -23,8 +23,8 @@ class CommandsBloc extends Bloc<CommandsEvent, CommandsState> {
     on<_RemoveCommand>(_onRemoveCommand);
   }
 
-  List<Command> _allCommands = [];
-  List<Command> _addedCommands = [];
+  List<CommandDto> _allCommands = [];
+  List<CommandDto> _addedCommands = [];
 
   void _onLoadCommands(_LoadCommands event, Emitter emit) async {
     emit(const CommandsState.loading());
@@ -52,7 +52,7 @@ class CommandsBloc extends Bloc<CommandsEvent, CommandsState> {
   void _onRemoveCommand(_RemoveCommand event, Emitter emit) async {
     _allCommands.add(event.command);
 
-    List<Command> addedCommands = List.from(_addedCommands)
+    List<CommandDto> addedCommands = List.from(_addedCommands)
       ..remove(event.command);
 
     _addedCommands = addedCommands;
@@ -62,7 +62,7 @@ class CommandsBloc extends Bloc<CommandsEvent, CommandsState> {
 
   void _addCommand() {
     var command = _allCommands.first;
-    List<Command> addedCommands = List.from(_addedCommands)..add(command);
+    List<CommandDto> addedCommands = List.from(_addedCommands)..add(command);
     _addedCommands = addedCommands;
 
     _allCommands.removeAt(0);

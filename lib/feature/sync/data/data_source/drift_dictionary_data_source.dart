@@ -1,5 +1,6 @@
 import 'package:alias/core/database/db_provider.dart';
 import 'package:alias/feature/categories/data/models/category_dto.dart';
+import 'package:alias/feature/commands/data/models/command_dto.dart';
 import 'package:alias/feature/game/data/model/word_dto.dart';
 import 'package:alias/feature/sync/data/data_source/dictionary_local_data_source.dart';
 import 'package:injectable/injectable.dart';
@@ -16,14 +17,13 @@ class DriftDictionaryDataSource implements DictionaryLocalDataSource {
   }
 
   @override
-  Future<void> saveCategories({required List<CategoryDto> categories}) async {
+  Future<void> saveCategories({required Iterable<CategoryDto> categories}) async {
     return await _dbProvider.saveCategories(categories);
   }
 
   @override
-  Future<void> saveCommands() {
-    // TODO: implement saveCommands
-    throw UnimplementedError();
+  Future<void> saveCommands({required Iterable<CommandDto> commands}) async {
+    return await _dbProvider.saveCommands(commands);
   }
 
   @override
@@ -34,5 +34,10 @@ class DriftDictionaryDataSource implements DictionaryLocalDataSource {
   @override
   Future<int?> getLastWordId() async {
     return await _dbProvider.getLastWordId();
+  }
+
+  @override
+  Future<int?> getLastCommandId() async {
+   return await _dbProvider.getLastCommandId();
   }
 }

@@ -973,20 +973,194 @@ class WordsTableCompanion extends UpdateCompanion<WordDbEntity> {
   }
 }
 
+class $CommandTableTable extends CommandTable
+    with TableInfo<$CommandTableTable, CommandDbEntity> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $CommandTableTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _commandIdMeta =
+      const VerificationMeta('commandId');
+  @override
+  late final GeneratedColumn<int> commandId = GeneratedColumn<int>(
+      'command_id', aliasedName, false,
+      type: DriftSqlType.int, requiredDuringInsert: true);
+  static const VerificationMeta _nameMeta = const VerificationMeta('name');
+  @override
+  late final GeneratedColumn<String> name = GeneratedColumn<String>(
+      'name', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  @override
+  List<GeneratedColumn> get $columns => [commandId, name];
+  @override
+  String get aliasedName => _alias ?? 'command_table';
+  @override
+  String get actualTableName => 'command_table';
+  @override
+  VerificationContext validateIntegrity(Insertable<CommandDbEntity> instance,
+      {bool isInserting = false}) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('command_id')) {
+      context.handle(_commandIdMeta,
+          commandId.isAcceptableOrUnknown(data['command_id']!, _commandIdMeta));
+    } else if (isInserting) {
+      context.missing(_commandIdMeta);
+    }
+    if (data.containsKey('name')) {
+      context.handle(
+          _nameMeta, name.isAcceptableOrUnknown(data['name']!, _nameMeta));
+    } else if (isInserting) {
+      context.missing(_nameMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => const {};
+  @override
+  CommandDbEntity map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return CommandDbEntity(
+      commandId: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}command_id'])!,
+      name: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}name'])!,
+    );
+  }
+
+  @override
+  $CommandTableTable createAlias(String alias) {
+    return $CommandTableTable(attachedDatabase, alias);
+  }
+}
+
+class CommandDbEntity extends DataClass implements Insertable<CommandDbEntity> {
+  final int commandId;
+  final String name;
+  const CommandDbEntity({required this.commandId, required this.name});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['command_id'] = Variable<int>(commandId);
+    map['name'] = Variable<String>(name);
+    return map;
+  }
+
+  CommandTableCompanion toCompanion(bool nullToAbsent) {
+    return CommandTableCompanion(
+      commandId: Value(commandId),
+      name: Value(name),
+    );
+  }
+
+  factory CommandDbEntity.fromJson(Map<String, dynamic> json,
+      {ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return CommandDbEntity(
+      commandId: serializer.fromJson<int>(json['commandId']),
+      name: serializer.fromJson<String>(json['name']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'commandId': serializer.toJson<int>(commandId),
+      'name': serializer.toJson<String>(name),
+    };
+  }
+
+  CommandDbEntity copyWith({int? commandId, String? name}) => CommandDbEntity(
+        commandId: commandId ?? this.commandId,
+        name: name ?? this.name,
+      );
+  @override
+  String toString() {
+    return (StringBuffer('CommandDbEntity(')
+          ..write('commandId: $commandId, ')
+          ..write('name: $name')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(commandId, name);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is CommandDbEntity &&
+          other.commandId == this.commandId &&
+          other.name == this.name);
+}
+
+class CommandTableCompanion extends UpdateCompanion<CommandDbEntity> {
+  final Value<int> commandId;
+  final Value<String> name;
+  const CommandTableCompanion({
+    this.commandId = const Value.absent(),
+    this.name = const Value.absent(),
+  });
+  CommandTableCompanion.insert({
+    required int commandId,
+    required String name,
+  })  : commandId = Value(commandId),
+        name = Value(name);
+  static Insertable<CommandDbEntity> custom({
+    Expression<int>? commandId,
+    Expression<String>? name,
+  }) {
+    return RawValuesInsertable({
+      if (commandId != null) 'command_id': commandId,
+      if (name != null) 'name': name,
+    });
+  }
+
+  CommandTableCompanion copyWith({Value<int>? commandId, Value<String>? name}) {
+    return CommandTableCompanion(
+      commandId: commandId ?? this.commandId,
+      name: name ?? this.name,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (commandId.present) {
+      map['command_id'] = Variable<int>(commandId.value);
+    }
+    if (name.present) {
+      map['name'] = Variable<String>(name.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('CommandTableCompanion(')
+          ..write('commandId: $commandId, ')
+          ..write('name: $name')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$Database extends GeneratedDatabase {
   _$Database(QueryExecutor e) : super(e);
   late final $CategoryTableTable categoryTable = $CategoryTableTable(this);
   late final $PlayedWordTable playedWord = $PlayedWordTable(this);
   late final $GameTableTable gameTable = $GameTableTable(this);
   late final $WordsTableTable wordsTable = $WordsTableTable(this);
+  late final $CommandTableTable commandTable = $CommandTableTable(this);
   late final PlayedWordDao playedWordDao = PlayedWordDao(this as Database);
   late final GameDao gameDao = GameDao(this as Database);
   late final CategoryDao categoryDao = CategoryDao(this as Database);
   late final WordDao wordDao = WordDao(this as Database);
+  late final CommandDao commandDao = CommandDao(this as Database);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
   @override
   List<DatabaseSchemaEntity> get allSchemaEntities =>
-      [categoryTable, playedWord, gameTable, wordsTable];
+      [categoryTable, playedWord, gameTable, wordsTable, commandTable];
 }

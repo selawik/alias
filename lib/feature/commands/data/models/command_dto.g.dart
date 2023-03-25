@@ -1,17 +1,18 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'command.dart';
+part of 'command_dto.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Command _$$_CommandFromJson(Map<String, dynamic> json) => _$_Command(
+_$_CommandDto _$$_CommandDtoFromJson(Map<String, dynamic> json) =>
+    _$_CommandDto(
       commandId: json['commandId'] as int,
       name: json['name'] as String,
     );
 
-Map<String, dynamic> _$$_CommandToJson(_$_Command instance) =>
+Map<String, dynamic> _$$_CommandDtoToJson(_$_CommandDto instance) =>
     <String, dynamic>{
       'commandId': instance.commandId,
       'name': instance.name,

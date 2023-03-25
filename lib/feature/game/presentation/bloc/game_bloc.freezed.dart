@@ -20,7 +20,7 @@ mixin _$GameEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(Category category) initializeCategory,
-    required TResult Function(List<Command> commands) initializeCommands,
+    required TResult Function(List<CommandDto> commands) initializeCommands,
     required TResult Function(GameSettings gameSettings) initializeSettings,
     required TResult Function() startGame,
     required TResult Function() pauseGame,
@@ -39,7 +39,7 @@ mixin _$GameEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(Category category)? initializeCategory,
-    TResult? Function(List<Command> commands)? initializeCommands,
+    TResult? Function(List<CommandDto> commands)? initializeCommands,
     TResult? Function(GameSettings gameSettings)? initializeSettings,
     TResult? Function()? startGame,
     TResult? Function()? pauseGame,
@@ -58,7 +58,7 @@ mixin _$GameEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(Category category)? initializeCategory,
-    TResult Function(List<Command> commands)? initializeCommands,
+    TResult Function(List<CommandDto> commands)? initializeCommands,
     TResult Function(GameSettings gameSettings)? initializeSettings,
     TResult Function()? startGame,
     TResult Function()? pauseGame,
@@ -188,7 +188,7 @@ class _$_Init implements _Init {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(Category category) initializeCategory,
-    required TResult Function(List<Command> commands) initializeCommands,
+    required TResult Function(List<CommandDto> commands) initializeCommands,
     required TResult Function(GameSettings gameSettings) initializeSettings,
     required TResult Function() startGame,
     required TResult Function() pauseGame,
@@ -210,7 +210,7 @@ class _$_Init implements _Init {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(Category category)? initializeCategory,
-    TResult? Function(List<Command> commands)? initializeCommands,
+    TResult? Function(List<CommandDto> commands)? initializeCommands,
     TResult? Function(GameSettings gameSettings)? initializeSettings,
     TResult? Function()? startGame,
     TResult? Function()? pauseGame,
@@ -232,7 +232,7 @@ class _$_Init implements _Init {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(Category category)? initializeCategory,
-    TResult Function(List<Command> commands)? initializeCommands,
+    TResult Function(List<CommandDto> commands)? initializeCommands,
     TResult Function(GameSettings gameSettings)? initializeSettings,
     TResult Function()? startGame,
     TResult Function()? pauseGame,
@@ -406,7 +406,7 @@ class _$_InitializeCategory implements _InitializeCategory {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(Category category) initializeCategory,
-    required TResult Function(List<Command> commands) initializeCommands,
+    required TResult Function(List<CommandDto> commands) initializeCommands,
     required TResult Function(GameSettings gameSettings) initializeSettings,
     required TResult Function() startGame,
     required TResult Function() pauseGame,
@@ -428,7 +428,7 @@ class _$_InitializeCategory implements _InitializeCategory {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(Category category)? initializeCategory,
-    TResult? Function(List<Command> commands)? initializeCommands,
+    TResult? Function(List<CommandDto> commands)? initializeCommands,
     TResult? Function(GameSettings gameSettings)? initializeSettings,
     TResult? Function()? startGame,
     TResult? Function()? pauseGame,
@@ -450,7 +450,7 @@ class _$_InitializeCategory implements _InitializeCategory {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(Category category)? initializeCategory,
-    TResult Function(List<Command> commands)? initializeCommands,
+    TResult Function(List<CommandDto> commands)? initializeCommands,
     TResult Function(GameSettings gameSettings)? initializeSettings,
     TResult Function()? startGame,
     TResult Function()? pauseGame,
@@ -558,7 +558,7 @@ abstract class _$$_InitializeCommandsCopyWith<$Res> {
           $Res Function(_$_InitializeCommands) then) =
       __$$_InitializeCommandsCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<Command> commands});
+  $Res call({List<CommandDto> commands});
 }
 
 /// @nodoc
@@ -578,7 +578,7 @@ class __$$_InitializeCommandsCopyWithImpl<$Res>
       commands: null == commands
           ? _value._commands
           : commands // ignore: cast_nullable_to_non_nullable
-              as List<Command>,
+              as List<CommandDto>,
     ));
   }
 }
@@ -586,12 +586,12 @@ class __$$_InitializeCommandsCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_InitializeCommands implements _InitializeCommands {
-  const _$_InitializeCommands({required final List<Command> commands})
+  const _$_InitializeCommands({required final List<CommandDto> commands})
       : _commands = commands;
 
-  final List<Command> _commands;
+  final List<CommandDto> _commands;
   @override
-  List<Command> get commands {
+  List<CommandDto> get commands {
     if (_commands is EqualUnmodifiableListView) return _commands;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_commands);
@@ -626,7 +626,7 @@ class _$_InitializeCommands implements _InitializeCommands {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(Category category) initializeCategory,
-    required TResult Function(List<Command> commands) initializeCommands,
+    required TResult Function(List<CommandDto> commands) initializeCommands,
     required TResult Function(GameSettings gameSettings) initializeSettings,
     required TResult Function() startGame,
     required TResult Function() pauseGame,
@@ -648,7 +648,7 @@ class _$_InitializeCommands implements _InitializeCommands {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(Category category)? initializeCategory,
-    TResult? Function(List<Command> commands)? initializeCommands,
+    TResult? Function(List<CommandDto> commands)? initializeCommands,
     TResult? Function(GameSettings gameSettings)? initializeSettings,
     TResult? Function()? startGame,
     TResult? Function()? pauseGame,
@@ -670,7 +670,7 @@ class _$_InitializeCommands implements _InitializeCommands {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(Category category)? initializeCategory,
-    TResult Function(List<Command> commands)? initializeCommands,
+    TResult Function(List<CommandDto> commands)? initializeCommands,
     TResult Function(GameSettings gameSettings)? initializeSettings,
     TResult Function()? startGame,
     TResult Function()? pauseGame,
@@ -763,10 +763,10 @@ class _$_InitializeCommands implements _InitializeCommands {
 }
 
 abstract class _InitializeCommands implements GameEvent {
-  const factory _InitializeCommands({required final List<Command> commands}) =
-      _$_InitializeCommands;
+  const factory _InitializeCommands(
+      {required final List<CommandDto> commands}) = _$_InitializeCommands;
 
-  List<Command> get commands;
+  List<CommandDto> get commands;
   @JsonKey(ignore: true)
   _$$_InitializeCommandsCopyWith<_$_InitializeCommands> get copyWith =>
       throw _privateConstructorUsedError;
@@ -840,7 +840,7 @@ class _$_InitializeSettings implements _InitializeSettings {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(Category category) initializeCategory,
-    required TResult Function(List<Command> commands) initializeCommands,
+    required TResult Function(List<CommandDto> commands) initializeCommands,
     required TResult Function(GameSettings gameSettings) initializeSettings,
     required TResult Function() startGame,
     required TResult Function() pauseGame,
@@ -862,7 +862,7 @@ class _$_InitializeSettings implements _InitializeSettings {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(Category category)? initializeCategory,
-    TResult? Function(List<Command> commands)? initializeCommands,
+    TResult? Function(List<CommandDto> commands)? initializeCommands,
     TResult? Function(GameSettings gameSettings)? initializeSettings,
     TResult? Function()? startGame,
     TResult? Function()? pauseGame,
@@ -884,7 +884,7 @@ class _$_InitializeSettings implements _InitializeSettings {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(Category category)? initializeCategory,
-    TResult Function(List<Command> commands)? initializeCommands,
+    TResult Function(List<CommandDto> commands)? initializeCommands,
     TResult Function(GameSettings gameSettings)? initializeSettings,
     TResult Function()? startGame,
     TResult Function()? pauseGame,
@@ -1026,7 +1026,7 @@ class _$_StartGame implements _StartGame {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(Category category) initializeCategory,
-    required TResult Function(List<Command> commands) initializeCommands,
+    required TResult Function(List<CommandDto> commands) initializeCommands,
     required TResult Function(GameSettings gameSettings) initializeSettings,
     required TResult Function() startGame,
     required TResult Function() pauseGame,
@@ -1048,7 +1048,7 @@ class _$_StartGame implements _StartGame {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(Category category)? initializeCategory,
-    TResult? Function(List<Command> commands)? initializeCommands,
+    TResult? Function(List<CommandDto> commands)? initializeCommands,
     TResult? Function(GameSettings gameSettings)? initializeSettings,
     TResult? Function()? startGame,
     TResult? Function()? pauseGame,
@@ -1070,7 +1070,7 @@ class _$_StartGame implements _StartGame {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(Category category)? initializeCategory,
-    TResult Function(List<Command> commands)? initializeCommands,
+    TResult Function(List<CommandDto> commands)? initializeCommands,
     TResult Function(GameSettings gameSettings)? initializeSettings,
     TResult Function()? startGame,
     TResult Function()? pauseGame,
@@ -1206,7 +1206,7 @@ class _$_PauseGame implements _PauseGame {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(Category category) initializeCategory,
-    required TResult Function(List<Command> commands) initializeCommands,
+    required TResult Function(List<CommandDto> commands) initializeCommands,
     required TResult Function(GameSettings gameSettings) initializeSettings,
     required TResult Function() startGame,
     required TResult Function() pauseGame,
@@ -1228,7 +1228,7 @@ class _$_PauseGame implements _PauseGame {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(Category category)? initializeCategory,
-    TResult? Function(List<Command> commands)? initializeCommands,
+    TResult? Function(List<CommandDto> commands)? initializeCommands,
     TResult? Function(GameSettings gameSettings)? initializeSettings,
     TResult? Function()? startGame,
     TResult? Function()? pauseGame,
@@ -1250,7 +1250,7 @@ class _$_PauseGame implements _PauseGame {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(Category category)? initializeCategory,
-    TResult Function(List<Command> commands)? initializeCommands,
+    TResult Function(List<CommandDto> commands)? initializeCommands,
     TResult Function(GameSettings gameSettings)? initializeSettings,
     TResult Function()? startGame,
     TResult Function()? pauseGame,
@@ -1386,7 +1386,7 @@ class _$_ResumeGame implements _ResumeGame {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(Category category) initializeCategory,
-    required TResult Function(List<Command> commands) initializeCommands,
+    required TResult Function(List<CommandDto> commands) initializeCommands,
     required TResult Function(GameSettings gameSettings) initializeSettings,
     required TResult Function() startGame,
     required TResult Function() pauseGame,
@@ -1408,7 +1408,7 @@ class _$_ResumeGame implements _ResumeGame {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(Category category)? initializeCategory,
-    TResult? Function(List<Command> commands)? initializeCommands,
+    TResult? Function(List<CommandDto> commands)? initializeCommands,
     TResult? Function(GameSettings gameSettings)? initializeSettings,
     TResult? Function()? startGame,
     TResult? Function()? pauseGame,
@@ -1430,7 +1430,7 @@ class _$_ResumeGame implements _ResumeGame {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(Category category)? initializeCategory,
-    TResult Function(List<Command> commands)? initializeCommands,
+    TResult Function(List<CommandDto> commands)? initializeCommands,
     TResult Function(GameSettings gameSettings)? initializeSettings,
     TResult Function()? startGame,
     TResult Function()? pauseGame,
@@ -1566,7 +1566,7 @@ class _$_TimeIsLeft implements _TimeIsLeft {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(Category category) initializeCategory,
-    required TResult Function(List<Command> commands) initializeCommands,
+    required TResult Function(List<CommandDto> commands) initializeCommands,
     required TResult Function(GameSettings gameSettings) initializeSettings,
     required TResult Function() startGame,
     required TResult Function() pauseGame,
@@ -1588,7 +1588,7 @@ class _$_TimeIsLeft implements _TimeIsLeft {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(Category category)? initializeCategory,
-    TResult? Function(List<Command> commands)? initializeCommands,
+    TResult? Function(List<CommandDto> commands)? initializeCommands,
     TResult? Function(GameSettings gameSettings)? initializeSettings,
     TResult? Function()? startGame,
     TResult? Function()? pauseGame,
@@ -1610,7 +1610,7 @@ class _$_TimeIsLeft implements _TimeIsLeft {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(Category category)? initializeCategory,
-    TResult Function(List<Command> commands)? initializeCommands,
+    TResult Function(List<CommandDto> commands)? initializeCommands,
     TResult Function(GameSettings gameSettings)? initializeSettings,
     TResult Function()? startGame,
     TResult Function()? pauseGame,
@@ -1746,7 +1746,7 @@ class _$_SkipWord implements _SkipWord {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(Category category) initializeCategory,
-    required TResult Function(List<Command> commands) initializeCommands,
+    required TResult Function(List<CommandDto> commands) initializeCommands,
     required TResult Function(GameSettings gameSettings) initializeSettings,
     required TResult Function() startGame,
     required TResult Function() pauseGame,
@@ -1768,7 +1768,7 @@ class _$_SkipWord implements _SkipWord {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(Category category)? initializeCategory,
-    TResult? Function(List<Command> commands)? initializeCommands,
+    TResult? Function(List<CommandDto> commands)? initializeCommands,
     TResult? Function(GameSettings gameSettings)? initializeSettings,
     TResult? Function()? startGame,
     TResult? Function()? pauseGame,
@@ -1790,7 +1790,7 @@ class _$_SkipWord implements _SkipWord {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(Category category)? initializeCategory,
-    TResult Function(List<Command> commands)? initializeCommands,
+    TResult Function(List<CommandDto> commands)? initializeCommands,
     TResult Function(GameSettings gameSettings)? initializeSettings,
     TResult Function()? startGame,
     TResult Function()? pauseGame,
@@ -1926,7 +1926,7 @@ class _$_CountWord implements _CountWord {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(Category category) initializeCategory,
-    required TResult Function(List<Command> commands) initializeCommands,
+    required TResult Function(List<CommandDto> commands) initializeCommands,
     required TResult Function(GameSettings gameSettings) initializeSettings,
     required TResult Function() startGame,
     required TResult Function() pauseGame,
@@ -1948,7 +1948,7 @@ class _$_CountWord implements _CountWord {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(Category category)? initializeCategory,
-    TResult? Function(List<Command> commands)? initializeCommands,
+    TResult? Function(List<CommandDto> commands)? initializeCommands,
     TResult? Function(GameSettings gameSettings)? initializeSettings,
     TResult? Function()? startGame,
     TResult? Function()? pauseGame,
@@ -1970,7 +1970,7 @@ class _$_CountWord implements _CountWord {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(Category category)? initializeCategory,
-    TResult Function(List<Command> commands)? initializeCommands,
+    TResult Function(List<CommandDto> commands)? initializeCommands,
     TResult Function(GameSettings gameSettings)? initializeSettings,
     TResult Function()? startGame,
     TResult Function()? pauseGame,
@@ -2142,7 +2142,7 @@ class _$_ChangeAnswer implements _ChangeAnswer {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(Category category) initializeCategory,
-    required TResult Function(List<Command> commands) initializeCommands,
+    required TResult Function(List<CommandDto> commands) initializeCommands,
     required TResult Function(GameSettings gameSettings) initializeSettings,
     required TResult Function() startGame,
     required TResult Function() pauseGame,
@@ -2164,7 +2164,7 @@ class _$_ChangeAnswer implements _ChangeAnswer {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(Category category)? initializeCategory,
-    TResult? Function(List<Command> commands)? initializeCommands,
+    TResult? Function(List<CommandDto> commands)? initializeCommands,
     TResult? Function(GameSettings gameSettings)? initializeSettings,
     TResult? Function()? startGame,
     TResult? Function()? pauseGame,
@@ -2186,7 +2186,7 @@ class _$_ChangeAnswer implements _ChangeAnswer {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(Category category)? initializeCategory,
-    TResult Function(List<Command> commands)? initializeCommands,
+    TResult Function(List<CommandDto> commands)? initializeCommands,
     TResult Function(GameSettings gameSettings)? initializeSettings,
     TResult Function()? startGame,
     TResult Function()? pauseGame,
@@ -2328,7 +2328,7 @@ class _$_MoveResultWatched implements _MoveResultWatched {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(Category category) initializeCategory,
-    required TResult Function(List<Command> commands) initializeCommands,
+    required TResult Function(List<CommandDto> commands) initializeCommands,
     required TResult Function(GameSettings gameSettings) initializeSettings,
     required TResult Function() startGame,
     required TResult Function() pauseGame,
@@ -2350,7 +2350,7 @@ class _$_MoveResultWatched implements _MoveResultWatched {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(Category category)? initializeCategory,
-    TResult? Function(List<Command> commands)? initializeCommands,
+    TResult? Function(List<CommandDto> commands)? initializeCommands,
     TResult? Function(GameSettings gameSettings)? initializeSettings,
     TResult? Function()? startGame,
     TResult? Function()? pauseGame,
@@ -2372,7 +2372,7 @@ class _$_MoveResultWatched implements _MoveResultWatched {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(Category category)? initializeCategory,
-    TResult Function(List<Command> commands)? initializeCommands,
+    TResult Function(List<CommandDto> commands)? initializeCommands,
     TResult Function(GameSettings gameSettings)? initializeSettings,
     TResult Function()? startGame,
     TResult Function()? pauseGame,
@@ -2508,7 +2508,7 @@ class _$_ResetGame implements _ResetGame {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(Category category) initializeCategory,
-    required TResult Function(List<Command> commands) initializeCommands,
+    required TResult Function(List<CommandDto> commands) initializeCommands,
     required TResult Function(GameSettings gameSettings) initializeSettings,
     required TResult Function() startGame,
     required TResult Function() pauseGame,
@@ -2530,7 +2530,7 @@ class _$_ResetGame implements _ResetGame {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(Category category)? initializeCategory,
-    TResult? Function(List<Command> commands)? initializeCommands,
+    TResult? Function(List<CommandDto> commands)? initializeCommands,
     TResult? Function(GameSettings gameSettings)? initializeSettings,
     TResult? Function()? startGame,
     TResult? Function()? pauseGame,
@@ -2552,7 +2552,7 @@ class _$_ResetGame implements _ResetGame {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(Category category)? initializeCategory,
-    TResult Function(List<Command> commands)? initializeCommands,
+    TResult Function(List<CommandDto> commands)? initializeCommands,
     TResult Function(GameSettings gameSettings)? initializeSettings,
     TResult Function()? startGame,
     TResult Function()? pauseGame,
@@ -2688,7 +2688,7 @@ class _$_ResetGameHistory implements _ResetGameHistory {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(Category category) initializeCategory,
-    required TResult Function(List<Command> commands) initializeCommands,
+    required TResult Function(List<CommandDto> commands) initializeCommands,
     required TResult Function(GameSettings gameSettings) initializeSettings,
     required TResult Function() startGame,
     required TResult Function() pauseGame,
@@ -2710,7 +2710,7 @@ class _$_ResetGameHistory implements _ResetGameHistory {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(Category category)? initializeCategory,
-    TResult? Function(List<Command> commands)? initializeCommands,
+    TResult? Function(List<CommandDto> commands)? initializeCommands,
     TResult? Function(GameSettings gameSettings)? initializeSettings,
     TResult? Function()? startGame,
     TResult? Function()? pauseGame,
@@ -2732,7 +2732,7 @@ class _$_ResetGameHistory implements _ResetGameHistory {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(Category category)? initializeCategory,
-    TResult Function(List<Command> commands)? initializeCommands,
+    TResult Function(List<CommandDto> commands)? initializeCommands,
     TResult Function(GameSettings gameSettings)? initializeSettings,
     TResult Function()? startGame,
     TResult Function()? pauseGame,
@@ -2868,7 +2868,7 @@ class _$_ResetLastGame implements _ResetLastGame {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(Category category) initializeCategory,
-    required TResult Function(List<Command> commands) initializeCommands,
+    required TResult Function(List<CommandDto> commands) initializeCommands,
     required TResult Function(GameSettings gameSettings) initializeSettings,
     required TResult Function() startGame,
     required TResult Function() pauseGame,
@@ -2890,7 +2890,7 @@ class _$_ResetLastGame implements _ResetLastGame {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(Category category)? initializeCategory,
-    TResult? Function(List<Command> commands)? initializeCommands,
+    TResult? Function(List<CommandDto> commands)? initializeCommands,
     TResult? Function(GameSettings gameSettings)? initializeSettings,
     TResult? Function()? startGame,
     TResult? Function()? pauseGame,
@@ -2912,7 +2912,7 @@ class _$_ResetLastGame implements _ResetLastGame {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(Category category)? initializeCategory,
-    TResult Function(List<Command> commands)? initializeCommands,
+    TResult Function(List<CommandDto> commands)? initializeCommands,
     TResult Function(GameSettings gameSettings)? initializeSettings,
     TResult Function()? startGame,
     TResult Function()? pauseGame,

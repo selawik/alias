@@ -4,13 +4,14 @@ import 'package:alias/feature/game/data/model/game_dto.dart';
 import 'package:alias/feature/game/data/model/word_dto.dart';
 import 'package:dartz/dartz.dart';
 
-import 'package:alias/feature/commands/data/models/command.dart';
+import 'package:alias/feature/commands/data/models/command_dto.dart';
 
 abstract class DictionaryRemoteDataSource {
-  Future<Iterable<WordDto>> loadWords({int? lastLocalWordId});
+  Future<Iterable<WordDto>> loadWords({int? startFromId});
   Future<Iterable<CategoryDto>> loadCategories({int? startFromId});
-  Future<Iterable<Command>> loadCommands();
+  Future<Iterable<CommandDto>> loadCommands({int? startFromId});
 
   Future<CategoryDto> loadLastCategory();
   Future<WordDto> loadLastWord();
+  Future<CommandDto> loadLastCommand();
 }

@@ -1,14 +1,14 @@
 import 'package:alias/core/constants/app_colors.dart';
 import 'package:alias/core/constants/assets_catalog.dart';
 import 'package:alias/core/theme/theme_builder.dart';
-import 'package:alias/feature/commands/data/models/command.dart';
+import 'package:alias/feature/commands/data/models/command_dto.dart';
 import 'package:alias/feature/commands/presentation/bloc/commands_bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CommandListItem extends StatelessWidget {
-  final Command command;
+  final CommandDto command;
 
   const CommandListItem({
     Key? key,
@@ -48,7 +48,7 @@ class CommandListItem extends StatelessWidget {
     );
   }
 
-  Widget _buildRemoveButton(BuildContext context, Command command) {
+  Widget _buildRemoveButton(BuildContext context, CommandDto command) {
     var bloc = BlocProvider.of<CommandsBloc>(context);
 
     return CupertinoButton(

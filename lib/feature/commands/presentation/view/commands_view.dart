@@ -2,7 +2,7 @@ import 'package:alias/core/injection.dart' as di;
 import 'package:alias/core/router/app_router.dart';
 import 'package:alias/core/theme/theme_builder.dart';
 import 'package:alias/core/widget/custom_progress_indicator.dart';
-import 'package:alias/feature/commands/data/models/command.dart';
+import 'package:alias/feature/commands/data/models/command_dto.dart';
 import 'package:alias/feature/commands/presentation/bloc/commands_bloc.dart';
 import 'package:alias/feature/commands/presentation/view/widget/command_list_item.dart';
 import 'package:alias/feature/game/presentation/bloc/game_bloc.dart';
@@ -52,7 +52,7 @@ class CommandsView extends StatelessWidget {
 
   Widget _buildCommandsList(
     BuildContext context,
-    List<Command> addedCommands,
+    List<CommandDto> addedCommands,
   ) {
     return ListView.separated(
       shrinkWrap: true,

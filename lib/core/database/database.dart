@@ -3,10 +3,12 @@
 import 'dart:io';
 
 import 'package:alias/core/database/dao/category_dao.dart';
+import 'package:alias/core/database/dao/command_dao.dart';
 import 'package:alias/core/database/dao/game_dao.dart';
 import 'package:alias/core/database/dao/played_word_dao.dart';
 import 'package:alias/core/database/dao/word_dao.dart';
 import 'package:alias/core/database/tables/category.dart';
+import 'package:alias/core/database/tables/command.dart';
 import 'package:alias/core/database/tables/game.dart';
 import 'package:alias/core/database/tables/played_word.dart';
 import 'package:alias/core/database/tables/words.dart';
@@ -24,12 +26,14 @@ part 'database.g.dart';
   CategoryTable,
   PlayedWord,
   GameTable,
-  WordsTable
+  WordsTable,
+  CommandTable,
 ], daos: [
   PlayedWordDao,
   GameDao,
   CategoryDao,
-  WordDao
+  WordDao,
+  CommandDao,
 ])
 @singleton
 class Database extends _$Database {

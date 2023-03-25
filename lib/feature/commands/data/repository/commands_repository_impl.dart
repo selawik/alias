@@ -1,6 +1,6 @@
 import 'package:alias/core/error/failure.dart';
 import 'package:alias/feature/commands/data/data_source/commands_data_source.dart';
-import 'package:alias/feature/commands/data/models/command.dart';
+import 'package:alias/feature/commands/data/models/command_dto.dart';
 import 'package:alias/feature/commands/domain/repository/commands_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
@@ -12,7 +12,7 @@ class CommandsRepositoryImpl implements CommandsRepository {
   CommandsRepositoryImpl({required this.dataSource});
 
   @override
-  Future<Either<Failure, List<Command>>> loadCommands() async {
+  Future<Either<Failure, List<CommandDto>>> loadCommands() async {
     try {
       final result = await dataSource.getAllCommands();
 
