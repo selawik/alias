@@ -11,12 +11,12 @@ class DriftCategoryDataSource implements CategoryLocalDataSource {
       : _dbProvider = dbProvider;
 
   @override
-  Future<Iterable<CategoryDto>> getAllCategories() async {
+  Future<Iterable<CategoryDto>> loadAllCategories() async {
     return await _dbProvider.loadCategories();
   }
 
   @override
-  Future<int> getCategoryWordsCount(int categoryId) async {
-    return await _dbProvider.getCategoryWordsCount(categoryId: categoryId);
+  Future<int> loadCategoryWordsCount(int categoryId) async {
+    return await _dbProvider.loadCategoryWordsCount(categoryId: categoryId);
   }
 }

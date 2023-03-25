@@ -66,7 +66,7 @@ class WordsUseCasesFacade {
     );
   }
 
-  Future<Either<Failure, Iterable<Word>>> getPlayedWords({
+  Future<Either<Failure, Iterable<Word>>> loadPlayedWords({
     required Category category,
   }) async {
     return await _getPlayedWords.execute(
@@ -74,12 +74,16 @@ class WordsUseCasesFacade {
     );
   }
 
+  Future<Either<Failure, Game?>> loadUnfinishedGame() async {
+    return await _getUnfinishedGame.execute();
+  }
+
   Future<Either<Failure, void>> resetGameHistory() async {
     return await _resetGameHistory.execute();
   }
 
-  Future<Either<Failure, Game?>> loadUnfinishedGame() async {
-    return await _getUnfinishedGame.execute();
+  Future<Either<Failure, void>> resetUnfinishedGame() async {
+    return await _resetUnfinishedGame.execute();
   }
 
   Future<Either<Failure, void>> saveStartedGame({
@@ -92,9 +96,5 @@ class WordsUseCasesFacade {
       gameSettings: settings,
       commands: commands,
     );
-  }
-
-  Future<Either<Failure, void>> resetUnfinishedGame() async {
-    return await _resetUnfinishedGame.execute();
   }
 }

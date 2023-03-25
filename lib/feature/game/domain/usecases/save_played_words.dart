@@ -11,6 +11,6 @@ class SavePlayedWords {
   SavePlayedWords({required this.repository});
 
   Future<Either<Failure, void>> execute({required List<Word> words}) async {
-    return await repository.setPlayedWords(words: words);
+    return await repository.savePlayedWords(words: words);
   }
 }

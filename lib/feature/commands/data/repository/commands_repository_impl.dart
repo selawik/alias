@@ -25,7 +25,7 @@ class CommandsRepositoryImpl implements CommandsRepository {
   @override
   Future<Either<Failure, List<Command>>> loadCommands() async {
     try {
-      final result = await _localDataSource.getAllCommands();
+      final result = await _localDataSource.loadAllCommands();
 
       if (result.isEmpty) {
         return const Left(NoDataFailure('There is no commands'));

@@ -36,85 +36,6 @@ class DictionaryRepositoryImpl implements DictionaryRepository {
         _commandMapper = commandMapper;
 
   @override
-  Future<Either<Failure, Iterable<Category>>> loadCategories(
-      {int? startFromId}) async {
-    try {
-      var categoryDtos =
-          await _remoteDataSource.loadCategories(startFromId: startFromId);
-
-      return Right(
-          categoryDtos.map((dto) => _categoryMapper.mapToModel(dto)).toList());
-    } catch (e, stacktrace) {
-      log(e.toString(), stackTrace: stacktrace);
-      return const Left(ServerFailure('Error during loading categories'));
-    }
-  }
-
-  @override
-  Future<Either<Failure, int?>> getLastLocalCategoryId() async {
-    try {
-      var lastCategoryId = await _localDataSource.getLastCategoryId();
-
-      return Right(lastCategoryId);
-    } catch (e, stacktrace) {
-      log(e.toString(), stackTrace: stacktrace);
-      return const Left(ServerFailure('Error during loading category'));
-    }
-  }
-
-  @override
-  Future<Either<Failure, int>> getLastRemoteCategoryId() async {
-    try {
-      var categoryDto = await _remoteDataSource.loadLastCategory();
-
-      return Right(categoryDto.categoryId);
-    } catch (e, stacktrace) {
-      log(e.toString(), stackTrace: stacktrace);
-      return const Left(ServerFailure('Error during loading last category'));
-    }
-  }
-
-  @override
-  Future<Either<Failure, int?>> getLastLocalWordId() async {
-    try {
-      var lastWordId = await _localDataSource.getLastWordId();
-
-      return Right(lastWordId);
-    } catch (e, stacktrace) {
-      log(e.toString(), stackTrace: stacktrace);
-      return const Left(ServerFailure('Error during loading words'));
-    }
-  }
-
-  @override
-  Future<Either<Failure, int>> getLastRemoteWordId() async {
-    try {
-      var wordDto = await _remoteDataSource.loadLastWord();
-
-      return Right(wordDto.wordId);
-    } catch (e, stacktrace) {
-      log(e.toString(), stackTrace: stacktrace);
-      return const Left(ServerFailure('Error during loading last category'));
-    }
-  }
-
-  @override
-  Future<Either<Failure, Iterable<Word>>> loadWordsBatch({
-    int? startFromId,
-  }) async {
-    try {
-      var wordDtos =
-          await _remoteDataSource.loadWords(startFromId: startFromId);
-      var words = wordDtos.map((dto) => _wordsMapper.mapToModel(dto));
-
-      return Right(words.toList());
-    } catch (e, stacktrace) {
-      log(e.toString(), stackTrace: stacktrace);
-      return const Left(ServerFailure('Error during loading last category'));
-    }
-  }
-
-  @override
   Future<Either<Failure, void>> saveWords({required List<Word> words}) async {
     try {
       var wordDtos = words.map((word) => _wordsMapper.mapFromModel(word));
@@ -149,9 +70,104 @@ class DictionaryRepositoryImpl implements DictionaryRepository {
   }
 
   @override
-  Future<Either<Failure, int?>> getLastLocalCommandId() async {
+  Future<Either<Failure, void>> saveCommands(
+      {required Iterable<Command> commands}) async {
     try {
-      var categoryDto = await _localDataSource.getLastCommandId();
+      var commandDtos =
+          commands.map((command) => _commandMapper.mapFromModel(command));
+
+      return Right(
+        await _localDataSource.saveCommands(commands: commandDtos),
+      );
+    } catch (e, stacktrace) {
+      log(e.toString(), stackTrace: stacktrace);
+      return const Left(ServerFailure('Error during loading category'));
+    }
+  }
+
+  @override
+  Future<Either<Failure, Iterable<Category>>> loadCategories(
+      {int? startFromId}) async {
+    try {
+      var categoryDtos =
+          await _remoteDataSource.loadCategories(startFromId: startFromId);
+
+      return Right(
+          categoryDtos.map((dto) => _categoryMapper.mapToModel(dto)).toList());
+    } catch (e, stacktrace) {
+      log(e.toString(), stackTrace: stacktrace);
+      return const Left(ServerFailure('Error during loading categories'));
+    }
+  }
+
+  @override
+  Future<Either<Failure, int?>> loadLastLocalCategoryId() async {
+    try {
+      var lastCategoryId = await _localDataSource.loadLastCategoryId();
+
+      return Right(lastCategoryId);
+    } catch (e, stacktrace) {
+      log(e.toString(), stackTrace: stacktrace);
+      return const Left(ServerFailure('Error during loading category'));
+    }
+  }
+
+  @override
+  Future<Either<Failure, int>> loadLastRemoteCategoryId() async {
+    try {
+      var categoryDto = await _remoteDataSource.loadLastCategory();
+
+      return Right(categoryDto.categoryId);
+    } catch (e, stacktrace) {
+      log(e.toString(), stackTrace: stacktrace);
+      return const Left(ServerFailure('Error during loading last category'));
+    }
+  }
+
+  @override
+  Future<Either<Failure, int?>> loadLastLocalWordId() async {
+    try {
+      var lastWordId = await _localDataSource.loadLastWordId();
+
+      return Right(lastWordId);
+    } catch (e, stacktrace) {
+      log(e.toString(), stackTrace: stacktrace);
+      return const Left(ServerFailure('Error during loading words'));
+    }
+  }
+
+  @override
+  Future<Either<Failure, int>> loadLastRemoteWordId() async {
+    try {
+      var wordDto = await _remoteDataSource.loadLastWord();
+
+      return Right(wordDto.wordId);
+    } catch (e, stacktrace) {
+      log(e.toString(), stackTrace: stacktrace);
+      return const Left(ServerFailure('Error during loading last category'));
+    }
+  }
+
+  @override
+  Future<Either<Failure, Iterable<Word>>> loadWordsBatch({
+    int? startFromId,
+  }) async {
+    try {
+      var wordDtos =
+          await _remoteDataSource.loadWords(startFromId: startFromId);
+      var words = wordDtos.map((dto) => _wordsMapper.mapToModel(dto));
+
+      return Right(words.toList());
+    } catch (e, stacktrace) {
+      log(e.toString(), stackTrace: stacktrace);
+      return const Left(ServerFailure('Error during loading last category'));
+    }
+  }
+
+  @override
+  Future<Either<Failure, int?>> loadLastLocalCommandId() async {
+    try {
+      var categoryDto = await _localDataSource.loadLastCommandId();
 
       return Right(categoryDto);
     } catch (e, stacktrace) {
@@ -161,7 +177,7 @@ class DictionaryRepositoryImpl implements DictionaryRepository {
   }
 
   @override
-  Future<Either<Failure, int>> getLastRemoteCommandId() async {
+  Future<Either<Failure, int>> loadLastRemoteCommandId() async {
     try {
       var commandDto = await _remoteDataSource.loadLastCommand();
 
@@ -184,22 +200,6 @@ class DictionaryRepositoryImpl implements DictionaryRepository {
     } catch (e, stacktrace) {
       log(e.toString(), stackTrace: stacktrace);
       return const Left(ServerFailure('Error during loading categories'));
-    }
-  }
-
-  @override
-  Future<Either<Failure, void>> saveCommands(
-      {required Iterable<Command> commands}) async {
-    try {
-      var commandDtos =
-          commands.map((command) => _commandMapper.mapFromModel(command));
-
-      return Right(
-        await _localDataSource.saveCommands(commands: commandDtos),
-      );
-    } catch (e, stacktrace) {
-      log(e.toString(), stackTrace: stacktrace);
-      return const Left(ServerFailure('Error during loading category'));
     }
   }
 }

@@ -27,17 +27,17 @@ class DriftDictionaryDataSource implements DictionaryLocalDataSource {
   }
 
   @override
-  Future<int?> getLastCategoryId() async {
-    return await _dbProvider.getLastCategoryId();
+  Future<int?> loadLastCategoryId() async {
+    return await _dbProvider.loadLastCategoryId();
   }
 
   @override
-  Future<int?> getLastWordId() async {
-    return await _dbProvider.getLastWordId();
+  Future<int?> loadLastWordId() async {
+    return await _dbProvider.loadLastWordId();
   }
 
   @override
-  Future<int?> getLastCommandId() async {
-   return await _dbProvider.getLastCommandId();
+  Future<int?> loadLastCommandId() async {
+   return await _dbProvider.loadLastCommandId();
   }
 }

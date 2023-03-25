@@ -11,7 +11,7 @@ class DriftCommandsLocalDataSource implements CommandsLocalDataSource {
       : _dbProvider = dbProvider;
 
   @override
-  Future<Iterable<CommandDto>> getAllCommands() async {
+  Future<Iterable<CommandDto>> loadAllCommands() async {
     return await _dbProvider.loadCommands();
   }
 }

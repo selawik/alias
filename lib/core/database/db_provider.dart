@@ -29,26 +29,12 @@ class DbProvider {
     }
   }
 
-  Future<List<Word>> getPlayedWords({required Category category}) async {
-    return (await _db.playedWordDao.getPlayedWordsOfCategory(category))
-        .map((e) => Word(
-              wordId: e.playedWordId,
-              name: e.name,
-              categoryId: e.categoryId,
-            ))
-        .toList();
-  }
-
   Future<void> resetGameHistory() async {
     await _db.playedWordDao.deleteWords();
   }
 
   Future<void> resetUnfinishedGame() async {
     await _db.gameDao.deleteUnfinishedGame();
-  }
-
-  Future<GameDbEntity?> getUnfinishedGame() async {
-    return await _db.gameDao.getUnfinishedGame();
   }
 
   Future<void> saveStartedGame({required GameDto gameDto}) async {
@@ -61,18 +47,6 @@ class DbProvider {
         moveDuration: gameDto.moveTime,
       ),
     );
-  }
-
-  Future<int?> getLastCategoryId() async {
-    return await _db.categoryDao.getLastCategoryId();
-  }
-
-  Future<int?> getLastWordId() async {
-    return await _db.wordDao.getLastWordId();
-  }
-
-  Future<int?> getLastCommandId() async {
-    return await _db.commandDao.getLastCommandId();
   }
 
   Future<void> saveCategories(Iterable<CategoryDto> categories) async {
@@ -109,7 +83,19 @@ class DbProvider {
     return await _db.commandDao.saveCommands(commandCompanions);
   }
 
-  Future<Iterable<WordDto>> getWords({
+  Future<int?> loadLastCategoryId() async {
+    return await _db.categoryDao.getLastCategoryId();
+  }
+
+  Future<int?> loadLastWordId() async {
+    return await _db.wordDao.getLastWordId();
+  }
+
+  Future<int?> loadLastCommandId() async {
+    return await _db.commandDao.getLastCommandId();
+  }
+
+  Future<Iterable<WordDto>> loadWords({
     required int categoryId,
     required int limit,
     Iterable<int>? playedIds,
@@ -142,7 +128,21 @@ class DbProvider {
     );
   }
 
-  Future<int> getCategoryWordsCount({required int categoryId}) async {
+  Future<int> loadCategoryWordsCount({required int categoryId}) async {
     return await _db.wordDao.getCategoryWordsCount(categoryId: categoryId);
+  }
+
+  Future<List<Word>> loadPlayedWords({required Category category}) async {
+    return (await _db.playedWordDao.getPlayedWordsOfCategory(category))
+        .map((e) => Word(
+              wordId: e.playedWordId,
+              name: e.name,
+              categoryId: e.categoryId,
+            ))
+        .toList();
+  }
+
+  Future<GameDbEntity?> loadUnfinishedGame() async {
+    return await _db.gameDao.getUnfinishedGame();
   }
 }

@@ -9,9 +9,9 @@ abstract class DictionaryLocalDataSource {
 
   Future<void> saveCategories({required Iterable<CategoryDto> categories});
 
-  Future<int?> getLastCategoryId();
+  Future<int?> loadLastCategoryId();
 
-  Future<int?> getLastWordId();
+  Future<int?> loadLastWordId();
 
-  Future<int?> getLastCommandId();
+  Future<int?> loadLastCommandId();
 }

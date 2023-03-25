@@ -27,7 +27,7 @@ class CategoryRepositoryImpl implements CategoryRepository {
   @override
   Future<Either<Failure, List<Category>>> loadCategories() async {
     try {
-      final categoriesDto = await _localDataSource.getAllCategories();
+      final categoriesDto = await _localDataSource.loadAllCategories();
 
       if (categoriesDto.isEmpty) {
         return const Left(NoDataFailure('There is no categories'));
@@ -37,7 +37,7 @@ class CategoryRepositoryImpl implements CategoryRepository {
 
       for (var categoryDto in categoriesDto) {
         var categoryWordsCount = await _localDataSource
-            .getCategoryWordsCount(categoryDto.categoryId);
+            .loadCategoryWordsCount(categoryDto.categoryId);
 
         var imageUrl =
             'https://s0.rbk.ru/v6_top_pics/resized/590xH/media/img/1/83/756079611261831.jpg';
