@@ -8,7 +8,7 @@ class CategoryDto with _$CategoryDto {
   const factory CategoryDto({
     required int categoryId,
     required String name,
-    required String fileName,
+    String? fileName,
     @Default(0) int wordsCount,
     String? fileUrl,
   }) = _CategoryDto;

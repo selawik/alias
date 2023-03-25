@@ -12,7 +12,7 @@ class PlayedWordDao extends DatabaseAccessor<Database>
     with _$PlayedWordDaoMixin {
   PlayedWordDao(Database db) : super(db);
 
-  Future<List<PlayedWords>> getPlayedWordsOfCategory(Category category) async {
+  Future<List<PlayedWordsDbEntity>> getPlayedWordsOfCategory(Category category) async {
     return await (select(playedWord)
           ..where((tbl) => tbl.categoryId.equals(category.categoryId)))
         .get();

@@ -1,6 +1,6 @@
 import 'package:drift/drift.dart';
 
-@DataClassName('PlayedWords')
+@DataClassName('PlayedWordsDbEntity')
 class PlayedWord extends Table {
   IntColumn get playedWordId => integer().unique()();
   IntColumn get categoryId => integer()();

@@ -25,7 +25,7 @@ class WordDao extends DatabaseAccessor<Database> with _$WordDaoMixin {
     await batch((batch) => batch.insertAll(wordsTable, words));
   }
 
-  Future<Iterable<Word>> getWords({
+  Future<Iterable<WordDbEntity>> getWords({
     required int categoryId,
     required int limit,
     Iterable<int>? playedIds,

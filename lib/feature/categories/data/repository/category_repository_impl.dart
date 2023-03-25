@@ -1,7 +1,8 @@
 import 'dart:developer';
 
 import 'package:alias/core/error/failure.dart';
-import 'package:alias/feature/categories/data/data_source/category_data_source.dart';
+import 'package:alias/feature/categories/data/data_source/category_local_data_source.dart';
+import 'package:alias/feature/categories/data/data_source/category_remote_data_source.dart';
 import 'package:alias/feature/categories/data/mapper/category_mapper.dart';
 import 'package:alias/feature/categories/domain/models/category.dart';
 import 'package:alias/feature/categories/domain/repository/category_repository.dart';
@@ -11,19 +12,22 @@ import 'package:injectable/injectable.dart';
 
 @Injectable(as: CategoryRepository)
 class CategoryRepositoryImpl implements CategoryRepository {
-  final CategoryDataSource _dataSource;
+  final CategoryRemoteDataSource _remoteDataSource;
+  final CategoryLocalDataSource _localDataSource;
   final CategoryMapper _mapper;
 
   CategoryRepositoryImpl({
-    required CategoryDataSource dataSource,
+    required CategoryRemoteDataSource remoteDataSource,
+    required CategoryLocalDataSource localDataSource,
     required CategoryMapper mapper,
   })  : _mapper = mapper,
-        _dataSource = dataSource;
+        _remoteDataSource = remoteDataSource,
+        _localDataSource = localDataSource;
 
   @override
   Future<Either<Failure, List<Category>>> loadCategories() async {
     try {
-      final categoriesDto = await _dataSource.getAllCategories();
+      final categoriesDto = await _localDataSource.getAllCategories();
 
       if (categoriesDto.isEmpty) {
         return const Left(NoDataFailure('There is no categories'));
@@ -33,12 +37,10 @@ class CategoryRepositoryImpl implements CategoryRepository {
 
       for (var categoryDto in categoriesDto) {
         var categoryWordsCount =
-            await _dataSource.getCategoryWordsCount(categoryDto.categoryId);
+            await _remoteDataSource.getCategoryWordsCount(categoryDto.categoryId);
 
-        var imageUrl = await FirebaseStorage.instance
-            .ref()
-            .child(categoryDto.fileName)
-            .getDownloadURL();
+        var imageUrl =
+            'https://s0.rbk.ru/v6_top_pics/resized/590xH/media/img/1/83/756079611261831.jpg';
 
         categories.add(
           _mapper.mapToModel(
@@ -47,7 +49,6 @@ class CategoryRepositoryImpl implements CategoryRepository {
           ),
         );
       }
-
 
       log(categories.toString());
       return Right(categories);

@@ -1,6 +1,6 @@
 import 'package:drift/drift.dart';
 
-@DataClassName('Category')
+@DataClassName('CategoryDbEntity')
 class CategoryTable extends Table {
   IntColumn get categoryId => integer()();
   TextColumn get name => text()();

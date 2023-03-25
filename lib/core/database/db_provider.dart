@@ -46,7 +46,7 @@ class DbProvider {
     await _db.gameDao.deleteUnfinishedGame();
   }
 
-  Future<Game?> getUnfinishedGame() async {
+  Future<GameDbEntity?> getUnfinishedGame() async {
     return await _db.gameDao.getUnfinishedGame();
   }
 
@@ -106,5 +106,16 @@ class DbProvider {
     return wordDbEntities.map(
       (e) => WordDto(wordId: e.wordId, name: e.name, categoryId: e.categoryId),
     );
+  }
+
+  Future<Iterable<CategoryDto>> loadCategories() async {
+    var categoryEntities = await _db.categoryDao.getCategories();
+
+    return categoryEntities.map((wordEntity) =>
+        CategoryDto(categoryId: wordEntity.categoryId, name: wordEntity.name));
+  }
+
+  Future<int> getCategoryWordsCount({required int categoryId}) async {
+    return await _db.categoryDao.getCategoryWordsCount(categoryId: categoryId);
   }
 }

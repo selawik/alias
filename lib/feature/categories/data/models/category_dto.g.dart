@@ -10,7 +10,7 @@ _$_CategoryDto _$$_CategoryDtoFromJson(Map<String, dynamic> json) =>
     _$_CategoryDto(
       categoryId: json['categoryId'] as int,
       name: json['name'] as String,
-      fileName: json['fileName'] as String,
+      fileName: json['fileName'] as String?,
       wordsCount: json['wordsCount'] as int? ?? 0,
       fileUrl: json['fileUrl'] as String?,
     );

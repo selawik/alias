@@ -3,7 +3,7 @@ import 'package:drift/drift.dart';
 
 import 'package:alias/feature/game_settings/domain/model/command_move_selector_type.dart';
 
-@DataClassName('Game')
+@DataClassName('GameDbEntity')
 class GameTable extends Table {
   IntColumn get gameId => integer().autoIncrement()();
 

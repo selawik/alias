@@ -1,6 +1,6 @@
 import 'package:drift/drift.dart';
 
-@DataClassName('Word')
+@DataClassName('WordDbEntity')
 class WordsTable extends Table {
   IntColumn get wordId => integer()();
 

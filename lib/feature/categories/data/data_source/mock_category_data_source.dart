@@ -1,7 +1,7 @@
-import 'package:alias/feature/categories/data/data_source/category_data_source.dart';
+import 'package:alias/feature/categories/data/data_source/category_remote_data_source.dart';
 import 'package:alias/feature/categories/data/models/category_dto.dart';
 
-class MockCategoryDataSource implements CategoryDataSource {
+class MockCategoryDataSource implements CategoryRemoteDataSource {
   MockCategoryDataSource();
 
   @override

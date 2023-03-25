@@ -2,7 +2,7 @@
 
 import 'package:drift/drift.dart';
 
-@DataClassName('GameCommand')
+@DataClassName('GameCommandDbEntity')
 class GameCommandTable extends Table {
   IntColumn get gameCommandId => integer().autoIncrement()();
 

@@ -22,7 +22,7 @@ CategoryDto _$CategoryDtoFromJson(Map<String, dynamic> json) {
 mixin _$CategoryDto {
   int get categoryId => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  String get fileName => throw _privateConstructorUsedError;
+  String? get fileName => throw _privateConstructorUsedError;
   int get wordsCount => throw _privateConstructorUsedError;
   String? get fileUrl => throw _privateConstructorUsedError;
 
@@ -41,7 +41,7 @@ abstract class $CategoryDtoCopyWith<$Res> {
   $Res call(
       {int categoryId,
       String name,
-      String fileName,
+      String? fileName,
       int wordsCount,
       String? fileUrl});
 }
@@ -61,7 +61,7 @@ class _$CategoryDtoCopyWithImpl<$Res, $Val extends CategoryDto>
   $Res call({
     Object? categoryId = null,
     Object? name = null,
-    Object? fileName = null,
+    Object? fileName = freezed,
     Object? wordsCount = null,
     Object? fileUrl = freezed,
   }) {
@@ -74,10 +74,10 @@ class _$CategoryDtoCopyWithImpl<$Res, $Val extends CategoryDto>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      fileName: null == fileName
+      fileName: freezed == fileName
           ? _value.fileName
           : fileName // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       wordsCount: null == wordsCount
           ? _value.wordsCount
           : wordsCount // ignore: cast_nullable_to_non_nullable
@@ -101,7 +101,7 @@ abstract class _$$_CategoryDtoCopyWith<$Res>
   $Res call(
       {int categoryId,
       String name,
-      String fileName,
+      String? fileName,
       int wordsCount,
       String? fileUrl});
 }
@@ -119,7 +119,7 @@ class __$$_CategoryDtoCopyWithImpl<$Res>
   $Res call({
     Object? categoryId = null,
     Object? name = null,
-    Object? fileName = null,
+    Object? fileName = freezed,
     Object? wordsCount = null,
     Object? fileUrl = freezed,
   }) {
@@ -132,10 +132,10 @@ class __$$_CategoryDtoCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      fileName: null == fileName
+      fileName: freezed == fileName
           ? _value.fileName
           : fileName // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       wordsCount: null == wordsCount
           ? _value.wordsCount
           : wordsCount // ignore: cast_nullable_to_non_nullable
@@ -154,7 +154,7 @@ class _$_CategoryDto implements _CategoryDto {
   const _$_CategoryDto(
       {required this.categoryId,
       required this.name,
-      required this.fileName,
+      this.fileName,
       this.wordsCount = 0,
       this.fileUrl});
 
@@ -166,7 +166,7 @@ class _$_CategoryDto implements _CategoryDto {
   @override
   final String name;
   @override
-  final String fileName;
+  final String? fileName;
   @override
   @JsonKey()
   final int wordsCount;
@@ -216,7 +216,7 @@ abstract class _CategoryDto implements CategoryDto {
   const factory _CategoryDto(
       {required final int categoryId,
       required final String name,
-      required final String fileName,
+      final String? fileName,
       final int wordsCount,
       final String? fileUrl}) = _$_CategoryDto;
 
@@ -228,7 +228,7 @@ abstract class _CategoryDto implements CategoryDto {
   @override
   String get name;
   @override
-  String get fileName;
+  String? get fileName;
   @override
   int get wordsCount;
   @override
