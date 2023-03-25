@@ -14,13 +14,13 @@ class DriftLocalDataSource implements WordsLocalDataSource {
       : _dbProvider = dbProvider;
 
   @override
-  Future<void> setPlayedWords({required List<Word> words}) async {
+  Future<void> savePlayedWords({required List<Word> words}) async {
     await _dbProvider.insertPlayedWords(playedWords: words);
   }
 
   @override
-  Future<List<Word>> getPlayedWords({required Category category}) async {
-    return await _dbProvider.getPlayedWords(category: category);
+  Future<void> saveStartedGame({required GameDto game}) async {
+    await _dbProvider.saveStartedGame(gameDto: game);
   }
 
   @override
@@ -29,8 +29,26 @@ class DriftLocalDataSource implements WordsLocalDataSource {
   }
 
   @override
-  Future<GameDto?> getUnfinishedGame() async {
-    var game = await _dbProvider.getUnfinishedGame();
+  Future<void> resetUnfinishedGame() async {
+    await _dbProvider.resetUnfinishedGame();
+  }
+
+  @override
+  Future<Iterable<WordDto>> loadWords({
+    required int categoryId,
+    required int limit,
+    Iterable<int>? playedIds,
+  }) async {
+    return await _dbProvider.loadWords(
+      categoryId: categoryId,
+      limit: limit,
+      playedIds: playedIds,
+    );
+  }
+
+  @override
+  Future<GameDto?> loadUnfinishedGame() async {
+    var game = await _dbProvider.loadUnfinishedGame();
 
     if (game != null) {
       return GameDto(
@@ -46,25 +64,7 @@ class DriftLocalDataSource implements WordsLocalDataSource {
   }
 
   @override
-  Future<void> saveStartedGame({required GameDto game}) async {
-    await _dbProvider.saveStartedGame(gameDto: game);
-  }
-
-  @override
-  Future<void> resetUnfinishedGame() async {
-    await _dbProvider.resetUnfinishedGame();
-  }
-
-  @override
-  Future<Iterable<WordDto>> loadWords({
-    required int categoryId,
-    required int limit,
-    Iterable<int>? playedIds,
-  }) async {
-    return await _dbProvider.getWords(
-      categoryId: categoryId,
-      limit: limit,
-      playedIds: playedIds,
-    );
+  Future<List<Word>> loadPlayedWords({required Category category}) async {
+    return await _dbProvider.loadPlayedWords(category: category);
   }
 }

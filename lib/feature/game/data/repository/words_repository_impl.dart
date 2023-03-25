@@ -30,79 +30,11 @@ class WordsRepositoryImpl implements WordsRepository {
         _remoteDataSource = remoteDataSource;
 
   @override
-  Future<Either<Failure, List<Word>>> loadWords({
-    required Category category,
-    required int wordCount,
-    Iterable<Word>? playedWords,
-  }) async {
-    try {
-      var playedWordIds = playedWords?.map((e) => e.wordId).toList();
-
-      var result = await _localDataSource.loadWords(
-        categoryId: category.categoryId,
-        limit: wordCount,
-        playedIds: playedWordIds,
-      );
-
-      if (playedWordIds != null) {
-        result = result
-            .where((element) => !playedWordIds.contains(element.wordId))
-            .toList();
-      }
-
-      var words = result.map(_mapper.mapToModel).toList();
-
-      return Right(words);
-    } catch (e, stacktrace) {
-      log(e.toString(), stackTrace: stacktrace);
-      return const Left(ServerFailure('error'));
-    }
-  }
-
-  @override
-  Future<Either<Failure, void>> setPlayedWords({
+  Future<Either<Failure, void>> savePlayedWords({
     required List<Word> words,
   }) async {
     try {
-      return Right(await _localDataSource.setPlayedWords(words: words));
-    } catch (e, stacktrace) {
-      log(e.toString(), stackTrace: stacktrace);
-      return Left(DatabaseFailure(e.toString()));
-    }
-  }
-
-  @override
-  Future<Either<Failure, Iterable<Word>>> getPlayedWords({
-    required Category category,
-  }) async {
-    try {
-      return Right(await _localDataSource.getPlayedWords(category: category));
-    } catch (e, stacktrace) {
-      log(e.toString(), stackTrace: stacktrace);
-      return Left(DatabaseFailure(e.toString()));
-    }
-  }
-
-  @override
-  Future<Either<Failure, void>> resetGameHistory() async {
-    try {
-      return Right(await _localDataSource.resetGameHistory());
-    } catch (e, stacktrace) {
-      log(e.toString(), stackTrace: stacktrace);
-      return Left(DatabaseFailure(e.toString()));
-    }
-  }
-
-  @override
-  Future<Either<Failure, Game?>> loadUnfinishedGame() async {
-    try {
-      var gameDto = await _localDataSource.getUnfinishedGame();
-
-      if (gameDto != null) {
-        return Right(Game(nextPlayingCommandId: gameDto.nextPlayingCommandId));
-      }
-
-      return const Right(null);
+      return Right(await _localDataSource.savePlayedWords(words: words));
     } catch (e, stacktrace) {
       log(e.toString(), stackTrace: stacktrace);
       return Left(DatabaseFailure(e.toString()));
@@ -134,12 +66,80 @@ class WordsRepositoryImpl implements WordsRepository {
   }
 
   @override
+  Future<Either<Failure, void>> resetGameHistory() async {
+    try {
+      return Right(await _localDataSource.resetGameHistory());
+    } catch (e, stacktrace) {
+      log(e.toString(), stackTrace: stacktrace);
+      return Left(DatabaseFailure(e.toString()));
+    }
+  }
+
+  @override
   Future<Either<Failure, void>> resetUnfinishedGame() async {
     try {
       return Right(await _localDataSource.resetUnfinishedGame());
     } catch (e, stacktrace) {
       log(e.toString(), stackTrace: stacktrace);
       return Left(DatabaseFailure(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, Game?>> loadUnfinishedGame() async {
+    try {
+      var gameDto = await _localDataSource.loadUnfinishedGame();
+
+      if (gameDto != null) {
+        return Right(Game(nextPlayingCommandId: gameDto.nextPlayingCommandId));
+      }
+
+      return const Right(null);
+    } catch (e, stacktrace) {
+      log(e.toString(), stackTrace: stacktrace);
+      return Left(DatabaseFailure(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, Iterable<Word>>> loadPlayedWords({
+    required Category category,
+  }) async {
+    try {
+      return Right(await _localDataSource.loadPlayedWords(category: category));
+    } catch (e, stacktrace) {
+      log(e.toString(), stackTrace: stacktrace);
+      return Left(DatabaseFailure(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<Word>>> loadWords({
+    required Category category,
+    required int wordCount,
+    Iterable<Word>? playedWords,
+  }) async {
+    try {
+      var playedWordIds = playedWords?.map((e) => e.wordId).toList();
+
+      var result = await _localDataSource.loadWords(
+        categoryId: category.categoryId,
+        limit: wordCount,
+        playedIds: playedWordIds,
+      );
+
+      if (playedWordIds != null) {
+        result = result
+            .where((element) => !playedWordIds.contains(element.wordId))
+            .toList();
+      }
+
+      var words = result.map(_mapper.mapToModel).toList();
+
+      return Right(words);
+    } catch (e, stacktrace) {
+      log(e.toString(), stackTrace: stacktrace);
+      return const Left(ServerFailure('error'));
     }
   }
 }

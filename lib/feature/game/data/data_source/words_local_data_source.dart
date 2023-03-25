@@ -4,13 +4,13 @@ import 'package:alias/feature/game/data/model/word_dto.dart';
 import 'package:alias/feature/game/domain/model/word.dart';
 
 abstract class WordsLocalDataSource {
-  Future<void> setPlayedWords({required List<Word> words});
+  Future<void> savePlayedWords({required List<Word> words});
 
-  Future<Iterable<Word>> getPlayedWords({required Category category});
+  Future<Iterable<Word>> loadPlayedWords({required Category category});
 
   Future<void> resetGameHistory();
 
-  Future<GameDto?> getUnfinishedGame();
+  Future<GameDto?> loadUnfinishedGame();
 
   Future<void> saveStartedGame({required GameDto game});
 

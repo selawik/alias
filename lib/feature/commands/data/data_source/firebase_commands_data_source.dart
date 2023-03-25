@@ -7,7 +7,7 @@ import 'package:injectable/injectable.dart';
 @Injectable(as: CommandsRemoteDataSource)
 class FirebaseCommandsDataSource implements CommandsRemoteDataSource {
   @override
-  Future<List<CommandDto>> getAllCommands() async {
+  Future<List<CommandDto>> loadAllCommands() async {
     var commandsData = await FirebaseFirestore.instance
         .collection(FirebaseDataStoreCollections.command)
         .get();

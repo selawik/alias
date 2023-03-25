@@ -14,21 +14,21 @@ abstract class WordsRepository {
     Iterable<Word>? playedWords,
   });
 
-  Future<Either<Failure, void>> setPlayedWords({required List<Word> words});
-
-  Future<Either<Failure, Iterable<Word>>> getPlayedWords({
+  Future<Either<Failure, Iterable<Word>>> loadPlayedWords({
     required Category category,
   });
 
-  Future<Either<Failure, void>> resetGameHistory();
-
   Future<Either<Failure, Game?>> loadUnfinishedGame();
+
+  Future<Either<Failure, void>> savePlayedWords({required List<Word> words});
 
   Future<Either<Failure, void>> saveStartedGame({
     required List<PlayingCommand> commands,
     required GameSettings gameSettings,
     required Category category,
   });
+
+  Future<Either<Failure, void>> resetGameHistory();
 
   Future<Either<Failure, void>> resetUnfinishedGame();
 }

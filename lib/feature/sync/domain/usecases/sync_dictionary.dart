@@ -22,8 +22,8 @@ class SyncDictionary {
   }
 
   Future<void> _syncWords() async {
-    var lastLocalWordResult = await _repository.getLastLocalWordId();
-    var lastRemoteWordResult = await _repository.getLastRemoteWordId();
+    var lastLocalWordResult = await _repository.loadLastLocalWordId();
+    var lastRemoteWordResult = await _repository.loadLastRemoteWordId();
 
     if (lastRemoteWordResult.isLeft() || lastLocalWordResult.isLeft()) {
       return;
@@ -70,14 +70,14 @@ class SyncDictionary {
   }
 
   Future<void> _syncCategories() async {
-    var lastLocalCategoryIdResult = await _repository.getLastLocalCategoryId();
+    var lastLocalCategoryIdResult = await _repository.loadLastLocalCategoryId();
 
     if (lastLocalCategoryIdResult.isLeft()) {
       return;
     }
 
     var lastLocalCategoryId = (lastLocalCategoryIdResult as Right).value;
-    var lastRemoteCategoryResult = await _repository.getLastRemoteCategoryId();
+    var lastRemoteCategoryResult = await _repository.loadLastRemoteCategoryId();
 
     if (lastRemoteCategoryResult.isLeft()) {
       return;
@@ -114,13 +114,13 @@ class SyncDictionary {
   }
 
   Future<void> _syncCommand() async {
-    var lastLocalCommandIdResult = await _repository.getLastLocalCommandId();
+    var lastLocalCommandIdResult = await _repository.loadLastLocalCommandId();
 
     if (lastLocalCommandIdResult.isLeft()) {
       return;
     }
 
-    var lastRemoteCommandIdResult = await _repository.getLastRemoteCommandId();
+    var lastRemoteCommandIdResult = await _repository.loadLastRemoteCommandId();
 
     if (lastRemoteCommandIdResult.isLeft()) {
       return;
