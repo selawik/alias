@@ -4,8 +4,8 @@ import 'package:alias/feature/commands/data/models/command_dto.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:injectable/injectable.dart';
 
-@Injectable(as: CommandsDataSource)
-class FirebaseCommandsDataSource implements CommandsDataSource {
+@Injectable(as: CommandsRemoteDataSource)
+class FirebaseCommandsDataSource implements CommandsRemoteDataSource {
   @override
   Future<List<CommandDto>> getAllCommands() async {
     var commandsData = await FirebaseFirestore.instance

@@ -127,8 +127,19 @@ class DbProvider {
   Future<Iterable<CategoryDto>> loadCategories() async {
     var categoryEntities = await _db.categoryDao.getCategories();
 
-    return categoryEntities.map((wordEntity) =>
-        CategoryDto(categoryId: wordEntity.categoryId, name: wordEntity.name));
+    return categoryEntities.map((categoryEntity) => CategoryDto(
+        categoryId: categoryEntity.categoryId, name: categoryEntity.name));
+  }
+
+  Future<Iterable<CommandDto>> loadCommands() async {
+    var commandEntities = await _db.commandDao.getCommands();
+
+    return commandEntities.map(
+      (commandEntity) => CommandDto(
+        commandId: commandEntity.commandId,
+        name: commandEntity.name,
+      ),
+    );
   }
 
   Future<int> getCategoryWordsCount({required int categoryId}) async {

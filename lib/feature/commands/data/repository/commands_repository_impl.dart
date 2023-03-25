@@ -1,5 +1,6 @@
 import 'package:alias/core/error/failure.dart';
 import 'package:alias/feature/commands/data/data_source/commands_data_source.dart';
+import 'package:alias/feature/commands/data/data_source/commands_local_data_source.dart';
 import 'package:alias/feature/commands/data/mapper/command_mapper.dart';
 import 'package:alias/feature/commands/domain/models/command.dart';
 import 'package:alias/feature/commands/domain/repository/commands_repository.dart';
@@ -8,19 +9,23 @@ import 'package:injectable/injectable.dart';
 
 @Injectable(as: CommandsRepository)
 class CommandsRepositoryImpl implements CommandsRepository {
-  final CommandsDataSource _dataSource;
+  final CommandsRemoteDataSource _remoteDataSource;
+  final CommandsLocalDataSource _localDataSource;
+
   final CommandMapper _commandMapper;
 
   CommandsRepositoryImpl({
-    required CommandsDataSource dataSource,
+    required CommandsRemoteDataSource remoteDataSource,
+    required CommandsLocalDataSource localDataSource,
     required CommandMapper commandMapper,
-  })  : _dataSource = dataSource,
-        _commandMapper = commandMapper;
+  })  : _remoteDataSource = remoteDataSource,
+        _commandMapper = commandMapper,
+        _localDataSource = localDataSource;
 
   @override
   Future<Either<Failure, List<Command>>> loadCommands() async {
     try {
-      final result = await _dataSource.getAllCommands();
+      final result = await _localDataSource.getAllCommands();
 
       if (result.isEmpty) {
         return const Left(NoDataFailure('There is no commands'));

@@ -27,7 +27,7 @@ class CommandDao extends DatabaseAccessor<Database> with _$CommandDaoMixin {
     await batch((batch) => batch.insertAll(commandTable, categories));
   }
 
-  Future<Iterable<CommandDbEntity>> getCategories() async {
+  Future<Iterable<CommandDbEntity>> getCommands() async {
     var query = select(commandTable);
 
     return await query.get();

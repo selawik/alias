@@ -1,5 +1,5 @@
 import 'package:alias/feature/commands/data/models/command_dto.dart';
 
-abstract class CommandsDataSource {
+abstract class CommandsRemoteDataSource {
   Future<List<CommandDto>> getAllCommands();
 }
