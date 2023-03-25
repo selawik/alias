@@ -4,7 +4,6 @@ import 'package:alias/core/error/failure.dart';
 import 'package:alias/feature/categories/data/mapper/category_mapper.dart';
 import 'package:alias/feature/categories/domain/models/category.dart';
 import 'package:alias/feature/commands/data/mapper/command_mapper.dart';
-import 'package:alias/feature/commands/data/models/command_dto.dart';
 import 'package:alias/feature/commands/domain/models/command.dart';
 import 'package:alias/feature/game/data/mapper/words_mapper.dart';
 import 'package:alias/feature/game/domain/model/word.dart';

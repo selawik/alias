@@ -12,19 +12,14 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<GameBloc, GameState>(
-      listener: (context, state) {
-        print(state);
+    return BlocBuilder<GameBloc, GameState>(
+      builder: (context, state) {
+        return state.maybeWhen(
+          orElse: () => Container(),
+          waitingForConfig: (game) =>
+              _buildBody(context, canContinueGame: game != null),
+        );
       },
-      child: BlocBuilder<GameBloc, GameState>(
-        builder: (context, state) {
-          return state.maybeWhen(
-            orElse: () => Container(),
-            waitingForConfig: (game) =>
-                _buildBody(context, canContinueGame: game != null),
-          );
-        },
-      ),
     );
   }
 

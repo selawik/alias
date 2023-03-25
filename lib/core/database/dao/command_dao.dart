@@ -1,6 +1,4 @@
-import 'package:alias/core/database/database.dart' hide Category;
 import 'package:alias/core/database/database.dart';
-import 'package:alias/core/database/tables/category.dart';
 import 'package:alias/core/database/tables/command.dart';
 import 'package:drift/drift.dart';
 

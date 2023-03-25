@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:alias/core/error/failure.dart';
 import 'package:alias/feature/commands/data/data_source/commands_data_source.dart';
 import 'package:alias/feature/commands/data/data_source/commands_local_data_source.dart';
@@ -34,8 +36,7 @@ class CommandsRepositoryImpl implements CommandsRepository {
       return Right(
           result.map((dto) => _commandMapper.mapToModel(dto)).toList());
     } catch (e, stacktrace) {
-      print(e.toString());
-      print(stacktrace);
+      log(e.toString(), stackTrace: stacktrace);
       return const Left(ServerFailure('Error'));
     }
   }
