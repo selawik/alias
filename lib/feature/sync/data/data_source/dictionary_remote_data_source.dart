@@ -1,9 +1,5 @@
-import 'package:alias/core/error/failure.dart';
 import 'package:alias/feature/categories/data/models/category_dto.dart';
-import 'package:alias/feature/game/data/model/game_dto.dart';
 import 'package:alias/feature/game/data/model/word_dto.dart';
-import 'package:dartz/dartz.dart';
-
 import 'package:alias/feature/commands/data/models/command_dto.dart';
 
 abstract class DictionaryRemoteDataSource {

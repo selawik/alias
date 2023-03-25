@@ -7,7 +7,6 @@ import 'package:alias/feature/categories/data/mapper/category_mapper.dart';
 import 'package:alias/feature/categories/domain/models/category.dart';
 import 'package:alias/feature/categories/domain/repository/category_repository.dart';
 import 'package:dartz/dartz.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable(as: CategoryRepository)

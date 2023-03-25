@@ -1,6 +1,4 @@
 import 'package:alias/core/mapper/mapper.dart';
-import 'package:alias/feature/categories/data/models/category_dto.dart';
-import 'package:alias/feature/categories/domain/models/category.dart';
 import 'package:alias/feature/commands/data/models/command_dto.dart';
 import 'package:alias/feature/commands/domain/models/command.dart';
 import 'package:injectable/injectable.dart';

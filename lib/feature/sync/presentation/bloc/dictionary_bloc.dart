@@ -1,4 +1,3 @@
-import 'package:alias/feature/sync/domain/repository/dictionary_repository.dart';
 import 'package:alias/feature/sync/domain/usecases/sync_dictionary.dart';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';

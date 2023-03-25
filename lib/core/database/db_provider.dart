@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:alias/core/database/database.dart' hide Category, Word;
+import 'package:alias/core/database/database.dart';
 import 'package:alias/feature/categories/data/models/category_dto.dart';
 import 'package:alias/feature/categories/domain/models/category.dart';
 import 'package:alias/feature/commands/data/models/command_dto.dart';

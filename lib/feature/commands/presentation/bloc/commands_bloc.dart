@@ -1,4 +1,3 @@
-import 'package:alias/feature/commands/data/models/command_dto.dart';
 import 'package:alias/feature/commands/domain/models/command.dart';
 import 'package:alias/feature/commands/domain/usercases/load_commands.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

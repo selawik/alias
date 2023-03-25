@@ -4,7 +4,6 @@ import 'package:alias/feature/game/domain/model/game.dart';
 import 'package:alias/feature/game/domain/model/game_settings.dart';
 import 'package:alias/feature/game/domain/model/playing_command.dart';
 import 'package:alias/feature/game/domain/model/word.dart';
-import 'package:alias/feature/game_settings/domain/model/binary_selector_type.dart';
 import 'package:dartz/dartz.dart';
 
 abstract class WordsRepository {

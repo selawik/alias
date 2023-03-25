@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:alias/core/constants/app_colors.dart';
 import 'package:alias/core/constants/assets_catalog.dart';
 import 'package:alias/core/injection.dart' as di;

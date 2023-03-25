@@ -1,7 +1,4 @@
-import 'dart:developer';
-
 import 'package:alias/feature/categories/domain/models/category.dart';
-import 'package:alias/feature/commands/data/models/command_dto.dart';
 import 'package:alias/feature/commands/domain/models/command.dart';
 import 'package:alias/feature/game/domain/model/game.dart';
 import 'package:alias/feature/game/domain/model/game_answer.dart';
@@ -108,7 +105,8 @@ class GameBloc extends Bloc<GameEvent, GameState> {
   }
 
   Future<Iterable<Word>?> _loadPlayedWords() async {
-    var result = await _wordsUseCasesFacade.loadPlayedWords(category: _category);
+    var result =
+        await _wordsUseCasesFacade.loadPlayedWords(category: _category);
 
     var playedWords = result.fold((failure) => null, (words) => words);
 
