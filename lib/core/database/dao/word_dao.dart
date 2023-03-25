@@ -39,4 +39,11 @@ class WordDao extends DatabaseAccessor<Database> with _$WordDaoMixin {
           ..limit(limit))
         .get();
   }
+
+  Future<int> getCategoryWordsCount({required int categoryId}) async {
+    var query = select(wordsTable)
+      ..where((tbl) => tbl.categoryId.equals(categoryId));
+
+    return (await query.get()).length;
+  }
 }

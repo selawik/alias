@@ -26,14 +26,6 @@ class CategoryDao extends DatabaseAccessor<Database> with _$CategoryDaoMixin {
     await batch((batch) => batch.insertAll(categoryTable, categories));
   }
 
-  Future<int> getCategoryWordsCount({required int categoryId}) async {
-    var query = select(categoryTable)
-      ..where((tbl) => tbl.categoryId.equals(categoryId));
-
-    return (await query.get()).length;
-  }
-
-
   Future<Iterable<CategoryDbEntity>> getCategories() async {
     var query = select(categoryTable);
 

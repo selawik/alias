@@ -116,6 +116,6 @@ class DbProvider {
   }
 
   Future<int> getCategoryWordsCount({required int categoryId}) async {
-    return await _db.categoryDao.getCategoryWordsCount(categoryId: categoryId);
+    return await _db.wordDao.getCategoryWordsCount(categoryId: categoryId);
   }
 }
