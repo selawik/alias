@@ -1,10 +1,8 @@
 import 'package:alias/core/constants/app_colors.dart';
 import 'package:alias/core/theme/theme_builder.dart';
-import 'package:alias/feature/game/presentation/bloc/game_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
-class AnswerButton extends StatelessWidget {
+class AnswerButton extends StatefulWidget {
   final String asset;
   final Color color;
   final void Function() onPress;
@@ -17,18 +15,42 @@ class AnswerButton extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  State<AnswerButton> createState() => _AnswerButtonState();
+}
+
+class _AnswerButtonState extends State<AnswerButton> {
+  static const freezingDuration = Duration(milliseconds: 300);
+
+  bool buttonFreezed = false;
+
+  @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: onPress,
+      onPressed: buttonFreezed ? null : _onAnswerPressed,
       style: ThemeBuilder.blueButtonStyle.copyWith(
         shape: const MaterialStatePropertyAll(CircleBorder()),
         minimumSize: const MaterialStatePropertyAll(Size(100, 100)),
-        backgroundColor: MaterialStatePropertyAll(color),
+        backgroundColor: MaterialStatePropertyAll(widget.color),
       ),
       child: Image.asset(
-        asset,
+        widget.asset,
         color: AppColors.white,
       ),
     );
+  }
+
+  void _onAnswerPressed() {
+    setState(() => buttonFreezed = true);
+
+    Future.delayed(
+      freezingDuration,
+      () {
+        if (mounted) {
+          setState(() => buttonFreezed = false);
+        }
+      },
+    );
+
+    widget.onPress();
   }
 }
