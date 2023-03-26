@@ -2,6 +2,8 @@ import 'package:alias/core/constants/app_colors.dart';
 import 'package:alias/core/constants/assets_catalog.dart';
 import 'package:alias/core/theme/theme_builder.dart';
 import 'package:alias/feature/game/presentation/bloc/game_bloc.dart';
+import 'package:alias/feature/game/presentation/view/game_field/widget/answer_button.dart';
+import 'package:alias/feature/game/presentation/view/game_field/widget/start_game_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -14,28 +16,13 @@ class GameViewFooter extends StatelessWidget {
       builder: (context, state) {
         return state.maybeWhen(
           orElse: () => _buildAnswerButtons(context),
-          gameIsReady: (settings, commands) => _buildStartButton(context),
+          gameIsReady: (settings, commands) => const StartGameButton(),
           waitingForAnswer: (word) => _buildAnswerButtons(context),
         );
       },
     );
   }
 
-  Widget _buildStartButton(BuildContext context) {
-    var gameBloc = BlocProvider.of<GameBloc>(context);
-
-    return Align(
-      alignment: Alignment.bottomCenter,
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        width: MediaQuery.of(context).size.width,
-        child: ElevatedButton(
-          onPressed: () => gameBloc.add(const GameEvent.startGame()),
-          child: const Text('Начать'),
-        ),
-      ),
-    );
-  }
 
   Widget _buildAnswerButtons(BuildContext context) {
     var gameBloc = BlocProvider.of<GameBloc>(context);
@@ -45,32 +32,19 @@ class GameViewFooter extends StatelessWidget {
       child: Row(
         children: [
           Expanded(
-            child: ElevatedButton(
-              onPressed: () => gameBloc.add(const GameEvent.skipWord()),
-              style: ThemeBuilder.blueButtonStyle.copyWith(
-                shape: const MaterialStatePropertyAll(CircleBorder()),
-                minimumSize: const MaterialStatePropertyAll(Size(100, 100)),
-                backgroundColor: const MaterialStatePropertyAll(AppColors.red),
-              ),
-              child: Image.asset(
-                AssetsCatalog.icCross,
-                color: AppColors.white,
-              ),
+            child: AnswerButton(
+              asset: AssetsCatalog.icCross,
+              onPress: () => gameBloc.add(const GameEvent.skipWord()),
+              color: AppColors.red,
             ),
           ),
           const SizedBox(width: 16),
           Expanded(
-            child: ElevatedButton(
-              onPressed: () => gameBloc.add(const GameEvent.countWord()),
-              style: ThemeBuilder.blueButtonStyle.copyWith(
-                minimumSize: const MaterialStatePropertyAll(Size(100, 100)),
-                shape: const MaterialStatePropertyAll(CircleBorder()),
-                backgroundColor:
-                    const MaterialStatePropertyAll(AppColors.green),
-              ),
-              child: Image.asset(AssetsCatalog.icDone, color: AppColors.white),
-            ),
-          ),
+              child: AnswerButton(
+            asset: AssetsCatalog.icDone,
+            onPress: () => gameBloc.add(const GameEvent.countWord()),
+            color: AppColors.green,
+          )),
         ],
       ),
     );
