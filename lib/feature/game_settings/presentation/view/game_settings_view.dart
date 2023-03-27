@@ -103,7 +103,7 @@ class GameSettingsView extends StatelessWidget with SnackbarMixin {
 
   void _onNoWords(BuildContext context) {
     var router = di.locator.get<AppRouter>();
-    router.popUntil((route) => route.settings.name == 'CategoryPageRoute');
+    router.popUntil((route) => route.settings.name == 'HomePageRoute');
 
     showMessage(
       context,
