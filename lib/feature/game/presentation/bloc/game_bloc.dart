@@ -63,17 +63,16 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
   void _onCommandsInitialization(_InitializeCommands event, Emitter emit) {
     _commands = event.commands
-        .map((command) => PlayingCommand(
-              commandId: command.commandId,
-              name: command.name,
-            ))
+        .map((command) =>
+        PlayingCommand(
+          commandId: command.commandId,
+          name: command.name,
+        ))
         .toList();
   }
 
-  void _onSettingsInitialization(
-    _InitializeSettings event,
-    Emitter emit,
-  ) async {
+  void _onSettingsInitialization(_InitializeSettings event,
+      Emitter emit,) async {
     _settings = event.gameSettings;
 
     emit(const GameState.wordsIsLoading());
@@ -112,7 +111,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
   Future<Iterable<Word>?> _loadPlayedWords() async {
     var result =
-        await _wordsUseCasesFacade.loadPlayedWords(category: _category);
+    await _wordsUseCasesFacade.loadPlayedWords(category: _category);
 
     var playedWords = result.fold((failure) => null, (words) => words);
 
@@ -149,8 +148,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     }
   }
 
-  void _onSkipWord(_SkipWord event, Emitter emit) async {
-    emit(GameState.skippingWord(skippingWord: _words.first));
+  void _onSkipWord(_SkipWord event, Emitter emit) {
     var word = _words.first;
 
     _answers.add(GameAnswer(word: word, type: GameAnswerType.skip));
@@ -159,15 +157,13 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     if (_words.isNotEmpty && state is! _LastWord) {
       emit(GameState.waitingForAnswer(word: _words.first));
     } else {
-      await Future.delayed(
-          const Duration(milliseconds: 400),
-          () => emit(
-                GameState.commandMoveIsOver(
-                  command: _getPlayingCommand(),
-                  answers: _answers,
-                  commandScore: _getCommandScore(),
-                ),
-              ));
+      emit(
+        GameState.commandMoveIsOver(
+          command: _getPlayingCommand(),
+          answers: _answers,
+          commandScore: _getCommandScore(),
+        ),
+      );
     }
   }
 
@@ -195,7 +191,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     _answers = List<GameAnswer>.from(_answers);
 
     var index =
-        _answers.indexWhere((element) => element.word == event.answer.word);
+    _answers.indexWhere((element) => element.word == event.answer.word);
 
     _answers[index] =
         event.answer.copyWith(type: event.answer.type.switchedValue);
@@ -236,7 +232,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
     if (_words.isEmpty) {
       _commands.sort(
-          (command1, command2) => command2.score.compareTo(command1.score));
+              (command1, command2) => command2.score.compareTo(command1.score));
       emit(GameState.gameOver(commands: _commands));
     } else {
       emit(GameState.gameIsReady(
@@ -286,8 +282,8 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
   PlayingCommand _getPlayingCommand() {
     return _commands.reduce(
-      (value, element) =>
-          value.playedRoundCount <= element.playedRoundCount ? value : element,
+          (value, element) =>
+      value.playedRoundCount <= element.playedRoundCount ? value : element,
     );
   }
 }

@@ -1,5 +1,5 @@
 import 'package:alias/feature/game/domain/model/word.dart';
-import 'package:alias/feature/game/presentation/bloc/game_bloc.dart';
+import 'package:alias/feature/game/presentation/bloc/answer_bloc.dart';
 import 'package:alias/feature/game/presentation/bloc/game_bloc.dart';
 import 'package:alias/feature/game/presentation/view/game_field/widget/game_word_card.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class AnimatedWordCard extends StatefulWidget {
   final Word word;
 
-  AnimatedWordCard({
+  const AnimatedWordCard({
     Key? key,
     required this.word,
   }) : super(key: key);
@@ -33,6 +33,28 @@ class _AnimatedWordCardState extends State<AnimatedWordCard>
   ));
 
   @override
+  void didUpdateWidget(covariant AnimatedWordCard oldWidget) {
+    super.didUpdateWidget(oldWidget);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    _controller.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        context.read<AnswerBloc>().state.whenOrNull(
+            skipping: () {
+              context.read<GameBloc>().add(const GameEvent.skipWord());
+              context.read<AnswerBloc>().add(const AnswerEvent.reset());
+            },
+            counting: () =>
+                context.read<GameBloc>().add(const GameEvent.countWord()));
+      }
+    });
+  }
+
+  @override
   void dispose() {
     _controller.dispose();
     super.dispose();
@@ -40,13 +62,13 @@ class _AnimatedWordCardState extends State<AnimatedWordCard>
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<GameBloc, GameState>(
+    return BlocListener<AnswerBloc, AnswerState>(
       listener: (context, state) {
         state.maybeWhen(
-            orElse: () {}, skippingWord: (word) {
-              print('123123');
-              return _controller.forward();
-            });
+          orElse: () {},
+          counting: () => _controller.forward(),
+          skipping: () => _controller.forward(),
+        );
       },
       child: SlideTransition(
         position: _offsetAnimation,

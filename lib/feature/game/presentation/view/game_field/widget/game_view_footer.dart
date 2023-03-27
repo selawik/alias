@@ -1,5 +1,6 @@
 import 'package:alias/core/constants/app_colors.dart';
 import 'package:alias/core/constants/assets_catalog.dart';
+import 'package:alias/feature/game/presentation/bloc/answer_bloc.dart';
 import 'package:alias/feature/game/presentation/bloc/game_bloc.dart';
 import 'package:alias/feature/game/presentation/view/game_field/widget/answer_button.dart';
 import 'package:alias/feature/game/presentation/view/game_field/widget/start_game_button.dart';
@@ -24,7 +25,7 @@ class GameViewFooter extends StatelessWidget {
   }
 
   Widget _buildAnswerButtons(BuildContext context) {
-    var gameBloc = BlocProvider.of<GameBloc>(context);
+    var answerBloc = BlocProvider.of<AnswerBloc>(context);
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -33,7 +34,7 @@ class GameViewFooter extends StatelessWidget {
           Expanded(
             child: AnswerButton(
               asset: AssetsCatalog.icCross,
-              onPress: () => gameBloc.add(const GameEvent.skipWord()),
+              onPress: () => answerBloc.add(const AnswerEvent.playSkipAnimation()),
               color: AppColors.red,
             ),
           ),
@@ -41,7 +42,7 @@ class GameViewFooter extends StatelessWidget {
           Expanded(
             child: AnswerButton(
               asset: AssetsCatalog.icDone,
-              onPress: () => gameBloc.add(const GameEvent.countWord()),
+              onPress: () => answerBloc.add(const AnswerEvent.playCountAnimation()),
               color: AppColors.green,
             ),
           ),
