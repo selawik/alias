@@ -11,6 +11,7 @@ class GameState with _$GameState {
   const factory GameState.gameIsReady({
     required GameSettings settings,
     required List<PlayingCommand> commands,
+    required PlayingCommand playingCommand,
   }) = _GameIsReady;
 
   const factory GameState.waitingForAnswer({required Word word}) =

@@ -15,8 +15,8 @@ class CommandsStatsView extends StatelessWidget {
       builder: (context, state) {
         return state.maybeWhen(
           orElse: () => Container(),
-          gameIsReady: (settings, commands) =>
-              _buildStatsView(context, commands),
+          gameIsReady: (settings, commands, nextPlayingCommand) =>
+              _buildStatsView(context, commands, nextPlayingCommand),
           gameOver: (commands) => _buildGameOverView(context, commands),
         );
       },
@@ -40,13 +40,17 @@ class CommandsStatsView extends StatelessWidget {
     );
   }
 
-  Widget _buildStatsView(BuildContext context, List<PlayingCommand> commands) {
+  Widget _buildStatsView(
+    BuildContext context,
+    List<PlayingCommand> commands,
+    PlayingCommand nextPlayingCommand,
+  ) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Expanded(child: CommandsList(commands: commands)),
         const SizedBox(height: 16),
-        _buildNextCommandWidget(context, commands.first),
+        _buildNextCommandWidget(context, nextPlayingCommand),
         const SizedBox(height: 16),
         _buildStartButton(context),
         SizedBox(height: MediaQuery.of(context).padding.bottom + 16),

@@ -19,6 +19,7 @@ mixin _$PlayingCommand {
   int get commandId => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   int get score => throw _privateConstructorUsedError;
+  int get playedRoundCount => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PlayingCommandCopyWith<PlayingCommand> get copyWith =>
@@ -31,7 +32,7 @@ abstract class $PlayingCommandCopyWith<$Res> {
           PlayingCommand value, $Res Function(PlayingCommand) then) =
       _$PlayingCommandCopyWithImpl<$Res, PlayingCommand>;
   @useResult
-  $Res call({int commandId, String name, int score});
+  $Res call({int commandId, String name, int score, int playedRoundCount});
 }
 
 /// @nodoc
@@ -50,6 +51,7 @@ class _$PlayingCommandCopyWithImpl<$Res, $Val extends PlayingCommand>
     Object? commandId = null,
     Object? name = null,
     Object? score = null,
+    Object? playedRoundCount = null,
   }) {
     return _then(_value.copyWith(
       commandId: null == commandId
@@ -64,6 +66,10 @@ class _$PlayingCommandCopyWithImpl<$Res, $Val extends PlayingCommand>
           ? _value.score
           : score // ignore: cast_nullable_to_non_nullable
               as int,
+      playedRoundCount: null == playedRoundCount
+          ? _value.playedRoundCount
+          : playedRoundCount // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -76,7 +82,7 @@ abstract class _$$_PlayingCommandCopyWith<$Res>
       __$$_PlayingCommandCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int commandId, String name, int score});
+  $Res call({int commandId, String name, int score, int playedRoundCount});
 }
 
 /// @nodoc
@@ -93,6 +99,7 @@ class __$$_PlayingCommandCopyWithImpl<$Res>
     Object? commandId = null,
     Object? name = null,
     Object? score = null,
+    Object? playedRoundCount = null,
   }) {
     return _then(_$_PlayingCommand(
       commandId: null == commandId
@@ -107,6 +114,10 @@ class __$$_PlayingCommandCopyWithImpl<$Res>
           ? _value.score
           : score // ignore: cast_nullable_to_non_nullable
               as int,
+      playedRoundCount: null == playedRoundCount
+          ? _value.playedRoundCount
+          : playedRoundCount // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -115,7 +126,10 @@ class __$$_PlayingCommandCopyWithImpl<$Res>
 
 class _$_PlayingCommand implements _PlayingCommand {
   const _$_PlayingCommand(
-      {required this.commandId, required this.name, this.score = 0});
+      {required this.commandId,
+      required this.name,
+      this.score = 0,
+      this.playedRoundCount = 0});
 
   @override
   final int commandId;
@@ -124,10 +138,13 @@ class _$_PlayingCommand implements _PlayingCommand {
   @override
   @JsonKey()
   final int score;
+  @override
+  @JsonKey()
+  final int playedRoundCount;
 
   @override
   String toString() {
-    return 'PlayingCommand(commandId: $commandId, name: $name, score: $score)';
+    return 'PlayingCommand(commandId: $commandId, name: $name, score: $score, playedRoundCount: $playedRoundCount)';
   }
 
   @override
@@ -138,11 +155,14 @@ class _$_PlayingCommand implements _PlayingCommand {
             (identical(other.commandId, commandId) ||
                 other.commandId == commandId) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.score, score) || other.score == score));
+            (identical(other.score, score) || other.score == score) &&
+            (identical(other.playedRoundCount, playedRoundCount) ||
+                other.playedRoundCount == playedRoundCount));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, commandId, name, score);
+  int get hashCode =>
+      Object.hash(runtimeType, commandId, name, score, playedRoundCount);
 
   @JsonKey(ignore: true)
   @override
@@ -155,7 +175,8 @@ abstract class _PlayingCommand implements PlayingCommand {
   const factory _PlayingCommand(
       {required final int commandId,
       required final String name,
-      final int score}) = _$_PlayingCommand;
+      final int score,
+      final int playedRoundCount}) = _$_PlayingCommand;
 
   @override
   int get commandId;
@@ -163,6 +184,8 @@ abstract class _PlayingCommand implements PlayingCommand {
   String get name;
   @override
   int get score;
+  @override
+  int get playedRoundCount;
   @override
   @JsonKey(ignore: true)
   _$$_PlayingCommandCopyWith<_$_PlayingCommand> get copyWith =>

@@ -15,7 +15,8 @@ class GameViewFooter extends StatelessWidget {
       builder: (context, state) {
         return state.maybeWhen(
           orElse: () => _buildAnswerButtons(context),
-          gameIsReady: (settings, commands) => const StartGameButton(),
+          gameIsReady: (settings, commands, nextPlayingCommand) =>
+              const StartGameButton(),
           waitingForAnswer: (word) => _buildAnswerButtons(context),
         );
       },

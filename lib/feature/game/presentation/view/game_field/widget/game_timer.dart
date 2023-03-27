@@ -19,7 +19,8 @@ class _GameTimerState extends State<GameTimer> with TickerProviderStateMixin {
 
     var gameBloc = BlocProvider.of<GameBloc>(context);
 
-    gameBloc.state.whenOrNull(gameIsReady: (settings, commands) {
+    gameBloc.state.whenOrNull(
+        gameIsReady: (settings, commands, nextPlayingCommand) {
       duration = settings.moveTime.getDuration();
     });
 

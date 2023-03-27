@@ -103,7 +103,11 @@ class GameBloc extends Bloc<GameEvent, GameState> {
       commands: _commands,
     );
 
-    emit(GameState.gameIsReady(settings: _settings, commands: _commands));
+    emit(GameState.gameIsReady(
+      settings: _settings,
+      commands: _commands,
+      playingCommand: _getPlayingCommand(),
+    ));
   }
 
   Future<Iterable<Word>?> _loadPlayedWords() async {
@@ -137,7 +141,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     } else {
       emit(
         GameState.commandMoveIsOver(
-          command: _commands.first,
+          command: _getPlayingCommand(),
           answers: _answers,
           commandScore: _getCommandScore(),
         ),
@@ -156,7 +160,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     } else {
       emit(
         GameState.commandMoveIsOver(
-          command: _commands.first,
+          command: _getPlayingCommand(),
           answers: _answers,
           commandScore: _getCommandScore(),
         ),
@@ -176,7 +180,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     } else {
       emit(
         GameState.commandMoveIsOver(
-          command: _commands.first,
+          command: _getPlayingCommand(),
           answers: _answers,
           commandScore: _getCommandScore(),
         ),
@@ -195,7 +199,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
     emit(
       GameState.commandMoveIsOver(
-        command: _commands.first,
+        command: _getPlayingCommand(),
         answers: _answers,
         commandScore: _getCommandScore(),
       ),
@@ -203,11 +207,16 @@ class GameBloc extends Bloc<GameEvent, GameState> {
   }
 
   void _onMoveResultWatched(_MoveResultWatched event, Emitter emit) {
-    var playingCommand = _commands.first;
+    var playingCommand = _getPlayingCommand();
 
-    _commands.remove(playingCommand);
-    _commands.add(playingCommand.copyWith(
-        score: playingCommand.score + _getCommandScore()));
+    var updatedPlayedCommand = playingCommand.copyWith(
+      score: playingCommand.score + _getCommandScore(),
+      playedRoundCount: playingCommand.playedRoundCount + 1,
+    );
+
+    var index = _commands.indexOf(playingCommand);
+
+    _commands[index] = updatedPlayedCommand;
 
     _words.addAll(_answers
         .where((element) => !element.type.isCount)
@@ -227,7 +236,11 @@ class GameBloc extends Bloc<GameEvent, GameState> {
           (command1, command2) => command2.score.compareTo(command1.score));
       emit(GameState.gameOver(commands: _commands));
     } else {
-      emit(GameState.gameIsReady(settings: _settings, commands: _commands));
+      emit(GameState.gameIsReady(
+        settings: _settings,
+        commands: _commands,
+        playingCommand: _getPlayingCommand(),
+      ));
     }
   }
 
@@ -266,5 +279,12 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     await _wordsUseCasesFacade.resetUnfinishedGame();
 
     emit(const GameState.waitingForConfig());
+  }
+
+  PlayingCommand _getPlayingCommand() {
+    return _commands.reduce(
+      (value, element) =>
+          value.playedRoundCount <= element.playedRoundCount ? value : element,
+    );
   }
 }

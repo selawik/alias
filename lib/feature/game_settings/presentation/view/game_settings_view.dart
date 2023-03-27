@@ -92,7 +92,11 @@ class GameSettingsView extends StatelessWidget with SnackbarMixin {
     );
   }
 
-  void _onGameIsReady(GameSettings settings, List<PlayingCommand> commands) {
+  void _onGameIsReady(
+    GameSettings settings,
+    List<PlayingCommand> commands,
+    PlayingCommand nextPlayingCommand,
+  ) {
     var router = di.locator.get<AppRouter>();
     router.push(const CommandsStatsPageRoute());
   }
