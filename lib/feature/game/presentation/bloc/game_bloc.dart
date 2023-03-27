@@ -71,7 +71,9 @@ class GameBloc extends Bloc<GameEvent, GameState> {
   }
 
   void _onSettingsInitialization(
-      _InitializeSettings event, Emitter emit) async {
+    _InitializeSettings event,
+    Emitter emit,
+  ) async {
     _settings = event.gameSettings;
 
     emit(const GameState.wordsIsLoading());

@@ -48,12 +48,8 @@ class _GameTimerState extends State<GameTimer> with TickerProviderStateMixin {
     return BlocListener<GameBloc, GameState>(
       listener: (context, state) {
         state.whenOrNull(
-          gamePaused: () {
-            controller.stop();
-          },
-          gameOver: (commands) {
-            controller.stop();
-          },
+          gamePaused: () => controller.stop(),
+          gameOver: (commands) => controller.stop(),
           waitingForAnswer: (word) {
             controller.reverse(
               from: controller.value == 0
