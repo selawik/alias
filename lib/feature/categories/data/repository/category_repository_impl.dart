@@ -38,13 +38,9 @@ class CategoryRepositoryImpl implements CategoryRepository {
         var categoryWordsCount = await _localDataSource
             .loadCategoryWordsCount(categoryDto.categoryId);
 
-        var imageUrl =
-            'https://s0.rbk.ru/v6_top_pics/resized/590xH/media/img/1/83/756079611261831.jpg';
-
         categories.add(
           _mapper.mapToModel(
             categoryDto.copyWith(
-              fileUrl: imageUrl,
               wordsCount: categoryWordsCount,
             ),
           ),
