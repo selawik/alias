@@ -17,6 +17,9 @@ class GameState with _$GameState {
   const factory GameState.waitingForAnswer({required Word word}) =
       _WaitingForAnswer;
 
+  const factory GameState.skippingWord({required Word skippingWord}) =
+      _SkippingWord;
+
   const factory GameState.gamePaused() = _GamePaused;
 
   const factory GameState.lastWord({required Word word}) = _LastWord;
@@ -27,6 +30,6 @@ class GameState with _$GameState {
     required int commandScore,
   }) = _CommandMoveIsOver;
 
-
-  const factory GameState.gameOver({required List<PlayingCommand> commands}) = _GameOver;
+  const factory GameState.gameOver({required List<PlayingCommand> commands}) =
+      _GameOver;
 }

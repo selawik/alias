@@ -149,7 +149,8 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     }
   }
 
-  void _onSkipWord(_SkipWord event, Emitter emit) {
+  void _onSkipWord(_SkipWord event, Emitter emit) async {
+    emit(GameState.skippingWord(skippingWord: _words.first));
     var word = _words.first;
 
     _answers.add(GameAnswer(word: word, type: GameAnswerType.skip));
@@ -158,13 +159,15 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     if (_words.isNotEmpty && state is! _LastWord) {
       emit(GameState.waitingForAnswer(word: _words.first));
     } else {
-      emit(
-        GameState.commandMoveIsOver(
-          command: _getPlayingCommand(),
-          answers: _answers,
-          commandScore: _getCommandScore(),
-        ),
-      );
+      await Future.delayed(
+          const Duration(milliseconds: 400),
+          () => emit(
+                GameState.commandMoveIsOver(
+                  command: _getPlayingCommand(),
+                  answers: _answers,
+                  commandScore: _getCommandScore(),
+                ),
+              ));
     }
   }
 

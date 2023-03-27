@@ -3019,6 +3019,7 @@ mixin _$GameState {
             List<PlayingCommand> commands, PlayingCommand playingCommand)
         gameIsReady,
     required TResult Function(Word word) waitingForAnswer,
+    required TResult Function(Word skippingWord) skippingWord,
     required TResult Function() gamePaused,
     required TResult Function(Word word) lastWord,
     required TResult Function(
@@ -3036,6 +3037,7 @@ mixin _$GameState {
             PlayingCommand playingCommand)?
         gameIsReady,
     TResult? Function(Word word)? waitingForAnswer,
+    TResult? Function(Word skippingWord)? skippingWord,
     TResult? Function()? gamePaused,
     TResult? Function(Word word)? lastWord,
     TResult? Function(
@@ -3053,6 +3055,7 @@ mixin _$GameState {
             PlayingCommand playingCommand)?
         gameIsReady,
     TResult Function(Word word)? waitingForAnswer,
+    TResult Function(Word skippingWord)? skippingWord,
     TResult Function()? gamePaused,
     TResult Function(Word word)? lastWord,
     TResult Function(
@@ -3069,6 +3072,7 @@ mixin _$GameState {
     required TResult Function(_NoWords value) noWords,
     required TResult Function(_GameIsReady value) gameIsReady,
     required TResult Function(_WaitingForAnswer value) waitingForAnswer,
+    required TResult Function(_SkippingWord value) skippingWord,
     required TResult Function(_GamePaused value) gamePaused,
     required TResult Function(_LastWord value) lastWord,
     required TResult Function(_CommandMoveIsOver value) commandMoveIsOver,
@@ -3082,6 +3086,7 @@ mixin _$GameState {
     TResult? Function(_NoWords value)? noWords,
     TResult? Function(_GameIsReady value)? gameIsReady,
     TResult? Function(_WaitingForAnswer value)? waitingForAnswer,
+    TResult? Function(_SkippingWord value)? skippingWord,
     TResult? Function(_GamePaused value)? gamePaused,
     TResult? Function(_LastWord value)? lastWord,
     TResult? Function(_CommandMoveIsOver value)? commandMoveIsOver,
@@ -3095,6 +3100,7 @@ mixin _$GameState {
     TResult Function(_NoWords value)? noWords,
     TResult Function(_GameIsReady value)? gameIsReady,
     TResult Function(_WaitingForAnswer value)? waitingForAnswer,
+    TResult Function(_SkippingWord value)? skippingWord,
     TResult Function(_GamePaused value)? gamePaused,
     TResult Function(_LastWord value)? lastWord,
     TResult Function(_CommandMoveIsOver value)? commandMoveIsOver,
@@ -3206,6 +3212,7 @@ class _$_WaitingForConfig implements _WaitingForConfig {
             List<PlayingCommand> commands, PlayingCommand playingCommand)
         gameIsReady,
     required TResult Function(Word word) waitingForAnswer,
+    required TResult Function(Word skippingWord) skippingWord,
     required TResult Function() gamePaused,
     required TResult Function(Word word) lastWord,
     required TResult Function(
@@ -3226,6 +3233,7 @@ class _$_WaitingForConfig implements _WaitingForConfig {
             PlayingCommand playingCommand)?
         gameIsReady,
     TResult? Function(Word word)? waitingForAnswer,
+    TResult? Function(Word skippingWord)? skippingWord,
     TResult? Function()? gamePaused,
     TResult? Function(Word word)? lastWord,
     TResult? Function(
@@ -3246,6 +3254,7 @@ class _$_WaitingForConfig implements _WaitingForConfig {
             PlayingCommand playingCommand)?
         gameIsReady,
     TResult Function(Word word)? waitingForAnswer,
+    TResult Function(Word skippingWord)? skippingWord,
     TResult Function()? gamePaused,
     TResult Function(Word word)? lastWord,
     TResult Function(
@@ -3268,6 +3277,7 @@ class _$_WaitingForConfig implements _WaitingForConfig {
     required TResult Function(_NoWords value) noWords,
     required TResult Function(_GameIsReady value) gameIsReady,
     required TResult Function(_WaitingForAnswer value) waitingForAnswer,
+    required TResult Function(_SkippingWord value) skippingWord,
     required TResult Function(_GamePaused value) gamePaused,
     required TResult Function(_LastWord value) lastWord,
     required TResult Function(_CommandMoveIsOver value) commandMoveIsOver,
@@ -3284,6 +3294,7 @@ class _$_WaitingForConfig implements _WaitingForConfig {
     TResult? Function(_NoWords value)? noWords,
     TResult? Function(_GameIsReady value)? gameIsReady,
     TResult? Function(_WaitingForAnswer value)? waitingForAnswer,
+    TResult? Function(_SkippingWord value)? skippingWord,
     TResult? Function(_GamePaused value)? gamePaused,
     TResult? Function(_LastWord value)? lastWord,
     TResult? Function(_CommandMoveIsOver value)? commandMoveIsOver,
@@ -3300,6 +3311,7 @@ class _$_WaitingForConfig implements _WaitingForConfig {
     TResult Function(_NoWords value)? noWords,
     TResult Function(_GameIsReady value)? gameIsReady,
     TResult Function(_WaitingForAnswer value)? waitingForAnswer,
+    TResult Function(_SkippingWord value)? skippingWord,
     TResult Function(_GamePaused value)? gamePaused,
     TResult Function(_LastWord value)? lastWord,
     TResult Function(_CommandMoveIsOver value)? commandMoveIsOver,
@@ -3367,6 +3379,7 @@ class _$_WordsIsLoading implements _WordsIsLoading {
             List<PlayingCommand> commands, PlayingCommand playingCommand)
         gameIsReady,
     required TResult Function(Word word) waitingForAnswer,
+    required TResult Function(Word skippingWord) skippingWord,
     required TResult Function() gamePaused,
     required TResult Function(Word word) lastWord,
     required TResult Function(
@@ -3387,6 +3400,7 @@ class _$_WordsIsLoading implements _WordsIsLoading {
             PlayingCommand playingCommand)?
         gameIsReady,
     TResult? Function(Word word)? waitingForAnswer,
+    TResult? Function(Word skippingWord)? skippingWord,
     TResult? Function()? gamePaused,
     TResult? Function(Word word)? lastWord,
     TResult? Function(
@@ -3407,6 +3421,7 @@ class _$_WordsIsLoading implements _WordsIsLoading {
             PlayingCommand playingCommand)?
         gameIsReady,
     TResult Function(Word word)? waitingForAnswer,
+    TResult Function(Word skippingWord)? skippingWord,
     TResult Function()? gamePaused,
     TResult Function(Word word)? lastWord,
     TResult Function(
@@ -3429,6 +3444,7 @@ class _$_WordsIsLoading implements _WordsIsLoading {
     required TResult Function(_NoWords value) noWords,
     required TResult Function(_GameIsReady value) gameIsReady,
     required TResult Function(_WaitingForAnswer value) waitingForAnswer,
+    required TResult Function(_SkippingWord value) skippingWord,
     required TResult Function(_GamePaused value) gamePaused,
     required TResult Function(_LastWord value) lastWord,
     required TResult Function(_CommandMoveIsOver value) commandMoveIsOver,
@@ -3445,6 +3461,7 @@ class _$_WordsIsLoading implements _WordsIsLoading {
     TResult? Function(_NoWords value)? noWords,
     TResult? Function(_GameIsReady value)? gameIsReady,
     TResult? Function(_WaitingForAnswer value)? waitingForAnswer,
+    TResult? Function(_SkippingWord value)? skippingWord,
     TResult? Function(_GamePaused value)? gamePaused,
     TResult? Function(_LastWord value)? lastWord,
     TResult? Function(_CommandMoveIsOver value)? commandMoveIsOver,
@@ -3461,6 +3478,7 @@ class _$_WordsIsLoading implements _WordsIsLoading {
     TResult Function(_NoWords value)? noWords,
     TResult Function(_GameIsReady value)? gameIsReady,
     TResult Function(_WaitingForAnswer value)? waitingForAnswer,
+    TResult Function(_SkippingWord value)? skippingWord,
     TResult Function(_GamePaused value)? gamePaused,
     TResult Function(_LastWord value)? lastWord,
     TResult Function(_CommandMoveIsOver value)? commandMoveIsOver,
@@ -3522,6 +3540,7 @@ class _$_NoWords implements _NoWords {
             List<PlayingCommand> commands, PlayingCommand playingCommand)
         gameIsReady,
     required TResult Function(Word word) waitingForAnswer,
+    required TResult Function(Word skippingWord) skippingWord,
     required TResult Function() gamePaused,
     required TResult Function(Word word) lastWord,
     required TResult Function(
@@ -3542,6 +3561,7 @@ class _$_NoWords implements _NoWords {
             PlayingCommand playingCommand)?
         gameIsReady,
     TResult? Function(Word word)? waitingForAnswer,
+    TResult? Function(Word skippingWord)? skippingWord,
     TResult? Function()? gamePaused,
     TResult? Function(Word word)? lastWord,
     TResult? Function(
@@ -3562,6 +3582,7 @@ class _$_NoWords implements _NoWords {
             PlayingCommand playingCommand)?
         gameIsReady,
     TResult Function(Word word)? waitingForAnswer,
+    TResult Function(Word skippingWord)? skippingWord,
     TResult Function()? gamePaused,
     TResult Function(Word word)? lastWord,
     TResult Function(
@@ -3584,6 +3605,7 @@ class _$_NoWords implements _NoWords {
     required TResult Function(_NoWords value) noWords,
     required TResult Function(_GameIsReady value) gameIsReady,
     required TResult Function(_WaitingForAnswer value) waitingForAnswer,
+    required TResult Function(_SkippingWord value) skippingWord,
     required TResult Function(_GamePaused value) gamePaused,
     required TResult Function(_LastWord value) lastWord,
     required TResult Function(_CommandMoveIsOver value) commandMoveIsOver,
@@ -3600,6 +3622,7 @@ class _$_NoWords implements _NoWords {
     TResult? Function(_NoWords value)? noWords,
     TResult? Function(_GameIsReady value)? gameIsReady,
     TResult? Function(_WaitingForAnswer value)? waitingForAnswer,
+    TResult? Function(_SkippingWord value)? skippingWord,
     TResult? Function(_GamePaused value)? gamePaused,
     TResult? Function(_LastWord value)? lastWord,
     TResult? Function(_CommandMoveIsOver value)? commandMoveIsOver,
@@ -3616,6 +3639,7 @@ class _$_NoWords implements _NoWords {
     TResult Function(_NoWords value)? noWords,
     TResult Function(_GameIsReady value)? gameIsReady,
     TResult Function(_WaitingForAnswer value)? waitingForAnswer,
+    TResult Function(_SkippingWord value)? skippingWord,
     TResult Function(_GamePaused value)? gamePaused,
     TResult Function(_LastWord value)? lastWord,
     TResult Function(_CommandMoveIsOver value)? commandMoveIsOver,
@@ -3746,6 +3770,7 @@ class _$_GameIsReady implements _GameIsReady {
             List<PlayingCommand> commands, PlayingCommand playingCommand)
         gameIsReady,
     required TResult Function(Word word) waitingForAnswer,
+    required TResult Function(Word skippingWord) skippingWord,
     required TResult Function() gamePaused,
     required TResult Function(Word word) lastWord,
     required TResult Function(
@@ -3766,6 +3791,7 @@ class _$_GameIsReady implements _GameIsReady {
             PlayingCommand playingCommand)?
         gameIsReady,
     TResult? Function(Word word)? waitingForAnswer,
+    TResult? Function(Word skippingWord)? skippingWord,
     TResult? Function()? gamePaused,
     TResult? Function(Word word)? lastWord,
     TResult? Function(
@@ -3786,6 +3812,7 @@ class _$_GameIsReady implements _GameIsReady {
             PlayingCommand playingCommand)?
         gameIsReady,
     TResult Function(Word word)? waitingForAnswer,
+    TResult Function(Word skippingWord)? skippingWord,
     TResult Function()? gamePaused,
     TResult Function(Word word)? lastWord,
     TResult Function(
@@ -3808,6 +3835,7 @@ class _$_GameIsReady implements _GameIsReady {
     required TResult Function(_NoWords value) noWords,
     required TResult Function(_GameIsReady value) gameIsReady,
     required TResult Function(_WaitingForAnswer value) waitingForAnswer,
+    required TResult Function(_SkippingWord value) skippingWord,
     required TResult Function(_GamePaused value) gamePaused,
     required TResult Function(_LastWord value) lastWord,
     required TResult Function(_CommandMoveIsOver value) commandMoveIsOver,
@@ -3824,6 +3852,7 @@ class _$_GameIsReady implements _GameIsReady {
     TResult? Function(_NoWords value)? noWords,
     TResult? Function(_GameIsReady value)? gameIsReady,
     TResult? Function(_WaitingForAnswer value)? waitingForAnswer,
+    TResult? Function(_SkippingWord value)? skippingWord,
     TResult? Function(_GamePaused value)? gamePaused,
     TResult? Function(_LastWord value)? lastWord,
     TResult? Function(_CommandMoveIsOver value)? commandMoveIsOver,
@@ -3840,6 +3869,7 @@ class _$_GameIsReady implements _GameIsReady {
     TResult Function(_NoWords value)? noWords,
     TResult Function(_GameIsReady value)? gameIsReady,
     TResult Function(_WaitingForAnswer value)? waitingForAnswer,
+    TResult Function(_SkippingWord value)? skippingWord,
     TResult Function(_GamePaused value)? gamePaused,
     TResult Function(_LastWord value)? lastWord,
     TResult Function(_CommandMoveIsOver value)? commandMoveIsOver,
@@ -3948,6 +3978,7 @@ class _$_WaitingForAnswer implements _WaitingForAnswer {
             List<PlayingCommand> commands, PlayingCommand playingCommand)
         gameIsReady,
     required TResult Function(Word word) waitingForAnswer,
+    required TResult Function(Word skippingWord) skippingWord,
     required TResult Function() gamePaused,
     required TResult Function(Word word) lastWord,
     required TResult Function(
@@ -3968,6 +3999,7 @@ class _$_WaitingForAnswer implements _WaitingForAnswer {
             PlayingCommand playingCommand)?
         gameIsReady,
     TResult? Function(Word word)? waitingForAnswer,
+    TResult? Function(Word skippingWord)? skippingWord,
     TResult? Function()? gamePaused,
     TResult? Function(Word word)? lastWord,
     TResult? Function(
@@ -3988,6 +4020,7 @@ class _$_WaitingForAnswer implements _WaitingForAnswer {
             PlayingCommand playingCommand)?
         gameIsReady,
     TResult Function(Word word)? waitingForAnswer,
+    TResult Function(Word skippingWord)? skippingWord,
     TResult Function()? gamePaused,
     TResult Function(Word word)? lastWord,
     TResult Function(
@@ -4010,6 +4043,7 @@ class _$_WaitingForAnswer implements _WaitingForAnswer {
     required TResult Function(_NoWords value) noWords,
     required TResult Function(_GameIsReady value) gameIsReady,
     required TResult Function(_WaitingForAnswer value) waitingForAnswer,
+    required TResult Function(_SkippingWord value) skippingWord,
     required TResult Function(_GamePaused value) gamePaused,
     required TResult Function(_LastWord value) lastWord,
     required TResult Function(_CommandMoveIsOver value) commandMoveIsOver,
@@ -4026,6 +4060,7 @@ class _$_WaitingForAnswer implements _WaitingForAnswer {
     TResult? Function(_NoWords value)? noWords,
     TResult? Function(_GameIsReady value)? gameIsReady,
     TResult? Function(_WaitingForAnswer value)? waitingForAnswer,
+    TResult? Function(_SkippingWord value)? skippingWord,
     TResult? Function(_GamePaused value)? gamePaused,
     TResult? Function(_LastWord value)? lastWord,
     TResult? Function(_CommandMoveIsOver value)? commandMoveIsOver,
@@ -4042,6 +4077,7 @@ class _$_WaitingForAnswer implements _WaitingForAnswer {
     TResult Function(_NoWords value)? noWords,
     TResult Function(_GameIsReady value)? gameIsReady,
     TResult Function(_WaitingForAnswer value)? waitingForAnswer,
+    TResult Function(_SkippingWord value)? skippingWord,
     TResult Function(_GamePaused value)? gamePaused,
     TResult Function(_LastWord value)? lastWord,
     TResult Function(_CommandMoveIsOver value)? commandMoveIsOver,
@@ -4062,6 +4098,211 @@ abstract class _WaitingForAnswer implements GameState {
   Word get word;
   @JsonKey(ignore: true)
   _$$_WaitingForAnswerCopyWith<_$_WaitingForAnswer> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SkippingWordCopyWith<$Res> {
+  factory _$$_SkippingWordCopyWith(
+          _$_SkippingWord value, $Res Function(_$_SkippingWord) then) =
+      __$$_SkippingWordCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Word skippingWord});
+
+  $WordCopyWith<$Res> get skippingWord;
+}
+
+/// @nodoc
+class __$$_SkippingWordCopyWithImpl<$Res>
+    extends _$GameStateCopyWithImpl<$Res, _$_SkippingWord>
+    implements _$$_SkippingWordCopyWith<$Res> {
+  __$$_SkippingWordCopyWithImpl(
+      _$_SkippingWord _value, $Res Function(_$_SkippingWord) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? skippingWord = null,
+  }) {
+    return _then(_$_SkippingWord(
+      skippingWord: null == skippingWord
+          ? _value.skippingWord
+          : skippingWord // ignore: cast_nullable_to_non_nullable
+              as Word,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $WordCopyWith<$Res> get skippingWord {
+    return $WordCopyWith<$Res>(_value.skippingWord, (value) {
+      return _then(_value.copyWith(skippingWord: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_SkippingWord implements _SkippingWord {
+  const _$_SkippingWord({required this.skippingWord});
+
+  @override
+  final Word skippingWord;
+
+  @override
+  String toString() {
+    return 'GameState.skippingWord(skippingWord: $skippingWord)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SkippingWord &&
+            (identical(other.skippingWord, skippingWord) ||
+                other.skippingWord == skippingWord));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, skippingWord);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SkippingWordCopyWith<_$_SkippingWord> get copyWith =>
+      __$$_SkippingWordCopyWithImpl<_$_SkippingWord>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Game? game) waitingForConfig,
+    required TResult Function() wordsIsLoading,
+    required TResult Function() noWords,
+    required TResult Function(GameSettings settings,
+            List<PlayingCommand> commands, PlayingCommand playingCommand)
+        gameIsReady,
+    required TResult Function(Word word) waitingForAnswer,
+    required TResult Function(Word skippingWord) skippingWord,
+    required TResult Function() gamePaused,
+    required TResult Function(Word word) lastWord,
+    required TResult Function(
+            PlayingCommand command, List<GameAnswer> answers, int commandScore)
+        commandMoveIsOver,
+    required TResult Function(List<PlayingCommand> commands) gameOver,
+  }) {
+    return skippingWord(this.skippingWord);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Game? game)? waitingForConfig,
+    TResult? Function()? wordsIsLoading,
+    TResult? Function()? noWords,
+    TResult? Function(GameSettings settings, List<PlayingCommand> commands,
+            PlayingCommand playingCommand)?
+        gameIsReady,
+    TResult? Function(Word word)? waitingForAnswer,
+    TResult? Function(Word skippingWord)? skippingWord,
+    TResult? Function()? gamePaused,
+    TResult? Function(Word word)? lastWord,
+    TResult? Function(
+            PlayingCommand command, List<GameAnswer> answers, int commandScore)?
+        commandMoveIsOver,
+    TResult? Function(List<PlayingCommand> commands)? gameOver,
+  }) {
+    return skippingWord?.call(this.skippingWord);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Game? game)? waitingForConfig,
+    TResult Function()? wordsIsLoading,
+    TResult Function()? noWords,
+    TResult Function(GameSettings settings, List<PlayingCommand> commands,
+            PlayingCommand playingCommand)?
+        gameIsReady,
+    TResult Function(Word word)? waitingForAnswer,
+    TResult Function(Word skippingWord)? skippingWord,
+    TResult Function()? gamePaused,
+    TResult Function(Word word)? lastWord,
+    TResult Function(
+            PlayingCommand command, List<GameAnswer> answers, int commandScore)?
+        commandMoveIsOver,
+    TResult Function(List<PlayingCommand> commands)? gameOver,
+    required TResult orElse(),
+  }) {
+    if (skippingWord != null) {
+      return skippingWord(this.skippingWord);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WaitingForConfig value) waitingForConfig,
+    required TResult Function(_WordsIsLoading value) wordsIsLoading,
+    required TResult Function(_NoWords value) noWords,
+    required TResult Function(_GameIsReady value) gameIsReady,
+    required TResult Function(_WaitingForAnswer value) waitingForAnswer,
+    required TResult Function(_SkippingWord value) skippingWord,
+    required TResult Function(_GamePaused value) gamePaused,
+    required TResult Function(_LastWord value) lastWord,
+    required TResult Function(_CommandMoveIsOver value) commandMoveIsOver,
+    required TResult Function(_GameOver value) gameOver,
+  }) {
+    return skippingWord(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_WaitingForConfig value)? waitingForConfig,
+    TResult? Function(_WordsIsLoading value)? wordsIsLoading,
+    TResult? Function(_NoWords value)? noWords,
+    TResult? Function(_GameIsReady value)? gameIsReady,
+    TResult? Function(_WaitingForAnswer value)? waitingForAnswer,
+    TResult? Function(_SkippingWord value)? skippingWord,
+    TResult? Function(_GamePaused value)? gamePaused,
+    TResult? Function(_LastWord value)? lastWord,
+    TResult? Function(_CommandMoveIsOver value)? commandMoveIsOver,
+    TResult? Function(_GameOver value)? gameOver,
+  }) {
+    return skippingWord?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WaitingForConfig value)? waitingForConfig,
+    TResult Function(_WordsIsLoading value)? wordsIsLoading,
+    TResult Function(_NoWords value)? noWords,
+    TResult Function(_GameIsReady value)? gameIsReady,
+    TResult Function(_WaitingForAnswer value)? waitingForAnswer,
+    TResult Function(_SkippingWord value)? skippingWord,
+    TResult Function(_GamePaused value)? gamePaused,
+    TResult Function(_LastWord value)? lastWord,
+    TResult Function(_CommandMoveIsOver value)? commandMoveIsOver,
+    TResult Function(_GameOver value)? gameOver,
+    required TResult orElse(),
+  }) {
+    if (skippingWord != null) {
+      return skippingWord(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SkippingWord implements GameState {
+  const factory _SkippingWord({required final Word skippingWord}) =
+      _$_SkippingWord;
+
+  Word get skippingWord;
+  @JsonKey(ignore: true)
+  _$$_SkippingWordCopyWith<_$_SkippingWord> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -4110,6 +4351,7 @@ class _$_GamePaused implements _GamePaused {
             List<PlayingCommand> commands, PlayingCommand playingCommand)
         gameIsReady,
     required TResult Function(Word word) waitingForAnswer,
+    required TResult Function(Word skippingWord) skippingWord,
     required TResult Function() gamePaused,
     required TResult Function(Word word) lastWord,
     required TResult Function(
@@ -4130,6 +4372,7 @@ class _$_GamePaused implements _GamePaused {
             PlayingCommand playingCommand)?
         gameIsReady,
     TResult? Function(Word word)? waitingForAnswer,
+    TResult? Function(Word skippingWord)? skippingWord,
     TResult? Function()? gamePaused,
     TResult? Function(Word word)? lastWord,
     TResult? Function(
@@ -4150,6 +4393,7 @@ class _$_GamePaused implements _GamePaused {
             PlayingCommand playingCommand)?
         gameIsReady,
     TResult Function(Word word)? waitingForAnswer,
+    TResult Function(Word skippingWord)? skippingWord,
     TResult Function()? gamePaused,
     TResult Function(Word word)? lastWord,
     TResult Function(
@@ -4172,6 +4416,7 @@ class _$_GamePaused implements _GamePaused {
     required TResult Function(_NoWords value) noWords,
     required TResult Function(_GameIsReady value) gameIsReady,
     required TResult Function(_WaitingForAnswer value) waitingForAnswer,
+    required TResult Function(_SkippingWord value) skippingWord,
     required TResult Function(_GamePaused value) gamePaused,
     required TResult Function(_LastWord value) lastWord,
     required TResult Function(_CommandMoveIsOver value) commandMoveIsOver,
@@ -4188,6 +4433,7 @@ class _$_GamePaused implements _GamePaused {
     TResult? Function(_NoWords value)? noWords,
     TResult? Function(_GameIsReady value)? gameIsReady,
     TResult? Function(_WaitingForAnswer value)? waitingForAnswer,
+    TResult? Function(_SkippingWord value)? skippingWord,
     TResult? Function(_GamePaused value)? gamePaused,
     TResult? Function(_LastWord value)? lastWord,
     TResult? Function(_CommandMoveIsOver value)? commandMoveIsOver,
@@ -4204,6 +4450,7 @@ class _$_GamePaused implements _GamePaused {
     TResult Function(_NoWords value)? noWords,
     TResult Function(_GameIsReady value)? gameIsReady,
     TResult Function(_WaitingForAnswer value)? waitingForAnswer,
+    TResult Function(_SkippingWord value)? skippingWord,
     TResult Function(_GamePaused value)? gamePaused,
     TResult Function(_LastWord value)? lastWord,
     TResult Function(_CommandMoveIsOver value)? commandMoveIsOver,
@@ -4302,6 +4549,7 @@ class _$_LastWord implements _LastWord {
             List<PlayingCommand> commands, PlayingCommand playingCommand)
         gameIsReady,
     required TResult Function(Word word) waitingForAnswer,
+    required TResult Function(Word skippingWord) skippingWord,
     required TResult Function() gamePaused,
     required TResult Function(Word word) lastWord,
     required TResult Function(
@@ -4322,6 +4570,7 @@ class _$_LastWord implements _LastWord {
             PlayingCommand playingCommand)?
         gameIsReady,
     TResult? Function(Word word)? waitingForAnswer,
+    TResult? Function(Word skippingWord)? skippingWord,
     TResult? Function()? gamePaused,
     TResult? Function(Word word)? lastWord,
     TResult? Function(
@@ -4342,6 +4591,7 @@ class _$_LastWord implements _LastWord {
             PlayingCommand playingCommand)?
         gameIsReady,
     TResult Function(Word word)? waitingForAnswer,
+    TResult Function(Word skippingWord)? skippingWord,
     TResult Function()? gamePaused,
     TResult Function(Word word)? lastWord,
     TResult Function(
@@ -4364,6 +4614,7 @@ class _$_LastWord implements _LastWord {
     required TResult Function(_NoWords value) noWords,
     required TResult Function(_GameIsReady value) gameIsReady,
     required TResult Function(_WaitingForAnswer value) waitingForAnswer,
+    required TResult Function(_SkippingWord value) skippingWord,
     required TResult Function(_GamePaused value) gamePaused,
     required TResult Function(_LastWord value) lastWord,
     required TResult Function(_CommandMoveIsOver value) commandMoveIsOver,
@@ -4380,6 +4631,7 @@ class _$_LastWord implements _LastWord {
     TResult? Function(_NoWords value)? noWords,
     TResult? Function(_GameIsReady value)? gameIsReady,
     TResult? Function(_WaitingForAnswer value)? waitingForAnswer,
+    TResult? Function(_SkippingWord value)? skippingWord,
     TResult? Function(_GamePaused value)? gamePaused,
     TResult? Function(_LastWord value)? lastWord,
     TResult? Function(_CommandMoveIsOver value)? commandMoveIsOver,
@@ -4396,6 +4648,7 @@ class _$_LastWord implements _LastWord {
     TResult Function(_NoWords value)? noWords,
     TResult Function(_GameIsReady value)? gameIsReady,
     TResult Function(_WaitingForAnswer value)? waitingForAnswer,
+    TResult Function(_SkippingWord value)? skippingWord,
     TResult Function(_GamePaused value)? gamePaused,
     TResult Function(_LastWord value)? lastWord,
     TResult Function(_CommandMoveIsOver value)? commandMoveIsOver,
@@ -4529,6 +4782,7 @@ class _$_CommandMoveIsOver implements _CommandMoveIsOver {
             List<PlayingCommand> commands, PlayingCommand playingCommand)
         gameIsReady,
     required TResult Function(Word word) waitingForAnswer,
+    required TResult Function(Word skippingWord) skippingWord,
     required TResult Function() gamePaused,
     required TResult Function(Word word) lastWord,
     required TResult Function(
@@ -4549,6 +4803,7 @@ class _$_CommandMoveIsOver implements _CommandMoveIsOver {
             PlayingCommand playingCommand)?
         gameIsReady,
     TResult? Function(Word word)? waitingForAnswer,
+    TResult? Function(Word skippingWord)? skippingWord,
     TResult? Function()? gamePaused,
     TResult? Function(Word word)? lastWord,
     TResult? Function(
@@ -4569,6 +4824,7 @@ class _$_CommandMoveIsOver implements _CommandMoveIsOver {
             PlayingCommand playingCommand)?
         gameIsReady,
     TResult Function(Word word)? waitingForAnswer,
+    TResult Function(Word skippingWord)? skippingWord,
     TResult Function()? gamePaused,
     TResult Function(Word word)? lastWord,
     TResult Function(
@@ -4591,6 +4847,7 @@ class _$_CommandMoveIsOver implements _CommandMoveIsOver {
     required TResult Function(_NoWords value) noWords,
     required TResult Function(_GameIsReady value) gameIsReady,
     required TResult Function(_WaitingForAnswer value) waitingForAnswer,
+    required TResult Function(_SkippingWord value) skippingWord,
     required TResult Function(_GamePaused value) gamePaused,
     required TResult Function(_LastWord value) lastWord,
     required TResult Function(_CommandMoveIsOver value) commandMoveIsOver,
@@ -4607,6 +4864,7 @@ class _$_CommandMoveIsOver implements _CommandMoveIsOver {
     TResult? Function(_NoWords value)? noWords,
     TResult? Function(_GameIsReady value)? gameIsReady,
     TResult? Function(_WaitingForAnswer value)? waitingForAnswer,
+    TResult? Function(_SkippingWord value)? skippingWord,
     TResult? Function(_GamePaused value)? gamePaused,
     TResult? Function(_LastWord value)? lastWord,
     TResult? Function(_CommandMoveIsOver value)? commandMoveIsOver,
@@ -4623,6 +4881,7 @@ class _$_CommandMoveIsOver implements _CommandMoveIsOver {
     TResult Function(_NoWords value)? noWords,
     TResult Function(_GameIsReady value)? gameIsReady,
     TResult Function(_WaitingForAnswer value)? waitingForAnswer,
+    TResult Function(_SkippingWord value)? skippingWord,
     TResult Function(_GamePaused value)? gamePaused,
     TResult Function(_LastWord value)? lastWord,
     TResult Function(_CommandMoveIsOver value)? commandMoveIsOver,
@@ -4728,6 +4987,7 @@ class _$_GameOver implements _GameOver {
             List<PlayingCommand> commands, PlayingCommand playingCommand)
         gameIsReady,
     required TResult Function(Word word) waitingForAnswer,
+    required TResult Function(Word skippingWord) skippingWord,
     required TResult Function() gamePaused,
     required TResult Function(Word word) lastWord,
     required TResult Function(
@@ -4748,6 +5008,7 @@ class _$_GameOver implements _GameOver {
             PlayingCommand playingCommand)?
         gameIsReady,
     TResult? Function(Word word)? waitingForAnswer,
+    TResult? Function(Word skippingWord)? skippingWord,
     TResult? Function()? gamePaused,
     TResult? Function(Word word)? lastWord,
     TResult? Function(
@@ -4768,6 +5029,7 @@ class _$_GameOver implements _GameOver {
             PlayingCommand playingCommand)?
         gameIsReady,
     TResult Function(Word word)? waitingForAnswer,
+    TResult Function(Word skippingWord)? skippingWord,
     TResult Function()? gamePaused,
     TResult Function(Word word)? lastWord,
     TResult Function(
@@ -4790,6 +5052,7 @@ class _$_GameOver implements _GameOver {
     required TResult Function(_NoWords value) noWords,
     required TResult Function(_GameIsReady value) gameIsReady,
     required TResult Function(_WaitingForAnswer value) waitingForAnswer,
+    required TResult Function(_SkippingWord value) skippingWord,
     required TResult Function(_GamePaused value) gamePaused,
     required TResult Function(_LastWord value) lastWord,
     required TResult Function(_CommandMoveIsOver value) commandMoveIsOver,
@@ -4806,6 +5069,7 @@ class _$_GameOver implements _GameOver {
     TResult? Function(_NoWords value)? noWords,
     TResult? Function(_GameIsReady value)? gameIsReady,
     TResult? Function(_WaitingForAnswer value)? waitingForAnswer,
+    TResult? Function(_SkippingWord value)? skippingWord,
     TResult? Function(_GamePaused value)? gamePaused,
     TResult? Function(_LastWord value)? lastWord,
     TResult? Function(_CommandMoveIsOver value)? commandMoveIsOver,
@@ -4822,6 +5086,7 @@ class _$_GameOver implements _GameOver {
     TResult Function(_NoWords value)? noWords,
     TResult Function(_GameIsReady value)? gameIsReady,
     TResult Function(_WaitingForAnswer value)? waitingForAnswer,
+    TResult Function(_SkippingWord value)? skippingWord,
     TResult Function(_GamePaused value)? gamePaused,
     TResult Function(_LastWord value)? lastWord,
     TResult Function(_CommandMoveIsOver value)? commandMoveIsOver,
