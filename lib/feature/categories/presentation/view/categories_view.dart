@@ -84,6 +84,7 @@ class CategoriesView extends StatelessWidget {
                 Text(
                   category.name,
                   textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.displaySmall,
                 ),
               ],
             ),
@@ -114,6 +115,7 @@ class CategoriesView extends StatelessWidget {
     var gameBloc = BlocProvider.of<GameBloc>(context);
 
     gameBloc.add(GameEvent.initializeCategory(category: category));
+
     router.push(const CommandPageRoute());
   }
 }
