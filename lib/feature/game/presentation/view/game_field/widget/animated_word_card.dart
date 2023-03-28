@@ -112,10 +112,10 @@ class _AnimatedWordCardState extends State<AnimatedWordCard>
           gameBloc.add(const GameEvent.skipWord());
           answerBloc.add(const AnswerEvent.reset());
 
-          gameBloc.state.maybeWhen(
-            orElse: () => _skipAnimationController.reset(),
-            lastWord: (word) => null,
-          );
+          // gameBloc.state.maybeWhen(
+          //   orElse: () => _skipAnimationController.reset(),
+          //   lastWord: (word) => null,
+          // );
         },
       );
     }

@@ -16,12 +16,14 @@ class GameMainBlock extends StatelessWidget {
       buildWhen: (prevState, currentState) {
         return prevState.maybeWhen(
           orElse: () => true,
-          waitingForAnswer: (word) {
-            return currentState.maybeWhen(
-              orElse: () => true,
-              gamePaused: () => false,
-            );
-          },
+          lastWord: (word) => currentState.maybeWhen(
+            orElse: () => true,
+            commandMoveIsOver: (command, answers, score) => false,
+          ),
+          waitingForAnswer: (word) => currentState.maybeWhen(
+            orElse: () => true,
+            gamePaused: () => false,
+          ),
         );
       },
       builder: (context, state) {
