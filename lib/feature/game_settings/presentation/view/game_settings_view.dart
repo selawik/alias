@@ -8,6 +8,7 @@ import 'package:alias/feature/game_settings/presentation/bloc/game_settings_bloc
 import 'package:alias/feature/game_settings/presentation/view/widget/command_move_time_selector.dart';
 import 'package:alias/feature/game_settings/presentation/view/widget/last_word_selector.dart';
 import 'package:alias/feature/game_settings/presentation/view/widget/penalty_selector.dart';
+import 'package:alias/feature/game_settings/presentation/view/widget/words_to_win_count_selector.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:alias/core/injection.dart' as di;
@@ -26,40 +27,40 @@ class GameSettingsView extends StatelessWidget with SnackbarMixin {
       },
       child: Stack(
         children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Stack(
-              fit: StackFit.expand,
-              children: [
-                BlocBuilder<GameSettingsBloc, GameSettingsState>(
-                  builder: (context, state) {
-                    return SingleChildScrollView(
-                      physics: const AlwaysScrollableScrollPhysics(),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          const SizedBox(height: 16),
-                          CommandMoveTimeSelector(selectedItem: state.time),
-                          const SizedBox(height: 24),
-                          LastWordSelector(selectedItem: state.lastWordMode),
-                          const SizedBox(height: 24),
-                          PenaltySelector(selectedItem: state.penaltyMode),
-                        ],
-                      ),
-                    );
-                  },
+          Stack(
+            fit: StackFit.expand,
+            children: [
+              BlocBuilder<GameSettingsBloc, GameSettingsState>(
+                builder: (context, state) {
+                  return SingleChildScrollView(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    physics: const AlwaysScrollableScrollPhysics(),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        const SizedBox(height: 16),
+                        CommandMoveTimeSelector(selectedItem: state.time),
+                        const SizedBox(height: 24),
+                        LastWordSelector(selectedItem: state.lastWordMode),
+                        const SizedBox(height: 24),
+                        PenaltySelector(selectedItem: state.penaltyMode),
+                        const SizedBox(height: 24),
+                        const WordsToWinCountSelector(),
+                      ],
+                    ),
+                  );
+                },
+              ),
+              Positioned(
+                bottom: MediaQuery.of(context).padding.bottom + 16,
+                left: 16,
+                right: 16,
+                child: ElevatedButton(
+                  child: const Text('Продолжить'),
+                  onPressed: () => _onContinuePressed(context),
                 ),
-                Positioned(
-                  bottom: MediaQuery.of(context).padding.bottom + 16,
-                  left: 0,
-                  right: 0,
-                  child: ElevatedButton(
-                    child: const Text('Продолжить'),
-                    onPressed: () => _onContinuePressed(context),
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
           BlocBuilder<GameBloc, GameState>(
             builder: (context, state) {
