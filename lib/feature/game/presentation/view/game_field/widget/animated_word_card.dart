@@ -18,45 +18,47 @@ class AnimatedWordCard extends StatefulWidget {
 }
 
 class _AnimatedWordCardState extends State<AnimatedWordCard>
-    with SingleTickerProviderStateMixin {
-  late final AnimationController _controller = AnimationController(
-    duration: const Duration(milliseconds: 300),
-    vsync: this,
+    with TickerProviderStateMixin {
+  static const Duration animationDuration = Duration(milliseconds: 400);
+
+  late final AnimationController _countAnimationController =
+      AnimationController(duration: animationDuration, vsync: this);
+
+  late final AnimationController _skipAnimationController =
+      AnimationController(duration: animationDuration, vsync: this);
+
+  late final Animation<Offset> _countOffsetAnimation = Tween<Offset>(
+    begin: Offset.zero,
+    end: const Offset(1.5, 0.25),
+  ).animate(
+    CurvedAnimation(
+      parent: _countAnimationController,
+      curve: Curves.bounceOut,
+    ),
   );
 
-  late final Animation<Offset> _offsetAnimation = Tween<Offset>(
+  late final Animation<Offset> _skipOffsetAnimation = Tween<Offset>(
     begin: Offset.zero,
-    end: const Offset(1.5, 0.0),
-  ).animate(CurvedAnimation(
-    parent: _controller,
-    curve: Curves.bounceOut,
-  ));
-
-  @override
-  void didUpdateWidget(covariant AnimatedWordCard oldWidget) {
-    super.didUpdateWidget(oldWidget);
-  }
+    end: const Offset(-1.5, 0.25),
+  ).animate(
+    CurvedAnimation(
+      parent: _skipAnimationController,
+      curve: Curves.bounceOut,
+    ),
+  );
 
   @override
   void initState() {
     super.initState();
 
-    _controller.addStatusListener((status) {
-      if (status == AnimationStatus.completed) {
-        context.read<AnswerBloc>().state.whenOrNull(
-            skipping: () {
-              context.read<GameBloc>().add(const GameEvent.skipWord());
-              context.read<AnswerBloc>().add(const AnswerEvent.reset());
-            },
-            counting: () =>
-                context.read<GameBloc>().add(const GameEvent.countWord()));
-      }
-    });
+    _skipAnimationController.addStatusListener(_skipAnimationStatusCallback);
+    _countAnimationController.addStatusListener(_countAnimationStatusCallback);
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    _skipAnimationController.dispose();
+    _countAnimationController.dispose();
     super.dispose();
   }
 
@@ -64,18 +66,58 @@ class _AnimatedWordCardState extends State<AnimatedWordCard>
   Widget build(BuildContext context) {
     return BlocListener<AnswerBloc, AnswerState>(
       listener: (context, state) {
-        state.maybeWhen(
-          orElse: () {},
-          counting: () => _controller.forward(),
-          skipping: () => _controller.forward(),
+        state.whenOrNull(
+          counting: () => _countAnimationController.forward(),
+          skipping: () => _skipAnimationController.forward(),
         );
       },
       child: SlideTransition(
-        position: _offsetAnimation,
-        child: GameWordCard(
-          word: widget.word,
+        position: _countOffsetAnimation,
+        child: SlideTransition(
+          position: _skipOffsetAnimation,
+          child: GameWordCard(
+            word: widget.word,
+          ),
         ),
       ),
     );
+  }
+
+  void _countAnimationStatusCallback(AnimationStatus status) {
+    var answerBloc = context.read<AnswerBloc>();
+    var gameBloc = context.read<GameBloc>();
+
+    if (status == AnimationStatus.completed) {
+      answerBloc.state.whenOrNull(
+        counting: () {
+          gameBloc.add(const GameEvent.countWord());
+          answerBloc.add(const AnswerEvent.reset());
+
+          gameBloc.state.maybeWhen(
+            orElse: () => _countAnimationController.reset(),
+            lastWord: (word) => null,
+          );
+        },
+      );
+    }
+  }
+
+  void _skipAnimationStatusCallback(AnimationStatus status) {
+    var answerBloc = context.read<AnswerBloc>();
+    var gameBloc = context.read<GameBloc>();
+
+    if (status == AnimationStatus.completed) {
+      answerBloc.state.whenOrNull(
+        skipping: () {
+          gameBloc.add(const GameEvent.skipWord());
+          answerBloc.add(const AnswerEvent.reset());
+
+          gameBloc.state.maybeWhen(
+            orElse: () => _skipAnimationController.reset(),
+            lastWord: (word) => null,
+          );
+        },
+      );
+    }
   }
 }

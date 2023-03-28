@@ -31,8 +31,14 @@ class GameMainBlock extends StatelessWidget {
               title: 'Нажмите начать, когда будете готовы',
             ),
           ),
-          waitingForAnswer: (word) => AnimatedWordCard(word: word, key: ValueKey(word),),
-          lastWord: (word) => GameWordCard(word: word),
+          waitingForAnswer: (word) => AnimatedWordCard(
+            word: word,
+            key: ValueKey(word),
+          ),
+          lastWord: (word) => AnimatedWordCard(
+            word: word,
+            key: ValueKey(word),
+          ),
         );
       },
     );
