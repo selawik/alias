@@ -33,7 +33,11 @@ class GameSettingsView extends StatelessWidget with SnackbarMixin {
               BlocBuilder<GameSettingsBloc, GameSettingsState>(
                 builder: (context, state) {
                   return SingleChildScrollView(
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    padding: EdgeInsets.only(
+                      left: 16,
+                      right: 16,
+                      bottom: MediaQuery.of(context).padding.bottom + 100,
+                    ),
                     physics: const AlwaysScrollableScrollPhysics(),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
