@@ -6,5 +6,6 @@ class GameSettingsState with _$GameSettingsState {
     required CommandMoveMode time,
     required BinarySelectorMode lastWordMode,
     required BinarySelectorMode penaltyMode,
+    required WordsToWin wordsToWin,
   }) = _Ready;
 }

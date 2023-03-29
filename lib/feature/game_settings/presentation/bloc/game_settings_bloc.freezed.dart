@@ -22,6 +22,7 @@ mixin _$GameSettingsEvent {
     required TResult Function(CommandMoveMode moveTime) moveTimeChanged,
     required TResult Function(BinarySelectorMode mode) lastWordModeChanged,
     required TResult Function(BinarySelectorMode mode) penaltyModeChanged,
+    required TResult Function(WordsToWin wordsToWin) wordsToWinChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$GameSettingsEvent {
     TResult? Function(CommandMoveMode moveTime)? moveTimeChanged,
     TResult? Function(BinarySelectorMode mode)? lastWordModeChanged,
     TResult? Function(BinarySelectorMode mode)? penaltyModeChanged,
+    TResult? Function(WordsToWin wordsToWin)? wordsToWinChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$GameSettingsEvent {
     TResult Function(CommandMoveMode moveTime)? moveTimeChanged,
     TResult Function(BinarySelectorMode mode)? lastWordModeChanged,
     TResult Function(BinarySelectorMode mode)? penaltyModeChanged,
+    TResult Function(WordsToWin wordsToWin)? wordsToWinChanged,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +50,7 @@ mixin _$GameSettingsEvent {
     required TResult Function(_MoveTimeChanged value) moveTimeChanged,
     required TResult Function(_LastWordModeChanged value) lastWordModeChanged,
     required TResult Function(_PenaltyModeChanged value) penaltyModeChanged,
+    required TResult Function(_WordsToWinChanged value) wordsToWinChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +59,7 @@ mixin _$GameSettingsEvent {
     TResult? Function(_MoveTimeChanged value)? moveTimeChanged,
     TResult? Function(_LastWordModeChanged value)? lastWordModeChanged,
     TResult? Function(_PenaltyModeChanged value)? penaltyModeChanged,
+    TResult? Function(_WordsToWinChanged value)? wordsToWinChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +68,7 @@ mixin _$GameSettingsEvent {
     TResult Function(_MoveTimeChanged value)? moveTimeChanged,
     TResult Function(_LastWordModeChanged value)? lastWordModeChanged,
     TResult Function(_PenaltyModeChanged value)? penaltyModeChanged,
+    TResult Function(_WordsToWinChanged value)? wordsToWinChanged,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -127,6 +133,7 @@ class _$_Started implements _Started {
     required TResult Function(CommandMoveMode moveTime) moveTimeChanged,
     required TResult Function(BinarySelectorMode mode) lastWordModeChanged,
     required TResult Function(BinarySelectorMode mode) penaltyModeChanged,
+    required TResult Function(WordsToWin wordsToWin) wordsToWinChanged,
   }) {
     return started();
   }
@@ -138,6 +145,7 @@ class _$_Started implements _Started {
     TResult? Function(CommandMoveMode moveTime)? moveTimeChanged,
     TResult? Function(BinarySelectorMode mode)? lastWordModeChanged,
     TResult? Function(BinarySelectorMode mode)? penaltyModeChanged,
+    TResult? Function(WordsToWin wordsToWin)? wordsToWinChanged,
   }) {
     return started?.call();
   }
@@ -149,6 +157,7 @@ class _$_Started implements _Started {
     TResult Function(CommandMoveMode moveTime)? moveTimeChanged,
     TResult Function(BinarySelectorMode mode)? lastWordModeChanged,
     TResult Function(BinarySelectorMode mode)? penaltyModeChanged,
+    TResult Function(WordsToWin wordsToWin)? wordsToWinChanged,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -164,6 +173,7 @@ class _$_Started implements _Started {
     required TResult Function(_MoveTimeChanged value) moveTimeChanged,
     required TResult Function(_LastWordModeChanged value) lastWordModeChanged,
     required TResult Function(_PenaltyModeChanged value) penaltyModeChanged,
+    required TResult Function(_WordsToWinChanged value) wordsToWinChanged,
   }) {
     return started(this);
   }
@@ -175,6 +185,7 @@ class _$_Started implements _Started {
     TResult? Function(_MoveTimeChanged value)? moveTimeChanged,
     TResult? Function(_LastWordModeChanged value)? lastWordModeChanged,
     TResult? Function(_PenaltyModeChanged value)? penaltyModeChanged,
+    TResult? Function(_WordsToWinChanged value)? wordsToWinChanged,
   }) {
     return started?.call(this);
   }
@@ -186,6 +197,7 @@ class _$_Started implements _Started {
     TResult Function(_MoveTimeChanged value)? moveTimeChanged,
     TResult Function(_LastWordModeChanged value)? lastWordModeChanged,
     TResult Function(_PenaltyModeChanged value)? penaltyModeChanged,
+    TResult Function(_WordsToWinChanged value)? wordsToWinChanged,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -268,6 +280,7 @@ class _$_MoveTimeChanged implements _MoveTimeChanged {
     required TResult Function(CommandMoveMode moveTime) moveTimeChanged,
     required TResult Function(BinarySelectorMode mode) lastWordModeChanged,
     required TResult Function(BinarySelectorMode mode) penaltyModeChanged,
+    required TResult Function(WordsToWin wordsToWin) wordsToWinChanged,
   }) {
     return moveTimeChanged(moveTime);
   }
@@ -279,6 +292,7 @@ class _$_MoveTimeChanged implements _MoveTimeChanged {
     TResult? Function(CommandMoveMode moveTime)? moveTimeChanged,
     TResult? Function(BinarySelectorMode mode)? lastWordModeChanged,
     TResult? Function(BinarySelectorMode mode)? penaltyModeChanged,
+    TResult? Function(WordsToWin wordsToWin)? wordsToWinChanged,
   }) {
     return moveTimeChanged?.call(moveTime);
   }
@@ -290,6 +304,7 @@ class _$_MoveTimeChanged implements _MoveTimeChanged {
     TResult Function(CommandMoveMode moveTime)? moveTimeChanged,
     TResult Function(BinarySelectorMode mode)? lastWordModeChanged,
     TResult Function(BinarySelectorMode mode)? penaltyModeChanged,
+    TResult Function(WordsToWin wordsToWin)? wordsToWinChanged,
     required TResult orElse(),
   }) {
     if (moveTimeChanged != null) {
@@ -305,6 +320,7 @@ class _$_MoveTimeChanged implements _MoveTimeChanged {
     required TResult Function(_MoveTimeChanged value) moveTimeChanged,
     required TResult Function(_LastWordModeChanged value) lastWordModeChanged,
     required TResult Function(_PenaltyModeChanged value) penaltyModeChanged,
+    required TResult Function(_WordsToWinChanged value) wordsToWinChanged,
   }) {
     return moveTimeChanged(this);
   }
@@ -316,6 +332,7 @@ class _$_MoveTimeChanged implements _MoveTimeChanged {
     TResult? Function(_MoveTimeChanged value)? moveTimeChanged,
     TResult? Function(_LastWordModeChanged value)? lastWordModeChanged,
     TResult? Function(_PenaltyModeChanged value)? penaltyModeChanged,
+    TResult? Function(_WordsToWinChanged value)? wordsToWinChanged,
   }) {
     return moveTimeChanged?.call(this);
   }
@@ -327,6 +344,7 @@ class _$_MoveTimeChanged implements _MoveTimeChanged {
     TResult Function(_MoveTimeChanged value)? moveTimeChanged,
     TResult Function(_LastWordModeChanged value)? lastWordModeChanged,
     TResult Function(_PenaltyModeChanged value)? penaltyModeChanged,
+    TResult Function(_WordsToWinChanged value)? wordsToWinChanged,
     required TResult orElse(),
   }) {
     if (moveTimeChanged != null) {
@@ -415,6 +433,7 @@ class _$_LastWordModeChanged implements _LastWordModeChanged {
     required TResult Function(CommandMoveMode moveTime) moveTimeChanged,
     required TResult Function(BinarySelectorMode mode) lastWordModeChanged,
     required TResult Function(BinarySelectorMode mode) penaltyModeChanged,
+    required TResult Function(WordsToWin wordsToWin) wordsToWinChanged,
   }) {
     return lastWordModeChanged(mode);
   }
@@ -426,6 +445,7 @@ class _$_LastWordModeChanged implements _LastWordModeChanged {
     TResult? Function(CommandMoveMode moveTime)? moveTimeChanged,
     TResult? Function(BinarySelectorMode mode)? lastWordModeChanged,
     TResult? Function(BinarySelectorMode mode)? penaltyModeChanged,
+    TResult? Function(WordsToWin wordsToWin)? wordsToWinChanged,
   }) {
     return lastWordModeChanged?.call(mode);
   }
@@ -437,6 +457,7 @@ class _$_LastWordModeChanged implements _LastWordModeChanged {
     TResult Function(CommandMoveMode moveTime)? moveTimeChanged,
     TResult Function(BinarySelectorMode mode)? lastWordModeChanged,
     TResult Function(BinarySelectorMode mode)? penaltyModeChanged,
+    TResult Function(WordsToWin wordsToWin)? wordsToWinChanged,
     required TResult orElse(),
   }) {
     if (lastWordModeChanged != null) {
@@ -452,6 +473,7 @@ class _$_LastWordModeChanged implements _LastWordModeChanged {
     required TResult Function(_MoveTimeChanged value) moveTimeChanged,
     required TResult Function(_LastWordModeChanged value) lastWordModeChanged,
     required TResult Function(_PenaltyModeChanged value) penaltyModeChanged,
+    required TResult Function(_WordsToWinChanged value) wordsToWinChanged,
   }) {
     return lastWordModeChanged(this);
   }
@@ -463,6 +485,7 @@ class _$_LastWordModeChanged implements _LastWordModeChanged {
     TResult? Function(_MoveTimeChanged value)? moveTimeChanged,
     TResult? Function(_LastWordModeChanged value)? lastWordModeChanged,
     TResult? Function(_PenaltyModeChanged value)? penaltyModeChanged,
+    TResult? Function(_WordsToWinChanged value)? wordsToWinChanged,
   }) {
     return lastWordModeChanged?.call(this);
   }
@@ -474,6 +497,7 @@ class _$_LastWordModeChanged implements _LastWordModeChanged {
     TResult Function(_MoveTimeChanged value)? moveTimeChanged,
     TResult Function(_LastWordModeChanged value)? lastWordModeChanged,
     TResult Function(_PenaltyModeChanged value)? penaltyModeChanged,
+    TResult Function(_WordsToWinChanged value)? wordsToWinChanged,
     required TResult orElse(),
   }) {
     if (lastWordModeChanged != null) {
@@ -562,6 +586,7 @@ class _$_PenaltyModeChanged implements _PenaltyModeChanged {
     required TResult Function(CommandMoveMode moveTime) moveTimeChanged,
     required TResult Function(BinarySelectorMode mode) lastWordModeChanged,
     required TResult Function(BinarySelectorMode mode) penaltyModeChanged,
+    required TResult Function(WordsToWin wordsToWin) wordsToWinChanged,
   }) {
     return penaltyModeChanged(mode);
   }
@@ -573,6 +598,7 @@ class _$_PenaltyModeChanged implements _PenaltyModeChanged {
     TResult? Function(CommandMoveMode moveTime)? moveTimeChanged,
     TResult? Function(BinarySelectorMode mode)? lastWordModeChanged,
     TResult? Function(BinarySelectorMode mode)? penaltyModeChanged,
+    TResult? Function(WordsToWin wordsToWin)? wordsToWinChanged,
   }) {
     return penaltyModeChanged?.call(mode);
   }
@@ -584,6 +610,7 @@ class _$_PenaltyModeChanged implements _PenaltyModeChanged {
     TResult Function(CommandMoveMode moveTime)? moveTimeChanged,
     TResult Function(BinarySelectorMode mode)? lastWordModeChanged,
     TResult Function(BinarySelectorMode mode)? penaltyModeChanged,
+    TResult Function(WordsToWin wordsToWin)? wordsToWinChanged,
     required TResult orElse(),
   }) {
     if (penaltyModeChanged != null) {
@@ -599,6 +626,7 @@ class _$_PenaltyModeChanged implements _PenaltyModeChanged {
     required TResult Function(_MoveTimeChanged value) moveTimeChanged,
     required TResult Function(_LastWordModeChanged value) lastWordModeChanged,
     required TResult Function(_PenaltyModeChanged value) penaltyModeChanged,
+    required TResult Function(_WordsToWinChanged value) wordsToWinChanged,
   }) {
     return penaltyModeChanged(this);
   }
@@ -610,6 +638,7 @@ class _$_PenaltyModeChanged implements _PenaltyModeChanged {
     TResult? Function(_MoveTimeChanged value)? moveTimeChanged,
     TResult? Function(_LastWordModeChanged value)? lastWordModeChanged,
     TResult? Function(_PenaltyModeChanged value)? penaltyModeChanged,
+    TResult? Function(_WordsToWinChanged value)? wordsToWinChanged,
   }) {
     return penaltyModeChanged?.call(this);
   }
@@ -621,6 +650,7 @@ class _$_PenaltyModeChanged implements _PenaltyModeChanged {
     TResult Function(_MoveTimeChanged value)? moveTimeChanged,
     TResult Function(_LastWordModeChanged value)? lastWordModeChanged,
     TResult Function(_PenaltyModeChanged value)? penaltyModeChanged,
+    TResult Function(_WordsToWinChanged value)? wordsToWinChanged,
     required TResult orElse(),
   }) {
     if (penaltyModeChanged != null) {
@@ -641,28 +671,186 @@ abstract class _PenaltyModeChanged implements GameSettingsEvent {
 }
 
 /// @nodoc
+abstract class _$$_WordsToWinChangedCopyWith<$Res> {
+  factory _$$_WordsToWinChangedCopyWith(_$_WordsToWinChanged value,
+          $Res Function(_$_WordsToWinChanged) then) =
+      __$$_WordsToWinChangedCopyWithImpl<$Res>;
+  @useResult
+  $Res call({WordsToWin wordsToWin});
+}
+
+/// @nodoc
+class __$$_WordsToWinChangedCopyWithImpl<$Res>
+    extends _$GameSettingsEventCopyWithImpl<$Res, _$_WordsToWinChanged>
+    implements _$$_WordsToWinChangedCopyWith<$Res> {
+  __$$_WordsToWinChangedCopyWithImpl(
+      _$_WordsToWinChanged _value, $Res Function(_$_WordsToWinChanged) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? wordsToWin = null,
+  }) {
+    return _then(_$_WordsToWinChanged(
+      wordsToWin: null == wordsToWin
+          ? _value.wordsToWin
+          : wordsToWin // ignore: cast_nullable_to_non_nullable
+              as WordsToWin,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_WordsToWinChanged implements _WordsToWinChanged {
+  const _$_WordsToWinChanged({required this.wordsToWin});
+
+  @override
+  final WordsToWin wordsToWin;
+
+  @override
+  String toString() {
+    return 'GameSettingsEvent.wordsToWinChanged(wordsToWin: $wordsToWin)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_WordsToWinChanged &&
+            (identical(other.wordsToWin, wordsToWin) ||
+                other.wordsToWin == wordsToWin));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, wordsToWin);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_WordsToWinChangedCopyWith<_$_WordsToWinChanged> get copyWith =>
+      __$$_WordsToWinChangedCopyWithImpl<_$_WordsToWinChanged>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(CommandMoveMode moveTime) moveTimeChanged,
+    required TResult Function(BinarySelectorMode mode) lastWordModeChanged,
+    required TResult Function(BinarySelectorMode mode) penaltyModeChanged,
+    required TResult Function(WordsToWin wordsToWin) wordsToWinChanged,
+  }) {
+    return wordsToWinChanged(wordsToWin);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(CommandMoveMode moveTime)? moveTimeChanged,
+    TResult? Function(BinarySelectorMode mode)? lastWordModeChanged,
+    TResult? Function(BinarySelectorMode mode)? penaltyModeChanged,
+    TResult? Function(WordsToWin wordsToWin)? wordsToWinChanged,
+  }) {
+    return wordsToWinChanged?.call(wordsToWin);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(CommandMoveMode moveTime)? moveTimeChanged,
+    TResult Function(BinarySelectorMode mode)? lastWordModeChanged,
+    TResult Function(BinarySelectorMode mode)? penaltyModeChanged,
+    TResult Function(WordsToWin wordsToWin)? wordsToWinChanged,
+    required TResult orElse(),
+  }) {
+    if (wordsToWinChanged != null) {
+      return wordsToWinChanged(wordsToWin);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_MoveTimeChanged value) moveTimeChanged,
+    required TResult Function(_LastWordModeChanged value) lastWordModeChanged,
+    required TResult Function(_PenaltyModeChanged value) penaltyModeChanged,
+    required TResult Function(_WordsToWinChanged value) wordsToWinChanged,
+  }) {
+    return wordsToWinChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_MoveTimeChanged value)? moveTimeChanged,
+    TResult? Function(_LastWordModeChanged value)? lastWordModeChanged,
+    TResult? Function(_PenaltyModeChanged value)? penaltyModeChanged,
+    TResult? Function(_WordsToWinChanged value)? wordsToWinChanged,
+  }) {
+    return wordsToWinChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_MoveTimeChanged value)? moveTimeChanged,
+    TResult Function(_LastWordModeChanged value)? lastWordModeChanged,
+    TResult Function(_PenaltyModeChanged value)? penaltyModeChanged,
+    TResult Function(_WordsToWinChanged value)? wordsToWinChanged,
+    required TResult orElse(),
+  }) {
+    if (wordsToWinChanged != null) {
+      return wordsToWinChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _WordsToWinChanged implements GameSettingsEvent {
+  const factory _WordsToWinChanged({required final WordsToWin wordsToWin}) =
+      _$_WordsToWinChanged;
+
+  WordsToWin get wordsToWin;
+  @JsonKey(ignore: true)
+  _$$_WordsToWinChangedCopyWith<_$_WordsToWinChanged> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$GameSettingsState {
   CommandMoveMode get time => throw _privateConstructorUsedError;
   BinarySelectorMode get lastWordMode => throw _privateConstructorUsedError;
   BinarySelectorMode get penaltyMode => throw _privateConstructorUsedError;
+  WordsToWin get wordsToWin => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(CommandMoveMode time,
-            BinarySelectorMode lastWordMode, BinarySelectorMode penaltyMode)
+    required TResult Function(
+            CommandMoveMode time,
+            BinarySelectorMode lastWordMode,
+            BinarySelectorMode penaltyMode,
+            WordsToWin wordsToWin)
         ready,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(CommandMoveMode time, BinarySelectorMode lastWordMode,
-            BinarySelectorMode penaltyMode)?
+            BinarySelectorMode penaltyMode, WordsToWin wordsToWin)?
         ready,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(CommandMoveMode time, BinarySelectorMode lastWordMode,
-            BinarySelectorMode penaltyMode)?
+            BinarySelectorMode penaltyMode, WordsToWin wordsToWin)?
         ready,
     required TResult orElse(),
   }) =>
@@ -698,7 +886,8 @@ abstract class $GameSettingsStateCopyWith<$Res> {
   $Res call(
       {CommandMoveMode time,
       BinarySelectorMode lastWordMode,
-      BinarySelectorMode penaltyMode});
+      BinarySelectorMode penaltyMode,
+      WordsToWin wordsToWin});
 }
 
 /// @nodoc
@@ -717,6 +906,7 @@ class _$GameSettingsStateCopyWithImpl<$Res, $Val extends GameSettingsState>
     Object? time = null,
     Object? lastWordMode = null,
     Object? penaltyMode = null,
+    Object? wordsToWin = null,
   }) {
     return _then(_value.copyWith(
       time: null == time
@@ -731,6 +921,10 @@ class _$GameSettingsStateCopyWithImpl<$Res, $Val extends GameSettingsState>
           ? _value.penaltyMode
           : penaltyMode // ignore: cast_nullable_to_non_nullable
               as BinarySelectorMode,
+      wordsToWin: null == wordsToWin
+          ? _value.wordsToWin
+          : wordsToWin // ignore: cast_nullable_to_non_nullable
+              as WordsToWin,
     ) as $Val);
   }
 }
@@ -745,7 +939,8 @@ abstract class _$$_ReadyCopyWith<$Res>
   $Res call(
       {CommandMoveMode time,
       BinarySelectorMode lastWordMode,
-      BinarySelectorMode penaltyMode});
+      BinarySelectorMode penaltyMode,
+      WordsToWin wordsToWin});
 }
 
 /// @nodoc
@@ -761,6 +956,7 @@ class __$$_ReadyCopyWithImpl<$Res>
     Object? time = null,
     Object? lastWordMode = null,
     Object? penaltyMode = null,
+    Object? wordsToWin = null,
   }) {
     return _then(_$_Ready(
       time: null == time
@@ -775,6 +971,10 @@ class __$$_ReadyCopyWithImpl<$Res>
           ? _value.penaltyMode
           : penaltyMode // ignore: cast_nullable_to_non_nullable
               as BinarySelectorMode,
+      wordsToWin: null == wordsToWin
+          ? _value.wordsToWin
+          : wordsToWin // ignore: cast_nullable_to_non_nullable
+              as WordsToWin,
     ));
   }
 }
@@ -785,7 +985,8 @@ class _$_Ready implements _Ready {
   const _$_Ready(
       {required this.time,
       required this.lastWordMode,
-      required this.penaltyMode});
+      required this.penaltyMode,
+      required this.wordsToWin});
 
   @override
   final CommandMoveMode time;
@@ -793,10 +994,12 @@ class _$_Ready implements _Ready {
   final BinarySelectorMode lastWordMode;
   @override
   final BinarySelectorMode penaltyMode;
+  @override
+  final WordsToWin wordsToWin;
 
   @override
   String toString() {
-    return 'GameSettingsState.ready(time: $time, lastWordMode: $lastWordMode, penaltyMode: $penaltyMode)';
+    return 'GameSettingsState.ready(time: $time, lastWordMode: $lastWordMode, penaltyMode: $penaltyMode, wordsToWin: $wordsToWin)';
   }
 
   @override
@@ -808,11 +1011,14 @@ class _$_Ready implements _Ready {
             (identical(other.lastWordMode, lastWordMode) ||
                 other.lastWordMode == lastWordMode) &&
             (identical(other.penaltyMode, penaltyMode) ||
-                other.penaltyMode == penaltyMode));
+                other.penaltyMode == penaltyMode) &&
+            (identical(other.wordsToWin, wordsToWin) ||
+                other.wordsToWin == wordsToWin));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, time, lastWordMode, penaltyMode);
+  int get hashCode =>
+      Object.hash(runtimeType, time, lastWordMode, penaltyMode, wordsToWin);
 
   @JsonKey(ignore: true)
   @override
@@ -823,33 +1029,36 @@ class _$_Ready implements _Ready {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(CommandMoveMode time,
-            BinarySelectorMode lastWordMode, BinarySelectorMode penaltyMode)
+    required TResult Function(
+            CommandMoveMode time,
+            BinarySelectorMode lastWordMode,
+            BinarySelectorMode penaltyMode,
+            WordsToWin wordsToWin)
         ready,
   }) {
-    return ready(time, lastWordMode, penaltyMode);
+    return ready(time, lastWordMode, penaltyMode, wordsToWin);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(CommandMoveMode time, BinarySelectorMode lastWordMode,
-            BinarySelectorMode penaltyMode)?
+            BinarySelectorMode penaltyMode, WordsToWin wordsToWin)?
         ready,
   }) {
-    return ready?.call(time, lastWordMode, penaltyMode);
+    return ready?.call(time, lastWordMode, penaltyMode, wordsToWin);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(CommandMoveMode time, BinarySelectorMode lastWordMode,
-            BinarySelectorMode penaltyMode)?
+            BinarySelectorMode penaltyMode, WordsToWin wordsToWin)?
         ready,
     required TResult orElse(),
   }) {
     if (ready != null) {
-      return ready(time, lastWordMode, penaltyMode);
+      return ready(time, lastWordMode, penaltyMode, wordsToWin);
     }
     return orElse();
   }
@@ -887,7 +1096,8 @@ abstract class _Ready implements GameSettingsState {
   const factory _Ready(
       {required final CommandMoveMode time,
       required final BinarySelectorMode lastWordMode,
-      required final BinarySelectorMode penaltyMode}) = _$_Ready;
+      required final BinarySelectorMode penaltyMode,
+      required final WordsToWin wordsToWin}) = _$_Ready;
 
   @override
   CommandMoveMode get time;
@@ -895,6 +1105,8 @@ abstract class _Ready implements GameSettingsState {
   BinarySelectorMode get lastWordMode;
   @override
   BinarySelectorMode get penaltyMode;
+  @override
+  WordsToWin get wordsToWin;
   @override
   @JsonKey(ignore: true)
   _$$_ReadyCopyWith<_$_Ready> get copyWith =>

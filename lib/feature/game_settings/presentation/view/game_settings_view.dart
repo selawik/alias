@@ -45,7 +45,7 @@ class GameSettingsView extends StatelessWidget with SnackbarMixin {
                         const SizedBox(height: 24),
                         PenaltySelector(selectedItem: state.penaltyMode),
                         const SizedBox(height: 24),
-                        const WordsToWinCountSelector(),
+                        WordsToWinCountSelector(selectedItem: state.wordsToWin),
                       ],
                     ),
                   );
@@ -81,11 +81,12 @@ class GameSettingsView extends StatelessWidget with SnackbarMixin {
     var gameBloc = BlocProvider.of<GameBloc>(context);
 
     gameSettingBloc.state.whenOrNull(
-      ready: (moveTime, lastWordMode, penaltyMode) {
+      ready: (moveTime, lastWordMode, penaltyMode, wordsToWin) {
         var gameSettings = GameSettings(
           moveTime: moveTime,
           lastWordMode: lastWordMode,
           penaltyMode: penaltyMode,
+          wordsToWin: wordsToWin,
         );
 
         gameBloc.add(GameEvent.initializeSettings(gameSettings: gameSettings));

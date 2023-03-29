@@ -1,37 +1,39 @@
 import 'package:alias/core/constants/app_colors.dart';
 import 'package:alias/core/theme/theme_builder.dart';
+import 'package:alias/feature/game_settings/presentation/bloc/game_settings_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 enum WordsToWin {
   twentyFive,
   forty,
   eighty,
-  hundred;
+  hundred,
+  hundredAndTwenty;
 
   int get value {
     switch (this) {
       case WordsToWin.twentyFive:
-        return 25;
+        return 15;
       case WordsToWin.forty:
-        return 40;
+        return 20;
       case WordsToWin.eighty:
-        return 80;
+        return 30;
       case WordsToWin.hundred:
-        return 100;
+        return 50;
+      case WordsToWin.hundredAndTwenty:
+        return 60;
     }
   }
 }
 
-class WordsToWinCountSelector extends StatefulWidget {
-  const WordsToWinCountSelector({Key? key}) : super(key: key);
+class WordsToWinCountSelector extends StatelessWidget {
+  final WordsToWin selectedItem;
 
-  @override
-  State<WordsToWinCountSelector> createState() =>
-      _WordsToWinCountSelectorState();
-}
-
-class _WordsToWinCountSelectorState extends State<WordsToWinCountSelector> {
-  WordsToWin value = WordsToWin.forty;
+  const WordsToWinCountSelector({
+    Key? key,
+    required this.selectedItem,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -40,49 +42,42 @@ class _WordsToWinCountSelectorState extends State<WordsToWinCountSelector> {
       children: [
         Text(
           'Счет для победы',
-          style: Theme.of(context).textTheme.displayLarge,
+          style: Theme
+              .of(context)
+              .textTheme
+              .displayLarge,
         ),
         const SizedBox(height: 16),
         Container(
           decoration: BoxDecoration(
-              boxShadow: ThemeBuilder.defaultShadow,
-              color: AppColors.white,
-              borderRadius: ThemeBuilder.defaultBorderRadius),
+            boxShadow: ThemeBuilder.defaultShadow,
+            color: AppColors.white,
+            borderRadius: ThemeBuilder.defaultBorderRadius,
+          ),
           child: Row(
             children: WordsToWin.values
                 .map(
-                  (wordsToWin) => Expanded(
+                  (wordsToWin) =>
+                  Expanded(
                     flex: 100 ~/ WordsToWin.values.length,
                     child: GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          value = wordsToWin;
-                        });
-                      },
+                      onTap: () => _onSelectItem(context, wordsToWin),
                       child: Container(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 8, vertical: 8),
-                        decoration: BoxDecoration(
-                          color: wordsToWin == value
-                              ? AppColors.buttonColor
-                              : AppColors.white,
-                          borderRadius: _getBorderRadius(wordsToWin),
+                          horizontal: 8,
+                          vertical: 8,
                         ),
+                        decoration: _getBoxDecoration(wordsToWin),
                         child: Center(
                           child: Text(
                             wordsToWin.value.toString(),
-                            style:
-                                Theme.of(context).textTheme.bodyLarge?.copyWith(
-                                      color: wordsToWin == value
-                                          ? AppColors.white
-                                          : AppColors.black,
-                                    ),
+                            style: _getTextStyle(context, wordsToWin),
                           ),
                         ),
                       ),
                     ),
                   ),
-                )
+            )
                 .toList(),
           ),
         )
@@ -102,5 +97,30 @@ class _WordsToWinCountSelectorState extends State<WordsToWinCountSelector> {
     }
 
     return null;
+  }
+
+  TextStyle? _getTextStyle(BuildContext context, WordsToWin wordsToWin) {
+    return Theme
+        .of(context)
+        .textTheme
+        .bodyLarge
+        ?.copyWith(
+      color: selectedItem == wordsToWin ? AppColors.white : AppColors.black,
+    );
+  }
+
+  BoxDecoration _getBoxDecoration(WordsToWin wordsToWin) {
+    return BoxDecoration(
+      color: selectedItem == wordsToWin
+          ? AppColors.buttonColor
+          : AppColors.white,
+      borderRadius: _getBorderRadius(wordsToWin),
+    );
+  }
+
+  void _onSelectItem(BuildContext context, WordsToWin value) {
+    var bloc = BlocProvider.of<GameSettingsBloc>(context);
+
+    bloc.add(GameSettingsEvent.wordsToWinChanged(wordsToWin: value));
   }
 }

@@ -15,4 +15,10 @@ class GameSettingsEvent with _$GameSettingsEvent {
   const factory GameSettingsEvent.penaltyModeChanged({
     required BinarySelectorMode mode,
   }) = _PenaltyModeChanged;
+
+  const factory GameSettingsEvent.wordsToWinChanged({
+    required WordsToWin wordsToWin,
+  }) = _WordsToWinChanged;
 }
+
+
