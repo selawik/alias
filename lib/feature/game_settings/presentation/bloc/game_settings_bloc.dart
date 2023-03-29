@@ -1,7 +1,6 @@
-import 'package:alias/core/database/database.dart';
 import 'package:alias/feature/game_settings/domain/model/binary_selector_type.dart';
 import 'package:alias/feature/game_settings/domain/model/command_move_selector_type.dart';
-import 'package:alias/feature/game_settings/presentation/view/widget/words_to_win_count_selector.dart';
+import 'package:alias/feature/game_settings/domain/model/words_to_win.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';

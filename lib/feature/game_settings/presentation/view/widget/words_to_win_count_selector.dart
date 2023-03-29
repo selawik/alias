@@ -1,31 +1,9 @@
 import 'package:alias/core/constants/app_colors.dart';
 import 'package:alias/core/theme/theme_builder.dart';
+import 'package:alias/feature/game_settings/domain/model/words_to_win.dart';
 import 'package:alias/feature/game_settings/presentation/bloc/game_settings_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-enum WordsToWin {
-  twentyFive,
-  forty,
-  eighty,
-  hundred,
-  hundredAndTwenty;
-
-  int get value {
-    switch (this) {
-      case WordsToWin.twentyFive:
-        return 15;
-      case WordsToWin.forty:
-        return 20;
-      case WordsToWin.eighty:
-        return 30;
-      case WordsToWin.hundred:
-        return 50;
-      case WordsToWin.hundredAndTwenty:
-        return 60;
-    }
-  }
-}
 
 class WordsToWinCountSelector extends StatelessWidget {
   final WordsToWin selectedItem;
