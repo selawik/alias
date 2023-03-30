@@ -8,6 +8,7 @@ import 'package:alias/feature/game/domain/words_usecases_facade.dart';
 import 'package:alias/feature/game/domain/model/word.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:collection/collection.dart';
 import 'package:injectable/injectable.dart';
 
 part 'game_bloc.freezed.dart';
@@ -63,16 +64,17 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
   void _onCommandsInitialization(_InitializeCommands event, Emitter emit) {
     _commands = event.commands
-        .map((command) =>
-        PlayingCommand(
-          commandId: command.commandId,
-          name: command.name,
-        ))
+        .map((command) => PlayingCommand(
+              commandId: command.commandId,
+              name: command.name,
+            ))
         .toList();
   }
 
-  void _onSettingsInitialization(_InitializeSettings event,
-      Emitter emit,) async {
+  void _onSettingsInitialization(
+    _InitializeSettings event,
+    Emitter emit,
+  ) async {
     _settings = event.gameSettings;
 
     emit(const GameState.wordsIsLoading());
@@ -111,7 +113,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
   Future<Iterable<Word>?> _loadPlayedWords() async {
     var result =
-    await _wordsUseCasesFacade.loadPlayedWords(category: _category);
+        await _wordsUseCasesFacade.loadPlayedWords(category: _category);
 
     var playedWords = result.fold((failure) => null, (words) => words);
 
@@ -191,7 +193,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     _answers = List<GameAnswer>.from(_answers);
 
     var index =
-    _answers.indexWhere((element) => element.word == event.answer.word);
+        _answers.indexWhere((element) => element.word == event.answer.word);
 
     _answers[index] =
         event.answer.copyWith(type: event.answer.type.switchedValue);
@@ -231,9 +233,12 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     _words.shuffle();
 
     if (_words.isEmpty) {
-      _commands.sort(
-              (command1, command2) => command2.score.compareTo(command1.score));
-      emit(GameState.gameOver(commands: _commands));
+      _emitGameOverEvent(emit);
+      return;
+    }
+
+    if (_isRoundComplete() && _isReachedWordsToWin()) {
+      _emitGameOverEvent(emit);
     } else {
       emit(GameState.gameIsReady(
         settings: _settings,
@@ -241,6 +246,33 @@ class GameBloc extends Bloc<GameEvent, GameState> {
         playingCommand: _getPlayingCommand(),
       ));
     }
+  }
+
+  bool _isRoundComplete() {
+    var firstCommandRoundPlayedCount = _commands.first.playedRoundCount;
+
+    var isRoundEnd = _commands.fold(
+          firstCommandRoundPlayedCount,
+          (previousValue, command) => command.playedRoundCount != previousValue
+              ? command.playedRoundCount
+              : previousValue,
+        ) ==
+        firstCommandRoundPlayedCount;
+
+    return isRoundEnd;
+  }
+
+  bool _isReachedWordsToWin() {
+    return _commands.firstWhereOrNull(
+            (command) => command.score >= _settings.wordsToWin.value) !=
+        null;
+  }
+
+  void _emitGameOverEvent(Emitter emit) {
+    _commands
+        .sort((command1, command2) => command2.score.compareTo(command1.score));
+
+    emit(GameState.gameOver(commands: _commands));
   }
 
   void _onResetGame(_ResetGame event, Emitter emit) async {
@@ -282,8 +314,8 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
   PlayingCommand _getPlayingCommand() {
     return _commands.reduce(
-          (value, element) =>
-      value.playedRoundCount <= element.playedRoundCount ? value : element,
+      (value, element) =>
+          value.playedRoundCount <= element.playedRoundCount ? value : element,
     );
   }
 }
