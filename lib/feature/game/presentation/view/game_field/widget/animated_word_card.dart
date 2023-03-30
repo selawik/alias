@@ -1,6 +1,6 @@
 import 'package:alias/feature/game/domain/model/word.dart';
-import 'package:alias/feature/game/presentation/bloc/answer_bloc.dart';
-import 'package:alias/feature/game/presentation/bloc/game_bloc.dart';
+import 'package:alias/feature/game/presentation/bloc/answer_bloc/answer_bloc.dart';
+import 'package:alias/feature/game/presentation/bloc/game_bloc/game_bloc.dart';
 import 'package:alias/feature/game/presentation/view/game_field/widget/game_word_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

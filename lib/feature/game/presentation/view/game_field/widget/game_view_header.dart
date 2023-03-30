@@ -1,7 +1,7 @@
 import 'package:alias/core/constants/app_colors.dart';
 import 'package:alias/core/constants/assets_catalog.dart';
 import 'package:alias/core/router/app_router.dart';
-import 'package:alias/feature/game/presentation/bloc/game_bloc.dart';
+import 'package:alias/feature/game/presentation/bloc/game_bloc/game_bloc.dart';
 import 'package:alias/feature/game/presentation/view/game_field/widget/game_pause_dialog.dart';
 import 'package:alias/feature/game/presentation/view/game_field/widget/game_timer.dart';
 import 'package:flutter/cupertino.dart';

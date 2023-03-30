@@ -1,7 +1,7 @@
 import 'package:alias/core/application.dart';
 import 'package:alias/core/injection.dart' as di;
 import 'package:alias/feature/sync/presentation/bloc/dictionary_bloc.dart';
-import 'package:alias/feature/game/presentation/bloc/game_bloc.dart';
+import 'package:alias/feature/game/presentation/bloc/game_bloc/game_bloc.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

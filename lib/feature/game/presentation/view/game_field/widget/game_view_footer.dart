@@ -1,7 +1,7 @@
 import 'package:alias/core/constants/app_colors.dart';
 import 'package:alias/core/constants/assets_catalog.dart';
-import 'package:alias/feature/game/presentation/bloc/answer_bloc.dart';
-import 'package:alias/feature/game/presentation/bloc/game_bloc.dart';
+import 'package:alias/feature/game/presentation/bloc/answer_bloc/answer_bloc.dart';
+import 'package:alias/feature/game/presentation/bloc/game_bloc/game_bloc.dart';
 import 'package:alias/feature/game/presentation/view/game_field/widget/answer_button.dart';
 import 'package:alias/feature/game/presentation/view/game_field/widget/start_game_button.dart';
 import 'package:flutter/material.dart';

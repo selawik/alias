@@ -3,7 +3,7 @@ import 'package:alias/core/router/app_router.dart';
 import 'package:alias/core/widget/custom_progress_indicator.dart';
 import 'package:alias/feature/game/domain/model/game_settings.dart';
 import 'package:alias/feature/game/domain/model/playing_command.dart';
-import 'package:alias/feature/game/presentation/bloc/game_bloc.dart';
+import 'package:alias/feature/game/presentation/bloc/game_bloc/game_bloc.dart';
 import 'package:alias/feature/game_settings/presentation/bloc/game_settings_bloc.dart';
 import 'package:alias/feature/game_settings/presentation/view/widget/command_move_time_selector.dart';
 import 'package:alias/feature/game_settings/presentation/view/widget/last_word_selector.dart';

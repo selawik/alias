@@ -70,8 +70,10 @@ import 'package:alias/feature/game/domain/usecases/save_played_words.dart'
 import 'package:alias/feature/game/domain/usecases/save_started_game.dart'
     as _i43;
 import 'package:alias/feature/game/domain/words_usecases_facade.dart' as _i45;
-import 'package:alias/feature/game/presentation/bloc/answer_bloc.dart' as _i3;
-import 'package:alias/feature/game/presentation/bloc/game_bloc.dart' as _i49;
+import 'package:alias/feature/game/presentation/bloc/answer_bloc/answer_bloc.dart'
+    as _i3;
+import 'package:alias/feature/game/presentation/bloc/game_bloc/game_bloc.dart'
+    as _i49;
 import 'package:alias/feature/game_settings/presentation/bloc/game_settings_bloc.dart'
     as _i17;
 import 'package:alias/feature/sync/data/data_source/dictionary_local_data_source.dart'

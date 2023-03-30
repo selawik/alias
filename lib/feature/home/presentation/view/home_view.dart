@@ -2,7 +2,7 @@ import 'package:alias/core/constants/app_colors.dart';
 import 'package:alias/core/constants/assets_catalog.dart';
 import 'package:alias/core/injection.dart' as di;
 import 'package:alias/core/router/app_router.dart';
-import 'package:alias/feature/game/presentation/bloc/game_bloc.dart';
+import 'package:alias/feature/game/presentation/bloc/game_bloc/game_bloc.dart';
 import 'package:alias/feature/home/presentation/view/widget/reset_unfinished_game_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

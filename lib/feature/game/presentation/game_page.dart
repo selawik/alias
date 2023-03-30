@@ -1,4 +1,4 @@
-import 'package:alias/feature/game/presentation/bloc/answer_bloc.dart';
+import 'package:alias/feature/game/presentation/bloc/answer_bloc/answer_bloc.dart';
 import 'package:alias/feature/game/presentation/view/game_field/game_view.dart';
 import 'package:alias/core/injection.dart' as di;
 import 'package:flutter/material.dart';

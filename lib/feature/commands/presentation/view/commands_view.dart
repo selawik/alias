@@ -5,7 +5,7 @@ import 'package:alias/core/widget/custom_progress_indicator.dart';
 import 'package:alias/feature/commands/domain/models/command.dart';
 import 'package:alias/feature/commands/presentation/bloc/commands_bloc.dart';
 import 'package:alias/feature/commands/presentation/view/widget/command_list_item.dart';
-import 'package:alias/feature/game/presentation/bloc/game_bloc.dart';
+import 'package:alias/feature/game/presentation/bloc/game_bloc/game_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

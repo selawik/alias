@@ -1,4 +1,4 @@
-import 'package:alias/feature/game/presentation/bloc/game_bloc.dart';
+import 'package:alias/feature/game/presentation/bloc/game_bloc/game_bloc.dart';
 import 'package:alias/feature/game/presentation/view/game_field/widget/animated_word_card.dart';
 import 'package:alias/feature/game/presentation/view/game_field/widget/game_main_circle_widget.dart';
 import 'package:alias/feature/game/presentation/view/game_field/widget/game_word_card.dart';

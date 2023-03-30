@@ -6,7 +6,7 @@ import 'package:alias/core/theme/theme_builder.dart';
 import 'package:alias/core/widget/custom_progress_indicator.dart';
 import 'package:alias/feature/categories/domain/models/category.dart';
 import 'package:alias/feature/categories/presentation/bloc/categories_bloc.dart';
-import 'package:alias/feature/game/presentation/bloc/game_bloc.dart';
+import 'package:alias/feature/game/presentation/bloc/game_bloc/game_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
