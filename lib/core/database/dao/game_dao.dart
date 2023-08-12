@@ -23,6 +23,6 @@ class GameDao extends DatabaseAccessor<Database> with _$GameDaoMixin {
   }
 
   Future<void> deleteUnfinishedGame() async {
-    delete(gameTable).go();
+    await delete(gameTable).go();
   }
 }

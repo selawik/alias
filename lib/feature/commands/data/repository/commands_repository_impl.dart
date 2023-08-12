@@ -34,7 +34,8 @@ class CommandsRepositoryImpl implements CommandsRepository {
       }
 
       return Right(
-          result.map((dto) => _commandMapper.mapToModel(dto)).toList());
+        result.map(_commandMapper.mapToModel).toList(),
+      );
     } catch (e, stacktrace) {
       log(e.toString(), stackTrace: stacktrace);
       return const Left(ServerFailure('Error'));

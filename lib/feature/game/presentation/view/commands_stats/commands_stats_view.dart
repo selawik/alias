@@ -1,20 +1,20 @@
+import 'package:alias/core/injection.dart' as di;
 import 'package:alias/core/router/app_router.dart';
 import 'package:alias/feature/game/domain/model/playing_command.dart';
 import 'package:alias/feature/game/presentation/bloc/game_bloc/game_bloc.dart';
 import 'package:alias/feature/game/presentation/view/commands_stats/widget/commands_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:alias/core/injection.dart' as di;
 
 class CommandsStatsView extends StatelessWidget {
-  const CommandsStatsView({Key? key}) : super(key: key);
+  const CommandsStatsView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<GameBloc, GameState>(
       builder: (context, state) {
         return state.maybeWhen(
-          orElse: () => Container(),
+          orElse: Container.new,
           gameIsReady: (settings, commands, nextPlayingCommand) =>
               _buildStatsView(context, commands, nextPlayingCommand),
           gameOver: (commands) => _buildGameOverView(context, commands),
@@ -89,9 +89,7 @@ class CommandsStatsView extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: ElevatedButton(
         onPressed: () {
-          var router = di.locator.get<AppRouter>();
-
-          router.replace(const GamePageRoute());
+          di.locator.get<AppRouter>().replace(const GamePageRoute());
         },
         child: const Text('Начать игру'),
       ),
@@ -99,8 +97,8 @@ class CommandsStatsView extends StatelessWidget {
   }
 
   Widget _buildGameOverButton(BuildContext context) {
-    var router = di.locator.get<AppRouter>();
-    var gameBloc = BlocProvider.of<GameBloc>(context);
+    final router = di.locator.get<AppRouter>();
+    final gameBloc = BlocProvider.of<GameBloc>(context);
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),

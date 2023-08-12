@@ -1,7 +1,7 @@
 import 'package:alias/core/error/failure.dart';
 import 'package:alias/feature/categories/domain/models/category.dart';
-import 'package:alias/feature/game/domain/repository/words_repository.dart';
 import 'package:alias/feature/game/domain/model/word.dart';
+import 'package:alias/feature/game/domain/repository/words_repository.dart';
 import 'package:alias/feature/game_settings/domain/model/binary_selector_type.dart';
 import 'package:alias/feature/game_settings/domain/model/command_move_selector_type.dart';
 import 'package:dartz/dartz.dart';
@@ -26,7 +26,7 @@ class LoadWords {
 
     wordsCount += (moveTime.getDuration().inSeconds * 0.7).toInt();
 
-    return await repository.loadWords(
+    return repository.loadWords(
       wordCount: wordsCount,
       category: category,
       playedWords: playedWords,

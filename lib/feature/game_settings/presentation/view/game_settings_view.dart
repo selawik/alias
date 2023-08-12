@@ -1,3 +1,4 @@
+import 'package:alias/core/injection.dart' as di;
 import 'package:alias/core/mixin/snackbar_mixin.dart';
 import 'package:alias/core/router/app_router.dart';
 import 'package:alias/core/widget/custom_progress_indicator.dart';
@@ -11,10 +12,9 @@ import 'package:alias/feature/game_settings/presentation/view/widget/penalty_sel
 import 'package:alias/feature/game_settings/presentation/view/widget/words_to_win_count_selector.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:alias/core/injection.dart' as di;
 
 class GameSettingsView extends StatelessWidget with SnackbarMixin {
-  const GameSettingsView({Key? key}) : super(key: key);
+  const GameSettingsView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +69,7 @@ class GameSettingsView extends StatelessWidget with SnackbarMixin {
           BlocBuilder<GameBloc, GameState>(
             builder: (context, state) {
               return state.maybeWhen(
-                orElse: () => Container(),
+                orElse: Container.new,
                 wordsIsLoading: () =>
                     const Center(child: CustomProgressIndicator()),
               );
@@ -81,12 +81,12 @@ class GameSettingsView extends StatelessWidget with SnackbarMixin {
   }
 
   void _onContinuePressed(BuildContext context) {
-    var gameSettingBloc = BlocProvider.of<GameSettingsBloc>(context);
-    var gameBloc = BlocProvider.of<GameBloc>(context);
+    final gameSettingBloc = BlocProvider.of<GameSettingsBloc>(context);
+    final gameBloc = BlocProvider.of<GameBloc>(context);
 
     gameSettingBloc.state.whenOrNull(
       ready: (moveTime, lastWordMode, penaltyMode, wordsToWin) {
-        var gameSettings = GameSettings(
+        final gameSettings = GameSettings(
           moveTime: moveTime,
           lastWordMode: lastWordMode,
           penaltyMode: penaltyMode,
@@ -103,13 +103,13 @@ class GameSettingsView extends StatelessWidget with SnackbarMixin {
     List<PlayingCommand> commands,
     PlayingCommand nextPlayingCommand,
   ) {
-    var router = di.locator.get<AppRouter>();
-    router.push(const CommandsStatsPageRoute());
+    di.locator.get<AppRouter>().push(const CommandsStatsPageRoute());
   }
 
   void _onNoWords(BuildContext context) {
-    var router = di.locator.get<AppRouter>();
-    router.popUntil((route) => route.settings.name == 'HomePageRoute');
+    di.locator.get<AppRouter>().popUntil(
+          (route) => route.settings.name == 'HomePageRoute',
+        );
 
     showMessage(
       context,

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
 class LanguageSettingsRow extends StatelessWidget {
-  const LanguageSettingsRow({Key? key}) : super(key: key);
+  const LanguageSettingsRow({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,6 +1,8 @@
 import 'dart:developer';
 
 import 'package:alias/core/error/failure.dart';
+import 'package:alias/feature/categories/domain/models/category.dart';
+import 'package:alias/feature/commands/domain/models/command.dart';
 import 'package:alias/feature/game/domain/model/word.dart';
 import 'package:alias/feature/sync/domain/repository/dictionary_repository.dart';
 import 'package:dartz/dartz.dart';
@@ -22,23 +24,23 @@ class SyncDictionary {
   }
 
   Future<void> _syncWords() async {
-    var lastLocalWordResult = await _repository.loadLastLocalWordId();
-    var lastRemoteWordResult = await _repository.loadLastRemoteWordId();
+    final lastLocalWordResult = await _repository.loadLastLocalWordId();
+    final lastRemoteWordResult = await _repository.loadLastRemoteWordId();
 
     if (lastRemoteWordResult.isLeft() || lastLocalWordResult.isLeft()) {
       return;
     }
 
-    int lastRemoteWordId = (lastRemoteWordResult as Right).value;
-    int? lastLocalWordId = (lastLocalWordResult as Right).value;
+    final lastRemoteWordId = (lastRemoteWordResult as Right).value;
+    final lastLocalWordId = (lastLocalWordResult as Right).value;
 
     log('Last local word id $lastRemoteWordId');
     log('Last remote word id $lastLocalWordId');
 
     if (lastRemoteWordId != lastLocalWordId) {
       await _saveWords(
-        lastLocalWordId: lastLocalWordId,
-        lastRemoveWordId: lastRemoteWordId,
+        lastLocalWordId: lastLocalWordId as int?,
+        lastRemoveWordId: lastRemoteWordId as int,
       );
     }
 
@@ -50,16 +52,16 @@ class SyncDictionary {
     required int? lastLocalWordId,
   }) async {
     while ((lastLocalWordId ?? 0) < lastRemoveWordId) {
-      var wordsBatchResult =
+      final wordsBatchResult =
           await _repository.loadWordsBatch(startFromId: lastLocalWordId);
 
       if (wordsBatchResult.isLeft()) {
         return;
       }
 
-      var wordsList = (wordsBatchResult as Right).value as List<Word>;
+      final wordsList = (wordsBatchResult as Right).value as List<Word>;
 
-      var wordsSavingResult = await _repository.saveWords(words: wordsList);
+      final wordsSavingResult = await _repository.saveWords(words: wordsList);
 
       if (wordsSavingResult.isLeft()) {
         return;
@@ -70,28 +72,30 @@ class SyncDictionary {
   }
 
   Future<void> _syncCategories() async {
-    var lastLocalCategoryIdResult = await _repository.loadLastLocalCategoryId();
+    final lastLocalCategoryIdResult =
+        await _repository.loadLastLocalCategoryId();
 
     if (lastLocalCategoryIdResult.isLeft()) {
       return;
     }
 
-    var lastLocalCategoryId = (lastLocalCategoryIdResult as Right).value;
-    var lastRemoteCategoryResult = await _repository.loadLastRemoteCategoryId();
+    final lastLocalCategoryId = (lastLocalCategoryIdResult as Right).value;
+    final lastRemoteCategoryResult =
+        await _repository.loadLastRemoteCategoryId();
 
     if (lastRemoteCategoryResult.isLeft()) {
       return;
     }
 
-    var lastRemoteCategoryId = (lastRemoteCategoryResult as Right).value;
+    final lastRemoteCategoryId = (lastRemoteCategoryResult as Right).value;
 
     log('Last local category id $lastLocalCategoryId');
     log('Last remote category id $lastRemoteCategoryId');
 
     if (lastLocalCategoryId != lastRemoteCategoryId) {
       await _saveCategories(
-        lastRemoveCategoryId: lastRemoteCategoryId,
-        lastLocalCategoryId: lastLocalCategoryId,
+        lastRemoveCategoryId: lastRemoteCategoryId as int,
+        lastLocalCategoryId: lastLocalCategoryId as int?,
       );
     }
   }
@@ -100,12 +104,12 @@ class SyncDictionary {
     required int? lastLocalCategoryId,
     required int lastRemoveCategoryId,
   }) async {
-    var categoriesResult =
+    final categoriesResult =
         await _repository.loadCategories(startFromId: lastLocalCategoryId);
 
     if (categoriesResult.isRight()) {
-      var categorySavingResult =
-          await _repository.saveCategories((categoriesResult as Right).value);
+      final categorySavingResult = await _repository
+          .saveCategories((categoriesResult as Right).value as List<Category>);
 
       if (categorySavingResult.isRight()) {
         log('Category Synced');
@@ -114,20 +118,22 @@ class SyncDictionary {
   }
 
   Future<void> _syncCommand() async {
-    var lastLocalCommandIdResult = await _repository.loadLastLocalCommandId();
+    final lastLocalCommandIdResult = await _repository.loadLastLocalCommandId();
 
     if (lastLocalCommandIdResult.isLeft()) {
       return;
     }
 
-    var lastRemoteCommandIdResult = await _repository.loadLastRemoteCommandId();
+    final lastRemoteCommandIdResult =
+        await _repository.loadLastRemoteCommandId();
 
     if (lastRemoteCommandIdResult.isLeft()) {
       return;
     }
 
-    var lastRemoteCommandId = (lastRemoteCommandIdResult as Right).value;
-    var lastLocalCommandId = (lastLocalCommandIdResult as Right).value;
+    final lastRemoteCommandId =
+        (lastRemoteCommandIdResult as Right).value as int;
+    final lastLocalCommandId = (lastLocalCommandIdResult as Right).value as int;
 
     log('Last local command id $lastLocalCommandId');
     log('Last remote command id $lastRemoteCommandId');
@@ -144,12 +150,13 @@ class SyncDictionary {
     required int? lastLocalCommandId,
     required int lastRemoveCommandId,
   }) async {
-    var commandsResult =
+    final commandsResult =
         await _repository.loadCommands(startFromId: lastLocalCommandId);
 
     if (commandsResult.isRight()) {
-      var commandsSaveResult = await _repository.saveCommands(
-          commands: (commandsResult as Right).value.toList());
+      final commandsSaveResult = await _repository.saveCommands(
+          commands:
+              ((commandsResult as Right).value as Iterable<Command>).toList());
 
       if (commandsSaveResult.isRight()) {
         log('Commands Synced');

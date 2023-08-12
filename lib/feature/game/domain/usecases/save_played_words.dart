@@ -1,6 +1,6 @@
 import 'package:alias/core/error/failure.dart';
-import 'package:alias/feature/game/domain/repository/words_repository.dart';
 import 'package:alias/feature/game/domain/model/word.dart';
+import 'package:alias/feature/game/domain/repository/words_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
@@ -11,6 +11,6 @@ class SavePlayedWords {
   SavePlayedWords({required this.repository});
 
   Future<Either<Failure, void>> execute({required List<Word> words}) async {
-    return await repository.savePlayedWords(words: words);
+    return repository.savePlayedWords(words: words);
   }
 }

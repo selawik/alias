@@ -6,9 +6,9 @@ class CommandsList extends StatelessWidget {
   final List<PlayingCommand> commands;
 
   const CommandsList({
-    Key? key,
     required this.commands,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class CommandsList extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
       shrinkWrap: true,
       itemBuilder: (context, index) {
-        var command = commands[index];
+        final command = commands[index];
 
         return _buildCommandListItem(context, command);
       },
@@ -28,8 +28,8 @@ class CommandsList extends StatelessWidget {
   }
 
   Widget _buildCommandListItem(BuildContext context, PlayingCommand command) {
-    var textStyle = Theme.of(context).textTheme.displayMedium;
-    
+    final textStyle = Theme.of(context).textTheme.displayMedium;
+
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: ThemeBuilder.cardDecoration,

@@ -17,7 +17,7 @@ class SaveStartedGame {
     required GameSettings gameSettings,
     required Category category,
   }) async {
-    return await repository.saveStartedGame(
+    return repository.saveStartedGame(
       category: category,
       commands: commands,
       gameSettings: gameSettings,

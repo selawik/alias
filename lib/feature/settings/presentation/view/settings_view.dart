@@ -5,15 +5,15 @@ import 'package:alias/feature/settings/presentation/view/widget/view_db_row.dart
 import 'package:flutter/material.dart';
 
 class SettingsView extends StatelessWidget {
-  const SettingsView({Key? key}) : super(key: key);
+  const SettingsView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+    return const Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: const [
+        children: [
           LanguageSettingsRow(),
           SizedBox(height: 16),
           SoundSettingsRow(),

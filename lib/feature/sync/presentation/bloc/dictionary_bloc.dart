@@ -3,11 +3,9 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
-part 'dictionary_event.dart';
-
-part 'dictionary_state.dart';
-
 part 'dictionary_bloc.freezed.dart';
+part 'dictionary_event.dart';
+part 'dictionary_state.dart';
 
 @Injectable()
 class DictionaryBloc extends Bloc<DictionaryEvent, DictionaryState> {
@@ -19,7 +17,8 @@ class DictionaryBloc extends Bloc<DictionaryEvent, DictionaryState> {
     on<_SyncDictionary>(_onSyncDictionary);
   }
 
-  Future<void> _onSyncDictionary(_SyncDictionary event, Emitter emit) async {
+  Future<void> _onSyncDictionary(
+      _SyncDictionary event, Emitter<DictionaryState> emit) async {
     await _syncDictionary.execute();
 
     emit(const DictionaryState.sync());

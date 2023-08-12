@@ -1,5 +1,3 @@
-
-
 import 'package:alias/core/error/failure.dart';
 import 'package:alias/feature/game/domain/model/game.dart';
 import 'package:alias/feature/game/domain/repository/words_repository.dart';
@@ -10,9 +8,10 @@ import 'package:injectable/injectable.dart';
 class GetUnfinishedGame {
   final WordsRepository _repository;
 
-  GetUnfinishedGame({required WordsRepository repository}) : _repository = repository;
+  GetUnfinishedGame({required WordsRepository repository})
+      : _repository = repository;
 
   Future<Either<Failure, Game?>> execute() async {
-    return await _repository.loadUnfinishedGame();
+    return _repository.loadUnfinishedGame();
   }
 }

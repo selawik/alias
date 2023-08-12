@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class GameViewFooter extends StatelessWidget {
-  const GameViewFooter({Key? key}) : super(key: key);
+  const GameViewFooter({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class GameViewFooter extends StatelessWidget {
   }
 
   Widget _buildAnswerButtons(BuildContext context) {
-    var answerBloc = BlocProvider.of<AnswerBloc>(context);
+    final answerBloc = BlocProvider.of<AnswerBloc>(context);
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -34,7 +34,8 @@ class GameViewFooter extends StatelessWidget {
           Expanded(
             child: AnswerButton(
               asset: AssetsCatalog.icCross,
-              onPress: () => answerBloc.add(const AnswerEvent.playSkipAnimation()),
+              onPress: () =>
+                  answerBloc.add(const AnswerEvent.playSkipAnimation()),
               color: AppColors.red,
             ),
           ),
@@ -42,7 +43,8 @@ class GameViewFooter extends StatelessWidget {
           Expanded(
             child: AnswerButton(
               asset: AssetsCatalog.icDone,
-              onPress: () => answerBloc.add(const AnswerEvent.playCountAnimation()),
+              onPress: () =>
+                  answerBloc.add(const AnswerEvent.playCountAnimation()),
               color: AppColors.green,
             ),
           ),

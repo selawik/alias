@@ -9,10 +9,10 @@ class WordDao extends DatabaseAccessor<Database> with _$WordDaoMixin {
   WordDao(Database db) : super(db);
 
   Future<int?> getLastWordId() async {
-    var query = select(wordsTable)
+    final query = select(wordsTable)
       ..orderBy([(table) => OrderingTerm(expression: table.wordId)]);
 
-    var words = await query.get();
+    final words = await query.get();
 
     if (words.isEmpty) {
       return null;
@@ -41,7 +41,7 @@ class WordDao extends DatabaseAccessor<Database> with _$WordDaoMixin {
   }
 
   Future<int> getCategoryWordsCount({required int categoryId}) async {
-    var query = select(wordsTable)
+    final query = select(wordsTable)
       ..where((tbl) => tbl.categoryId.equals(categoryId));
 
     return (await query.get()).length;

@@ -9,8 +9,8 @@ import 'package:alias/feature/game/data/model/game_dto.dart';
 import 'package:alias/feature/game/domain/model/game.dart';
 import 'package:alias/feature/game/domain/model/game_settings.dart';
 import 'package:alias/feature/game/domain/model/playing_command.dart';
-import 'package:alias/feature/game/domain/repository/words_repository.dart';
 import 'package:alias/feature/game/domain/model/word.dart';
+import 'package:alias/feature/game/domain/repository/words_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
@@ -47,7 +47,7 @@ class WordsRepositoryImpl implements WordsRepository {
     required Category category,
   }) async {
     try {
-      var gameDto = GameDto(
+      final gameDto = GameDto(
         nextPlayingCommandId: commands.first.commandId,
         lastWordMode: gameSettings.lastWordMode,
         penaltyMode: gameSettings.penaltyMode,
@@ -87,7 +87,7 @@ class WordsRepositoryImpl implements WordsRepository {
   @override
   Future<Either<Failure, Game?>> loadUnfinishedGame() async {
     try {
-      var gameDto = await _localDataSource.loadUnfinishedGame();
+      final gameDto = await _localDataSource.loadUnfinishedGame();
 
       if (gameDto != null) {
         return Right(Game(nextPlayingCommandId: gameDto.nextPlayingCommandId));
@@ -119,7 +119,7 @@ class WordsRepositoryImpl implements WordsRepository {
     Iterable<Word>? playedWords,
   }) async {
     try {
-      var playedWordIds = playedWords?.map((e) => e.wordId).toList();
+      final playedWordIds = playedWords?.map((e) => e.wordId).toList();
 
       var result = await _localDataSource.loadWords(
         categoryId: category.categoryId,
@@ -133,7 +133,7 @@ class WordsRepositoryImpl implements WordsRepository {
             .toList();
       }
 
-      var words = result.map(_mapper.mapToModel).toList();
+      final words = result.map(_mapper.mapToModel).toList();
 
       return Right(words);
     } catch (e, stacktrace) {

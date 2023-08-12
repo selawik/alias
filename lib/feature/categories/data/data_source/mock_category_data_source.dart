@@ -9,9 +9,9 @@ class MockCategoryDataSource implements CategoryRemoteDataSource {
     await Future.delayed(const Duration(seconds: 2));
 
     return [
-      const CategoryDto(categoryId: 1, name: 'Книги', fileName: '', wordsCount: 0),
-      const CategoryDto(categoryId: 2, name: 'Кино', fileName: '', wordsCount: 0),
-      const CategoryDto(categoryId: 3, name: 'Музыка', fileName: '', wordsCount: 0),
+      const CategoryDto(categoryId: 1, name: 'Книги', fileName: ''),
+      const CategoryDto(categoryId: 2, name: 'Кино', fileName: ''),
+      const CategoryDto(categoryId: 3, name: 'Музыка', fileName: ''),
     ];
   }
 

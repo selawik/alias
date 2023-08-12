@@ -8,14 +8,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeView extends StatelessWidget {
-  const HomeView({Key? key}) : super(key: key);
+  const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<GameBloc, GameState>(
       builder: (context, state) {
         return state.maybeWhen(
-          orElse: () => Container(),
+          orElse: Container.new,
           waitingForConfig: (game) =>
               _buildBody(context, canContinueGame: game != null),
         );
@@ -24,7 +24,7 @@ class HomeView extends StatelessWidget {
   }
 
   Widget _buildBody(BuildContext context, {required bool canContinueGame}) {
-    var router = di.locator.get<AppRouter>();
+    final router = di.locator.get<AppRouter>();
 
     return Stack(
       children: [
@@ -70,26 +70,27 @@ class HomeView extends StatelessWidget {
     );
   }
 
-  void _onNewGamePressed(
+  Future<void> _onNewGamePressed(
     BuildContext context, {
     bool canContinueGame = false,
   }) async {
-    var router = di.locator.get<AppRouter>();
+    final router = di.locator.get<AppRouter>();
+    final gameBloc = context.read<GameBloc>();
 
     if (canContinueGame) {
-      var gameResetConfirmed = await showDialog<bool>(
+      final gameResetConfirmed = await showDialog<bool>(
         context: context,
         builder: (context) => const ResetUnfinishedGameDialog(),
       );
 
       if (gameResetConfirmed ?? false) {
-        context.read<GameBloc>().add(const GameEvent.resetLastGame());
-        router.push(const CategoryPageRoute());
+        gameBloc.add(const GameEvent.resetLastGame());
+        await router.push(const CategoryPageRoute());
 
         //resetGame
       }
     } else {
-      router.push(const CategoryPageRoute());
+      await router.push(const CategoryPageRoute());
     }
   }
 }

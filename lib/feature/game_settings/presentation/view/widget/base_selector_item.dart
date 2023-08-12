@@ -8,16 +8,16 @@ class BaseSelectorItem extends StatelessWidget {
   final bool isSelected;
 
   const BaseSelectorItem({
-    Key? key,
     required this.onTap,
     required this.title,
     required this.isSelected,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => onTap(),
+      onTap: onTap,
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         decoration: BoxDecoration(

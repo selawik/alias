@@ -25,7 +25,7 @@ class DriftLocalDataSource implements WordsLocalDataSource {
 
   @override
   Future<void> resetGameHistory() async {
-    return await _dbProvider.resetGameHistory();
+    return _dbProvider.resetGameHistory();
   }
 
   @override
@@ -39,7 +39,7 @@ class DriftLocalDataSource implements WordsLocalDataSource {
     required int limit,
     Iterable<int>? playedIds,
   }) async {
-    return await _dbProvider.loadWords(
+    return _dbProvider.loadWords(
       categoryId: categoryId,
       limit: limit,
       playedIds: playedIds,
@@ -48,7 +48,7 @@ class DriftLocalDataSource implements WordsLocalDataSource {
 
   @override
   Future<GameDto?> loadUnfinishedGame() async {
-    var game = await _dbProvider.loadUnfinishedGame();
+    final game = await _dbProvider.loadUnfinishedGame();
 
     if (game != null) {
       return GameDto(
@@ -65,6 +65,6 @@ class DriftLocalDataSource implements WordsLocalDataSource {
 
   @override
   Future<List<Word>> loadPlayedWords({required Category category}) async {
-    return await _dbProvider.loadPlayedWords(category: category);
+    return _dbProvider.loadPlayedWords(category: category);
   }
 }

@@ -3,7 +3,7 @@ import 'package:alias/feature/game/presentation/view/move_result/command_move_re
 import 'package:flutter/material.dart';
 
 class CommandMoveResultPage extends StatelessWidget {
-  const CommandMoveResultPage({Key? key}) : super(key: key);
+  const CommandMoveResultPage({super.key});
 
   @override
   Widget build(BuildContext context) {

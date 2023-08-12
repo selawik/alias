@@ -20,5 +20,3 @@ class GameSettingsEvent with _$GameSettingsEvent {
     required WordsToWin wordsToWin,
   }) = _WordsToWinChanged;
 }
-
-

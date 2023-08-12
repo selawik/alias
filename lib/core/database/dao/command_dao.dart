@@ -9,10 +9,10 @@ class CommandDao extends DatabaseAccessor<Database> with _$CommandDaoMixin {
   CommandDao(Database db) : super(db);
 
   Future<int?> getLastCommandId() async {
-    var query = select(commandTable)
+    final query = select(commandTable)
       ..orderBy([(table) => OrderingTerm(expression: table.commandId)]);
 
-    var commands = await query.get();
+    final commands = await query.get();
 
     if (commands.isEmpty) {
       return null;
@@ -26,8 +26,8 @@ class CommandDao extends DatabaseAccessor<Database> with _$CommandDaoMixin {
   }
 
   Future<Iterable<CommandDbEntity>> getCommands() async {
-    var query = select(commandTable);
+    final query = select(commandTable);
 
-    return await query.get();
+    return query.get();
   }
 }

@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class StartGameButton extends StatelessWidget {
-  const StartGameButton({Key? key}) : super(key: key);
+  const StartGameButton({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var gameBloc = BlocProvider.of<GameBloc>(context);
+    final gameBloc = BlocProvider.of<GameBloc>(context);
 
     return Align(
       alignment: Alignment.bottomCenter,

@@ -10,7 +10,7 @@ class FirebaseCategoryDataSource implements CategoryRemoteDataSource {
 
   @override
   Future<List<CategoryDto>> getAllCategories() async {
-    var categoriesData = await FirebaseFirestore.instance
+    final categoriesData = await FirebaseFirestore.instance
         .collection(FirebaseDataStoreCollections.category)
         .get();
 
@@ -21,10 +21,10 @@ class FirebaseCategoryDataSource implements CategoryRemoteDataSource {
 
   @override
   Future<int> getCategoryWordsCount(int categoryId) async {
-    var wordsCount = await (FirebaseFirestore.instance
+    final wordsCount = await FirebaseFirestore.instance
         .collection(FirebaseDataStoreCollections.word)
         .where('categoryId', isEqualTo: categoryId)
-        .count())
+        .count()
         .get();
 
     return wordsCount.count;

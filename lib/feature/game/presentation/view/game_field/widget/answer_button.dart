@@ -8,11 +8,11 @@ class AnswerButton extends StatelessWidget {
   final void Function() onPress;
 
   const AnswerButton({
-    Key? key,
     required this.asset,
     required this.color,
     required this.onPress,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -7,14 +7,13 @@ class CommandModeResultHeader extends StatelessWidget {
   final PlayingCommand command;
 
   const CommandModeResultHeader({
-    Key? key,
     required this.command,
     required this.commandScore,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
-
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Row(
@@ -30,6 +29,4 @@ class CommandModeResultHeader extends StatelessWidget {
       ),
     );
   }
-
-
 }

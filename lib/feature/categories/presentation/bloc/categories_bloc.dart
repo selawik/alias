@@ -5,7 +5,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 part 'categories_event.dart';
-
 part 'categories_state.dart';
 
 @injectable
@@ -19,7 +18,10 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     on<LoadCategoriesEvent>(_onLoadCategories);
   }
 
-  void _onLoadCategories(LoadCategoriesEvent event, Emitter emit) async {
+  Future<void> _onLoadCategories(
+    LoadCategoriesEvent event,
+    Emitter<CategoriesState> emit,
+  ) async {
     emit(CategoriesIsLoading());
 
     final result = await _loadCategories.execute();

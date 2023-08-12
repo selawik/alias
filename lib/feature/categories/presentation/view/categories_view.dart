@@ -11,12 +11,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CategoriesView extends StatelessWidget {
-  const CategoriesView({Key? key}) : super(key: key);
+  const CategoriesView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CategoriesBloc, CategoriesState>(
-      builder: (BuildContext context, state) {
+      builder: (context, state) {
         if (state is CategoriesIsLoading) {
           return _buildProgressIndicator(context);
         }
@@ -51,7 +51,7 @@ class CategoriesView extends StatelessWidget {
         childAspectRatio: 0.95,
       ),
       itemBuilder: (context, index) {
-        var item = categories[index];
+        final item = categories[index];
 
         return _buildListItem(context, item);
       },
@@ -111,10 +111,11 @@ class CategoriesView extends StatelessWidget {
   }
 
   void _onListItemTap(BuildContext context, Category category) {
-    var router = di.locator.get<AppRouter>();
-    var gameBloc = BlocProvider.of<GameBloc>(context);
+    final router = di.locator.get<AppRouter>();
 
-    gameBloc.add(GameEvent.initializeCategory(category: category));
+    BlocProvider.of<GameBloc>(context).add(
+      GameEvent.initializeCategory(category: category),
+    );
 
     router.push(const CommandPageRoute());
   }

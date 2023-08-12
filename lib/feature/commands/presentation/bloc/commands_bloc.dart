@@ -5,9 +5,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 part 'commands_bloc.freezed.dart';
-
 part 'commands_event.dart';
-
 part 'commands_state.dart';
 
 @injectable
@@ -16,7 +14,7 @@ class CommandsBloc extends Bloc<CommandsEvent, CommandsState> {
 
   CommandsBloc({
     required LoadCommands loadCommandsUseCase,
-  })   : _loadCommands = loadCommandsUseCase,
+  })  : _loadCommands = loadCommandsUseCase,
         super(const CommandsState.initial()) {
     on<_LoadCommands>(_onLoadCommands);
     on<_AddCommand>(_onAddCommand);
@@ -26,7 +24,8 @@ class CommandsBloc extends Bloc<CommandsEvent, CommandsState> {
   List<Command> _allCommands = [];
   List<Command> _addedCommands = [];
 
-  void _onLoadCommands(_LoadCommands event, Emitter emit) async {
+  Future<void> _onLoadCommands(
+      _LoadCommands event, Emitter<CommandsState> emit) async {
     emit(const CommandsState.loading());
 
     final result = await _loadCommands.execute();
@@ -41,7 +40,8 @@ class CommandsBloc extends Bloc<CommandsEvent, CommandsState> {
     );
   }
 
-  void _onAddCommand(_AddCommand event, Emitter emit) async {
+  Future<void> _onAddCommand(
+      _AddCommand event, Emitter<CommandsState> emit) async {
     if (_allCommands.isNotEmpty) {
       _addCommand();
 
@@ -49,10 +49,11 @@ class CommandsBloc extends Bloc<CommandsEvent, CommandsState> {
     }
   }
 
-  void _onRemoveCommand(_RemoveCommand event, Emitter emit) async {
+  Future<void> _onRemoveCommand(
+      _RemoveCommand event, Emitter<CommandsState> emit) async {
     _allCommands.add(event.command);
 
-    List<Command> addedCommands = List.from(_addedCommands)
+    final addedCommands = List<Command>.from(_addedCommands)
       ..remove(event.command);
 
     _addedCommands = addedCommands;
@@ -61,8 +62,9 @@ class CommandsBloc extends Bloc<CommandsEvent, CommandsState> {
   }
 
   void _addCommand() {
-    var command = _allCommands.first;
-    List<Command> addedCommands = List.from(_addedCommands)..add(command);
+    final command = _allCommands.first;
+    final addedCommands = List<Command>.from(_addedCommands)..add(command);
+
     _addedCommands = addedCommands;
 
     _allCommands.removeAt(0);

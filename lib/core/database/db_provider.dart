@@ -18,7 +18,7 @@ class DbProvider {
   }) : _db = db;
 
   Future<void> insertPlayedWords({required List<Word> playedWords}) async {
-    for (var word in playedWords) {
+    for (final word in playedWords) {
       await _db.playedWordDao.setPlayedWords(
         PlayedWordCompanion.insert(
           playedWordId: word.wordId,
@@ -38,7 +38,7 @@ class DbProvider {
   }
 
   Future<void> saveStartedGame({required GameDto gameDto}) async {
-    return await _db.gameDao.saveStartedGame(
+    return _db.gameDao.saveStartedGame(
       GameTableCompanion.insert(
         nextPlayingCommandId: gameDto.nextPlayingCommandId,
         categoryId: gameDto.categoryId,
@@ -50,18 +50,18 @@ class DbProvider {
   }
 
   Future<void> saveCategories(Iterable<CategoryDto> categories) async {
-    var categoryCompanions = categories.map(
+    final categoryCompanions = categories.map(
       (category) => CategoryTableCompanion.insert(
         categoryId: category.categoryId,
         name: category.name,
       ),
     );
 
-    return await _db.categoryDao.saveCategories(categoryCompanions.toList());
+    return _db.categoryDao.saveCategories(categoryCompanions.toList());
   }
 
   Future<void> saveWords({required List<WordDto> words}) async {
-    var wordCompanions = words.map(
+    final wordCompanions = words.map(
       (word) => WordsTableCompanion.insert(
         wordId: word.wordId,
         categoryId: word.categoryId,
@@ -69,30 +69,30 @@ class DbProvider {
       ),
     );
 
-    return await _db.wordDao.saveWords(words: wordCompanions.toList());
+    return _db.wordDao.saveWords(words: wordCompanions.toList());
   }
 
   Future<void> saveCommands(Iterable<CommandDto> commands) async {
-    var commandCompanions = commands.map(
+    final commandCompanions = commands.map(
       (category) => CommandTableCompanion.insert(
         commandId: category.commandId,
         name: category.name,
       ),
     );
 
-    return await _db.commandDao.saveCommands(commandCompanions);
+    return _db.commandDao.saveCommands(commandCompanions);
   }
 
   Future<int?> loadLastCategoryId() async {
-    return await _db.categoryDao.getLastCategoryId();
+    return _db.categoryDao.getLastCategoryId();
   }
 
   Future<int?> loadLastWordId() async {
-    return await _db.wordDao.getLastWordId();
+    return _db.wordDao.getLastWordId();
   }
 
   Future<int?> loadLastCommandId() async {
-    return await _db.commandDao.getLastCommandId();
+    return _db.commandDao.getLastCommandId();
   }
 
   Future<Iterable<WordDto>> loadWords({
@@ -100,7 +100,7 @@ class DbProvider {
     required int limit,
     Iterable<int>? playedIds,
   }) async {
-    var wordDbEntities = await _db.wordDao
+    final wordDbEntities = await _db.wordDao
         .getWords(categoryId: categoryId, limit: limit, playedIds: playedIds);
 
     log(wordDbEntities.toString());
@@ -111,14 +111,14 @@ class DbProvider {
   }
 
   Future<Iterable<CategoryDto>> loadCategories() async {
-    var categoryEntities = await _db.categoryDao.getCategories();
+    final categoryEntities = await _db.categoryDao.getCategories();
 
     return categoryEntities.map((categoryEntity) => CategoryDto(
         categoryId: categoryEntity.categoryId, name: categoryEntity.name));
   }
 
   Future<Iterable<CommandDto>> loadCommands() async {
-    var commandEntities = await _db.commandDao.getCommands();
+    final commandEntities = await _db.commandDao.getCommands();
 
     return commandEntities.map(
       (commandEntity) => CommandDto(
@@ -129,7 +129,7 @@ class DbProvider {
   }
 
   Future<int> loadCategoryWordsCount({required int categoryId}) async {
-    return await _db.wordDao.getCategoryWordsCount(categoryId: categoryId);
+    return _db.wordDao.getCategoryWordsCount(categoryId: categoryId);
   }
 
   Future<List<Word>> loadPlayedWords({required Category category}) async {
@@ -143,6 +143,6 @@ class DbProvider {
   }
 
   Future<GameDbEntity?> loadUnfinishedGame() async {
-    return await _db.gameDao.getUnfinishedGame();
+    return _db.gameDao.getUnfinishedGame();
   }
 }

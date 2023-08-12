@@ -9,7 +9,7 @@ class Application extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var router = di.locator<AppRouter>();
+    final router = di.locator<AppRouter>();
 
     return MaterialApp.router(
       title: 'Alias mobile',

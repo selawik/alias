@@ -11,6 +11,6 @@ class LoadCommands {
   LoadCommands({required this.repository});
 
   Future<Either<Failure, List<Command>>> execute() async {
-    return await repository.loadCommands();
+    return repository.loadCommands();
   }
 }

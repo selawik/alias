@@ -10,7 +10,7 @@ import 'package:injectable/injectable.dart';
 class FirebaseDictionaryDataSource implements DictionaryRemoteDataSource {
   @override
   Future<Iterable<WordDto>> loadWords({int? startFromId}) async {
-    var wordsData = await FirebaseFirestore.instance
+    final wordsData = await FirebaseFirestore.instance
         .collection(FirebaseDataStoreCollections.word)
         .orderBy('wordId')
         .startAfter([startFromId])
@@ -22,7 +22,7 @@ class FirebaseDictionaryDataSource implements DictionaryRemoteDataSource {
 
   @override
   Future<Iterable<CategoryDto>> loadCategories({int? startFromId}) async {
-    var categoriesData = await FirebaseFirestore.instance
+    final categoriesData = await FirebaseFirestore.instance
         .collection(FirebaseDataStoreCollections.category)
         .orderBy('categoryId')
         .startAfter([startFromId]).get();
@@ -32,7 +32,7 @@ class FirebaseDictionaryDataSource implements DictionaryRemoteDataSource {
 
   @override
   Future<CategoryDto> loadLastCategory() async {
-    var lastCategoryData = await FirebaseFirestore.instance
+    final lastCategoryData = await FirebaseFirestore.instance
         .collection(FirebaseDataStoreCollections.category)
         .orderBy('categoryId', descending: true)
         .limit(1)
@@ -45,7 +45,7 @@ class FirebaseDictionaryDataSource implements DictionaryRemoteDataSource {
 
   @override
   Future<WordDto> loadLastWord() async {
-    var lastWordData = await FirebaseFirestore.instance
+    final lastWordData = await FirebaseFirestore.instance
         .collection(FirebaseDataStoreCollections.word)
         .orderBy('wordId', descending: true)
         .limit(1)
@@ -56,7 +56,7 @@ class FirebaseDictionaryDataSource implements DictionaryRemoteDataSource {
 
   @override
   Future<Iterable<CommandDto>> loadCommands({int? startFromId}) async {
-    var categoriesData = await FirebaseFirestore.instance
+    final categoriesData = await FirebaseFirestore.instance
         .collection(FirebaseDataStoreCollections.command)
         .orderBy('commandId')
         .startAfter([startFromId]).get();
@@ -66,7 +66,7 @@ class FirebaseDictionaryDataSource implements DictionaryRemoteDataSource {
 
   @override
   Future<CommandDto> loadLastCommand() async {
-    var lastWordData = await FirebaseFirestore.instance
+    final lastWordData = await FirebaseFirestore.instance
         .collection(FirebaseDataStoreCollections.command)
         .orderBy('commandId', descending: true)
         .limit(1)

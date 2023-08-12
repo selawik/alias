@@ -4,17 +4,15 @@ import 'package:alias/feature/game/domain/model/game.dart';
 import 'package:alias/feature/game/domain/model/game_answer.dart';
 import 'package:alias/feature/game/domain/model/game_settings.dart';
 import 'package:alias/feature/game/domain/model/playing_command.dart';
-import 'package:alias/feature/game/domain/words_usecases_facade.dart';
 import 'package:alias/feature/game/domain/model/word.dart';
+import 'package:alias/feature/game/domain/words_usecases_facade.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:collection/collection.dart';
 import 'package:injectable/injectable.dart';
 
 part 'game_bloc.freezed.dart';
-
 part 'game_event.dart';
-
 part 'game_state.dart';
 
 @injectable
@@ -26,7 +24,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
   List<Word> _words = [];
 
-  List<Word> _countWords = [];
+  final List<Word> _countWords = [];
 
   List<GameAnswer> _answers = [];
 
@@ -52,17 +50,19 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     on<_ResetLastGame>(_onResetLastGame);
   }
 
-  void _onInit(_Init event, Emitter emit) async {
-    var game = await _tryToLoadStartedGame();
+  Future<void> _onInit(_Init event, Emitter<GameState> emit) async {
+    final game = await _tryToLoadStartedGame();
 
     emit(GameState.waitingForConfig(game: game));
   }
 
-  void _onCategoryInitialization(_InitializeCategory event, Emitter emit) {
+  void _onCategoryInitialization(
+      _InitializeCategory event, Emitter<GameState> emit) {
     _category = event.category;
   }
 
-  void _onCommandsInitialization(_InitializeCommands event, Emitter emit) {
+  void _onCommandsInitialization(
+      _InitializeCommands event, Emitter<GameState> emit) {
     _commands = event.commands
         .map((command) => PlayingCommand(
               commandId: command.commandId,
@@ -71,17 +71,17 @@ class GameBloc extends Bloc<GameEvent, GameState> {
         .toList();
   }
 
-  void _onSettingsInitialization(
+  Future<void> _onSettingsInitialization(
     _InitializeSettings event,
-    Emitter emit,
+    Emitter<GameState> emit,
   ) async {
     _settings = event.gameSettings;
 
     emit(const GameState.wordsIsLoading());
 
-    var playedWords = await _loadPlayedWords();
+    final playedWords = await _loadPlayedWords();
 
-    var wordsResult = await _wordsUseCasesFacade.loadWords(
+    final wordsResult = await _wordsUseCasesFacade.loadWords(
       category: _category,
       penaltyMode: _settings.penaltyMode,
       commandsCount: _commands.length,
@@ -112,15 +112,15 @@ class GameBloc extends Bloc<GameEvent, GameState> {
   }
 
   Future<Iterable<Word>?> _loadPlayedWords() async {
-    var result =
+    final result =
         await _wordsUseCasesFacade.loadPlayedWords(category: _category);
 
-    var playedWords = result.fold((failure) => null, (words) => words);
+    final playedWords = result.fold((failure) => null, (words) => words);
 
     return (playedWords?.isEmpty ?? false) ? null : playedWords;
   }
 
-  void _onStartGame(_StartGame event, Emitter emit) {
+  void _onStartGame(_StartGame event, Emitter<GameState> emit) {
     if (_words.isNotEmpty) {
       emit(GameState.waitingForAnswer(word: _words.first));
     } else {
@@ -128,15 +128,15 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     }
   }
 
-  void _onPauseGame(_PauseGame event, Emitter emit) {
+  void _onPauseGame(_PauseGame event, Emitter<GameState> emit) {
     emit(const GameState.gamePaused());
   }
 
-  void _onResumeGame(_ResumeGame event, Emitter emit) {
+  void _onResumeGame(_ResumeGame event, Emitter<GameState> emit) {
     emit(GameState.waitingForAnswer(word: _words.first));
   }
 
-  void _onTimeIsLeft(_TimeIsLeft event, Emitter emit) {
+  void _onTimeIsLeft(_TimeIsLeft event, Emitter<GameState> emit) {
     if (_settings.lastWordMode.isEnabled) {
       emit(GameState.lastWord(word: _words.first));
     } else {
@@ -150,8 +150,8 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     }
   }
 
-  void _onSkipWord(_SkipWord event, Emitter emit) {
-    var word = _words.first;
+  void _onSkipWord(_SkipWord event, Emitter<GameState> emit) {
+    final word = _words.first;
 
     _answers.add(GameAnswer(word: word, type: GameAnswerType.skip));
     _words.remove(word);
@@ -169,8 +169,8 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     }
   }
 
-  void _onCountWord(_CountWord event, Emitter emit) {
-    var word = _words.first;
+  void _onCountWord(_CountWord event, Emitter<GameState> emit) {
+    final word = _words.first;
 
     _answers.add(GameAnswer(word: word, type: GameAnswerType.count));
     _countWords.add(word);
@@ -189,10 +189,10 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     }
   }
 
-  void _onChangeAnswer(_ChangeAnswer event, Emitter emit) {
+  void _onChangeAnswer(_ChangeAnswer event, Emitter<GameState> emit) {
     _answers = List<GameAnswer>.from(_answers);
 
-    var index =
+    final index =
         _answers.indexWhere((element) => element.word == event.answer.word);
 
     _answers[index] =
@@ -207,15 +207,15 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     );
   }
 
-  void _onMoveResultWatched(_MoveResultWatched event, Emitter emit) {
-    var playingCommand = _getPlayingCommand();
+  void _onMoveResultWatched(_MoveResultWatched event, Emitter<GameState> emit) {
+    final playingCommand = _getPlayingCommand();
 
-    var updatedPlayedCommand = playingCommand.copyWith(
+    final updatedPlayedCommand = playingCommand.copyWith(
       score: playingCommand.score + _getCommandScore(),
       playedRoundCount: playingCommand.playedRoundCount + 1,
     );
 
-    var index = _commands.indexOf(playingCommand);
+    final index = _commands.indexOf(playingCommand);
 
     _commands[index] = updatedPlayedCommand;
 
@@ -249,9 +249,9 @@ class GameBloc extends Bloc<GameEvent, GameState> {
   }
 
   bool _isRoundComplete() {
-    var firstCommandRoundPlayedCount = _commands.first.playedRoundCount;
+    final firstCommandRoundPlayedCount = _commands.first.playedRoundCount;
 
-    var isRoundEnd = _commands.fold(
+    final isRoundEnd = _commands.fold(
           firstCommandRoundPlayedCount,
           (previousValue, command) => command.playedRoundCount != previousValue
               ? command.playedRoundCount
@@ -268,30 +268,31 @@ class GameBloc extends Bloc<GameEvent, GameState> {
         null;
   }
 
-  void _emitGameOverEvent(Emitter emit) {
+  void _emitGameOverEvent(Emitter<GameState> emit) {
     _commands
         .sort((command1, command2) => command2.score.compareTo(command1.score));
 
     emit(GameState.gameOver(commands: _commands));
   }
 
-  void _onResetGame(_ResetGame event, Emitter emit) async {
+  Future<void> _onResetGame(_ResetGame event, Emitter<GameState> emit) async {
     _commands.clear();
     _answers.clear();
     _words.clear();
     _countWords.clear();
 
-    var game = await _tryToLoadStartedGame();
+    final game = await _tryToLoadStartedGame();
 
     emit(GameState.waitingForConfig(game: game));
   }
 
-  void _onResetGameHistory(_ResetGameHistory event, Emitter emit) async {
+  Future<void> _onResetGameHistory(
+      _ResetGameHistory event, Emitter<GameState> emit) async {
     await _wordsUseCasesFacade.resetGameHistory();
   }
 
   int _getCommandScore() {
-    var countWords = _answers.where((element) => element.type.isCount);
+    final countWords = _answers.where((element) => element.type.isCount);
 
     if (_settings.penaltyMode.isEnabled) {
       return countWords.length - (_answers.length - countWords.length);
@@ -301,12 +302,13 @@ class GameBloc extends Bloc<GameEvent, GameState> {
   }
 
   Future<Game?> _tryToLoadStartedGame() async {
-    var result = await _wordsUseCasesFacade.loadUnfinishedGame();
+    final result = await _wordsUseCasesFacade.loadUnfinishedGame();
 
     return result.fold((failure) => null, (game) => game);
   }
 
-  Future<void> _onResetLastGame(_ResetLastGame event, Emitter emit) async {
+  Future<void> _onResetLastGame(
+      _ResetLastGame event, Emitter<GameState> emit) async {
     await _wordsUseCasesFacade.resetUnfinishedGame();
 
     emit(const GameState.waitingForConfig());

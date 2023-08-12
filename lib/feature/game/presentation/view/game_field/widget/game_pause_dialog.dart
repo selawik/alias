@@ -6,10 +6,10 @@ class GamePauseDialog extends StatelessWidget {
   final void Function() onExitPressed;
 
   const GamePauseDialog({
-    Key? key,
     required this.onResumePressed,
     required this.onExitPressed,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

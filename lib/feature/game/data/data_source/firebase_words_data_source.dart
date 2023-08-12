@@ -14,22 +14,21 @@ class FirebaseWordsDataSource implements WordsRemoteDataSource {
     required int limit,
     List<int>? playedIds,
   }) async {
-    var wordsData = await FirebaseFirestore.instance
+    final wordsData = await FirebaseFirestore.instance
         .collection(FirebaseDataStoreCollections.word)
         .where('categoryId', isEqualTo: categoryId)
         .orderBy('wordId')
         .get();
 
     log('Words will be played: ${wordsData.docs.length}');
-    var docs = wordsData.docs;
-    docs.shuffle();
+    final docs = wordsData.docs..shuffle();
 
     log('${docs.length} - docs');
     if (limit >= docs.length) {
       limit = docs.length;
     }
 
-    var limitedWords = docs.getRange(0, limit);
+    final limitedWords = docs.getRange(0, limit);
 
     return limitedWords.map((item) => WordDto.fromJson(item.data())).toList();
   }

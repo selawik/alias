@@ -5,14 +5,11 @@ import 'package:flutter/material.dart';
 class GameMainCircleWidget extends StatelessWidget {
   final String title;
 
-  const GameMainCircleWidget({
-    Key? key,
-    required this.title,
-  }) : super(key: key);
+  const GameMainCircleWidget({required this.title, super.key});
 
   @override
   Widget build(BuildContext context) {
-    var textStyle = Theme.of(context).textTheme.displayLarge;
+    final textStyle = Theme.of(context).textTheme.displayLarge;
 
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16),

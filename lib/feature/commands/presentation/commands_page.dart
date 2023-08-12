@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CommandsPage extends StatelessWidget {
-  const CommandsPage({Key? key}) : super(key: key);
+  const CommandsPage({super.key});
 
   @override
   Widget build(BuildContext context) {

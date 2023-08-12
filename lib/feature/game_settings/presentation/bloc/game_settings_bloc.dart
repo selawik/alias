@@ -26,8 +26,9 @@ class GameSettingsBloc extends Bloc<GameSettingsEvent, GameSettingsState> {
     on<_WordsToWinChanged>(_onWordsToWinChanged);
   }
 
-  void _onPenaltyModeChanged(_PenaltyModeChanged event, Emitter emit) {
-    var newState = GameSettingsState.ready(
+  void _onPenaltyModeChanged(
+      _PenaltyModeChanged event, Emitter<GameSettingsState> emit) {
+    final newState = GameSettingsState.ready(
       time: state.time,
       lastWordMode: state.lastWordMode,
       penaltyMode: event.mode,
@@ -37,8 +38,9 @@ class GameSettingsBloc extends Bloc<GameSettingsEvent, GameSettingsState> {
     emit(newState);
   }
 
-  void _onLastWordModeChanged(_LastWordModeChanged event, Emitter emit) {
-    var newState = GameSettingsState.ready(
+  void _onLastWordModeChanged(
+      _LastWordModeChanged event, Emitter<GameSettingsState> emit) {
+    final newState = GameSettingsState.ready(
       time: state.time,
       lastWordMode: event.mode,
       penaltyMode: state.penaltyMode,
@@ -48,8 +50,9 @@ class GameSettingsBloc extends Bloc<GameSettingsEvent, GameSettingsState> {
     emit(newState);
   }
 
-  void _onMoveTimeChanged(_MoveTimeChanged event, Emitter emit) {
-    var newState = GameSettingsState.ready(
+  void _onMoveTimeChanged(
+      _MoveTimeChanged event, Emitter<GameSettingsState> emit) {
+    final newState = GameSettingsState.ready(
       time: event.moveTime,
       lastWordMode: state.lastWordMode,
       penaltyMode: state.penaltyMode,
@@ -59,8 +62,9 @@ class GameSettingsBloc extends Bloc<GameSettingsEvent, GameSettingsState> {
     emit(newState);
   }
 
-  void _onWordsToWinChanged(_WordsToWinChanged event, Emitter emit) {
-    var newState = GameSettingsState.ready(
+  void _onWordsToWinChanged(
+      _WordsToWinChanged event, Emitter<GameSettingsState> emit) {
+    final newState = GameSettingsState.ready(
       time: state.time,
       lastWordMode: state.lastWordMode,
       penaltyMode: state.penaltyMode,

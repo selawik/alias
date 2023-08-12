@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
 class SoundSettingsRow extends StatelessWidget {
-  const SoundSettingsRow({Key? key}) : super(key: key);
+  const SoundSettingsRow({super.key});
 
   @override
   Widget build(BuildContext context) {

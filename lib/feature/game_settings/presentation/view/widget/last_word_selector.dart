@@ -5,8 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LastWordSelector extends StatelessWidget {
-  const LastWordSelector({Key? key, required this.selectedItem})
-      : super(key: key);
+  const LastWordSelector({required this.selectedItem, super.key});
 
   final BinarySelectorMode selectedItem;
 
@@ -15,7 +14,8 @@ class LastWordSelector extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Text('Последнее слово', style: Theme.of(context).textTheme.displayLarge),
+        Text('Последнее слово',
+            style: Theme.of(context).textTheme.displayLarge),
         const SizedBox(height: 16),
         _buildValuesList(context),
       ],
@@ -23,7 +23,7 @@ class LastWordSelector extends StatelessWidget {
   }
 
   Widget _buildValuesList(BuildContext context) {
-    var items = BinarySelectorMode.values.map(
+    final items = BinarySelectorMode.values.map(
       (mode) => BaseSelectorItem(
         onTap: () => _onLastWordModeTap(context, mode),
         isSelected: mode == selectedItem,
@@ -35,8 +35,8 @@ class LastWordSelector extends StatelessWidget {
   }
 
   void _onLastWordModeTap(BuildContext context, BinarySelectorMode mode) {
-    var bloc = BlocProvider.of<GameSettingsBloc>(context);
-
-    bloc.add(GameSettingsEvent.lastWordModeChanged(mode: mode));
+    BlocProvider.of<GameSettingsBloc>(context).add(
+      GameSettingsEvent.lastWordModeChanged(mode: mode),
+    );
   }
 }

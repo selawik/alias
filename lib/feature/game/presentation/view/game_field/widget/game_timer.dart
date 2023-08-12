@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class GameTimer extends StatefulWidget {
-  const GameTimer({Key? key}) : super(key: key);
+  const GameTimer({super.key});
 
   @override
   State<GameTimer> createState() => _GameTimerState();
@@ -17,7 +17,7 @@ class _GameTimerState extends State<GameTimer> with TickerProviderStateMixin {
   void initState() {
     super.initState();
 
-    var gameBloc = BlocProvider.of<GameBloc>(context);
+    final gameBloc = BlocProvider.of<GameBloc>(context);
 
     gameBloc.state.whenOrNull(
         gameIsReady: (settings, commands, nextPlayingCommand) {
@@ -26,15 +26,17 @@ class _GameTimerState extends State<GameTimer> with TickerProviderStateMixin {
 
     controller = AnimationController(vsync: this, reverseDuration: duration);
 
-    controller.value = duration.inSeconds.toDouble();
-
-    controller.addStatusListener((status) {
-      if (status == AnimationStatus.dismissed) {
-        var bloc = BlocProvider.of<GameBloc>(context);
-
-        bloc.add(const GameEvent.timeIsLeft());
-      }
-    });
+    controller
+      ..value = duration.inSeconds.toDouble()
+      ..addStatusListener(
+        (status) {
+          if (status == AnimationStatus.dismissed) {
+            BlocProvider.of<GameBloc>(context).add(
+              const GameEvent.timeIsLeft(),
+            );
+          }
+        },
+      );
   }
 
   @override
@@ -63,8 +65,8 @@ class _GameTimerState extends State<GameTimer> with TickerProviderStateMixin {
       child: AnimatedBuilder(
         animation: controller,
         builder: (context, child) {
-          var count = controller.reverseDuration! * controller.value;
-          var textTheme = Theme.of(context).textTheme;
+          final count = controller.reverseDuration! * controller.value;
+          final textTheme = Theme.of(context).textTheme;
 
           return Column(
             children: [

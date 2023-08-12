@@ -9,10 +9,10 @@ class CategoryDao extends DatabaseAccessor<Database> with _$CategoryDaoMixin {
   CategoryDao(Database db) : super(db);
 
   Future<int?> getLastCategoryId() async {
-    var query = select(categoryTable)
+    final query = select(categoryTable)
       ..orderBy([(table) => OrderingTerm(expression: table.categoryId)]);
 
-    var categories = await query.get();
+    final categories = await query.get();
 
     if (categories.isEmpty) {
       return null;
@@ -26,8 +26,8 @@ class CategoryDao extends DatabaseAccessor<Database> with _$CategoryDaoMixin {
   }
 
   Future<Iterable<CategoryDbEntity>> getCategories() async {
-    var query = select(categoryTable);
+    final query = select(categoryTable);
 
-    return await query.get();
+    return query.get();
   }
 }

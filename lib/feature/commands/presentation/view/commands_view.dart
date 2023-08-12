@@ -13,9 +13,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class CommandsView extends StatelessWidget {
   final ScrollController _scrollController = ScrollController();
 
-  CommandsView({
-    Key? key,
-  }) : super(key: key);
+  CommandsView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +40,7 @@ class CommandsView extends StatelessWidget {
     return BlocBuilder<CommandsBloc, CommandsState>(
       builder: (context, state) {
         return state.when(
-          initial: () => Container(),
+          initial: Container.new,
           loading: () => const Center(child: CustomProgressIndicator()),
           loaded: (addedCommands) => _buildCommandsList(context, addedCommands),
         );
@@ -99,9 +97,9 @@ class CommandsView extends StatelessWidget {
 
   void _onContinuePressed(BuildContext context) {
     HapticFeedback.mediumImpact();
-    var router = di.locator.get<AppRouter>();
-    var gameBloc = BlocProvider.of<GameBloc>(context);
-    var commandsBloc = BlocProvider.of<CommandsBloc>(context);
+    final router = di.locator.get<AppRouter>();
+    final gameBloc = BlocProvider.of<GameBloc>(context);
+    final commandsBloc = BlocProvider.of<CommandsBloc>(context);
 
     commandsBloc.state.whenOrNull(loaded: (addedCommands) {
       gameBloc.add(GameEvent.initializeCommands(commands: addedCommands));
@@ -111,9 +109,9 @@ class CommandsView extends StatelessWidget {
   }
 
   void _onAddPressed(BuildContext context) {
-    var bloc = BlocProvider.of<CommandsBloc>(context);
-
-    bloc.add(const CommandsEvent.addCommand());
+    BlocProvider.of<CommandsBloc>(context).add(
+      const CommandsEvent.addCommand(),
+    );
 
     Future.delayed(
       const Duration(microseconds: 300),

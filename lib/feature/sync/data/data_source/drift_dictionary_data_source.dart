@@ -13,31 +13,33 @@ class DriftDictionaryDataSource implements DictionaryLocalDataSource {
 
   @override
   Future<void> saveWords({required List<WordDto> words}) async {
-    await _dbProvider.saveWords(words: words);
+    return _dbProvider.saveWords(words: words);
   }
 
   @override
-  Future<void> saveCategories({required Iterable<CategoryDto> categories}) async {
-    return await _dbProvider.saveCategories(categories);
+  Future<void> saveCategories({
+    required Iterable<CategoryDto> categories,
+  }) async {
+    return _dbProvider.saveCategories(categories);
   }
 
   @override
   Future<void> saveCommands({required Iterable<CommandDto> commands}) async {
-    return await _dbProvider.saveCommands(commands);
+    return _dbProvider.saveCommands(commands);
   }
 
   @override
   Future<int?> loadLastCategoryId() async {
-    return await _dbProvider.loadLastCategoryId();
+    return _dbProvider.loadLastCategoryId();
   }
 
   @override
   Future<int?> loadLastWordId() async {
-    return await _dbProvider.loadLastWordId();
+    return _dbProvider.loadLastWordId();
   }
 
   @override
   Future<int?> loadLastCommandId() async {
-   return await _dbProvider.loadLastCommandId();
+    return _dbProvider.loadLastCommandId();
   }
 }

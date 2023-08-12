@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 mixin SnackbarMixin on StatelessWidget {
   void showMessage(BuildContext context, String message) {
-    var snackBar = SnackBar(
+    final snackBar = SnackBar(
       shape: RoundedRectangleBorder(
         borderRadius: ThemeBuilder.defaultBorderRadius,
       ),

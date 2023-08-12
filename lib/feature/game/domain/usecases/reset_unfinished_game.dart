@@ -1,5 +1,3 @@
-
-
 import 'package:alias/core/error/failure.dart';
 import 'package:alias/feature/game/domain/repository/words_repository.dart';
 import 'package:dartz/dartz.dart';
@@ -9,7 +7,8 @@ import 'package:injectable/injectable.dart';
 class ResetUnfinishedGame {
   final WordsRepository _repository;
 
-  ResetUnfinishedGame({required WordsRepository repository}) : _repository = repository;
+  ResetUnfinishedGame({required WordsRepository repository})
+      : _repository = repository;
 
   Future<Either<Failure, void>> execute() async {
     return Right(await _repository.resetUnfinishedGame());

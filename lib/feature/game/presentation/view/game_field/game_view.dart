@@ -1,18 +1,18 @@
+import 'package:alias/core/injection.dart' as di;
 import 'package:alias/core/router/app_router.dart';
 import 'package:alias/feature/game/presentation/bloc/game_bloc/game_bloc.dart';
 import 'package:alias/feature/game/presentation/view/game_field/widget/game_main_block.dart';
 import 'package:alias/feature/game/presentation/view/game_field/widget/game_view_footer.dart';
+import 'package:alias/feature/game/presentation/view/game_field/widget/game_view_header.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:alias/core/injection.dart' as di;
-import 'package:alias/feature/game/presentation/view/game_field/widget/game_view_header.dart';
 
 class GameView extends StatelessWidget {
-  const GameView({Key? key}) : super(key: key);
+  const GameView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var router = di.locator.get<AppRouter>();
+    final router = di.locator.get<AppRouter>();
 
     return BlocListener<GameBloc, GameState>(
       listenWhen: (prevState, currentState) {

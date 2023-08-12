@@ -5,10 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class PenaltySelector extends StatelessWidget {
-  const PenaltySelector({
-    Key? key,
-    required this.selectedItem,
-  }) : super(key: key);
+  const PenaltySelector({required this.selectedItem, super.key});
 
   final BinarySelectorMode selectedItem;
 
@@ -17,7 +14,8 @@ class PenaltySelector extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Text('Штраф за пропуск', style: Theme.of(context).textTheme.displayLarge),
+        Text('Штраф за пропуск',
+            style: Theme.of(context).textTheme.displayLarge),
         const SizedBox(height: 16),
         _buildValuesList(context),
       ],
@@ -25,7 +23,7 @@ class PenaltySelector extends StatelessWidget {
   }
 
   Widget _buildValuesList(BuildContext context) {
-    var items = BinarySelectorMode.values.map(
+    final items = BinarySelectorMode.values.map(
       (mode) => BaseSelectorItem(
         onTap: () => _onPenaltyModeTap(context, mode),
         isSelected: mode == selectedItem,
@@ -37,8 +35,8 @@ class PenaltySelector extends StatelessWidget {
   }
 
   void _onPenaltyModeTap(BuildContext context, BinarySelectorMode mode) {
-    var bloc = BlocProvider.of<GameSettingsBloc>(context);
-
-    bloc.add(GameSettingsEvent.penaltyModeChanged(mode: mode));
+    BlocProvider.of<GameSettingsBloc>(context).add(
+      GameSettingsEvent.penaltyModeChanged(mode: mode),
+    );
   }
 }

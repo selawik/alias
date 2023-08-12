@@ -6,9 +6,9 @@ class CommandScore extends StatelessWidget {
   final int score;
 
   const CommandScore({
-    Key? key,
     required this.score,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

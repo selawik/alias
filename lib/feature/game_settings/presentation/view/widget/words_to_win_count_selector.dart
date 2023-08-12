@@ -9,9 +9,9 @@ class WordsToWinCountSelector extends StatelessWidget {
   final WordsToWin selectedItem;
 
   const WordsToWinCountSelector({
-    Key? key,
     required this.selectedItem,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -20,13 +20,10 @@ class WordsToWinCountSelector extends StatelessWidget {
       children: [
         Text(
           'Счет для победы',
-          style: Theme
-              .of(context)
-              .textTheme
-              .displayLarge,
+          style: Theme.of(context).textTheme.displayLarge,
         ),
         const SizedBox(height: 16),
-        Container(
+        DecoratedBox(
           decoration: BoxDecoration(
             boxShadow: ThemeBuilder.defaultShadow,
             color: AppColors.white,
@@ -35,8 +32,7 @@ class WordsToWinCountSelector extends StatelessWidget {
           child: Row(
             children: WordsToWin.values
                 .map(
-                  (wordsToWin) =>
-                  Expanded(
+                  (wordsToWin) => Expanded(
                     flex: 100 ~/ WordsToWin.values.length,
                     child: GestureDetector(
                       onTap: () => _onSelectItem(context, wordsToWin),
@@ -55,7 +51,7 @@ class WordsToWinCountSelector extends StatelessWidget {
                       ),
                     ),
                   ),
-            )
+                )
                 .toList(),
           ),
         )
@@ -78,27 +74,22 @@ class WordsToWinCountSelector extends StatelessWidget {
   }
 
   TextStyle? _getTextStyle(BuildContext context, WordsToWin wordsToWin) {
-    return Theme
-        .of(context)
-        .textTheme
-        .bodyLarge
-        ?.copyWith(
-      color: selectedItem == wordsToWin ? AppColors.white : AppColors.black,
-    );
+    return Theme.of(context).textTheme.bodyLarge?.copyWith(
+          color: selectedItem == wordsToWin ? AppColors.white : AppColors.black,
+        );
   }
 
   BoxDecoration _getBoxDecoration(WordsToWin wordsToWin) {
     return BoxDecoration(
-      color: selectedItem == wordsToWin
-          ? AppColors.buttonColor
-          : AppColors.white,
+      color:
+          selectedItem == wordsToWin ? AppColors.buttonColor : AppColors.white,
       borderRadius: _getBorderRadius(wordsToWin),
     );
   }
 
   void _onSelectItem(BuildContext context, WordsToWin value) {
-    var bloc = BlocProvider.of<GameSettingsBloc>(context);
-
-    bloc.add(GameSettingsEvent.wordsToWinChanged(wordsToWin: value));
+    BlocProvider.of<GameSettingsBloc>(context).add(
+      GameSettingsEvent.wordsToWinChanged(wordsToWin: value),
+    );
   }
 }

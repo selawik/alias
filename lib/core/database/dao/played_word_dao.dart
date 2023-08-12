@@ -12,20 +12,22 @@ class PlayedWordDao extends DatabaseAccessor<Database>
     with _$PlayedWordDaoMixin {
   PlayedWordDao(Database db) : super(db);
 
-  Future<List<PlayedWordsDbEntity>> getPlayedWordsOfCategory(Category category) async {
-    return await (select(playedWord)
+  Future<List<PlayedWordsDbEntity>> getPlayedWordsOfCategory(
+      Category category) async {
+    return (select(playedWord)
           ..where((tbl) => tbl.categoryId.equals(category.categoryId)))
         .get();
   }
 
   Future<int> setPlayedWords(PlayedWordCompanion entity) async {
-    var result = await into(playedWord).insert(entity, mode: InsertMode.replace);
+    final result =
+        await into(playedWord).insert(entity, mode: InsertMode.replace);
     log(entity.toString());
     log('insert $result');
     return result;
   }
 
   Future<void> deleteWords() async {
-    delete(playedWord).go();
+    await delete(playedWord).go();
   }
 }

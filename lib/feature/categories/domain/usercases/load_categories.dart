@@ -11,6 +11,6 @@ class LoadCategories {
   LoadCategories({required this.repository});
 
   Future<Either<Failure, List<Category>>> execute() async {
-    return await repository.loadCategories();
+    return repository.loadCategories();
   }
 }

@@ -8,12 +8,12 @@ class GameFieldPauseMenuOption extends StatelessWidget {
   final void Function() callback;
 
   const GameFieldPauseMenuOption({
-    Key? key,
     required this.color,
     required this.text,
     required this.icon,
     required this.callback,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -23,12 +23,10 @@ class GameFieldPauseMenuOption extends StatelessWidget {
         callback();
       },
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Icon(icon, size: 36.0, color: color),
+          Icon(icon, size: 36, color: color),
           Padding(
-            padding: const EdgeInsetsDirectional.only(start: 16.0),
+            padding: const EdgeInsetsDirectional.only(start: 16),
             child: Text(text),
           ),
         ],

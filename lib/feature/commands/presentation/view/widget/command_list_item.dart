@@ -11,14 +11,14 @@ class CommandListItem extends StatelessWidget {
   final Command command;
 
   const CommandListItem({
-    Key? key,
     required this.command,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
-    var bloc = BlocProvider.of<CommandsBloc>(context);
-    var textStyle = Theme.of(context).textTheme.displayMedium;
+    final bloc = BlocProvider.of<CommandsBloc>(context);
+    final textStyle = Theme.of(context).textTheme.displayMedium;
 
     return Container(
       height: 80,
@@ -49,7 +49,7 @@ class CommandListItem extends StatelessWidget {
   }
 
   Widget _buildRemoveButton(BuildContext context, Command command) {
-    var bloc = BlocProvider.of<CommandsBloc>(context);
+    final bloc = BlocProvider.of<CommandsBloc>(context);
 
     return CupertinoButton(
       padding: EdgeInsets.zero,

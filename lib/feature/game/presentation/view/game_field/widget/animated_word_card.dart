@@ -9,9 +9,9 @@ class AnimatedWordCard extends StatefulWidget {
   final Word word;
 
   const AnimatedWordCard({
-    Key? key,
     required this.word,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   State<AnimatedWordCard> createState() => _AnimatedWordCardState();
@@ -84,8 +84,8 @@ class _AnimatedWordCardState extends State<AnimatedWordCard>
   }
 
   void _countAnimationStatusCallback(AnimationStatus status) {
-    var answerBloc = context.read<AnswerBloc>();
-    var gameBloc = context.read<GameBloc>();
+    final answerBloc = context.read<AnswerBloc>();
+    final gameBloc = context.read<GameBloc>();
 
     if (status == AnimationStatus.completed) {
       answerBloc.state.whenOrNull(
@@ -103,8 +103,8 @@ class _AnimatedWordCardState extends State<AnimatedWordCard>
   }
 
   void _skipAnimationStatusCallback(AnimationStatus status) {
-    var answerBloc = context.read<AnswerBloc>();
-    var gameBloc = context.read<GameBloc>();
+    final answerBloc = context.read<AnswerBloc>();
+    final gameBloc = context.read<GameBloc>();
 
     if (status == AnimationStatus.completed) {
       answerBloc.state.whenOrNull(

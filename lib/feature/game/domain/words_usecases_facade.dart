@@ -3,13 +3,13 @@ import 'package:alias/feature/categories/domain/models/category.dart';
 import 'package:alias/feature/game/domain/model/game.dart';
 import 'package:alias/feature/game/domain/model/game_settings.dart';
 import 'package:alias/feature/game/domain/model/playing_command.dart';
+import 'package:alias/feature/game/domain/model/word.dart';
 import 'package:alias/feature/game/domain/usecases/get_played_words.dart';
 import 'package:alias/feature/game/domain/usecases/get_unfinished_game.dart';
 import 'package:alias/feature/game/domain/usecases/load_words.dart';
 import 'package:alias/feature/game/domain/usecases/reset_game_history.dart';
 import 'package:alias/feature/game/domain/usecases/reset_unfinished_game.dart';
 import 'package:alias/feature/game/domain/usecases/save_played_words.dart';
-import 'package:alias/feature/game/domain/model/word.dart';
 import 'package:alias/feature/game/domain/usecases/save_started_game.dart';
 import 'package:alias/feature/game_settings/domain/model/binary_selector_type.dart';
 import 'package:alias/feature/game_settings/domain/model/command_move_selector_type.dart';
@@ -49,7 +49,7 @@ class WordsUseCasesFacade {
     required CommandMoveMode moveTime,
     Iterable<Word>? playedWords,
   }) async {
-    return await _loadWords.execute(
+    return _loadWords.execute(
       category: category,
       commandsCount: commandsCount,
       penaltyMode: penaltyMode,
@@ -61,7 +61,7 @@ class WordsUseCasesFacade {
   Future<Either<Failure, void>> savePlayedWords({
     required List<Word> words,
   }) async {
-    return await _savePlayedWords.execute(
+    return _savePlayedWords.execute(
       words: words,
     );
   }
@@ -69,21 +69,21 @@ class WordsUseCasesFacade {
   Future<Either<Failure, Iterable<Word>>> loadPlayedWords({
     required Category category,
   }) async {
-    return await _getPlayedWords.execute(
+    return _getPlayedWords.execute(
       category: category,
     );
   }
 
   Future<Either<Failure, Game?>> loadUnfinishedGame() async {
-    return await _getUnfinishedGame.execute();
+    return _getUnfinishedGame.execute();
   }
 
   Future<Either<Failure, void>> resetGameHistory() async {
-    return await _resetGameHistory.execute();
+    return _resetGameHistory.execute();
   }
 
   Future<Either<Failure, void>> resetUnfinishedGame() async {
-    return await _resetUnfinishedGame.execute();
+    return _resetUnfinishedGame.execute();
   }
 
   Future<Either<Failure, void>> saveStartedGame({
@@ -91,7 +91,7 @@ class WordsUseCasesFacade {
     required Category category,
     required List<PlayingCommand> commands,
   }) async {
-    return await _saveStartedGame.execute(
+    return _saveStartedGame.execute(
       category: category,
       gameSettings: settings,
       commands: commands,

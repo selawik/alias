@@ -32,10 +32,10 @@ class CategoryRepositoryImpl implements CategoryRepository {
         return const Left(NoDataFailure('There is no categories'));
       }
 
-      var categories = <Category>[];
+      final categories = <Category>[];
 
-      for (var categoryDto in categoriesDto) {
-        var categoryWordsCount = await _localDataSource
+      for (final categoryDto in categoriesDto) {
+        final categoryWordsCount = await _localDataSource
             .loadCategoryWordsCount(categoryDto.categoryId);
 
         categories.add(

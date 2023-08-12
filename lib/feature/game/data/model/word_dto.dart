@@ -5,11 +5,12 @@ part 'word_dto.g.dart';
 
 @freezed
 class WordDto with _$WordDto {
-  const factory WordDto ({
+  const factory WordDto({
     required int wordId,
     required String name,
     required int categoryId,
   }) = _WordDto;
 
-  factory WordDto.fromJson(Map<String, dynamic> json) => _$WordDtoFromJson(json);
+  factory WordDto.fromJson(Map<String, dynamic> json) =>
+      _$WordDtoFromJson(json);
 }

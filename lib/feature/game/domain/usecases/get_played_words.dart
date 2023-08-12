@@ -1,7 +1,7 @@
 import 'package:alias/core/error/failure.dart';
 import 'package:alias/feature/categories/domain/models/category.dart';
-import 'package:alias/feature/game/domain/repository/words_repository.dart';
 import 'package:alias/feature/game/domain/model/word.dart';
+import 'package:alias/feature/game/domain/repository/words_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
@@ -14,6 +14,6 @@ class GetPlayedWords {
   Future<Either<Failure, Iterable<Word>>> execute({
     required Category category,
   }) async {
-    return await repository.loadPlayedWords(category: category);
+    return repository.loadPlayedWords(category: category);
   }
 }

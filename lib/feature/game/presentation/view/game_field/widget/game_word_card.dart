@@ -1,6 +1,6 @@
+import 'package:alias/feature/game/domain/model/word.dart';
 import 'package:alias/feature/game/presentation/bloc/game_bloc/game_bloc.dart';
 import 'package:alias/feature/game/presentation/view/game_field/widget/game_main_circle_widget.dart';
-import 'package:alias/feature/game/domain/model/word.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -8,9 +8,9 @@ class GameWordCard extends StatelessWidget {
   final Word word;
 
   const GameWordCard({
-    Key? key,
     required this.word,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -25,8 +25,9 @@ class GameWordCard extends StatelessWidget {
     );
   }
 
-  void _onDragEnd(DraggableDetails details, BuildContext context) async {
-    var bloc = BlocProvider.of<GameBloc>(context);
+  Future<void> _onDragEnd(
+      DraggableDetails details, BuildContext context) async {
+    final bloc = BlocProvider.of<GameBloc>(context);
 
     if (details.offset.dx > 0 &&
         details.offset.dx.abs() >= MediaQuery.of(context).size.width / 3) {

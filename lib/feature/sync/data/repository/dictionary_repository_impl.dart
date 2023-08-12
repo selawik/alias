@@ -37,7 +37,7 @@ class DictionaryRepositoryImpl implements DictionaryRepository {
   @override
   Future<Either<Failure, void>> saveWords({required List<Word> words}) async {
     try {
-      var wordDtos = words.map((word) => _wordsMapper.mapFromModel(word));
+      final wordDtos = words.map(_wordsMapper.mapFromModel);
 
       return Right(
         await _localDataSource.saveWords(
@@ -54,8 +54,7 @@ class DictionaryRepositoryImpl implements DictionaryRepository {
   Future<Either<Failure, void>> saveCategories(
       List<Category> categories) async {
     try {
-      var categoryDtos =
-          categories.map((category) => _categoryMapper.mapFromModel(category));
+      final categoryDtos = categories.map(_categoryMapper.mapFromModel);
 
       return Right(
         await _localDataSource.saveCategories(
@@ -72,8 +71,7 @@ class DictionaryRepositoryImpl implements DictionaryRepository {
   Future<Either<Failure, void>> saveCommands(
       {required Iterable<Command> commands}) async {
     try {
-      var commandDtos =
-          commands.map((command) => _commandMapper.mapFromModel(command));
+      final commandDtos = commands.map(_commandMapper.mapFromModel);
 
       return Right(
         await _localDataSource.saveCommands(commands: commandDtos),
@@ -88,11 +86,10 @@ class DictionaryRepositoryImpl implements DictionaryRepository {
   Future<Either<Failure, Iterable<Category>>> loadCategories(
       {int? startFromId}) async {
     try {
-      var categoryDtos =
+      final categoryDtos =
           await _remoteDataSource.loadCategories(startFromId: startFromId);
 
-      return Right(
-          categoryDtos.map((dto) => _categoryMapper.mapToModel(dto)).toList());
+      return Right(categoryDtos.map(_categoryMapper.mapToModel).toList());
     } catch (e, stacktrace) {
       log(e.toString(), stackTrace: stacktrace);
       return const Left(ServerFailure('Error during loading categories'));
@@ -102,7 +99,7 @@ class DictionaryRepositoryImpl implements DictionaryRepository {
   @override
   Future<Either<Failure, int?>> loadLastLocalCategoryId() async {
     try {
-      var lastCategoryId = await _localDataSource.loadLastCategoryId();
+      final lastCategoryId = await _localDataSource.loadLastCategoryId();
 
       return Right(lastCategoryId);
     } catch (e, stacktrace) {
@@ -114,7 +111,7 @@ class DictionaryRepositoryImpl implements DictionaryRepository {
   @override
   Future<Either<Failure, int>> loadLastRemoteCategoryId() async {
     try {
-      var categoryDto = await _remoteDataSource.loadLastCategory();
+      final categoryDto = await _remoteDataSource.loadLastCategory();
 
       return Right(categoryDto.categoryId);
     } catch (e, stacktrace) {
@@ -126,7 +123,7 @@ class DictionaryRepositoryImpl implements DictionaryRepository {
   @override
   Future<Either<Failure, int?>> loadLastLocalWordId() async {
     try {
-      var lastWordId = await _localDataSource.loadLastWordId();
+      final lastWordId = await _localDataSource.loadLastWordId();
 
       return Right(lastWordId);
     } catch (e, stacktrace) {
@@ -138,7 +135,7 @@ class DictionaryRepositoryImpl implements DictionaryRepository {
   @override
   Future<Either<Failure, int>> loadLastRemoteWordId() async {
     try {
-      var wordDto = await _remoteDataSource.loadLastWord();
+      final wordDto = await _remoteDataSource.loadLastWord();
 
       return Right(wordDto.wordId);
     } catch (e, stacktrace) {
@@ -152,9 +149,9 @@ class DictionaryRepositoryImpl implements DictionaryRepository {
     int? startFromId,
   }) async {
     try {
-      var wordDtos =
+      final wordDtos =
           await _remoteDataSource.loadWords(startFromId: startFromId);
-      var words = wordDtos.map((dto) => _wordsMapper.mapToModel(dto));
+      final words = wordDtos.map(_wordsMapper.mapToModel);
 
       return Right(words.toList());
     } catch (e, stacktrace) {
@@ -166,7 +163,7 @@ class DictionaryRepositoryImpl implements DictionaryRepository {
   @override
   Future<Either<Failure, int?>> loadLastLocalCommandId() async {
     try {
-      var categoryDto = await _localDataSource.loadLastCommandId();
+      final categoryDto = await _localDataSource.loadLastCommandId();
 
       return Right(categoryDto);
     } catch (e, stacktrace) {
@@ -178,7 +175,7 @@ class DictionaryRepositoryImpl implements DictionaryRepository {
   @override
   Future<Either<Failure, int>> loadLastRemoteCommandId() async {
     try {
-      var commandDto = await _remoteDataSource.loadLastCommand();
+      final commandDto = await _remoteDataSource.loadLastCommand();
 
       return Right(commandDto.commandId);
     } catch (e, stacktrace) {
@@ -192,10 +189,10 @@ class DictionaryRepositoryImpl implements DictionaryRepository {
     int? startFromId,
   }) async {
     try {
-      var commandDtos =
+      final commandDtos =
           await _remoteDataSource.loadCommands(startFromId: startFromId);
 
-      return Right(commandDtos.map((dto) => _commandMapper.mapToModel(dto)));
+      return Right(commandDtos.map(_commandMapper.mapToModel));
     } catch (e, stacktrace) {
       log(e.toString(), stackTrace: stacktrace);
       return const Left(ServerFailure('Error during loading categories'));
