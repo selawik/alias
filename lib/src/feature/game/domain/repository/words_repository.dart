@@ -6,7 +6,7 @@ import 'package:alias/src/feature/game/domain/model/playing_command.dart';
 import 'package:alias/src/feature/game/domain/model/word.dart';
 import 'package:dartz/dartz.dart';
 
-abstract class WordsRepository {
+abstract interface class WordsRepository {
   Future<Either<Failure, List<Word>>> loadWords({
     required Category category,
     required int wordCount,

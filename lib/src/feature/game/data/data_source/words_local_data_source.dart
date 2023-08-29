@@ -3,7 +3,7 @@ import 'package:alias/src/feature/game/data/model/game_dto.dart';
 import 'package:alias/src/feature/game/data/model/word_dto.dart';
 import 'package:alias/src/feature/game/domain/model/word.dart';
 
-abstract class WordsLocalDataSource {
+abstract interface class WordsLocalDataSource {
   Future<void> savePlayedWords({required List<Word> words});
 
   Future<Iterable<Word>> loadPlayedWords({required Category category});
