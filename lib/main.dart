@@ -1,3 +1,6 @@
+import 'dart:async';
+import 'dart:developer';
+
 import 'package:alias/firebase_options.dart';
 import 'package:alias/src/core/application.dart';
 import 'package:alias/src/core/injection.dart' as di;
@@ -16,19 +19,31 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  runApp(
-    MultiBlocProvider(
-      providers: [
-        BlocProvider<DictionaryBloc>(
-          create: (context) => di.locator.get<DictionaryBloc>()
-            ..add(const DictionaryEvent.syncDictionary()),
+  runZonedGuarded(
+    () {
+      runApp(
+        MultiBlocProvider(
+          providers: [
+            BlocProvider<DictionaryBloc>(
+              create: (context) => di.locator.get<DictionaryBloc>()
+                ..add(
+                  const DictionaryEvent.syncDictionary(),
+                ),
+            ),
+            BlocProvider<GameBloc>(
+              create: (context) =>
+                  di.locator.get<GameBloc>()..add(const GameEvent.init()),
+            ),
+          ],
+          child: const Application(),
         ),
-        BlocProvider<GameBloc>(
-          create: (context) =>
-              di.locator.get<GameBloc>()..add(const GameEvent.init()),
-        ),
-      ],
-      child: const Application(),
-    ),
+      );
+    },
+    (error, stackTrace) {
+      log(
+        error.toString(),
+        stackTrace: stackTrace,
+      );
+    },
   );
 }

@@ -151,8 +151,9 @@ class SyncDictionary {
     required int? lastLocalCommandId,
     required int lastRemoveCommandId,
   }) async {
-    final commandsResult =
-        await _repository.loadCommands(startFromId: lastLocalCommandId);
+    final commandsResult = await _repository.loadCommands(
+      startFromId: lastLocalCommandId,
+    );
 
     if (commandsResult.isRight()) {
       final commandsSaveResult = await _repository.saveCommands(

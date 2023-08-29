@@ -16,9 +16,7 @@ class Application extends StatelessWidget {
       theme: ThemeBuilder.buildLightTheme(),
       routerDelegate: AutoRouterDelegate(
         router,
-        navigatorObservers: () => [
-          NavigatorObserver(),
-        ],
+        navigatorObservers: () => [NavigatorObserver()],
       ),
       routeInformationParser: router.defaultRouteParser(),
     );
