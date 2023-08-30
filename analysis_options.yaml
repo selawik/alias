@@ -14,3 +14,4 @@ analyzer:
       - '**.g.dart'
       - '**.freezed.dart'
       - '**.config.dart'
+      - 'lib/firebase_options.dart'

@@ -34,7 +34,7 @@ class WordsRepositoryImpl implements WordsRepository {
   }) async {
     try {
       return Right(await _localDataSource.savePlayedWords(words: words));
-    } catch (e, stacktrace) {
+    } on Exception catch (e, stacktrace) {
       log(e.toString(), stackTrace: stacktrace);
       return Left(DatabaseFailure(e.toString()));
     }
@@ -58,7 +58,7 @@ class WordsRepositoryImpl implements WordsRepository {
       await _localDataSource.saveStartedGame(game: gameDto);
 
       return const Right(null);
-    } catch (e, stacktrace) {
+    } on Exception catch (e, stacktrace) {
       log(e.toString(), stackTrace: stacktrace);
       return Left(DatabaseFailure(e.toString()));
     }
@@ -68,7 +68,7 @@ class WordsRepositoryImpl implements WordsRepository {
   Future<Either<Failure, void>> resetGameHistory() async {
     try {
       return Right(await _localDataSource.resetGameHistory());
-    } catch (e, stacktrace) {
+    } on Exception catch (e, stacktrace) {
       log(e.toString(), stackTrace: stacktrace);
       return Left(DatabaseFailure(e.toString()));
     }
@@ -78,7 +78,7 @@ class WordsRepositoryImpl implements WordsRepository {
   Future<Either<Failure, void>> resetUnfinishedGame() async {
     try {
       return Right(await _localDataSource.resetUnfinishedGame());
-    } catch (e, stacktrace) {
+    } on Exception catch (e, stacktrace) {
       log(e.toString(), stackTrace: stacktrace);
       return Left(DatabaseFailure(e.toString()));
     }
@@ -94,7 +94,7 @@ class WordsRepositoryImpl implements WordsRepository {
       }
 
       return const Right(null);
-    } catch (e, stacktrace) {
+    } on Exception catch (e, stacktrace) {
       log(e.toString(), stackTrace: stacktrace);
       return Left(DatabaseFailure(e.toString()));
     }
@@ -106,7 +106,7 @@ class WordsRepositoryImpl implements WordsRepository {
   }) async {
     try {
       return Right(await _localDataSource.loadPlayedWords(category: category));
-    } catch (e, stacktrace) {
+    } on Exception catch (e, stacktrace) {
       log(e.toString(), stackTrace: stacktrace);
       return Left(DatabaseFailure(e.toString()));
     }
@@ -136,7 +136,7 @@ class WordsRepositoryImpl implements WordsRepository {
       final words = result.map(_mapper.mapToModel).toList();
 
       return Right(words);
-    } catch (e, stacktrace) {
+    } on Exception catch (e, stacktrace) {
       log(e.toString(), stackTrace: stacktrace);
       return const Left(ServerFailure('error'));
     }

@@ -44,7 +44,7 @@ class DictionaryRepositoryImpl implements DictionaryRepository {
           words: wordDtos.toList(),
         ),
       );
-    } catch (e, stacktrace) {
+    } on Exception catch (e, stacktrace) {
       log(e.toString(), stackTrace: stacktrace);
       return const Left(ServerFailure('Error during loading category'));
     }
@@ -61,7 +61,7 @@ class DictionaryRepositoryImpl implements DictionaryRepository {
           categories: categoryDtos,
         ),
       );
-    } catch (e, stacktrace) {
+    } on Exception catch (e, stacktrace) {
       log(e.toString(), stackTrace: stacktrace);
       return const Left(ServerFailure('Error during loading category'));
     }
@@ -76,7 +76,7 @@ class DictionaryRepositoryImpl implements DictionaryRepository {
       return Right(
         await _localDataSource.saveCommands(commands: commandDtos),
       );
-    } catch (e, stacktrace) {
+    } on Exception catch (e, stacktrace) {
       log(e.toString(), stackTrace: stacktrace);
       return const Left(ServerFailure('Error during loading category'));
     }
@@ -90,7 +90,7 @@ class DictionaryRepositoryImpl implements DictionaryRepository {
           await _remoteDataSource.loadCategories(startFromId: startFromId);
 
       return Right(categoryDtos.map(_categoryMapper.mapToModel).toList());
-    } catch (e, stacktrace) {
+    } on Exception catch (e, stacktrace) {
       log(e.toString(), stackTrace: stacktrace);
       return const Left(ServerFailure('Error during loading categories'));
     }
@@ -102,7 +102,7 @@ class DictionaryRepositoryImpl implements DictionaryRepository {
       final lastCategoryId = await _localDataSource.loadLastCategoryId();
 
       return Right(lastCategoryId);
-    } catch (e, stacktrace) {
+    } on Exception catch (e, stacktrace) {
       log(e.toString(), stackTrace: stacktrace);
       return const Left(ServerFailure('Error during loading category'));
     }
@@ -114,7 +114,7 @@ class DictionaryRepositoryImpl implements DictionaryRepository {
       final categoryDto = await _remoteDataSource.loadLastCategory();
 
       return Right(categoryDto.categoryId);
-    } catch (e, stacktrace) {
+    } on Exception catch (e, stacktrace) {
       log(e.toString(), stackTrace: stacktrace);
       return const Left(ServerFailure('Error during loading last category'));
     }
@@ -126,7 +126,7 @@ class DictionaryRepositoryImpl implements DictionaryRepository {
       final lastWordId = await _localDataSource.loadLastWordId();
 
       return Right(lastWordId);
-    } catch (e, stacktrace) {
+    } on Exception catch (e, stacktrace) {
       log(e.toString(), stackTrace: stacktrace);
       return const Left(ServerFailure('Error during loading words'));
     }
@@ -138,7 +138,7 @@ class DictionaryRepositoryImpl implements DictionaryRepository {
       final wordDto = await _remoteDataSource.loadLastWord();
 
       return Right(wordDto.wordId);
-    } catch (e, stacktrace) {
+    } on Exception catch (e, stacktrace) {
       log(e.toString(), stackTrace: stacktrace);
       return const Left(ServerFailure('Error during loading last category'));
     }
@@ -154,7 +154,7 @@ class DictionaryRepositoryImpl implements DictionaryRepository {
       final words = wordDtos.map(_wordsMapper.mapToModel);
 
       return Right(words.toList());
-    } catch (e, stacktrace) {
+    } on Exception catch (e, stacktrace) {
       log(e.toString(), stackTrace: stacktrace);
       return const Left(ServerFailure('Error during loading last category'));
     }
@@ -166,7 +166,7 @@ class DictionaryRepositoryImpl implements DictionaryRepository {
       final categoryDto = await _localDataSource.loadLastCommandId();
 
       return Right(categoryDto);
-    } catch (e, stacktrace) {
+    } on Exception catch (e, stacktrace) {
       log(e.toString(), stackTrace: stacktrace);
       return const Left(ServerFailure('Error during loading last command'));
     }
@@ -178,7 +178,7 @@ class DictionaryRepositoryImpl implements DictionaryRepository {
       final commandDto = await _remoteDataSource.loadLastCommand();
 
       return Right(commandDto.commandId);
-    } catch (e, stacktrace) {
+    } on Exception catch (e, stacktrace) {
       log(e.toString(), stackTrace: stacktrace);
       return const Left(ServerFailure('Error during loading last command'));
     }
@@ -193,7 +193,7 @@ class DictionaryRepositoryImpl implements DictionaryRepository {
           await _remoteDataSource.loadCommands(startFromId: startFromId);
 
       return Right(commandDtos.map(_commandMapper.mapToModel));
-    } catch (e, stacktrace) {
+    } on Exception catch (e, stacktrace) {
       log(e.toString(), stackTrace: stacktrace);
       return const Left(ServerFailure('Error during loading categories'));
     }

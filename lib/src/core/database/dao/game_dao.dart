@@ -9,7 +9,7 @@ class GameDao extends DatabaseAccessor<Database> with _$GameDaoMixin {
   GameDao(Database db) : super(db);
 
   Future<GameDbEntity?> getUnfinishedGame() async {
-    var games = await select(gameTable).get();
+    final games = await select(gameTable).get();
 
     if (games.isEmpty) {
       return null;

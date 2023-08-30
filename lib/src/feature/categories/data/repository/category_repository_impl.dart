@@ -49,7 +49,7 @@ class CategoryRepositoryImpl implements CategoryRepository {
 
       log(categories.toString());
       return Right(categories);
-    } catch (e, stacktrace) {
+    } on Exception catch (e, stacktrace) {
       log(e.toString(), stackTrace: stacktrace);
       return const Left(ServerFailure('Error'));
     }
