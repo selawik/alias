@@ -9,8 +9,8 @@ import 'package:alias/src/feature/categories/domain/repository/category_reposito
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
-@Injectable(as: CategoryRepository)
-class CategoryRepositoryImpl implements CategoryRepository {
+@Injectable(as: ICategoryRepository)
+class CategoryRepositoryImpl implements ICategoryRepository {
   final CategoryRemoteDataSource _remoteDataSource;
   final CategoryLocalDataSource _localDataSource;
   final CategoryMapper _mapper;
