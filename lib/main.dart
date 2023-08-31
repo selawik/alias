@@ -19,20 +19,21 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
+  final dictionaryBloc = di.locator.get<DictionaryBloc>()
+    ..add(const DictionaryEvent.syncDictionary());
+
+  final gameBloc = di.locator.get<GameBloc>()..add(const GameEvent.init());
+
   runZonedGuarded(
     () {
       runApp(
         MultiBlocProvider(
           providers: [
-            BlocProvider<DictionaryBloc>(
-              create: (context) => di.locator.get<DictionaryBloc>()
-                ..add(
-                  const DictionaryEvent.syncDictionary(),
-                ),
+            BlocProvider.value(
+              value: dictionaryBloc,
             ),
-            BlocProvider<GameBloc>(
-              create: (context) =>
-                  di.locator.get<GameBloc>()..add(const GameEvent.init()),
+            BlocProvider.value(
+              value: gameBloc,
             ),
           ],
           child: const Application(),

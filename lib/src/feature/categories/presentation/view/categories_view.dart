@@ -17,15 +17,11 @@ class CategoriesView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<CategoriesBloc, CategoriesState>(
       builder: (context, state) {
-        if (state is CategoriesIsLoading) {
-          return _buildProgressIndicator(context);
-        }
-
-        if (state is CategoriesLoaded) {
-          return _buildCategoriesList(context, state.categories);
-        }
-
-        return Container();
+        return state.map(
+          initial: (state) => _buildProgressIndicator(context),
+          loaded: (state) => _buildCategoriesList(context, state.categories),
+          isLoading: (state) => _buildProgressIndicator(context),
+        );
       },
     );
   }
