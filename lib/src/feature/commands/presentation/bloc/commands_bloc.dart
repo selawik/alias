@@ -1,5 +1,5 @@
 import 'package:alias/src/feature/commands/domain/models/command.dart';
-import 'package:alias/src/feature/commands/domain/usercases/load_commands.dart';
+import 'package:alias/src/feature/commands/domain/repository/commands_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -10,11 +10,11 @@ part 'commands_state.dart';
 
 @injectable
 class CommandsBloc extends Bloc<CommandsEvent, CommandsState> {
-  final LoadCommands _loadCommands;
+  final ICommandsRepository _repository;
 
   CommandsBloc({
-    required LoadCommands loadCommandsUseCase,
-  })  : _loadCommands = loadCommandsUseCase,
+    required ICommandsRepository repository,
+  })  : _repository = repository,
         super(const CommandsState.initial()) {
     on<_LoadCommands>(_onLoadCommands);
     on<_AddCommand>(_onAddCommand);
@@ -28,7 +28,7 @@ class CommandsBloc extends Bloc<CommandsEvent, CommandsState> {
       _LoadCommands event, Emitter<CommandsState> emit) async {
     emit(const CommandsState.loading());
 
-    final result = await _loadCommands.execute();
+    final result = await _repository.loadCommands();
 
     result.fold(
       (failure) => null,

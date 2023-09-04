@@ -9,8 +9,8 @@ import 'package:alias/src/feature/commands/domain/repository/commands_repository
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
-@Injectable(as: CommandsRepository)
-class CommandsRepositoryImpl implements CommandsRepository {
+@Injectable(as: ICommandsRepository)
+class CommandsRepositoryImpl implements ICommandsRepository {
   final CommandsRemoteDataSource _remoteDataSource;
   final CommandsLocalDataSource _localDataSource;
 
