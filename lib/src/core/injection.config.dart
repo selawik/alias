@@ -19,31 +19,27 @@ import 'package:alias/src/feature/categories/data/data_source/firebase_category_
 import 'package:alias/src/feature/categories/data/mapper/category_mapper.dart'
     as _i5;
 import 'package:alias/src/feature/categories/data/repository/category_repository_impl.dart'
-    as _i28;
+    as _i34;
 import 'package:alias/src/feature/categories/domain/repository/category_repository.dart'
-    as _i27;
-import 'package:alias/src/feature/categories/domain/usercases/load_categories.dart'
-    as _i37;
+    as _i33;
 import 'package:alias/src/feature/categories/presentation/bloc/categories_bloc.dart'
-    as _i46;
+    as _i44;
 import 'package:alias/src/feature/commands/data/data_source/commands_data_source.dart'
     as _i9;
 import 'package:alias/src/feature/commands/data/data_source/commands_local_data_source.dart'
-    as _i29;
+    as _i27;
 import 'package:alias/src/feature/commands/data/data_source/drift_commands_local_data_source.dart'
-    as _i30;
+    as _i28;
 import 'package:alias/src/feature/commands/data/data_source/firebase_commands_data_source.dart'
     as _i10;
 import 'package:alias/src/feature/commands/data/mapper/command_mapper.dart'
     as _i8;
 import 'package:alias/src/feature/commands/data/repository/commands_repository_impl.dart'
-    as _i32;
+    as _i36;
 import 'package:alias/src/feature/commands/domain/repository/commands_repository.dart'
-    as _i31;
-import 'package:alias/src/feature/commands/domain/usercases/load_commands.dart'
-    as _i38;
+    as _i35;
 import 'package:alias/src/feature/commands/presentation/bloc/commands_bloc.dart'
-    as _i47;
+    as _i45;
 import 'package:alias/src/feature/game/data/data_source/drift_local_data_source.dart'
     as _i19;
 import 'package:alias/src/feature/game/data/data_source/firebase_words_data_source.dart'
@@ -58,24 +54,24 @@ import 'package:alias/src/feature/game/data/repository/words_repository_impl.dar
 import 'package:alias/src/feature/game/domain/repository/words_repository.dart'
     as _i23;
 import 'package:alias/src/feature/game/domain/usecases/get_played_words.dart'
-    as _i35;
+    as _i31;
 import 'package:alias/src/feature/game/domain/usecases/get_unfinished_game.dart'
-    as _i36;
-import 'package:alias/src/feature/game/domain/usecases/load_words.dart' as _i39;
+    as _i32;
+import 'package:alias/src/feature/game/domain/usecases/load_words.dart' as _i37;
 import 'package:alias/src/feature/game/domain/usecases/reset_game_history.dart'
-    as _i40;
+    as _i38;
 import 'package:alias/src/feature/game/domain/usecases/reset_unfinished_game.dart'
-    as _i41;
+    as _i39;
 import 'package:alias/src/feature/game/domain/usecases/save_played_words.dart'
-    as _i42;
+    as _i40;
 import 'package:alias/src/feature/game/domain/usecases/save_started_game.dart'
-    as _i43;
+    as _i41;
 import 'package:alias/src/feature/game/domain/words_usecases_facade.dart'
-    as _i45;
+    as _i43;
 import 'package:alias/src/feature/game/presentation/bloc/answer_bloc/answer_bloc.dart'
     as _i3;
 import 'package:alias/src/feature/game/presentation/bloc/game_bloc/game_bloc.dart'
-    as _i49;
+    as _i47;
 import 'package:alias/src/feature/game_settings/presentation/bloc/game_settings_bloc.dart'
     as _i17;
 import 'package:alias/src/feature/sync/data/data_source/dictionary_local_data_source.dart'
@@ -87,13 +83,13 @@ import 'package:alias/src/feature/sync/data/data_source/drift_dictionary_data_so
 import 'package:alias/src/feature/sync/data/data_source/firebase_dictionary_data_source.dart'
     as _i16;
 import 'package:alias/src/feature/sync/data/repository/dictionary_repository_impl.dart'
-    as _i34;
+    as _i30;
 import 'package:alias/src/feature/sync/domain/repository/dictionary_repository.dart'
-    as _i33;
+    as _i29;
 import 'package:alias/src/feature/sync/domain/usecases/sync_dictionary.dart'
-    as _i44;
+    as _i42;
 import 'package:alias/src/feature/sync/presentation/bloc/dictionary_bloc.dart'
-    as _i48;
+    as _i46;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart'
     as _i2; // ignore_for_file: unnecessary_lambdas
@@ -137,62 +133,58 @@ extension GetItInjectableX on _i1.GetIt {
         ));
     gh.factory<_i25.CategoryLocalDataSource>(
         () => _i26.DriftCategoryDataSource(dbProvider: gh<_i12.DbProvider>()));
-    gh.factory<_i27.CategoryRepository>(() => _i28.CategoryRepositoryImpl(
-          remoteDataSource: gh<_i6.CategoryRemoteDataSource>(),
-          localDataSource: gh<_i25.CategoryLocalDataSource>(),
-          mapper: gh<_i5.CategoryMapper>(),
-        ));
-    gh.factory<_i29.CommandsLocalDataSource>(() =>
-        _i30.DriftCommandsLocalDataSource(dbProvider: gh<_i12.DbProvider>()));
-    gh.factory<_i31.CommandsRepository>(() => _i32.CommandsRepositoryImpl(
-          remoteDataSource: gh<_i9.CommandsRemoteDataSource>(),
-          localDataSource: gh<_i29.CommandsLocalDataSource>(),
-          commandMapper: gh<_i8.CommandMapper>(),
-        ));
-    gh.factory<_i33.DictionaryRepository>(() => _i34.DictionaryRepositoryImpl(
+    gh.factory<_i27.CommandsLocalDataSource>(() =>
+        _i28.DriftCommandsLocalDataSource(dbProvider: gh<_i12.DbProvider>()));
+    gh.factory<_i29.DictionaryRepository>(() => _i30.DictionaryRepositoryImpl(
           gh<_i15.DictionaryRemoteDataSource>(),
           gh<_i13.DictionaryLocalDataSource>(),
           gh<_i5.CategoryMapper>(),
           gh<_i20.WordsMapper>(),
           gh<_i8.CommandMapper>(),
         ));
-    gh.factory<_i35.GetPlayedWords>(
-        () => _i35.GetPlayedWords(repository: gh<_i23.WordsRepository>()));
-    gh.factory<_i36.GetUnfinishedGame>(
-        () => _i36.GetUnfinishedGame(repository: gh<_i23.WordsRepository>()));
-    gh.factory<_i37.LoadCategories>(
-        () => _i37.LoadCategories(repository: gh<_i27.CategoryRepository>()));
-    gh.factory<_i38.LoadCommands>(
-        () => _i38.LoadCommands(repository: gh<_i31.CommandsRepository>()));
-    gh.factory<_i39.LoadWords>(
-        () => _i39.LoadWords(repository: gh<_i23.WordsRepository>()));
-    gh.factory<_i40.ResetGameHistory>(
-        () => _i40.ResetGameHistory(repository: gh<_i23.WordsRepository>()));
-    gh.factory<_i41.ResetUnfinishedGame>(
-        () => _i41.ResetUnfinishedGame(repository: gh<_i23.WordsRepository>()));
-    gh.factory<_i42.SavePlayedWords>(
-        () => _i42.SavePlayedWords(repository: gh<_i23.WordsRepository>()));
-    gh.factory<_i43.SaveStartedGame>(
-        () => _i43.SaveStartedGame(repository: gh<_i23.WordsRepository>()));
-    gh.factory<_i44.SyncDictionary>(
-        () => _i44.SyncDictionary(repository: gh<_i33.DictionaryRepository>()));
-    gh.factory<_i45.WordsUseCasesFacade>(() => _i45.WordsUseCasesFacade(
-          loadWords: gh<_i39.LoadWords>(),
-          savePlayedWords: gh<_i42.SavePlayedWords>(),
-          getPlayedWords: gh<_i35.GetPlayedWords>(),
-          resetGameHistory: gh<_i40.ResetGameHistory>(),
-          getUnfinishedGame: gh<_i36.GetUnfinishedGame>(),
-          saveStartedGame: gh<_i43.SaveStartedGame>(),
-          resetUnfinishedGame: gh<_i41.ResetUnfinishedGame>(),
+    gh.factory<_i31.GetPlayedWords>(
+        () => _i31.GetPlayedWords(repository: gh<_i23.WordsRepository>()));
+    gh.factory<_i32.GetUnfinishedGame>(
+        () => _i32.GetUnfinishedGame(repository: gh<_i23.WordsRepository>()));
+    gh.factory<_i33.ICategoryRepository>(() => _i34.CategoryRepositoryImpl(
+          remoteDataSource: gh<_i6.CategoryRemoteDataSource>(),
+          localDataSource: gh<_i25.CategoryLocalDataSource>(),
+          mapper: gh<_i5.CategoryMapper>(),
         ));
-    gh.factory<_i46.CategoriesBloc>(
-        () => _i46.CategoriesBloc(loadCategories: gh<_i37.LoadCategories>()));
-    gh.factory<_i47.CommandsBloc>(
-        () => _i47.CommandsBloc(loadCommandsUseCase: gh<_i38.LoadCommands>()));
-    gh.factory<_i48.DictionaryBloc>(
-        () => _i48.DictionaryBloc(gh<_i44.SyncDictionary>()));
-    gh.factory<_i49.GameBloc>(() =>
-        _i49.GameBloc(wordsUseCasesFacade: gh<_i45.WordsUseCasesFacade>()));
+    gh.factory<_i35.ICommandsRepository>(() => _i36.CommandsRepositoryImpl(
+          remoteDataSource: gh<_i9.CommandsRemoteDataSource>(),
+          localDataSource: gh<_i27.CommandsLocalDataSource>(),
+          commandMapper: gh<_i8.CommandMapper>(),
+        ));
+    gh.factory<_i37.LoadWords>(
+        () => _i37.LoadWords(repository: gh<_i23.WordsRepository>()));
+    gh.factory<_i38.ResetGameHistory>(
+        () => _i38.ResetGameHistory(repository: gh<_i23.WordsRepository>()));
+    gh.factory<_i39.ResetUnfinishedGame>(
+        () => _i39.ResetUnfinishedGame(repository: gh<_i23.WordsRepository>()));
+    gh.factory<_i40.SavePlayedWords>(
+        () => _i40.SavePlayedWords(repository: gh<_i23.WordsRepository>()));
+    gh.factory<_i41.SaveStartedGame>(
+        () => _i41.SaveStartedGame(repository: gh<_i23.WordsRepository>()));
+    gh.factory<_i42.SyncDictionary>(
+        () => _i42.SyncDictionary(repository: gh<_i29.DictionaryRepository>()));
+    gh.factory<_i43.WordsUseCasesFacade>(() => _i43.WordsUseCasesFacade(
+          loadWords: gh<_i37.LoadWords>(),
+          savePlayedWords: gh<_i40.SavePlayedWords>(),
+          getPlayedWords: gh<_i31.GetPlayedWords>(),
+          resetGameHistory: gh<_i38.ResetGameHistory>(),
+          getUnfinishedGame: gh<_i32.GetUnfinishedGame>(),
+          saveStartedGame: gh<_i41.SaveStartedGame>(),
+          resetUnfinishedGame: gh<_i39.ResetUnfinishedGame>(),
+        ));
+    gh.factory<_i44.CategoriesBloc>(
+        () => _i44.CategoriesBloc(repository: gh<_i33.ICategoryRepository>()));
+    gh.factory<_i45.CommandsBloc>(
+        () => _i45.CommandsBloc(repository: gh<_i35.ICommandsRepository>()));
+    gh.factory<_i46.DictionaryBloc>(
+        () => _i46.DictionaryBloc(gh<_i42.SyncDictionary>()));
+    gh.factory<_i47.GameBloc>(() =>
+        _i47.GameBloc(wordsUseCasesFacade: gh<_i43.WordsUseCasesFacade>()));
     return this;
   }
 }
