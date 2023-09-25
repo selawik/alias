@@ -42,7 +42,8 @@ class CommandsView extends StatelessWidget {
         return state.when(
           initial: Container.new,
           loading: () => const Center(child: CustomProgressIndicator()),
-          loaded: (addedCommands) => _buildCommandsList(context, addedCommands),
+          loaded: (addedCommands, allCommands) =>
+              _buildCommandsList(context, addedCommands.toList()),
         );
       },
     );
@@ -101,8 +102,9 @@ class CommandsView extends StatelessWidget {
     final gameBloc = BlocProvider.of<GameBloc>(context);
     final commandsBloc = BlocProvider.of<CommandsBloc>(context);
 
-    commandsBloc.state.whenOrNull(loaded: (addedCommands) {
-      gameBloc.add(GameEvent.initializeCommands(commands: addedCommands));
+    commandsBloc.state.whenOrNull(loaded: (addedCommands, allCommands) {
+      gameBloc
+          .add(GameEvent.initializeCommands(commands: addedCommands.toList()));
     });
 
     router.push(const GameSettingsPageRoute());

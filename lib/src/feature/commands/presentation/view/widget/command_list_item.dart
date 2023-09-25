@@ -34,33 +34,26 @@ class CommandListItem extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 8),
-          bloc.state.whenOrNull(
-                loaded: (addedCommands) {
-                  if (addedCommands.length > 2) {
-                    return _buildRemoveButton(context, command);
-                  }
-                  return null;
-                },
-              ) ??
-              const SizedBox(),
+          if (bloc.state.isEnoughToRemove)
+            CupertinoButton(
+              padding: EdgeInsets.zero,
+              onPressed: () => _onRemovePressed(context),
+              child: Image.asset(
+                AssetsCatalog.icRemove,
+                color: AppColors.red,
+                width: 24,
+              ),
+            )
+          else
+            const SizedBox(),
         ],
       ),
     );
   }
 
-  Widget _buildRemoveButton(BuildContext context, Command command) {
-    final bloc = BlocProvider.of<CommandsBloc>(context);
-
-    return CupertinoButton(
-      padding: EdgeInsets.zero,
-      onPressed: () => bloc.add(
-        CommandsEvent.removeCommand(command: command),
-      ),
-      child: Image.asset(
-        AssetsCatalog.icRemove,
-        color: AppColors.red,
-        width: 24,
-      ),
+  void _onRemovePressed(BuildContext context) {
+    BlocProvider.of<CommandsBloc>(context).add(
+      CommandsEvent.removeCommand(command: command),
     );
   }
 }

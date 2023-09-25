@@ -452,21 +452,25 @@ mixin _$CommandsState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Command> addedCommands) loaded,
+    required TResult Function(
+            Set<Command> addedCommands, Set<Command> allCommands)
+        loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Command> addedCommands)? loaded,
+    TResult? Function(Set<Command> addedCommands, Set<Command> allCommands)?
+        loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Command> addedCommands)? loaded,
+    TResult Function(Set<Command> addedCommands, Set<Command> allCommands)?
+        loaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -529,8 +533,8 @@ class __$$_InitialCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial();
+class _$_Initial extends _Initial {
+  const _$_Initial() : super._();
 
   @override
   String toString() {
@@ -551,7 +555,9 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Command> addedCommands) loaded,
+    required TResult Function(
+            Set<Command> addedCommands, Set<Command> allCommands)
+        loaded,
   }) {
     return initial();
   }
@@ -561,7 +567,8 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Command> addedCommands)? loaded,
+    TResult? Function(Set<Command> addedCommands, Set<Command> allCommands)?
+        loaded,
   }) {
     return initial?.call();
   }
@@ -571,7 +578,8 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Command> addedCommands)? loaded,
+    TResult Function(Set<Command> addedCommands, Set<Command> allCommands)?
+        loaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -615,8 +623,9 @@ class _$_Initial implements _Initial {
   }
 }
 
-abstract class _Initial implements CommandsState {
+abstract class _Initial extends CommandsState {
   const factory _Initial() = _$_Initial;
+  const _Initial._() : super._();
 }
 
 /// @nodoc
@@ -636,8 +645,8 @@ class __$$_LoadingCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Loading implements _Loading {
-  const _$_Loading();
+class _$_Loading extends _Loading {
+  const _$_Loading() : super._();
 
   @override
   String toString() {
@@ -658,7 +667,9 @@ class _$_Loading implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Command> addedCommands) loaded,
+    required TResult Function(
+            Set<Command> addedCommands, Set<Command> allCommands)
+        loaded,
   }) {
     return loading();
   }
@@ -668,7 +679,8 @@ class _$_Loading implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Command> addedCommands)? loaded,
+    TResult? Function(Set<Command> addedCommands, Set<Command> allCommands)?
+        loaded,
   }) {
     return loading?.call();
   }
@@ -678,7 +690,8 @@ class _$_Loading implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Command> addedCommands)? loaded,
+    TResult Function(Set<Command> addedCommands, Set<Command> allCommands)?
+        loaded,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -722,8 +735,9 @@ class _$_Loading implements _Loading {
   }
 }
 
-abstract class _Loading implements CommandsState {
+abstract class _Loading extends CommandsState {
   const factory _Loading() = _$_Loading;
+  const _Loading._() : super._();
 }
 
 /// @nodoc
@@ -731,7 +745,7 @@ abstract class _$$_LoadedCopyWith<$Res> {
   factory _$$_LoadedCopyWith(_$_Loaded value, $Res Function(_$_Loaded) then) =
       __$$_LoadedCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<Command> addedCommands});
+  $Res call({Set<Command> addedCommands, Set<Command> allCommands});
 }
 
 /// @nodoc
@@ -745,33 +759,50 @@ class __$$_LoadedCopyWithImpl<$Res>
   @override
   $Res call({
     Object? addedCommands = null,
+    Object? allCommands = null,
   }) {
     return _then(_$_Loaded(
       addedCommands: null == addedCommands
           ? _value._addedCommands
           : addedCommands // ignore: cast_nullable_to_non_nullable
-              as List<Command>,
+              as Set<Command>,
+      allCommands: null == allCommands
+          ? _value._allCommands
+          : allCommands // ignore: cast_nullable_to_non_nullable
+              as Set<Command>,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_Loaded implements _Loaded {
-  const _$_Loaded({required final List<Command> addedCommands})
-      : _addedCommands = addedCommands;
+class _$_Loaded extends _Loaded {
+  const _$_Loaded(
+      {required final Set<Command> addedCommands,
+      required final Set<Command> allCommands})
+      : _addedCommands = addedCommands,
+        _allCommands = allCommands,
+        super._();
 
-  final List<Command> _addedCommands;
+  final Set<Command> _addedCommands;
   @override
-  List<Command> get addedCommands {
-    if (_addedCommands is EqualUnmodifiableListView) return _addedCommands;
+  Set<Command> get addedCommands {
+    if (_addedCommands is EqualUnmodifiableSetView) return _addedCommands;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_addedCommands);
+    return EqualUnmodifiableSetView(_addedCommands);
+  }
+
+  final Set<Command> _allCommands;
+  @override
+  Set<Command> get allCommands {
+    if (_allCommands is EqualUnmodifiableSetView) return _allCommands;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableSetView(_allCommands);
   }
 
   @override
   String toString() {
-    return 'CommandsState.loaded(addedCommands: $addedCommands)';
+    return 'CommandsState.loaded(addedCommands: $addedCommands, allCommands: $allCommands)';
   }
 
   @override
@@ -780,12 +811,16 @@ class _$_Loaded implements _Loaded {
         (other.runtimeType == runtimeType &&
             other is _$_Loaded &&
             const DeepCollectionEquality()
-                .equals(other._addedCommands, _addedCommands));
+                .equals(other._addedCommands, _addedCommands) &&
+            const DeepCollectionEquality()
+                .equals(other._allCommands, _allCommands));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_addedCommands));
+      runtimeType,
+      const DeepCollectionEquality().hash(_addedCommands),
+      const DeepCollectionEquality().hash(_allCommands));
 
   @JsonKey(ignore: true)
   @override
@@ -798,9 +833,11 @@ class _$_Loaded implements _Loaded {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Command> addedCommands) loaded,
+    required TResult Function(
+            Set<Command> addedCommands, Set<Command> allCommands)
+        loaded,
   }) {
-    return loaded(addedCommands);
+    return loaded(addedCommands, allCommands);
   }
 
   @override
@@ -808,9 +845,10 @@ class _$_Loaded implements _Loaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Command> addedCommands)? loaded,
+    TResult? Function(Set<Command> addedCommands, Set<Command> allCommands)?
+        loaded,
   }) {
-    return loaded?.call(addedCommands);
+    return loaded?.call(addedCommands, allCommands);
   }
 
   @override
@@ -818,11 +856,12 @@ class _$_Loaded implements _Loaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Command> addedCommands)? loaded,
+    TResult Function(Set<Command> addedCommands, Set<Command> allCommands)?
+        loaded,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(addedCommands);
+      return loaded(addedCommands, allCommands);
     }
     return orElse();
   }
@@ -862,11 +901,14 @@ class _$_Loaded implements _Loaded {
   }
 }
 
-abstract class _Loaded implements CommandsState {
-  const factory _Loaded({required final List<Command> addedCommands}) =
-      _$_Loaded;
+abstract class _Loaded extends CommandsState {
+  const factory _Loaded(
+      {required final Set<Command> addedCommands,
+      required final Set<Command> allCommands}) = _$_Loaded;
+  const _Loaded._() : super._();
 
-  List<Command> get addedCommands;
+  Set<Command> get addedCommands;
+  Set<Command> get allCommands;
   @JsonKey(ignore: true)
   _$$_LoadedCopyWith<_$_Loaded> get copyWith =>
       throw _privateConstructorUsedError;

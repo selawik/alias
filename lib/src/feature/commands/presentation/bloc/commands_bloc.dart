@@ -21,9 +21,6 @@ class CommandsBloc extends Bloc<CommandsEvent, CommandsState> {
     on<_RemoveCommand>(_onRemoveCommand);
   }
 
-  List<Command> _allCommands = [];
-  List<Command> _addedCommands = [];
-
   Future<void> _onLoadCommands(
       _LoadCommands event, Emitter<CommandsState> emit) async {
     emit(const CommandsState.loading());
@@ -33,49 +30,56 @@ class CommandsBloc extends Bloc<CommandsEvent, CommandsState> {
     result.fold(
       (failure) => null,
       (commands) {
-        _allCommands = commands;
-        _addInitialCommands();
-        emit(CommandsState.loaded(addedCommands: _addedCommands));
+        if (commands.length > 2) {
+          emit(
+            CommandsState.loaded(
+              addedCommands: commands.toSet().take(2).toSet(),
+              allCommands: commands.toSet(),
+            ),
+          );
+        }
+
+        //TODO add not loaded state
       },
     );
   }
 
   Future<void> _onAddCommand(
-      _AddCommand event, Emitter<CommandsState> emit) async {
-    if (_allCommands.isNotEmpty) {
-      _addCommand();
+    _AddCommand event,
+    Emitter<CommandsState> emit,
+  ) async {
+    final currentState = state;
+    if (currentState is _Loaded) {
+      if (currentState.allCommands.isNotEmpty) {
+        final availableCommands = currentState.allCommands.difference(
+          currentState.addedCommands,
+        );
 
-      emit(CommandsState.loaded(addedCommands: _addedCommands));
+        if (availableCommands.isNotEmpty) {
+          final newAddedCommands = {
+            ...currentState.addedCommands,
+            availableCommands.first
+          };
+
+          emit(currentState.copyWith(addedCommands: newAddedCommands));
+        }
+      }
     }
   }
 
   Future<void> _onRemoveCommand(
-      _RemoveCommand event, Emitter<CommandsState> emit) async {
-    _allCommands.add(event.command);
+    _RemoveCommand event,
+    Emitter<CommandsState> emit,
+  ) async {
+    final currentState = state;
 
-    final addedCommands = List<Command>.from(_addedCommands)
-      ..remove(event.command);
+    if (currentState is _Loaded) {
+      if (currentState.addedCommands.isNotEmpty) {
+        final newAddedCommands = {...currentState.addedCommands}
+          ..remove(event.command);
 
-    _addedCommands = addedCommands;
-
-    emit(CommandsState.loaded(addedCommands: _addedCommands));
-  }
-
-  void _addCommand() {
-    final command = _allCommands.first;
-    final addedCommands = List<Command>.from(_addedCommands)..add(command);
-
-    _addedCommands = addedCommands;
-
-    _allCommands.removeAt(0);
-  }
-
-  void _addInitialCommands() {
-    if (_allCommands.length > 1) {
-      _addedCommands.addAll(_allCommands.getRange(0, 2));
-      _allCommands.removeRange(0, 2);
-    } else if (_allCommands.isNotEmpty) {
-      _addCommand();
+        emit(currentState.copyWith(addedCommands: newAddedCommands));
+      }
     }
   }
 }

@@ -8,5 +8,4 @@ class Command with _$Command {
     required int commandId,
     required String name,
   }) = _Command;
-
 }
