@@ -11,21 +11,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  await runZonedGuarded(
+    () async {
+      WidgetsFlutterBinding.ensureInitialized();
 
-  di.configureDependencies();
+      di.configureDependencies();
 
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+      await Firebase.initializeApp(
+        options: DefaultFirebaseOptions.currentPlatform,
+      );
 
-  final dictionaryBloc = di.locator.get<DictionaryBloc>()
-    ..add(const DictionaryEvent.syncDictionary());
+      final dictionaryBloc = di.locator.get<DictionaryBloc>()
+        ..add(const DictionaryEvent.syncDictionary());
 
-  final gameBloc = di.locator.get<GameBloc>()..add(const GameEvent.init());
+      final gameBloc = di.locator.get<GameBloc>()..add(const GameEvent.init());
 
-  runZonedGuarded(
-    () {
       runApp(
         MultiBlocProvider(
           providers: [
