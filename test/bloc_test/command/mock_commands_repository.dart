@@ -4,7 +4,8 @@ import 'package:alias/src/feature/commands/domain/repository/commands_repository
 import 'package:dartz/dartz.dart';
 
 final List<Command> mockCommands = [
-  Command(commandId: 1, name: 'Бобры'),
+  const Command(commandId: 1, name: 'Бобры'),
+  const Command(commandId: 2, name: 'Кошки'),
 ];
 
 class MockCommandsRepository implements ICommandsRepository {
@@ -12,6 +13,6 @@ class MockCommandsRepository implements ICommandsRepository {
   Future<Either<Failure, List<Command>>> loadCommands() async {
     await Future.delayed(const Duration(seconds: 1));
 
-    return Right([]);
+    return Right(mockCommands);
   }
 }

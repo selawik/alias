@@ -1,3 +1,4 @@
+import 'package:alias/src/feature/commands/domain/models/command.dart';
 import 'package:alias/src/feature/commands/domain/repository/commands_repository.dart';
 import 'package:alias/src/feature/commands/presentation/bloc/commands_bloc.dart';
 import 'package:bloc_test/bloc_test.dart';
@@ -6,25 +7,35 @@ import 'package:flutter_test/flutter_test.dart';
 import 'mock_commands_repository.dart';
 
 void main() {
-  group('Category Bloc Test', () {
-    late CommandsBloc commandsBloc;
-    ICommandsRepository repository;
+  group(
+    'Commands Bloc Test',
+    () {
+      late CommandsBloc commandsBloc;
+      ICommandsRepository repository;
 
-    setUp(() {
-      repository = MockCommandsRepository();
-      commandsBloc = CommandsBloc(repository: repository);
-    });
+      setUp(() {
+        repository = MockCommandsRepository();
+        commandsBloc = CommandsBloc(repository: repository);
+      });
 
-    blocTest<CommandsBloc, CommandsState>('123',
+      blocTest<CommandsBloc, CommandsState>(
+        'Initial commands loading',
         build: () => commandsBloc,
         act: (bloc) => bloc.add(const CommandsEvent.loadCommands()),
+        wait: const Duration(seconds: 1),
         expect: () => [
-              const CommandsState.loading(),
-              // const CommandsState.loaded(
-              //   addedCommands: [Command(commandId: 1, name: '')],
-              // ),
-            ]);
+          const CommandsState.loading(),
+          CommandsState.loaded(
+            addedCommands: {
+              const Command(commandId: 1, name: 'Бобры'),
+              const Command(commandId: 2, name: 'Кошки'),
+            },
+            allCommands: mockCommands.toSet(),
+          ),
+        ],
+      );
 
-    tearDown(() => commandsBloc.close());
-  });
+      tearDown(() => commandsBloc.close());
+    },
+  );
 }

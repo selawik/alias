@@ -30,7 +30,7 @@ class CommandsBloc extends Bloc<CommandsEvent, CommandsState> {
     result.fold(
       (failure) => null,
       (commands) {
-        if (commands.length > 2) {
+        if (commands.length > 1) {
           emit(
             CommandsState.loaded(
               addedCommands: commands.toSet().take(2).toSet(),
