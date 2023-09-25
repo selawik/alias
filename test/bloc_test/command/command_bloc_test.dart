@@ -35,6 +35,31 @@ void main() {
         ],
       );
 
+      blocTest<CommandsBloc, CommandsState>(
+        'Add command test',
+        build: () => commandsBloc,
+        setUp: () async {
+          commandsBloc.add(const CommandsEvent.loadCommands());
+        },
+        act: (bloc) async => Future.delayed(
+          const Duration(seconds: 1),
+          () => bloc.add(
+            const CommandsEvent.addCommand(),
+          ),
+        ),
+        skip: 1,
+        expect: () => [
+          CommandsState.loaded(
+            addedCommands: {
+              const Command(commandId: 1, name: 'Бобры'),
+              const Command(commandId: 2, name: 'Кошки'),
+              const Command(commandId: 3, name: 'Собаки'),
+            },
+            allCommands: mockCommands.toSet(),
+          ),
+        ],
+      );
+
       tearDown(() => commandsBloc.close());
     },
   );

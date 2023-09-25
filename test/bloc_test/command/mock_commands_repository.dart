@@ -6,6 +6,7 @@ import 'package:dartz/dartz.dart';
 final List<Command> mockCommands = [
   const Command(commandId: 1, name: 'Бобры'),
   const Command(commandId: 2, name: 'Кошки'),
+  const Command(commandId: 3, name: 'Собаки'),
 ];
 
 class MockCommandsRepository implements ICommandsRepository {
