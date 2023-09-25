@@ -10,7 +10,6 @@ class CommandsState with _$CommandsState {
       ) ??
       false;
 
-  const factory CommandsState.initial() = _Initial;
   const factory CommandsState.loading() = _Loading;
   const factory CommandsState.loaded({
     required Set<Command> addedCommands,

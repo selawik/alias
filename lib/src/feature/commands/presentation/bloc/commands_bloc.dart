@@ -15,7 +15,7 @@ class CommandsBloc extends Bloc<CommandsEvent, CommandsState> {
   CommandsBloc({
     required ICommandsRepository repository,
   })  : _repository = repository,
-        super(const CommandsState.initial()) {
+        super(const CommandsState.loading()) {
     on<_LoadCommands>(_onLoadCommands);
     on<_AddCommand>(_onAddCommand);
     on<_RemoveCommand>(_onRemoveCommand);

@@ -12,9 +12,11 @@ class CommandsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => di.locator.get<CommandsBloc>()
-        ..add(const CommandsEvent.loadCommands()),
-      child: Scaffold(
-        appBar: const CustomAppBar(title: 'Команды'),
+        ..add(
+          const CommandsEvent.loadCommands(),
+        ),
+      child: const Scaffold(
+        appBar: CustomAppBar(title: 'Команды'),
         body: CommandsView(),
       ),
     );
