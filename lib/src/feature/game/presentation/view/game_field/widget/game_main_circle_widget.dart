@@ -14,8 +14,8 @@ class GameMainCircleWidget extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16),
       padding: const EdgeInsets.symmetric(horizontal: 16),
-      height: MediaQuery.of(context).size.height * 0.6,
-      width: MediaQuery.of(context).size.width * 0.9,
+      height: MediaQuery.sizeOf(context).height * 0.6,
+      width: MediaQuery.sizeOf(context).width * 0.9,
       decoration: BoxDecoration(
         color: AppColors.yellow,
         shape: BoxShape.circle,

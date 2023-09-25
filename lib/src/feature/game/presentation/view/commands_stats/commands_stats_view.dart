@@ -35,7 +35,7 @@ class CommandsStatsView extends StatelessWidget {
         _buildWonCommandWidget(context, commands.first),
         const SizedBox(height: 16),
         _buildGameOverButton(context),
-        SizedBox(height: MediaQuery.of(context).padding.bottom + 16),
+        SizedBox(height: MediaQuery.paddingOf(context).bottom + 16),
       ],
     );
   }
@@ -53,7 +53,7 @@ class CommandsStatsView extends StatelessWidget {
         _buildNextCommandWidget(context, nextPlayingCommand),
         const SizedBox(height: 16),
         _buildStartButton(context),
-        SizedBox(height: MediaQuery.of(context).padding.bottom + 16),
+        SizedBox(height: MediaQuery.paddingOf(context).bottom + 16),
       ],
     );
   }

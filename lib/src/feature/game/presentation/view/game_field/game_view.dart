@@ -30,13 +30,13 @@ class GameView extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          SizedBox(height: MediaQuery.of(context).padding.top + 16),
+          SizedBox(height: MediaQuery.paddingOf(context).top + 16),
           const GameHeader(),
           const Spacer(),
           const GameMainBlock(),
           const Spacer(),
           const Expanded(flex: 3, child: GameViewFooter()),
-          SizedBox(height: MediaQuery.of(context).padding.bottom + 16),
+          SizedBox(height: MediaQuery.paddingOf(context).bottom + 16),
         ],
       ),
     );

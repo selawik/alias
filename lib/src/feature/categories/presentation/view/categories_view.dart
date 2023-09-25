@@ -38,7 +38,7 @@ class CategoriesView extends StatelessWidget {
         left: 16,
         right: 16,
         top: 16,
-        bottom: MediaQuery.of(context).padding.bottom + 16,
+        bottom: MediaQuery.paddingOf(context).bottom + 16,
       ),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,

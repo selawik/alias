@@ -13,7 +13,7 @@ class StartGameButton extends StatelessWidget {
       alignment: Alignment.bottomCenter,
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16),
-        width: MediaQuery.of(context).size.width,
+        width: MediaQuery.sizeOf(context).width,
         child: ElevatedButton(
           onPressed: () => gameBloc.add(const GameEvent.startGame()),
           child: const Text('Начать'),

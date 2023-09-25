@@ -36,7 +36,7 @@ class GameSettingsView extends StatelessWidget with SnackbarMixin {
                     padding: EdgeInsets.only(
                       left: 16,
                       right: 16,
-                      bottom: MediaQuery.of(context).padding.bottom + 100,
+                      bottom: MediaQuery.paddingOf(context).bottom + 100,
                     ),
                     physics: const AlwaysScrollableScrollPhysics(),
                     child: Column(
@@ -56,7 +56,7 @@ class GameSettingsView extends StatelessWidget with SnackbarMixin {
                 },
               ),
               Positioned(
-                bottom: MediaQuery.of(context).padding.bottom + 16,
+                bottom: MediaQuery.paddingOf(context).bottom + 16,
                 left: 16,
                 right: 16,
                 child: ElevatedButton(

@@ -17,8 +17,8 @@ class GameWordCard extends StatelessWidget {
     return Draggable<int>(
       feedback: GameMainCircleWidget(title: word.name),
       childWhenDragging: SizedBox(
-        height: MediaQuery.of(context).size.height * 0.6,
-        width: MediaQuery.of(context).size.width * 0.9,
+        height: MediaQuery.sizeOf(context).height * 0.6,
+        width: MediaQuery.sizeOf(context).width * 0.9,
       ),
       onDragEnd: (details) => _onDragEnd(details, context),
       child: Center(child: GameMainCircleWidget(title: word.name)),
@@ -30,7 +30,7 @@ class GameWordCard extends StatelessWidget {
     final bloc = BlocProvider.of<GameBloc>(context);
 
     if (details.offset.dx > 0 &&
-        details.offset.dx.abs() >= MediaQuery.of(context).size.width / 3) {
+        details.offset.dx.abs() >= MediaQuery.sizeOf(context).width / 3) {
       //_audioPlayer.play(AssetSource(AssetsCatalog.onExplainedWordSound));
       bloc.add(const GameEvent.countWord());
     }

@@ -19,7 +19,7 @@ class CommandMoveResultView extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        SizedBox(height: MediaQuery.of(context).padding.top),
+        SizedBox(height: MediaQuery.paddingOf(context).top),
         Expanded(
           child: BlocBuilder<GameBloc, GameState>(
             builder: (context, state) {
@@ -101,7 +101,7 @@ class CommandMoveResultView extends StatelessWidget {
   Widget _buildContinueButton(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-        bottom: 16 + MediaQuery.of(context).padding.bottom,
+        bottom: 16 + MediaQuery.paddingOf(context).bottom,
         left: 16,
         right: 16,
       ),

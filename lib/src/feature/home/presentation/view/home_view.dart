@@ -49,12 +49,12 @@ class HomeView extends StatelessWidget {
                   child: const Text('Продолжить игру'),
                 ),
               ],
-              SizedBox(height: MediaQuery.of(context).padding.bottom + 16),
+              SizedBox(height: MediaQuery.paddingOf(context).bottom + 16),
             ],
           ),
         ),
         Positioned(
-          top: MediaQuery.of(context).padding.top + 16,
+          top: MediaQuery.paddingOf(context).top + 16,
           right: 16,
           child: ElevatedButton(
             child: Image.asset(

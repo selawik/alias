@@ -65,7 +65,7 @@ class _CommandsViewState extends State<CommandsView> {
                 child: const Text('Продолжить'),
               ),
             ),
-            SizedBox(height: 16 + MediaQuery.of(context).padding.bottom),
+            SizedBox(height: 16 + MediaQuery.paddingOf(context).bottom),
           ],
         ),
       ],
