@@ -62,5 +62,7 @@ void main() {
 
       tearDown(() => commandsBloc.close());
     },
+
+    //TODO (@selawik) Add remove test case
   );
 }
