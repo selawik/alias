@@ -45,7 +45,9 @@ class CommandsBloc extends Bloc<CommandsEvent, CommandsState> {
     } on Exception catch (e, stack) {
       log(e.toString(), stackTrace: stack);
       emit(
-        const CommandsState.error(message: 'Произошла непредвиденная ошибка'),
+        const CommandsState.error(
+          message: 'Произошла непредвиденная ошибка',
+        ),
       );
     }
   }
@@ -55,6 +57,7 @@ class CommandsBloc extends Bloc<CommandsEvent, CommandsState> {
     Emitter<CommandsState> emit,
   ) async {
     final currentState = state;
+
     if (currentState is _Loaded) {
       if (currentState.allCommands.isNotEmpty) {
         final availableCommands = currentState.allCommands.difference(
