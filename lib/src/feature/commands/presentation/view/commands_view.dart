@@ -36,14 +36,15 @@ class _CommandsViewState extends State<CommandsView> {
             Expanded(
               child: BlocBuilder<CommandsBloc, CommandsState>(
                 builder: (context, state) {
-                  return state.when(
-                    loading: () => const Center(
+                  return state.map(
+                    loading: (state) => const Center(
                       child: CustomProgressIndicator(),
                     ),
-                    loaded: (addedCommands, _) => CommandsList(
-                      commands: addedCommands,
+                    loaded: (state) => CommandsList(
+                      commands: state.addedCommands,
                       scrollController: _scrollController,
                     ),
+                    error: (state) => Text(state.message),
                   );
                 },
               ),

@@ -1,10 +1,10 @@
-import 'package:alias/src/feature/commands/domain/models/command.dart';
+import 'package:alias/src/feature/commands/domain/models/command_entity.dart';
 import 'package:alias/src/feature/commands/presentation/view/widget/command_list_item.dart';
 import 'package:flutter/material.dart';
 
 class CommandsList extends StatelessWidget {
   final ScrollController scrollController;
-  final Set<Command> commands;
+  final Set<CommandEntity> commands;
 
   const CommandsList({
     required this.scrollController,

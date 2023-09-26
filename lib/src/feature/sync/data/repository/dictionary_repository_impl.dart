@@ -4,7 +4,7 @@ import 'package:alias/src/core/error/failure.dart';
 import 'package:alias/src/feature/categories/data/mapper/category_mapper.dart';
 import 'package:alias/src/feature/categories/domain/models/category.dart';
 import 'package:alias/src/feature/commands/data/mapper/command_mapper.dart';
-import 'package:alias/src/feature/commands/domain/models/command.dart';
+import 'package:alias/src/feature/commands/domain/models/command_entity.dart';
 import 'package:alias/src/feature/game/data/mapper/words_mapper.dart';
 import 'package:alias/src/feature/game/domain/model/word.dart';
 import 'package:alias/src/feature/sync/data/data_source/dictionary_local_data_source.dart';
@@ -69,7 +69,7 @@ class DictionaryRepositoryImpl implements DictionaryRepository {
 
   @override
   Future<Either<Failure, void>> saveCommands(
-      {required Iterable<Command> commands}) async {
+      {required Iterable<CommandEntity> commands}) async {
     try {
       final commandDtos = commands.map(_commandMapper.mapFromModel);
 
@@ -185,7 +185,7 @@ class DictionaryRepositoryImpl implements DictionaryRepository {
   }
 
   @override
-  Future<Either<Failure, Iterable<Command>>> loadCommands({
+  Future<Either<Failure, Iterable<CommandEntity>>> loadCommands({
     int? startFromId,
   }) async {
     try {

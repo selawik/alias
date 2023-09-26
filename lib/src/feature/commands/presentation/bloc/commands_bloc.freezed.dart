@@ -20,21 +20,21 @@ mixin _$CommandsEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() loadCommands,
     required TResult Function() addCommand,
-    required TResult Function(Command command) removeCommand,
+    required TResult Function(CommandEntity command) removeCommand,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadCommands,
     TResult? Function()? addCommand,
-    TResult? Function(Command command)? removeCommand,
+    TResult? Function(CommandEntity command)? removeCommand,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadCommands,
     TResult Function()? addCommand,
-    TResult Function(Command command)? removeCommand,
+    TResult Function(CommandEntity command)? removeCommand,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,7 +120,7 @@ class _$_LoadCommands implements _LoadCommands {
   TResult when<TResult extends Object?>({
     required TResult Function() loadCommands,
     required TResult Function() addCommand,
-    required TResult Function(Command command) removeCommand,
+    required TResult Function(CommandEntity command) removeCommand,
   }) {
     return loadCommands();
   }
@@ -130,7 +130,7 @@ class _$_LoadCommands implements _LoadCommands {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadCommands,
     TResult? Function()? addCommand,
-    TResult? Function(Command command)? removeCommand,
+    TResult? Function(CommandEntity command)? removeCommand,
   }) {
     return loadCommands?.call();
   }
@@ -140,7 +140,7 @@ class _$_LoadCommands implements _LoadCommands {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadCommands,
     TResult Function()? addCommand,
-    TResult Function(Command command)? removeCommand,
+    TResult Function(CommandEntity command)? removeCommand,
     required TResult orElse(),
   }) {
     if (loadCommands != null) {
@@ -228,7 +228,7 @@ class _$_AddCommand implements _AddCommand {
   TResult when<TResult extends Object?>({
     required TResult Function() loadCommands,
     required TResult Function() addCommand,
-    required TResult Function(Command command) removeCommand,
+    required TResult Function(CommandEntity command) removeCommand,
   }) {
     return addCommand();
   }
@@ -238,7 +238,7 @@ class _$_AddCommand implements _AddCommand {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadCommands,
     TResult? Function()? addCommand,
-    TResult? Function(Command command)? removeCommand,
+    TResult? Function(CommandEntity command)? removeCommand,
   }) {
     return addCommand?.call();
   }
@@ -248,7 +248,7 @@ class _$_AddCommand implements _AddCommand {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadCommands,
     TResult Function()? addCommand,
-    TResult Function(Command command)? removeCommand,
+    TResult Function(CommandEntity command)? removeCommand,
     required TResult orElse(),
   }) {
     if (addCommand != null) {
@@ -302,9 +302,9 @@ abstract class _$$_RemoveCommandCopyWith<$Res> {
           _$_RemoveCommand value, $Res Function(_$_RemoveCommand) then) =
       __$$_RemoveCommandCopyWithImpl<$Res>;
   @useResult
-  $Res call({Command command});
+  $Res call({CommandEntity command});
 
-  $CommandCopyWith<$Res> get command;
+  $CommandEntityCopyWith<$Res> get command;
 }
 
 /// @nodoc
@@ -324,14 +324,14 @@ class __$$_RemoveCommandCopyWithImpl<$Res>
       command: null == command
           ? _value.command
           : command // ignore: cast_nullable_to_non_nullable
-              as Command,
+              as CommandEntity,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $CommandCopyWith<$Res> get command {
-    return $CommandCopyWith<$Res>(_value.command, (value) {
+  $CommandEntityCopyWith<$Res> get command {
+    return $CommandEntityCopyWith<$Res>(_value.command, (value) {
       return _then(_value.copyWith(command: value));
     });
   }
@@ -343,7 +343,7 @@ class _$_RemoveCommand implements _RemoveCommand {
   const _$_RemoveCommand({required this.command});
 
   @override
-  final Command command;
+  final CommandEntity command;
 
   @override
   String toString() {
@@ -372,7 +372,7 @@ class _$_RemoveCommand implements _RemoveCommand {
   TResult when<TResult extends Object?>({
     required TResult Function() loadCommands,
     required TResult Function() addCommand,
-    required TResult Function(Command command) removeCommand,
+    required TResult Function(CommandEntity command) removeCommand,
   }) {
     return removeCommand(command);
   }
@@ -382,7 +382,7 @@ class _$_RemoveCommand implements _RemoveCommand {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadCommands,
     TResult? Function()? addCommand,
-    TResult? Function(Command command)? removeCommand,
+    TResult? Function(CommandEntity command)? removeCommand,
   }) {
     return removeCommand?.call(command);
   }
@@ -392,7 +392,7 @@ class _$_RemoveCommand implements _RemoveCommand {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadCommands,
     TResult Function()? addCommand,
-    TResult Function(Command command)? removeCommand,
+    TResult Function(CommandEntity command)? removeCommand,
     required TResult orElse(),
   }) {
     if (removeCommand != null) {
@@ -437,10 +437,10 @@ class _$_RemoveCommand implements _RemoveCommand {
 }
 
 abstract class _RemoveCommand implements CommandsEvent {
-  const factory _RemoveCommand({required final Command command}) =
+  const factory _RemoveCommand({required final CommandEntity command}) =
       _$_RemoveCommand;
 
-  Command get command;
+  CommandEntity get command;
   @JsonKey(ignore: true)
   _$$_RemoveCommandCopyWith<_$_RemoveCommand> get copyWith =>
       throw _privateConstructorUsedError;
@@ -452,22 +452,27 @@ mixin _$CommandsState {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(
-            Set<Command> addedCommands, Set<Command> allCommands)
+            Set<CommandEntity> addedCommands, Set<CommandEntity> allCommands)
         loaded,
+    required TResult Function(String message) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(Set<Command> addedCommands, Set<Command> allCommands)?
+    TResult? Function(
+            Set<CommandEntity> addedCommands, Set<CommandEntity> allCommands)?
         loaded,
+    TResult? Function(String message)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(Set<Command> addedCommands, Set<Command> allCommands)?
+    TResult Function(
+            Set<CommandEntity> addedCommands, Set<CommandEntity> allCommands)?
         loaded,
+    TResult Function(String message)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -475,18 +480,21 @@ mixin _$CommandsState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -549,8 +557,9 @@ class _$_Loading extends _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(
-            Set<Command> addedCommands, Set<Command> allCommands)
+            Set<CommandEntity> addedCommands, Set<CommandEntity> allCommands)
         loaded,
+    required TResult Function(String message) error,
   }) {
     return loading();
   }
@@ -559,8 +568,10 @@ class _$_Loading extends _Loading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(Set<Command> addedCommands, Set<Command> allCommands)?
+    TResult? Function(
+            Set<CommandEntity> addedCommands, Set<CommandEntity> allCommands)?
         loaded,
+    TResult? Function(String message)? error,
   }) {
     return loading?.call();
   }
@@ -569,8 +580,10 @@ class _$_Loading extends _Loading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(Set<Command> addedCommands, Set<Command> allCommands)?
+    TResult Function(
+            Set<CommandEntity> addedCommands, Set<CommandEntity> allCommands)?
         loaded,
+    TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -584,6 +597,7 @@ class _$_Loading extends _Loading {
   TResult map<TResult extends Object?>({
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
   }) {
     return loading(this);
   }
@@ -593,6 +607,7 @@ class _$_Loading extends _Loading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Error value)? error,
   }) {
     return loading?.call(this);
   }
@@ -602,6 +617,7 @@ class _$_Loading extends _Loading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -621,7 +637,7 @@ abstract class _$$_LoadedCopyWith<$Res> {
   factory _$$_LoadedCopyWith(_$_Loaded value, $Res Function(_$_Loaded) then) =
       __$$_LoadedCopyWithImpl<$Res>;
   @useResult
-  $Res call({Set<Command> addedCommands, Set<Command> allCommands});
+  $Res call({Set<CommandEntity> addedCommands, Set<CommandEntity> allCommands});
 }
 
 /// @nodoc
@@ -641,11 +657,11 @@ class __$$_LoadedCopyWithImpl<$Res>
       addedCommands: null == addedCommands
           ? _value._addedCommands
           : addedCommands // ignore: cast_nullable_to_non_nullable
-              as Set<Command>,
+              as Set<CommandEntity>,
       allCommands: null == allCommands
           ? _value._allCommands
           : allCommands // ignore: cast_nullable_to_non_nullable
-              as Set<Command>,
+              as Set<CommandEntity>,
     ));
   }
 }
@@ -654,23 +670,23 @@ class __$$_LoadedCopyWithImpl<$Res>
 
 class _$_Loaded extends _Loaded {
   const _$_Loaded(
-      {required final Set<Command> addedCommands,
-      required final Set<Command> allCommands})
+      {required final Set<CommandEntity> addedCommands,
+      required final Set<CommandEntity> allCommands})
       : _addedCommands = addedCommands,
         _allCommands = allCommands,
         super._();
 
-  final Set<Command> _addedCommands;
+  final Set<CommandEntity> _addedCommands;
   @override
-  Set<Command> get addedCommands {
+  Set<CommandEntity> get addedCommands {
     if (_addedCommands is EqualUnmodifiableSetView) return _addedCommands;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableSetView(_addedCommands);
   }
 
-  final Set<Command> _allCommands;
+  final Set<CommandEntity> _allCommands;
   @override
-  Set<Command> get allCommands {
+  Set<CommandEntity> get allCommands {
     if (_allCommands is EqualUnmodifiableSetView) return _allCommands;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableSetView(_allCommands);
@@ -709,8 +725,9 @@ class _$_Loaded extends _Loaded {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(
-            Set<Command> addedCommands, Set<Command> allCommands)
+            Set<CommandEntity> addedCommands, Set<CommandEntity> allCommands)
         loaded,
+    required TResult Function(String message) error,
   }) {
     return loaded(addedCommands, allCommands);
   }
@@ -719,8 +736,10 @@ class _$_Loaded extends _Loaded {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(Set<Command> addedCommands, Set<Command> allCommands)?
+    TResult? Function(
+            Set<CommandEntity> addedCommands, Set<CommandEntity> allCommands)?
         loaded,
+    TResult? Function(String message)? error,
   }) {
     return loaded?.call(addedCommands, allCommands);
   }
@@ -729,8 +748,10 @@ class _$_Loaded extends _Loaded {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(Set<Command> addedCommands, Set<Command> allCommands)?
+    TResult Function(
+            Set<CommandEntity> addedCommands, Set<CommandEntity> allCommands)?
         loaded,
+    TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -744,6 +765,7 @@ class _$_Loaded extends _Loaded {
   TResult map<TResult extends Object?>({
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
   }) {
     return loaded(this);
   }
@@ -753,6 +775,7 @@ class _$_Loaded extends _Loaded {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Error value)? error,
   }) {
     return loaded?.call(this);
   }
@@ -762,6 +785,7 @@ class _$_Loaded extends _Loaded {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -773,13 +797,157 @@ class _$_Loaded extends _Loaded {
 
 abstract class _Loaded extends CommandsState {
   const factory _Loaded(
-      {required final Set<Command> addedCommands,
-      required final Set<Command> allCommands}) = _$_Loaded;
+      {required final Set<CommandEntity> addedCommands,
+      required final Set<CommandEntity> allCommands}) = _$_Loaded;
   const _Loaded._() : super._();
 
-  Set<Command> get addedCommands;
-  Set<Command> get allCommands;
+  Set<CommandEntity> get addedCommands;
+  Set<CommandEntity> get allCommands;
   @JsonKey(ignore: true)
   _$$_LoadedCopyWith<_$_Loaded> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_ErrorCopyWith<$Res> {
+  factory _$$_ErrorCopyWith(_$_Error value, $Res Function(_$_Error) then) =
+      __$$_ErrorCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$_ErrorCopyWithImpl<$Res>
+    extends _$CommandsStateCopyWithImpl<$Res, _$_Error>
+    implements _$$_ErrorCopyWith<$Res> {
+  __$$_ErrorCopyWithImpl(_$_Error _value, $Res Function(_$_Error) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$_Error(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_Error extends _Error {
+  const _$_Error({required this.message}) : super._();
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'CommandsState.error(message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Error &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ErrorCopyWith<_$_Error> get copyWith =>
+      __$$_ErrorCopyWithImpl<_$_Error>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loading,
+    required TResult Function(
+            Set<CommandEntity> addedCommands, Set<CommandEntity> allCommands)
+        loaded,
+    required TResult Function(String message) error,
+  }) {
+    return error(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loading,
+    TResult? Function(
+            Set<CommandEntity> addedCommands, Set<CommandEntity> allCommands)?
+        loaded,
+    TResult? Function(String message)? error,
+  }) {
+    return error?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
+    TResult Function(
+            Set<CommandEntity> addedCommands, Set<CommandEntity> allCommands)?
+        loaded,
+    TResult Function(String message)? error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
+  }) {
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Error value)? error,
+  }) {
+    return error?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Error extends CommandsState {
+  const factory _Error({required final String message}) = _$_Error;
+  const _Error._() : super._();
+
+  String get message;
+  @JsonKey(ignore: true)
+  _$$_ErrorCopyWith<_$_Error> get copyWith =>
       throw _privateConstructorUsedError;
 }

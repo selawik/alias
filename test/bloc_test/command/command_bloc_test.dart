@@ -1,4 +1,4 @@
-import 'package:alias/src/feature/commands/domain/models/command.dart';
+import 'package:alias/src/feature/commands/domain/models/command_entity.dart';
 import 'package:alias/src/feature/commands/domain/repository/commands_repository.dart';
 import 'package:alias/src/feature/commands/presentation/bloc/commands_bloc.dart';
 import 'package:bloc_test/bloc_test.dart';
@@ -27,8 +27,8 @@ void main() {
           const CommandsState.loading(),
           CommandsState.loaded(
             addedCommands: {
-              const Command(commandId: 1, name: 'Бобры'),
-              const Command(commandId: 2, name: 'Кошки'),
+              const CommandEntity(commandId: 1, name: 'Бобры'),
+              const CommandEntity(commandId: 2, name: 'Кошки'),
             },
             allCommands: mockCommands.toSet(),
           ),
@@ -51,9 +51,9 @@ void main() {
         expect: () => [
           CommandsState.loaded(
             addedCommands: {
-              const Command(commandId: 1, name: 'Бобры'),
-              const Command(commandId: 2, name: 'Кошки'),
-              const Command(commandId: 3, name: 'Собаки'),
+              const CommandEntity(commandId: 1, name: 'Бобры'),
+              const CommandEntity(commandId: 2, name: 'Кошки'),
+              const CommandEntity(commandId: 3, name: 'Собаки'),
             },
             allCommands: mockCommands.toSet(),
           ),

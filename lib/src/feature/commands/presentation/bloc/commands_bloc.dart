@@ -1,4 +1,6 @@
-import 'package:alias/src/feature/commands/domain/models/command.dart';
+import 'dart:developer';
+
+import 'package:alias/src/feature/commands/domain/models/command_entity.dart';
 import 'package:alias/src/feature/commands/domain/repository/commands_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -22,26 +24,30 @@ class CommandsBloc extends Bloc<CommandsEvent, CommandsState> {
   }
 
   Future<void> _onLoadCommands(
-      _LoadCommands event, Emitter<CommandsState> emit) async {
+    _LoadCommands event,
+    Emitter<CommandsState> emit,
+  ) async {
     emit(const CommandsState.loading());
 
-    final result = await _repository.loadCommands();
+    try {
+      final result = await _repository.loadCommands();
 
-    result.fold(
-      (failure) => null,
-      (commands) {
-        if (commands.length > 1) {
-          emit(
-            CommandsState.loaded(
-              addedCommands: commands.toSet().take(2).toSet(),
-              allCommands: commands.toSet(),
-            ),
-          );
-        }
+      final addedCommands = result.toSet().take(2);
 
-        //TODO add not loaded state
-      },
-    );
+      if (result.length > 1) {
+        emit(
+          CommandsState.loaded(
+            addedCommands: addedCommands.toSet(),
+            allCommands: result.toSet(),
+          ),
+        );
+      }
+    } on Exception catch (e, stack) {
+      log(e.toString(), stackTrace: stack);
+      emit(
+        const CommandsState.error(message: 'Произошла непредвиденная ошибка'),
+      );
+    }
   }
 
   Future<void> _onAddCommand(

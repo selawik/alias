@@ -1,14 +1,14 @@
 import 'package:alias/src/core/constants/app_colors.dart';
 import 'package:alias/src/core/constants/assets_catalog.dart';
 import 'package:alias/src/core/theme/theme_builder.dart';
-import 'package:alias/src/feature/commands/domain/models/command.dart';
+import 'package:alias/src/feature/commands/domain/models/command_entity.dart';
 import 'package:alias/src/feature/commands/presentation/bloc/commands_bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CommandListItem extends StatelessWidget {
-  final Command command;
+  final CommandEntity command;
 
   const CommandListItem({
     required this.command,

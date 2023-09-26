@@ -8,7 +8,7 @@ class GameEvent with _$GameEvent {
       _InitializeCategory;
 
   const factory GameEvent.initializeCommands({
-    required List<Command> commands,
+    required List<CommandEntity> commands,
   }) = _InitializeCommands;
 
   const factory GameEvent.initializeSettings(

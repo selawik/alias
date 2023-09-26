@@ -1,5 +1,5 @@
 import 'package:alias/src/feature/categories/domain/models/category.dart';
-import 'package:alias/src/feature/commands/domain/models/command.dart';
+import 'package:alias/src/feature/commands/domain/models/command_entity.dart';
 import 'package:alias/src/feature/game/domain/model/game.dart';
 import 'package:alias/src/feature/game/domain/model/game_answer.dart';
 import 'package:alias/src/feature/game/domain/model/game_settings.dart';

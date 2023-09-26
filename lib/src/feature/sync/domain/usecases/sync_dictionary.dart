@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:alias/src/core/error/failure.dart';
 import 'package:alias/src/feature/categories/domain/models/category.dart';
-import 'package:alias/src/feature/commands/domain/models/command.dart';
+import 'package:alias/src/feature/commands/domain/models/command_entity.dart';
 import 'package:alias/src/feature/game/domain/model/word.dart';
 import 'package:alias/src/feature/sync/domain/repository/dictionary_repository.dart';
 import 'package:dartz/dartz.dart';
@@ -157,8 +157,8 @@ class SyncDictionary {
 
     if (commandsResult.isRight()) {
       final commandsSaveResult = await _repository.saveCommands(
-          commands:
-              ((commandsResult as Right).value as Iterable<Command>).toList());
+          commands: ((commandsResult as Right).value as Iterable<CommandEntity>)
+              .toList());
 
       if (commandsSaveResult.isRight()) {
         log('Commands Synced');
