@@ -7,9 +7,9 @@ name: run-build
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "none" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "none" ]
 
 jobs:
   build:
