@@ -3,6 +3,7 @@ import 'dart:developer';
 
 import 'package:alias/firebase_options.dart';
 import 'package:alias/src/core/application.dart';
+import 'package:alias/src/core/bloc/theme/theme_bloc.dart';
 import 'package:alias/src/core/injection.dart' as di;
 import 'package:alias/src/feature/game/presentation/bloc/game_bloc/game_bloc.dart';
 import 'package:alias/src/feature/sync/presentation/bloc/dictionary_bloc.dart';
@@ -26,6 +27,8 @@ void main() async {
 
       final gameBloc = di.locator.get<GameBloc>()..add(const GameEvent.init());
 
+      final themeBloc = di.locator.get<ThemeBloc>();
+
       runApp(
         MultiBlocProvider(
           providers: [
@@ -34,6 +37,9 @@ void main() async {
             ),
             BlocProvider.value(
               value: gameBloc,
+            ),
+            BlocProvider.value(
+              value: themeBloc,
             ),
           ],
           child: const Application(),
