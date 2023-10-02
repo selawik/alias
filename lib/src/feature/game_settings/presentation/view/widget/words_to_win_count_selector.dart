@@ -2,6 +2,7 @@ import 'package:alias/src/core/constants/app_colors.dart';
 import 'package:alias/src/core/theme/theme_builder.dart';
 import 'package:alias/src/feature/game_settings/domain/model/words_to_win.dart';
 import 'package:alias/src/feature/game_settings/presentation/bloc/game_settings_bloc.dart';
+import 'package:alias/src/feature/theming/presentation/bloc/theme_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -41,7 +42,7 @@ class WordsToWinCountSelector extends StatelessWidget {
                           horizontal: 8,
                           vertical: 8,
                         ),
-                        decoration: _getBoxDecoration(wordsToWin),
+                        decoration: _getBoxDecoration(context, wordsToWin),
                         child: Center(
                           child: Text(
                             wordsToWin.value.toString(),
@@ -75,14 +76,18 @@ class WordsToWinCountSelector extends StatelessWidget {
 
   TextStyle? _getTextStyle(BuildContext context, WordsToWin wordsToWin) {
     return Theme.of(context).textTheme.bodyLarge?.copyWith(
-          color: selectedItem == wordsToWin ? AppColors.white : AppColors.black,
+          color: selectedItem == wordsToWin ? AppColors.white : null,
         );
   }
 
-  BoxDecoration _getBoxDecoration(WordsToWin wordsToWin) {
+  BoxDecoration _getBoxDecoration(BuildContext context, WordsToWin wordsToWin) {
+    final themeBloc = context.read<ThemeBloc>();
     return BoxDecoration(
-      color:
-          selectedItem == wordsToWin ? AppColors.buttonColor : AppColors.white,
+      color: selectedItem == wordsToWin
+          ? AppColors.buttonColor
+          : themeBloc.state.isDarkThemeEnabled
+              ? AppColors.black
+              : AppColors.white,
       borderRadius: _getBorderRadius(wordsToWin),
     );
   }

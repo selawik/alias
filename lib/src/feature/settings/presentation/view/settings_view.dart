@@ -1,7 +1,7 @@
 import 'package:alias/src/feature/settings/presentation/view/widget/clear_game_history_row.dart';
-import 'package:alias/src/feature/settings/presentation/view/widget/language_settings_row.dart';
 import 'package:alias/src/feature/settings/presentation/view/widget/sound_settings_row.dart';
 import 'package:alias/src/feature/settings/presentation/view/widget/view_db_row.dart';
+import 'package:alias/src/feature/theming/presentation/widget/change_theme_switcher.dart';
 import 'package:flutter/material.dart';
 
 class SettingsView extends StatelessWidget {
@@ -14,9 +14,9 @@ class SettingsView extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          LanguageSettingsRow(),
-          SizedBox(height: 16),
           SoundSettingsRow(),
+          SizedBox(height: 16),
+          ChangeThemeSwitcher(),
           SizedBox(height: 16),
           ClearGameHistoryRow(),
           SizedBox(height: 16),

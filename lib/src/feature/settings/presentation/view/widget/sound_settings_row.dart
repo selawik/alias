@@ -6,8 +6,9 @@ class SoundSettingsRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const Text('Настройки'),
+        const Text('Звук'),
         CupertinoSwitch(value: true, onChanged: (value) {}),
       ],
     );

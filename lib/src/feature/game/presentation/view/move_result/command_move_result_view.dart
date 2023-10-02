@@ -6,6 +6,7 @@ import 'package:alias/src/feature/game/domain/model/game_answer.dart';
 import 'package:alias/src/feature/game/domain/model/playing_command.dart';
 import 'package:alias/src/feature/game/presentation/bloc/game_bloc/game_bloc.dart';
 import 'package:alias/src/feature/game/presentation/view/move_result/widget/command_mode_result_header.dart';
+import 'package:alias/src/feature/theming/presentation/bloc/theme_bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -72,12 +73,15 @@ class CommandMoveResultView extends StatelessWidget {
   }
 
   Widget _buildResultItem(BuildContext context, GameAnswer answer) {
-    final bloc = BlocProvider.of<GameBloc>(context);
+    final gameBloc = BlocProvider.of<GameBloc>(context);
+    final themeBloc = context.read<ThemeBloc>();
     final textStyle = Theme.of(context).textTheme.displayMedium;
 
     return Container(
       padding: const EdgeInsets.all(16),
-      decoration: ThemeBuilder.cardDecoration,
+      decoration: ThemeBuilder.cardDecoration(
+        isDarkThemeEnabled: themeBloc.state.isDarkThemeEnabled,
+      ),
       child: Row(
         children: [
           Expanded(
@@ -90,7 +94,7 @@ class CommandMoveResultView extends StatelessWidget {
             value: answer.type.isCount,
             onChanged: (value) {
               HapticFeedback.mediumImpact();
-              bloc.add(GameEvent.changeAnswer(answer: answer));
+              gameBloc.add(GameEvent.changeAnswer(answer: answer));
             },
           ),
         ],

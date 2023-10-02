@@ -2,7 +2,11 @@ import 'package:alias/src/core/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class ThemeBuilder {
-  static ThemeData buildLightTheme() {
+  static ThemeData getTheme({required bool isDarkThemeEnabled}) {
+    return isDarkThemeEnabled ? _buildDarkTheme() : _buildLightTheme();
+  }
+
+  static ThemeData _buildLightTheme() {
     return ThemeData(
       useMaterial3: true,
       primaryColor: AppColors.white,
@@ -54,52 +58,56 @@ class ThemeBuilder {
     );
   }
 
-  static ThemeData buildDarkTheme() {
+  static ThemeData _buildDarkTheme() {
     return ThemeData(
-        useMaterial3: true,
-        primarySwatch: Colors.red,
-        brightness: Brightness.dark,
-        textTheme: const TextTheme(
-          displayLarge: TextStyle(
-            fontFamily: 'Roboto',
-            fontSize: 24,
-            color: AppColors.white,
-            fontWeight: FontWeight.normal,
-          ),
-          displayMedium: TextStyle(
-            fontFamily: 'Roboto',
-            fontSize: 20,
-            color: AppColors.white,
-            fontWeight: FontWeight.normal,
-          ),
-          displaySmall: TextStyle(
-            fontFamily: 'Roboto',
-            fontSize: 18,
-            color: AppColors.white,
-            fontWeight: FontWeight.normal,
-          ),
-          headlineMedium: TextStyle(
-            fontFamily: 'Roboto',
-            fontSize: 16,
-            color: AppColors.white,
-            fontWeight: FontWeight.normal,
-          ),
-          titleMedium: TextStyle(
-            fontFamily: 'Roboto',
-            fontSize: 13,
-            color: AppColors.white,
-            fontWeight: FontWeight.normal,
-          ),
-          labelLarge: TextStyle(
-            fontFamily: 'Roboto',
-            fontSize: 16,
-            color: AppColors.white,
-            fontWeight: FontWeight.normal,
-          ),
+      useMaterial3: true,
+      primarySwatch: Colors.red,
+      brightness: Brightness.dark,
+      textTheme: const TextTheme(
+        displayLarge: TextStyle(
+          fontFamily: 'Roboto',
+          fontSize: 24,
+          color: AppColors.white,
+          fontWeight: FontWeight.normal,
         ),
-        scaffoldBackgroundColor: AppColors.appBackgroundDark,
-        elevatedButtonTheme: _getElevatedButtonTheme(),
-        iconTheme: const IconThemeData(color: AppColors.white));
+        displayMedium: TextStyle(
+          fontFamily: 'Roboto',
+          fontSize: 20,
+          color: AppColors.white,
+          fontWeight: FontWeight.normal,
+        ),
+        displaySmall: TextStyle(
+          fontFamily: 'Roboto',
+          fontSize: 18,
+          color: AppColors.white,
+          fontWeight: FontWeight.normal,
+        ),
+        headlineMedium: TextStyle(
+          fontFamily: 'Roboto',
+          fontSize: 16,
+          color: AppColors.white,
+          fontWeight: FontWeight.normal,
+        ),
+        titleMedium: TextStyle(
+          fontFamily: 'Roboto',
+          fontSize: 13,
+          color: AppColors.white,
+          fontWeight: FontWeight.normal,
+        ),
+        labelLarge: TextStyle(
+          fontFamily: 'Roboto',
+          fontSize: 20,
+          color: AppColors.white,
+          fontWeight: FontWeight.normal,
+        ),
+      ),
+      scaffoldBackgroundColor: AppColors.appBackgroundDark,
+      appBarTheme: const AppBarTheme(
+        color: AppColors.appBackgroundDark,
+      ),
+      elevatedButtonTheme: _getElevatedButtonTheme(),
+      iconTheme: const IconThemeData(color: AppColors.white),
+    );
   }
 
   static ElevatedButtonThemeData _getElevatedButtonTheme() {
@@ -137,9 +145,10 @@ class ThemeBuilder {
     );
   }
 
-  static BoxDecoration get cardDecoration => BoxDecoration(
+  static BoxDecoration cardDecoration({required bool isDarkThemeEnabled}) =>
+      BoxDecoration(
         borderRadius: defaultBorderRadius,
-        color: AppColors.white,
+        color: isDarkThemeEnabled ? AppColors.black : AppColors.white,
         boxShadow: ThemeBuilder.defaultShadow,
       );
 }

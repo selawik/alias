@@ -3,12 +3,13 @@ import 'dart:developer';
 
 import 'package:alias/firebase_options.dart';
 import 'package:alias/src/core/application.dart';
-import 'package:alias/src/core/bloc/theme/theme_bloc.dart';
 import 'package:alias/src/core/injection.dart' as di;
 import 'package:alias/src/feature/game/presentation/bloc/game_bloc/game_bloc.dart';
 import 'package:alias/src/feature/sync/presentation/bloc/dictionary_bloc.dart';
+import 'package:alias/src/feature/theming/presentation/bloc/theme_bloc.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() async {
@@ -27,7 +28,12 @@ void main() async {
 
       final gameBloc = di.locator.get<GameBloc>()..add(const GameEvent.init());
 
-      final themeBloc = di.locator.get<ThemeBloc>();
+      final brightness =
+          SchedulerBinding.instance.platformDispatcher.platformBrightness;
+
+      final themeBloc = di.locator.get<ThemeBloc>(
+        param1: brightness == Brightness.dark,
+      );
 
       runApp(
         MultiBlocProvider(
