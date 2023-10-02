@@ -7,6 +7,7 @@ import 'package:alias/src/core/widget/custom_progress_indicator.dart';
 import 'package:alias/src/feature/categories/domain/models/category.dart';
 import 'package:alias/src/feature/categories/presentation/bloc/categories_bloc.dart';
 import 'package:alias/src/feature/game/presentation/bloc/game_bloc/game_bloc.dart';
+import 'package:alias/src/feature/theming/presentation/bloc/theme_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -56,6 +57,8 @@ class CategoriesView extends StatelessWidget {
   }
 
   Widget _buildListItem(BuildContext context, Category category) {
+    final themeBloc = context.read<ThemeBloc>();
+
     return Stack(
       fit: StackFit.expand,
       children: [
@@ -63,7 +66,9 @@ class CategoriesView extends StatelessWidget {
           onTap: () => _onListItemTap(context, category),
           child: Container(
             padding: const EdgeInsets.all(8),
-            decoration: ThemeBuilder.cardDecoration,
+            decoration: ThemeBuilder.cardDecoration(
+              isDarkThemeEnabled: themeBloc.state.isDarkThemeEnabled,
+            ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -91,7 +96,7 @@ class CategoriesView extends StatelessWidget {
           top: 8,
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-            decoration: ThemeBuilder.cardDecoration
+            decoration: ThemeBuilder.cardDecoration(isDarkThemeEnabled: false)
                 .copyWith(color: AppColors.buttonColor),
             child: Text(
               category.wordsCount.toString(),

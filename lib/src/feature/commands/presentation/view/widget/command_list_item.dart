@@ -3,6 +3,7 @@ import 'package:alias/src/core/constants/assets_catalog.dart';
 import 'package:alias/src/core/theme/theme_builder.dart';
 import 'package:alias/src/feature/commands/domain/models/command_entity.dart';
 import 'package:alias/src/feature/commands/presentation/bloc/commands_bloc.dart';
+import 'package:alias/src/feature/theming/presentation/bloc/theme_bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,24 +18,28 @@ class CommandListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bloc = BlocProvider.of<CommandsBloc>(context);
+    final commandsBloc = BlocProvider.of<CommandsBloc>(context);
+    final themeBloc = context.read<ThemeBloc>();
+
     final textStyle = Theme.of(context).textTheme.displayMedium;
 
     return Container(
       height: 80,
       alignment: Alignment.centerLeft,
       padding: const EdgeInsets.all(16),
-      decoration: ThemeBuilder.cardDecoration,
+      decoration: ThemeBuilder.cardDecoration(
+        isDarkThemeEnabled: themeBloc.state.isDarkThemeEnabled,
+      ),
       child: Row(
         children: [
           Expanded(
             child: Text(
               command.name,
-              style: textStyle?.copyWith(color: AppColors.black),
+              style: textStyle,
             ),
           ),
           const SizedBox(width: 8),
-          if (bloc.state.isEnoughToRemove)
+          if (commandsBloc.state.isEnoughToRemove)
             CupertinoButton(
               padding: EdgeInsets.zero,
               onPressed: () => _onRemovePressed(context),

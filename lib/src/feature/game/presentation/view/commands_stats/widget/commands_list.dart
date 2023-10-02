@@ -1,6 +1,8 @@
 import 'package:alias/src/core/theme/theme_builder.dart';
 import 'package:alias/src/feature/game/domain/model/playing_command.dart';
+import 'package:alias/src/feature/theming/presentation/bloc/theme_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CommandsList extends StatelessWidget {
   final List<PlayingCommand> commands;
@@ -29,10 +31,13 @@ class CommandsList extends StatelessWidget {
 
   Widget _buildCommandListItem(BuildContext context, PlayingCommand command) {
     final textStyle = Theme.of(context).textTheme.displayMedium;
+    final themeBloc = context.read<ThemeBloc>();
 
     return Container(
       padding: const EdgeInsets.all(16),
-      decoration: ThemeBuilder.cardDecoration,
+      decoration: ThemeBuilder.cardDecoration(
+        isDarkThemeEnabled: themeBloc.state.isDarkThemeEnabled,
+      ),
       child: Row(
         children: [
           Text(
