@@ -18,33 +18,33 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ThemeEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function() themeSwitched,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function()? themeSwitched,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function()? themeSwitched,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(_ThemeSwitched value) themeSwitched,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(_ThemeSwitched value)? themeSwitched,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(_ThemeSwitched value)? themeSwitched,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -69,34 +69,35 @@ class _$ThemeEventCopyWithImpl<$Res, $Val extends ThemeEvent>
 }
 
 /// @nodoc
-abstract class _$$_StartedCopyWith<$Res> {
-  factory _$$_StartedCopyWith(
-          _$_Started value, $Res Function(_$_Started) then) =
-      __$$_StartedCopyWithImpl<$Res>;
+abstract class _$$_ThemeSwitchedCopyWith<$Res> {
+  factory _$$_ThemeSwitchedCopyWith(
+          _$_ThemeSwitched value, $Res Function(_$_ThemeSwitched) then) =
+      __$$_ThemeSwitchedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_StartedCopyWithImpl<$Res>
-    extends _$ThemeEventCopyWithImpl<$Res, _$_Started>
-    implements _$$_StartedCopyWith<$Res> {
-  __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
+class __$$_ThemeSwitchedCopyWithImpl<$Res>
+    extends _$ThemeEventCopyWithImpl<$Res, _$_ThemeSwitched>
+    implements _$$_ThemeSwitchedCopyWith<$Res> {
+  __$$_ThemeSwitchedCopyWithImpl(
+      _$_ThemeSwitched _value, $Res Function(_$_ThemeSwitched) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Started implements _Started {
-  const _$_Started();
+class _$_ThemeSwitched implements _ThemeSwitched {
+  const _$_ThemeSwitched();
 
   @override
   String toString() {
-    return 'ThemeEvent.started()';
+    return 'ThemeEvent.themeSwitched()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Started);
+        (other.runtimeType == runtimeType && other is _$_ThemeSwitched);
   }
 
   @override
@@ -105,27 +106,27 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function() themeSwitched,
   }) {
-    return started();
+    return themeSwitched();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function()? themeSwitched,
   }) {
-    return started?.call();
+    return themeSwitched?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function()? themeSwitched,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started();
+    if (themeSwitched != null) {
+      return themeSwitched();
     }
     return orElse();
   }
@@ -133,34 +134,34 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(_ThemeSwitched value) themeSwitched,
   }) {
-    return started(this);
+    return themeSwitched(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(_ThemeSwitched value)? themeSwitched,
   }) {
-    return started?.call(this);
+    return themeSwitched?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(_ThemeSwitched value)? themeSwitched,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started(this);
+    if (themeSwitched != null) {
+      return themeSwitched(this);
     }
     return orElse();
   }
 }
 
-abstract class _Started implements ThemeEvent {
-  const factory _Started() = _$_Started;
+abstract class _ThemeSwitched implements ThemeEvent {
+  const factory _ThemeSwitched() = _$_ThemeSwitched;
 }
 
 /// @nodoc

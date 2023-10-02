@@ -6,11 +6,22 @@ part 'theme_bloc.freezed.dart';
 part 'theme_event.dart';
 part 'theme_state.dart';
 
-@Injectable()
+@injectable
 class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
   ThemeBloc({
-    required bool isSystemDarkThemeEnabled,
+    @factoryParam required bool isSystemDarkThemeEnabled,
   }) : super(ThemeState.ready(isDarkThemeEnabled: isSystemDarkThemeEnabled)) {
-    on<ThemeEvent>((event, emit) {});
+    on<_ThemeSwitched>(_onThemeSwitched);
+  }
+
+  void _onThemeSwitched(_ThemeSwitched event, Emitter<ThemeState> emit) {
+    final currentState = state as _Ready;
+
+    //TODO (@selawik) add caching
+    emit(
+      currentState.copyWith(
+        isDarkThemeEnabled: !currentState.isDarkThemeEnabled,
+      ),
+    );
   }
 }
