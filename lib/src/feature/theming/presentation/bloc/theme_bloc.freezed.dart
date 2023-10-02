@@ -270,8 +270,8 @@ class __$$_ReadyCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Ready implements _Ready {
-  const _$_Ready({required this.isDarkThemeEnabled});
+class _$_Ready extends _Ready {
+  const _$_Ready({required this.isDarkThemeEnabled}) : super._();
 
   @override
   final bool isDarkThemeEnabled;
@@ -356,8 +356,9 @@ class _$_Ready implements _Ready {
   }
 }
 
-abstract class _Ready implements ThemeState {
+abstract class _Ready extends ThemeState {
   const factory _Ready({required final bool isDarkThemeEnabled}) = _$_Ready;
+  const _Ready._() : super._();
 
   @override
   bool get isDarkThemeEnabled;

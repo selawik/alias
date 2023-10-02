@@ -2,7 +2,11 @@ import 'package:alias/src/core/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class ThemeBuilder {
-  static ThemeData buildLightTheme() {
+  static ThemeData getTheme({required bool isDarkThemeEnabled}) {
+    return isDarkThemeEnabled ? _buildDarkTheme() : _buildLightTheme();
+  }
+
+  static ThemeData _buildLightTheme() {
     return ThemeData(
       useMaterial3: true,
       primaryColor: AppColors.white,
@@ -54,7 +58,7 @@ class ThemeBuilder {
     );
   }
 
-  static ThemeData buildDarkTheme() {
+  static ThemeData _buildDarkTheme() {
     return ThemeData(
         useMaterial3: true,
         primarySwatch: Colors.red,

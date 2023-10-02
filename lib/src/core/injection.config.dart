@@ -5,7 +5,6 @@
 // **************************************************************************
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:alias/src/core/bloc/theme/theme_bloc.dart' as _i18;
 import 'package:alias/src/core/database/database.dart' as _i11;
 import 'package:alias/src/core/database/db_provider.dart' as _i12;
 import 'package:alias/src/core/router/app_router.dart' as _i4;
@@ -91,6 +90,8 @@ import 'package:alias/src/feature/sync/domain/usecases/sync_dictionary.dart'
     as _i43;
 import 'package:alias/src/feature/sync/presentation/bloc/dictionary_bloc.dart'
     as _i47;
+import 'package:alias/src/feature/theming/presentation/bloc/theme_bloc.dart'
+    as _i18;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart'
     as _i2; // ignore_for_file: unnecessary_lambdas
