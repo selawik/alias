@@ -6,7 +6,7 @@ import 'package:injectable/injectable.dart';
 @injectable
 class CommandMapper implements Mapper<CommandEntity, CommandDto> {
   @override
-  CommandEntity mapToModel(CommandDto type) {
+  CommandEntity mapToEntity(CommandDto type) {
     return CommandEntity(
       name: type.name,
       commandId: type.commandId,
@@ -14,7 +14,7 @@ class CommandMapper implements Mapper<CommandEntity, CommandDto> {
   }
 
   @override
-  CommandDto mapFromModel(CommandEntity type) {
+  CommandDto mapToDto(CommandEntity type) {
     return CommandDto(
       name: type.name,
       commandId: type.commandId,

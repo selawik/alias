@@ -6,7 +6,7 @@ import 'package:injectable/injectable.dart';
 @injectable
 class CategoryMapper implements Mapper<Category, CategoryDto> {
   @override
-  Category mapToModel(CategoryDto type) {
+  Category mapToEntity(CategoryDto type) {
     return Category(
       name: type.name,
       categoryId: type.categoryId,
@@ -16,7 +16,7 @@ class CategoryMapper implements Mapper<Category, CategoryDto> {
   }
 
   @override
-  CategoryDto mapFromModel(Category type) {
+  CategoryDto mapToDto(Category type) {
     return CategoryDto(
       name: type.name,
       categoryId: type.categoryId,

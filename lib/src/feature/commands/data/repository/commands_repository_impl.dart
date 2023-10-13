@@ -24,6 +24,6 @@ class CommandsRepositoryImpl implements ICommandsRepository {
   Future<List<CommandEntity>> loadCommands() async {
     final result = await _localDataSource.loadAllCommands();
 
-    return result.map(_commandMapper.mapToModel).toList();
+    return result.map(_commandMapper.mapToEntity).toList();
   }
 }

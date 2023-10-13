@@ -133,7 +133,7 @@ class WordsRepositoryImpl implements WordsRepository {
             .toList();
       }
 
-      final words = result.map(_mapper.mapToModel).toList();
+      final words = result.map(_mapper.mapToEntity).toList();
 
       return Right(words);
     } on Exception catch (e, stacktrace) {

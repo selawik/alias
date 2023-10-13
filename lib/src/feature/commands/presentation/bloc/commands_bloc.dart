@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:alias/src/feature/commands/domain/models/command_entity.dart';
 import 'package:alias/src/feature/commands/domain/repository/commands_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -42,13 +40,12 @@ class CommandsBloc extends Bloc<CommandsEvent, CommandsState> {
           ),
         );
       }
-    } on Exception catch (e, stack) {
-      log(e.toString(), stackTrace: stack);
+    } on Object catch (_) {
       emit(
-        const CommandsState.error(
-          message: 'Произошла непредвиденная ошибка',
-        ),
+        const CommandsState.error(message: 'Произошла непредвиденная ошибка'),
       );
+
+      rethrow;
     }
   }
 

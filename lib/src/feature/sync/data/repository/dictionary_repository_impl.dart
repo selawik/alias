@@ -37,7 +37,7 @@ class DictionaryRepositoryImpl implements DictionaryRepository {
   @override
   Future<Either<Failure, void>> saveWords({required List<Word> words}) async {
     try {
-      final wordDtos = words.map(_wordsMapper.mapFromModel);
+      final wordDtos = words.map(_wordsMapper.mapToDto);
 
       return Right(
         await _localDataSource.saveWords(
@@ -54,7 +54,7 @@ class DictionaryRepositoryImpl implements DictionaryRepository {
   Future<Either<Failure, void>> saveCategories(
       List<Category> categories) async {
     try {
-      final categoryDtos = categories.map(_categoryMapper.mapFromModel);
+      final categoryDtos = categories.map(_categoryMapper.mapToDto);
 
       return Right(
         await _localDataSource.saveCategories(
@@ -71,7 +71,7 @@ class DictionaryRepositoryImpl implements DictionaryRepository {
   Future<Either<Failure, void>> saveCommands(
       {required Iterable<CommandEntity> commands}) async {
     try {
-      final commandDtos = commands.map(_commandMapper.mapFromModel);
+      final commandDtos = commands.map(_commandMapper.mapToDto);
 
       return Right(
         await _localDataSource.saveCommands(commands: commandDtos),
@@ -89,7 +89,7 @@ class DictionaryRepositoryImpl implements DictionaryRepository {
       final categoryDtos =
           await _remoteDataSource.loadCategories(startFromId: startFromId);
 
-      return Right(categoryDtos.map(_categoryMapper.mapToModel).toList());
+      return Right(categoryDtos.map(_categoryMapper.mapToEntity).toList());
     } on Exception catch (e, stacktrace) {
       log(e.toString(), stackTrace: stacktrace);
       return const Left(ServerFailure('Error during loading categories'));
@@ -151,7 +151,7 @@ class DictionaryRepositoryImpl implements DictionaryRepository {
     try {
       final wordDtos =
           await _remoteDataSource.loadWords(startFromId: startFromId);
-      final words = wordDtos.map(_wordsMapper.mapToModel);
+      final words = wordDtos.map(_wordsMapper.mapToEntity);
 
       return Right(words.toList());
     } on Exception catch (e, stacktrace) {
@@ -192,7 +192,7 @@ class DictionaryRepositoryImpl implements DictionaryRepository {
       final commandDtos =
           await _remoteDataSource.loadCommands(startFromId: startFromId);
 
-      return Right(commandDtos.map(_commandMapper.mapToModel));
+      return Right(commandDtos.map(_commandMapper.mapToEntity));
     } on Exception catch (e, stacktrace) {
       log(e.toString(), stackTrace: stacktrace);
       return const Left(ServerFailure('Error during loading categories'));

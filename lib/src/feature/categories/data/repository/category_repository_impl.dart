@@ -39,7 +39,7 @@ class CategoryRepositoryImpl implements ICategoryRepository {
             .loadCategoryWordsCount(categoryDto.categoryId);
 
         categories.add(
-          _mapper.mapToModel(
+          _mapper.mapToEntity(
             categoryDto.copyWith(
               wordsCount: categoryWordsCount,
             ),

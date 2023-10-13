@@ -6,7 +6,7 @@ import 'package:injectable/injectable.dart';
 @injectable
 class WordsMapper implements Mapper<Word, WordDto> {
   @override
-  Word mapToModel(WordDto type) {
+  Word mapToEntity(WordDto type) {
     return Word(
       wordId: type.wordId,
       name: type.name,
@@ -15,7 +15,7 @@ class WordsMapper implements Mapper<Word, WordDto> {
   }
 
   @override
-  WordDto mapFromModel(Word type) {
+  WordDto mapToDto(Word type) {
     return WordDto(
       wordId: type.wordId,
       name: type.name,
