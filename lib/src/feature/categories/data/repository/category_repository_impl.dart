@@ -24,34 +24,24 @@ class CategoryRepositoryImpl implements ICategoryRepository {
         _localDataSource = localDataSource;
 
   @override
-  Future<Either<Failure, List<Category>>> loadCategories() async {
-    try {
-      final categoriesDto = await _localDataSource.loadAllCategories();
+  Future<List<Category>> loadCategories() async {
+    final categoriesDto = await _localDataSource.loadAllCategories();
 
-      if (categoriesDto.isEmpty) {
-        return const Left(NoDataFailure('There is no categories'));
-      }
+    final categories = <Category>[];
 
-      final categories = <Category>[];
+    for (final categoryDto in categoriesDto) {
+      final categoryWordsCount =
+          await _localDataSource.loadCategoryWordsCount(categoryDto.categoryId);
 
-      for (final categoryDto in categoriesDto) {
-        final categoryWordsCount = await _localDataSource
-            .loadCategoryWordsCount(categoryDto.categoryId);
-
-        categories.add(
-          _mapper.mapToEntity(
-            categoryDto.copyWith(
-              wordsCount: categoryWordsCount,
-            ),
+      categories.add(
+        _mapper.mapToEntity(
+          categoryDto.copyWith(
+            wordsCount: categoryWordsCount,
           ),
-        );
-      }
-
-      log(categories.toString());
-      return Right(categories);
-    } on Exception catch (e, stacktrace) {
-      log(e.toString(), stackTrace: stacktrace);
-      return const Left(ServerFailure('Error'));
+        ),
+      );
     }
+
+    return categories;
   }
 }

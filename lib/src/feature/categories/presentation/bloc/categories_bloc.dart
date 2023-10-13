@@ -14,7 +14,7 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
   CategoriesBloc({
     required ICategoryRepository repository,
   })  : _repository = repository,
-        super(CategoriesInitial()) {
+        super(CategoriesIsLoading()) {
     on<LoadCategoriesEvent>(_onLoadCategories);
   }
 
@@ -22,15 +22,14 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     LoadCategoriesEvent event,
     Emitter<CategoriesState> emit,
   ) async {
-    emit(CategoriesIsLoading());
+    try {
+      emit(CategoriesIsLoading());
+      final categories = await _repository.loadCategories();
+      emit(CategoriesLoaded(categories: categories));
+    } on Object catch (e) {
+      emit(CategoriesError(message: 'Произошла непредвиденная ошибка'));
 
-    final result = await _repository.loadCategories();
-
-    result.fold(
-      (failure) => null,
-      (data) => emit(
-        CategoriesLoaded(categories: data),
-      ),
-    );
+      rethrow;
+    }
   }
 }

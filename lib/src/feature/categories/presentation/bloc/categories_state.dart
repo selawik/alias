@@ -2,8 +2,6 @@ part of 'categories_bloc.dart';
 
 sealed class CategoriesState {}
 
-class CategoriesInitial extends CategoriesState {}
-
 class CategoriesIsLoading extends CategoriesState {}
 
 class CategoriesLoaded extends CategoriesState {
@@ -12,38 +10,43 @@ class CategoriesLoaded extends CategoriesState {
   CategoriesLoaded({required this.categories});
 }
 
+class CategoriesError extends CategoriesState {
+  final String message;
+
+  CategoriesError({required this.message});
+}
+
 extension CagetoryStateExtension on CategoriesState {
   T map<T>({
-    required T Function(CategoriesInitial) initial,
     required T Function(CategoriesLoaded) loaded,
     required T Function(CategoriesIsLoading) isLoading,
+    required T Function(CategoriesError) error,
   }) =>
       switch (this) {
-        final CategoriesInitial state => initial(state),
         final CategoriesLoaded state => loaded(state),
         final CategoriesIsLoading state => isLoading(state),
+        final CategoriesError state => error(state),
       };
 
   T maybeMap<T>({
     required T Function() orElse,
-    required T Function(CategoriesInitial)? initial,
     required T Function(CategoriesLoaded)? loaded,
     required T Function(CategoriesIsLoading)? isLoading,
+    required T Function(CategoriesError)? error,
   }) =>
       map(
-        initial: initial ?? (_) => orElse(),
-        loaded: loaded ?? (_) => orElse(),
-        isLoading: isLoading ?? (_) => orElse(),
-      );
+          loaded: loaded ?? (_) => orElse(),
+          isLoading: isLoading ?? (_) => orElse(),
+          error: error ?? (_) => orElse());
 
   T? mapOrNull<T>({
-    required T Function(CategoriesInitial)? initial,
     required T Function(CategoriesLoaded)? loaded,
     required T Function(CategoriesIsLoading)? isLoading,
+    required T Function(CategoriesError)? error,
   }) =>
       map<T?>(
-        initial: initial ?? (_) => null,
         loaded: loaded ?? (_) => null,
         isLoading: isLoading ?? (_) => null,
+        error: error ?? (_) => null,
       );
 }
