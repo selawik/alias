@@ -1,4 +1,4 @@
-import 'package:alias/src/feature/game_settings/domain/model/command_move_selector_type.dart';
+import 'package:alias/src/feature/game_settings/domain/entity/command_move_selector_type.dart';
 import 'package:alias/src/feature/game_settings/presentation/bloc/game_settings_bloc.dart';
 import 'package:alias/src/feature/game_settings/presentation/view/widget/base_selector_item.dart';
 import 'package:flutter/material.dart';

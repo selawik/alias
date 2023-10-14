@@ -1,6 +1,6 @@
-import 'package:alias/src/feature/game_settings/domain/model/binary_selector_type.dart';
-import 'package:alias/src/feature/game_settings/domain/model/command_move_selector_type.dart';
-import 'package:alias/src/feature/game_settings/domain/model/words_to_win.dart';
+import 'package:alias/src/feature/game_settings/domain/entity/binary_selector_type.dart';
+import 'package:alias/src/feature/game_settings/domain/entity/command_move_selector_type.dart';
+import 'package:alias/src/feature/game_settings/domain/entity/words_to_win.dart';
 
 class GameSettings {
   final CommandMoveMode moveTime;

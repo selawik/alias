@@ -69,25 +69,25 @@ class _$DictionaryEventCopyWithImpl<$Res, $Val extends DictionaryEvent>
 }
 
 /// @nodoc
-abstract class _$$_SyncDictionaryCopyWith<$Res> {
-  factory _$$_SyncDictionaryCopyWith(
-          _$_SyncDictionary value, $Res Function(_$_SyncDictionary) then) =
-      __$$_SyncDictionaryCopyWithImpl<$Res>;
+abstract class _$$SyncDictionaryImplCopyWith<$Res> {
+  factory _$$SyncDictionaryImplCopyWith(_$SyncDictionaryImpl value,
+          $Res Function(_$SyncDictionaryImpl) then) =
+      __$$SyncDictionaryImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_SyncDictionaryCopyWithImpl<$Res>
-    extends _$DictionaryEventCopyWithImpl<$Res, _$_SyncDictionary>
-    implements _$$_SyncDictionaryCopyWith<$Res> {
-  __$$_SyncDictionaryCopyWithImpl(
-      _$_SyncDictionary _value, $Res Function(_$_SyncDictionary) _then)
+class __$$SyncDictionaryImplCopyWithImpl<$Res>
+    extends _$DictionaryEventCopyWithImpl<$Res, _$SyncDictionaryImpl>
+    implements _$$SyncDictionaryImplCopyWith<$Res> {
+  __$$SyncDictionaryImplCopyWithImpl(
+      _$SyncDictionaryImpl _value, $Res Function(_$SyncDictionaryImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_SyncDictionary implements _SyncDictionary {
-  const _$_SyncDictionary();
+class _$SyncDictionaryImpl implements _SyncDictionary {
+  const _$SyncDictionaryImpl();
 
   @override
   String toString() {
@@ -97,7 +97,7 @@ class _$_SyncDictionary implements _SyncDictionary {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_SyncDictionary);
+        (other.runtimeType == runtimeType && other is _$SyncDictionaryImpl);
   }
 
   @override
@@ -161,7 +161,7 @@ class _$_SyncDictionary implements _SyncDictionary {
 }
 
 abstract class _SyncDictionary implements DictionaryEvent {
-  const factory _SyncDictionary() = _$_SyncDictionary;
+  const factory _SyncDictionary() = _$SyncDictionaryImpl;
 }
 
 /// @nodoc
@@ -225,25 +225,25 @@ class _$DictionaryStateCopyWithImpl<$Res, $Val extends DictionaryState>
 }
 
 /// @nodoc
-abstract class _$$_IsLoadingCopyWith<$Res> {
-  factory _$$_IsLoadingCopyWith(
-          _$_IsLoading value, $Res Function(_$_IsLoading) then) =
-      __$$_IsLoadingCopyWithImpl<$Res>;
+abstract class _$$IsLoadingImplCopyWith<$Res> {
+  factory _$$IsLoadingImplCopyWith(
+          _$IsLoadingImpl value, $Res Function(_$IsLoadingImpl) then) =
+      __$$IsLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_IsLoadingCopyWithImpl<$Res>
-    extends _$DictionaryStateCopyWithImpl<$Res, _$_IsLoading>
-    implements _$$_IsLoadingCopyWith<$Res> {
-  __$$_IsLoadingCopyWithImpl(
-      _$_IsLoading _value, $Res Function(_$_IsLoading) _then)
+class __$$IsLoadingImplCopyWithImpl<$Res>
+    extends _$DictionaryStateCopyWithImpl<$Res, _$IsLoadingImpl>
+    implements _$$IsLoadingImplCopyWith<$Res> {
+  __$$IsLoadingImplCopyWithImpl(
+      _$IsLoadingImpl _value, $Res Function(_$IsLoadingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_IsLoading implements _IsLoading {
-  const _$_IsLoading();
+class _$IsLoadingImpl implements _IsLoading {
+  const _$IsLoadingImpl();
 
   @override
   String toString() {
@@ -253,7 +253,7 @@ class _$_IsLoading implements _IsLoading {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_IsLoading);
+        (other.runtimeType == runtimeType && other is _$IsLoadingImpl);
   }
 
   @override
@@ -323,27 +323,28 @@ class _$_IsLoading implements _IsLoading {
 }
 
 abstract class _IsLoading implements DictionaryState {
-  const factory _IsLoading() = _$_IsLoading;
+  const factory _IsLoading() = _$IsLoadingImpl;
 }
 
 /// @nodoc
-abstract class _$$_SyncCopyWith<$Res> {
-  factory _$$_SyncCopyWith(_$_Sync value, $Res Function(_$_Sync) then) =
-      __$$_SyncCopyWithImpl<$Res>;
+abstract class _$$SyncImplCopyWith<$Res> {
+  factory _$$SyncImplCopyWith(
+          _$SyncImpl value, $Res Function(_$SyncImpl) then) =
+      __$$SyncImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_SyncCopyWithImpl<$Res>
-    extends _$DictionaryStateCopyWithImpl<$Res, _$_Sync>
-    implements _$$_SyncCopyWith<$Res> {
-  __$$_SyncCopyWithImpl(_$_Sync _value, $Res Function(_$_Sync) _then)
+class __$$SyncImplCopyWithImpl<$Res>
+    extends _$DictionaryStateCopyWithImpl<$Res, _$SyncImpl>
+    implements _$$SyncImplCopyWith<$Res> {
+  __$$SyncImplCopyWithImpl(_$SyncImpl _value, $Res Function(_$SyncImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Sync implements _Sync {
-  const _$_Sync();
+class _$SyncImpl implements _Sync {
+  const _$SyncImpl();
 
   @override
   String toString() {
@@ -353,7 +354,7 @@ class _$_Sync implements _Sync {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Sync);
+        (other.runtimeType == runtimeType && other is _$SyncImpl);
   }
 
   @override
@@ -423,5 +424,5 @@ class _$_Sync implements _Sync {
 }
 
 abstract class _Sync implements DictionaryState {
-  const factory _Sync() = _$_Sync;
+  const factory _Sync() = _$SyncImpl;
 }

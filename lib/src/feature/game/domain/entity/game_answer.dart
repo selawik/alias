@@ -1,4 +1,5 @@
-import 'package:alias/src/feature/game/domain/model/word.dart';
+import 'package:alias/src/feature/game/domain/entity/word.dart';
+import 'package:alias/src/feature/game/domain/entity/word.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'game_answer.freezed.dart';

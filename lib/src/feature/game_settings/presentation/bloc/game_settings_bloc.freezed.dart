@@ -93,24 +93,25 @@ class _$GameSettingsEventCopyWithImpl<$Res, $Val extends GameSettingsEvent>
 }
 
 /// @nodoc
-abstract class _$$_StartedCopyWith<$Res> {
-  factory _$$_StartedCopyWith(
-          _$_Started value, $Res Function(_$_Started) then) =
-      __$$_StartedCopyWithImpl<$Res>;
+abstract class _$$StartedImplCopyWith<$Res> {
+  factory _$$StartedImplCopyWith(
+          _$StartedImpl value, $Res Function(_$StartedImpl) then) =
+      __$$StartedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_StartedCopyWithImpl<$Res>
-    extends _$GameSettingsEventCopyWithImpl<$Res, _$_Started>
-    implements _$$_StartedCopyWith<$Res> {
-  __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
+class __$$StartedImplCopyWithImpl<$Res>
+    extends _$GameSettingsEventCopyWithImpl<$Res, _$StartedImpl>
+    implements _$$StartedImplCopyWith<$Res> {
+  __$$StartedImplCopyWithImpl(
+      _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Started implements _Started {
-  const _$_Started();
+class _$StartedImpl implements _Started {
+  const _$StartedImpl();
 
   @override
   String toString() {
@@ -120,7 +121,7 @@ class _$_Started implements _Started {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Started);
+        (other.runtimeType == runtimeType && other is _$StartedImpl);
   }
 
   @override
@@ -208,24 +209,24 @@ class _$_Started implements _Started {
 }
 
 abstract class _Started implements GameSettingsEvent {
-  const factory _Started() = _$_Started;
+  const factory _Started() = _$StartedImpl;
 }
 
 /// @nodoc
-abstract class _$$_MoveTimeChangedCopyWith<$Res> {
-  factory _$$_MoveTimeChangedCopyWith(
-          _$_MoveTimeChanged value, $Res Function(_$_MoveTimeChanged) then) =
-      __$$_MoveTimeChangedCopyWithImpl<$Res>;
+abstract class _$$MoveTimeChangedImplCopyWith<$Res> {
+  factory _$$MoveTimeChangedImplCopyWith(_$MoveTimeChangedImpl value,
+          $Res Function(_$MoveTimeChangedImpl) then) =
+      __$$MoveTimeChangedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({CommandMoveMode moveTime});
 }
 
 /// @nodoc
-class __$$_MoveTimeChangedCopyWithImpl<$Res>
-    extends _$GameSettingsEventCopyWithImpl<$Res, _$_MoveTimeChanged>
-    implements _$$_MoveTimeChangedCopyWith<$Res> {
-  __$$_MoveTimeChangedCopyWithImpl(
-      _$_MoveTimeChanged _value, $Res Function(_$_MoveTimeChanged) _then)
+class __$$MoveTimeChangedImplCopyWithImpl<$Res>
+    extends _$GameSettingsEventCopyWithImpl<$Res, _$MoveTimeChangedImpl>
+    implements _$$MoveTimeChangedImplCopyWith<$Res> {
+  __$$MoveTimeChangedImplCopyWithImpl(
+      _$MoveTimeChangedImpl _value, $Res Function(_$MoveTimeChangedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -233,7 +234,7 @@ class __$$_MoveTimeChangedCopyWithImpl<$Res>
   $Res call({
     Object? moveTime = null,
   }) {
-    return _then(_$_MoveTimeChanged(
+    return _then(_$MoveTimeChangedImpl(
       moveTime: null == moveTime
           ? _value.moveTime
           : moveTime // ignore: cast_nullable_to_non_nullable
@@ -244,8 +245,8 @@ class __$$_MoveTimeChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_MoveTimeChanged implements _MoveTimeChanged {
-  const _$_MoveTimeChanged({required this.moveTime});
+class _$MoveTimeChangedImpl implements _MoveTimeChanged {
+  const _$MoveTimeChangedImpl({required this.moveTime});
 
   @override
   final CommandMoveMode moveTime;
@@ -259,7 +260,7 @@ class _$_MoveTimeChanged implements _MoveTimeChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_MoveTimeChanged &&
+            other is _$MoveTimeChangedImpl &&
             (identical(other.moveTime, moveTime) ||
                 other.moveTime == moveTime));
   }
@@ -270,8 +271,9 @@ class _$_MoveTimeChanged implements _MoveTimeChanged {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_MoveTimeChangedCopyWith<_$_MoveTimeChanged> get copyWith =>
-      __$$_MoveTimeChangedCopyWithImpl<_$_MoveTimeChanged>(this, _$identity);
+  _$$MoveTimeChangedImplCopyWith<_$MoveTimeChangedImpl> get copyWith =>
+      __$$MoveTimeChangedImplCopyWithImpl<_$MoveTimeChangedImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -356,29 +358,29 @@ class _$_MoveTimeChanged implements _MoveTimeChanged {
 
 abstract class _MoveTimeChanged implements GameSettingsEvent {
   const factory _MoveTimeChanged({required final CommandMoveMode moveTime}) =
-      _$_MoveTimeChanged;
+      _$MoveTimeChangedImpl;
 
   CommandMoveMode get moveTime;
   @JsonKey(ignore: true)
-  _$$_MoveTimeChangedCopyWith<_$_MoveTimeChanged> get copyWith =>
+  _$$MoveTimeChangedImplCopyWith<_$MoveTimeChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_LastWordModeChangedCopyWith<$Res> {
-  factory _$$_LastWordModeChangedCopyWith(_$_LastWordModeChanged value,
-          $Res Function(_$_LastWordModeChanged) then) =
-      __$$_LastWordModeChangedCopyWithImpl<$Res>;
+abstract class _$$LastWordModeChangedImplCopyWith<$Res> {
+  factory _$$LastWordModeChangedImplCopyWith(_$LastWordModeChangedImpl value,
+          $Res Function(_$LastWordModeChangedImpl) then) =
+      __$$LastWordModeChangedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({BinarySelectorMode mode});
 }
 
 /// @nodoc
-class __$$_LastWordModeChangedCopyWithImpl<$Res>
-    extends _$GameSettingsEventCopyWithImpl<$Res, _$_LastWordModeChanged>
-    implements _$$_LastWordModeChangedCopyWith<$Res> {
-  __$$_LastWordModeChangedCopyWithImpl(_$_LastWordModeChanged _value,
-      $Res Function(_$_LastWordModeChanged) _then)
+class __$$LastWordModeChangedImplCopyWithImpl<$Res>
+    extends _$GameSettingsEventCopyWithImpl<$Res, _$LastWordModeChangedImpl>
+    implements _$$LastWordModeChangedImplCopyWith<$Res> {
+  __$$LastWordModeChangedImplCopyWithImpl(_$LastWordModeChangedImpl _value,
+      $Res Function(_$LastWordModeChangedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -386,7 +388,7 @@ class __$$_LastWordModeChangedCopyWithImpl<$Res>
   $Res call({
     Object? mode = null,
   }) {
-    return _then(_$_LastWordModeChanged(
+    return _then(_$LastWordModeChangedImpl(
       mode: null == mode
           ? _value.mode
           : mode // ignore: cast_nullable_to_non_nullable
@@ -397,8 +399,8 @@ class __$$_LastWordModeChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LastWordModeChanged implements _LastWordModeChanged {
-  const _$_LastWordModeChanged({required this.mode});
+class _$LastWordModeChangedImpl implements _LastWordModeChanged {
+  const _$LastWordModeChangedImpl({required this.mode});
 
   @override
   final BinarySelectorMode mode;
@@ -412,7 +414,7 @@ class _$_LastWordModeChanged implements _LastWordModeChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LastWordModeChanged &&
+            other is _$LastWordModeChangedImpl &&
             (identical(other.mode, mode) || other.mode == mode));
   }
 
@@ -422,8 +424,8 @@ class _$_LastWordModeChanged implements _LastWordModeChanged {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LastWordModeChangedCopyWith<_$_LastWordModeChanged> get copyWith =>
-      __$$_LastWordModeChangedCopyWithImpl<_$_LastWordModeChanged>(
+  _$$LastWordModeChangedImplCopyWith<_$LastWordModeChangedImpl> get copyWith =>
+      __$$LastWordModeChangedImplCopyWithImpl<_$LastWordModeChangedImpl>(
           this, _$identity);
 
   @override
@@ -509,29 +511,29 @@ class _$_LastWordModeChanged implements _LastWordModeChanged {
 
 abstract class _LastWordModeChanged implements GameSettingsEvent {
   const factory _LastWordModeChanged({required final BinarySelectorMode mode}) =
-      _$_LastWordModeChanged;
+      _$LastWordModeChangedImpl;
 
   BinarySelectorMode get mode;
   @JsonKey(ignore: true)
-  _$$_LastWordModeChangedCopyWith<_$_LastWordModeChanged> get copyWith =>
+  _$$LastWordModeChangedImplCopyWith<_$LastWordModeChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_PenaltyModeChangedCopyWith<$Res> {
-  factory _$$_PenaltyModeChangedCopyWith(_$_PenaltyModeChanged value,
-          $Res Function(_$_PenaltyModeChanged) then) =
-      __$$_PenaltyModeChangedCopyWithImpl<$Res>;
+abstract class _$$PenaltyModeChangedImplCopyWith<$Res> {
+  factory _$$PenaltyModeChangedImplCopyWith(_$PenaltyModeChangedImpl value,
+          $Res Function(_$PenaltyModeChangedImpl) then) =
+      __$$PenaltyModeChangedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({BinarySelectorMode mode});
 }
 
 /// @nodoc
-class __$$_PenaltyModeChangedCopyWithImpl<$Res>
-    extends _$GameSettingsEventCopyWithImpl<$Res, _$_PenaltyModeChanged>
-    implements _$$_PenaltyModeChangedCopyWith<$Res> {
-  __$$_PenaltyModeChangedCopyWithImpl(
-      _$_PenaltyModeChanged _value, $Res Function(_$_PenaltyModeChanged) _then)
+class __$$PenaltyModeChangedImplCopyWithImpl<$Res>
+    extends _$GameSettingsEventCopyWithImpl<$Res, _$PenaltyModeChangedImpl>
+    implements _$$PenaltyModeChangedImplCopyWith<$Res> {
+  __$$PenaltyModeChangedImplCopyWithImpl(_$PenaltyModeChangedImpl _value,
+      $Res Function(_$PenaltyModeChangedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -539,7 +541,7 @@ class __$$_PenaltyModeChangedCopyWithImpl<$Res>
   $Res call({
     Object? mode = null,
   }) {
-    return _then(_$_PenaltyModeChanged(
+    return _then(_$PenaltyModeChangedImpl(
       mode: null == mode
           ? _value.mode
           : mode // ignore: cast_nullable_to_non_nullable
@@ -550,8 +552,8 @@ class __$$_PenaltyModeChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PenaltyModeChanged implements _PenaltyModeChanged {
-  const _$_PenaltyModeChanged({required this.mode});
+class _$PenaltyModeChangedImpl implements _PenaltyModeChanged {
+  const _$PenaltyModeChangedImpl({required this.mode});
 
   @override
   final BinarySelectorMode mode;
@@ -565,7 +567,7 @@ class _$_PenaltyModeChanged implements _PenaltyModeChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PenaltyModeChanged &&
+            other is _$PenaltyModeChangedImpl &&
             (identical(other.mode, mode) || other.mode == mode));
   }
 
@@ -575,8 +577,8 @@ class _$_PenaltyModeChanged implements _PenaltyModeChanged {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PenaltyModeChangedCopyWith<_$_PenaltyModeChanged> get copyWith =>
-      __$$_PenaltyModeChangedCopyWithImpl<_$_PenaltyModeChanged>(
+  _$$PenaltyModeChangedImplCopyWith<_$PenaltyModeChangedImpl> get copyWith =>
+      __$$PenaltyModeChangedImplCopyWithImpl<_$PenaltyModeChangedImpl>(
           this, _$identity);
 
   @override
@@ -662,29 +664,29 @@ class _$_PenaltyModeChanged implements _PenaltyModeChanged {
 
 abstract class _PenaltyModeChanged implements GameSettingsEvent {
   const factory _PenaltyModeChanged({required final BinarySelectorMode mode}) =
-      _$_PenaltyModeChanged;
+      _$PenaltyModeChangedImpl;
 
   BinarySelectorMode get mode;
   @JsonKey(ignore: true)
-  _$$_PenaltyModeChangedCopyWith<_$_PenaltyModeChanged> get copyWith =>
+  _$$PenaltyModeChangedImplCopyWith<_$PenaltyModeChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_WordsToWinChangedCopyWith<$Res> {
-  factory _$$_WordsToWinChangedCopyWith(_$_WordsToWinChanged value,
-          $Res Function(_$_WordsToWinChanged) then) =
-      __$$_WordsToWinChangedCopyWithImpl<$Res>;
+abstract class _$$WordsToWinChangedImplCopyWith<$Res> {
+  factory _$$WordsToWinChangedImplCopyWith(_$WordsToWinChangedImpl value,
+          $Res Function(_$WordsToWinChangedImpl) then) =
+      __$$WordsToWinChangedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({WordsToWin wordsToWin});
 }
 
 /// @nodoc
-class __$$_WordsToWinChangedCopyWithImpl<$Res>
-    extends _$GameSettingsEventCopyWithImpl<$Res, _$_WordsToWinChanged>
-    implements _$$_WordsToWinChangedCopyWith<$Res> {
-  __$$_WordsToWinChangedCopyWithImpl(
-      _$_WordsToWinChanged _value, $Res Function(_$_WordsToWinChanged) _then)
+class __$$WordsToWinChangedImplCopyWithImpl<$Res>
+    extends _$GameSettingsEventCopyWithImpl<$Res, _$WordsToWinChangedImpl>
+    implements _$$WordsToWinChangedImplCopyWith<$Res> {
+  __$$WordsToWinChangedImplCopyWithImpl(_$WordsToWinChangedImpl _value,
+      $Res Function(_$WordsToWinChangedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -692,7 +694,7 @@ class __$$_WordsToWinChangedCopyWithImpl<$Res>
   $Res call({
     Object? wordsToWin = null,
   }) {
-    return _then(_$_WordsToWinChanged(
+    return _then(_$WordsToWinChangedImpl(
       wordsToWin: null == wordsToWin
           ? _value.wordsToWin
           : wordsToWin // ignore: cast_nullable_to_non_nullable
@@ -703,8 +705,8 @@ class __$$_WordsToWinChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_WordsToWinChanged implements _WordsToWinChanged {
-  const _$_WordsToWinChanged({required this.wordsToWin});
+class _$WordsToWinChangedImpl implements _WordsToWinChanged {
+  const _$WordsToWinChangedImpl({required this.wordsToWin});
 
   @override
   final WordsToWin wordsToWin;
@@ -718,7 +720,7 @@ class _$_WordsToWinChanged implements _WordsToWinChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_WordsToWinChanged &&
+            other is _$WordsToWinChangedImpl &&
             (identical(other.wordsToWin, wordsToWin) ||
                 other.wordsToWin == wordsToWin));
   }
@@ -729,8 +731,8 @@ class _$_WordsToWinChanged implements _WordsToWinChanged {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_WordsToWinChangedCopyWith<_$_WordsToWinChanged> get copyWith =>
-      __$$_WordsToWinChangedCopyWithImpl<_$_WordsToWinChanged>(
+  _$$WordsToWinChangedImplCopyWith<_$WordsToWinChangedImpl> get copyWith =>
+      __$$WordsToWinChangedImplCopyWithImpl<_$WordsToWinChangedImpl>(
           this, _$identity);
 
   @override
@@ -816,11 +818,11 @@ class _$_WordsToWinChanged implements _WordsToWinChanged {
 
 abstract class _WordsToWinChanged implements GameSettingsEvent {
   const factory _WordsToWinChanged({required final WordsToWin wordsToWin}) =
-      _$_WordsToWinChanged;
+      _$WordsToWinChangedImpl;
 
   WordsToWin get wordsToWin;
   @JsonKey(ignore: true)
-  _$$_WordsToWinChangedCopyWith<_$_WordsToWinChanged> get copyWith =>
+  _$$WordsToWinChangedImplCopyWith<_$WordsToWinChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -930,10 +932,11 @@ class _$GameSettingsStateCopyWithImpl<$Res, $Val extends GameSettingsState>
 }
 
 /// @nodoc
-abstract class _$$_ReadyCopyWith<$Res>
+abstract class _$$ReadyImplCopyWith<$Res>
     implements $GameSettingsStateCopyWith<$Res> {
-  factory _$$_ReadyCopyWith(_$_Ready value, $Res Function(_$_Ready) then) =
-      __$$_ReadyCopyWithImpl<$Res>;
+  factory _$$ReadyImplCopyWith(
+          _$ReadyImpl value, $Res Function(_$ReadyImpl) then) =
+      __$$ReadyImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -944,10 +947,11 @@ abstract class _$$_ReadyCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ReadyCopyWithImpl<$Res>
-    extends _$GameSettingsStateCopyWithImpl<$Res, _$_Ready>
-    implements _$$_ReadyCopyWith<$Res> {
-  __$$_ReadyCopyWithImpl(_$_Ready _value, $Res Function(_$_Ready) _then)
+class __$$ReadyImplCopyWithImpl<$Res>
+    extends _$GameSettingsStateCopyWithImpl<$Res, _$ReadyImpl>
+    implements _$$ReadyImplCopyWith<$Res> {
+  __$$ReadyImplCopyWithImpl(
+      _$ReadyImpl _value, $Res Function(_$ReadyImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -958,7 +962,7 @@ class __$$_ReadyCopyWithImpl<$Res>
     Object? penaltyMode = null,
     Object? wordsToWin = null,
   }) {
-    return _then(_$_Ready(
+    return _then(_$ReadyImpl(
       time: null == time
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
@@ -981,8 +985,8 @@ class __$$_ReadyCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Ready implements _Ready {
-  const _$_Ready(
+class _$ReadyImpl implements _Ready {
+  const _$ReadyImpl(
       {required this.time,
       required this.lastWordMode,
       required this.penaltyMode,
@@ -1006,7 +1010,7 @@ class _$_Ready implements _Ready {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Ready &&
+            other is _$ReadyImpl &&
             (identical(other.time, time) || other.time == time) &&
             (identical(other.lastWordMode, lastWordMode) ||
                 other.lastWordMode == lastWordMode) &&
@@ -1023,8 +1027,8 @@ class _$_Ready implements _Ready {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ReadyCopyWith<_$_Ready> get copyWith =>
-      __$$_ReadyCopyWithImpl<_$_Ready>(this, _$identity);
+  _$$ReadyImplCopyWith<_$ReadyImpl> get copyWith =>
+      __$$ReadyImplCopyWithImpl<_$ReadyImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1097,7 +1101,7 @@ abstract class _Ready implements GameSettingsState {
       {required final CommandMoveMode time,
       required final BinarySelectorMode lastWordMode,
       required final BinarySelectorMode penaltyMode,
-      required final WordsToWin wordsToWin}) = _$_Ready;
+      required final WordsToWin wordsToWin}) = _$ReadyImpl;
 
   @override
   CommandMoveMode get time;
@@ -1109,6 +1113,6 @@ abstract class _Ready implements GameSettingsState {
   WordsToWin get wordsToWin;
   @override
   @JsonKey(ignore: true)
-  _$$_ReadyCopyWith<_$_Ready> get copyWith =>
+  _$$ReadyImplCopyWith<_$ReadyImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

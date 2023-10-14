@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:alias/src/core/constants/firebase_data_store_collections.dart';
-import 'package:alias/src/feature/game/data/model/word_dto.dart';
+import 'package:alias/src/feature/game/data/dto/word_dto.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/services.dart';
 
@@ -18,8 +18,10 @@ class FirestoreFiller {
     await addWords(words: words.toSet().toList(), categoryId: categoryId);
   }
 
-  static Future<void> addWords(
-      {required List<String> words, required int categoryId}) async {
+  static Future<void> addWords({
+    required List<String> words,
+    required int categoryId,
+  }) async {
     var wordId = await _getNewWordId();
 
     log('Words will be added: ${words.length}');

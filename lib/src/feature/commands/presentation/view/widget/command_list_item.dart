@@ -1,7 +1,7 @@
 import 'package:alias/src/core/constants/app_colors.dart';
 import 'package:alias/src/core/constants/assets_catalog.dart';
 import 'package:alias/src/core/theme/theme_builder.dart';
-import 'package:alias/src/feature/commands/domain/models/command_entity.dart';
+import 'package:alias/src/feature/commands/domain/entity/command_entity.dart';
 import 'package:alias/src/feature/commands/presentation/bloc/commands_bloc.dart';
 import 'package:alias/src/feature/theming/presentation/bloc/theme_bloc.dart';
 import 'package:flutter/cupertino.dart';

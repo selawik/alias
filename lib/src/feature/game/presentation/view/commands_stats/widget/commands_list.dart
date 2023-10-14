@@ -1,5 +1,5 @@
 import 'package:alias/src/core/theme/theme_builder.dart';
-import 'package:alias/src/feature/game/domain/model/playing_command.dart';
+import 'package:alias/src/feature/game/domain/entity/playing_command.dart';
 import 'package:alias/src/feature/theming/presentation/bloc/theme_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

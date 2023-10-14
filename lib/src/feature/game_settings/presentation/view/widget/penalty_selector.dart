@@ -1,4 +1,4 @@
-import 'package:alias/src/feature/game_settings/domain/model/binary_selector_type.dart';
+import 'package:alias/src/feature/game_settings/domain/entity/binary_selector_type.dart';
 import 'package:alias/src/feature/game_settings/presentation/bloc/game_settings_bloc.dart';
 import 'package:alias/src/feature/game_settings/presentation/view/widget/base_selector_item.dart';
 import 'package:flutter/material.dart';

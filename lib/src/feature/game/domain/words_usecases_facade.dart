@@ -1,9 +1,9 @@
 import 'package:alias/src/core/error/failure.dart';
-import 'package:alias/src/feature/categories/domain/models/category.dart';
-import 'package:alias/src/feature/game/domain/model/game.dart';
-import 'package:alias/src/feature/game/domain/model/game_settings.dart';
-import 'package:alias/src/feature/game/domain/model/playing_command.dart';
-import 'package:alias/src/feature/game/domain/model/word.dart';
+import 'package:alias/src/feature/categories/domain/entity/category.dart';
+import 'package:alias/src/feature/game/domain/entity/game.dart';
+import 'package:alias/src/feature/game/domain/entity/game_settings.dart';
+import 'package:alias/src/feature/game/domain/entity/playing_command.dart';
+import 'package:alias/src/feature/game/domain/entity/word.dart';
 import 'package:alias/src/feature/game/domain/usecases/get_played_words.dart';
 import 'package:alias/src/feature/game/domain/usecases/get_unfinished_game.dart';
 import 'package:alias/src/feature/game/domain/usecases/load_words.dart';
@@ -11,8 +11,8 @@ import 'package:alias/src/feature/game/domain/usecases/reset_game_history.dart';
 import 'package:alias/src/feature/game/domain/usecases/reset_unfinished_game.dart';
 import 'package:alias/src/feature/game/domain/usecases/save_played_words.dart';
 import 'package:alias/src/feature/game/domain/usecases/save_started_game.dart';
-import 'package:alias/src/feature/game_settings/domain/model/binary_selector_type.dart';
-import 'package:alias/src/feature/game_settings/domain/model/command_move_selector_type.dart';
+import 'package:alias/src/feature/game_settings/domain/entity/binary_selector_type.dart';
+import 'package:alias/src/feature/game_settings/domain/entity/command_move_selector_type.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 

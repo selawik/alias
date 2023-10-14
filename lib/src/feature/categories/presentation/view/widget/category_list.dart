@@ -1,4 +1,4 @@
-import 'package:alias/src/feature/categories/domain/models/category.dart';
+import 'package:alias/src/feature/categories/domain/entity/category.dart';
 import 'package:alias/src/feature/categories/presentation/view/widget/category_list_item.dart';
 import 'package:flutter/material.dart';
 

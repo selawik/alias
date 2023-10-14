@@ -6,13 +6,13 @@ part of 'command_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_CommandDto _$$_CommandDtoFromJson(Map<String, dynamic> json) =>
-    _$_CommandDto(
+_$CommandDtoImpl _$$CommandDtoImplFromJson(Map<String, dynamic> json) =>
+    _$CommandDtoImpl(
       commandId: json['commandId'] as int,
       name: json['name'] as String,
     );
 
-Map<String, dynamic> _$$_CommandDtoToJson(_$_CommandDto instance) =>
+Map<String, dynamic> _$$CommandDtoImplToJson(_$CommandDtoImpl instance) =>
     <String, dynamic>{
       'commandId': instance.commandId,
       'name': instance.name,

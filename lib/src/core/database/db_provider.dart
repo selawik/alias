@@ -1,12 +1,12 @@
 import 'dart:developer';
 
 import 'package:alias/src/core/database/database.dart';
-import 'package:alias/src/feature/categories/data/models/category_dto.dart';
-import 'package:alias/src/feature/categories/domain/models/category.dart';
-import 'package:alias/src/feature/commands/data/models/command_dto.dart';
-import 'package:alias/src/feature/game/data/model/game_dto.dart';
-import 'package:alias/src/feature/game/data/model/word_dto.dart';
-import 'package:alias/src/feature/game/domain/model/word.dart';
+import 'package:alias/src/feature/categories/data/dto/category_dto.dart';
+import 'package:alias/src/feature/categories/domain/entity/category.dart';
+import 'package:alias/src/feature/commands/data/dto/command_dto.dart';
+import 'package:alias/src/feature/game/data/dto/game_dto.dart';
+import 'package:alias/src/feature/game/data/dto/word_dto.dart';
+import 'package:alias/src/feature/game/domain/entity/word.dart';
 import 'package:injectable/injectable.dart';
 
 @singleton

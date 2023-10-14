@@ -67,18 +67,20 @@ class _$WordCopyWithImpl<$Res, $Val extends Word>
 }
 
 /// @nodoc
-abstract class _$$_WordCopyWith<$Res> implements $WordCopyWith<$Res> {
-  factory _$$_WordCopyWith(_$_Word value, $Res Function(_$_Word) then) =
-      __$$_WordCopyWithImpl<$Res>;
+abstract class _$$WordImplCopyWith<$Res> implements $WordCopyWith<$Res> {
+  factory _$$WordImplCopyWith(
+          _$WordImpl value, $Res Function(_$WordImpl) then) =
+      __$$WordImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int wordId, String name, int categoryId});
 }
 
 /// @nodoc
-class __$$_WordCopyWithImpl<$Res> extends _$WordCopyWithImpl<$Res, _$_Word>
-    implements _$$_WordCopyWith<$Res> {
-  __$$_WordCopyWithImpl(_$_Word _value, $Res Function(_$_Word) _then)
+class __$$WordImplCopyWithImpl<$Res>
+    extends _$WordCopyWithImpl<$Res, _$WordImpl>
+    implements _$$WordImplCopyWith<$Res> {
+  __$$WordImplCopyWithImpl(_$WordImpl _value, $Res Function(_$WordImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -88,7 +90,7 @@ class __$$_WordCopyWithImpl<$Res> extends _$WordCopyWithImpl<$Res, _$_Word>
     Object? name = null,
     Object? categoryId = null,
   }) {
-    return _then(_$_Word(
+    return _then(_$WordImpl(
       wordId: null == wordId
           ? _value.wordId
           : wordId // ignore: cast_nullable_to_non_nullable
@@ -107,8 +109,8 @@ class __$$_WordCopyWithImpl<$Res> extends _$WordCopyWithImpl<$Res, _$_Word>
 
 /// @nodoc
 
-class _$_Word implements _Word {
-  const _$_Word(
+class _$WordImpl implements _Word {
+  const _$WordImpl(
       {required this.wordId, required this.name, required this.categoryId});
 
   @override
@@ -127,7 +129,7 @@ class _$_Word implements _Word {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Word &&
+            other is _$WordImpl &&
             (identical(other.wordId, wordId) || other.wordId == wordId) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.categoryId, categoryId) ||
@@ -140,15 +142,15 @@ class _$_Word implements _Word {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_WordCopyWith<_$_Word> get copyWith =>
-      __$$_WordCopyWithImpl<_$_Word>(this, _$identity);
+  _$$WordImplCopyWith<_$WordImpl> get copyWith =>
+      __$$WordImplCopyWithImpl<_$WordImpl>(this, _$identity);
 }
 
 abstract class _Word implements Word {
   const factory _Word(
       {required final int wordId,
       required final String name,
-      required final int categoryId}) = _$_Word;
+      required final int categoryId}) = _$WordImpl;
 
   @override
   int get wordId;
@@ -158,5 +160,6 @@ abstract class _Word implements Word {
   int get categoryId;
   @override
   @JsonKey(ignore: true)
-  _$$_WordCopyWith<_$_Word> get copyWith => throw _privateConstructorUsedError;
+  _$$WordImplCopyWith<_$WordImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

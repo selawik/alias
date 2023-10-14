@@ -68,22 +68,22 @@ class _$CommandDtoCopyWithImpl<$Res, $Val extends CommandDto>
 }
 
 /// @nodoc
-abstract class _$$_CommandDtoCopyWith<$Res>
+abstract class _$$CommandDtoImplCopyWith<$Res>
     implements $CommandDtoCopyWith<$Res> {
-  factory _$$_CommandDtoCopyWith(
-          _$_CommandDto value, $Res Function(_$_CommandDto) then) =
-      __$$_CommandDtoCopyWithImpl<$Res>;
+  factory _$$CommandDtoImplCopyWith(
+          _$CommandDtoImpl value, $Res Function(_$CommandDtoImpl) then) =
+      __$$CommandDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int commandId, String name});
 }
 
 /// @nodoc
-class __$$_CommandDtoCopyWithImpl<$Res>
-    extends _$CommandDtoCopyWithImpl<$Res, _$_CommandDto>
-    implements _$$_CommandDtoCopyWith<$Res> {
-  __$$_CommandDtoCopyWithImpl(
-      _$_CommandDto _value, $Res Function(_$_CommandDto) _then)
+class __$$CommandDtoImplCopyWithImpl<$Res>
+    extends _$CommandDtoCopyWithImpl<$Res, _$CommandDtoImpl>
+    implements _$$CommandDtoImplCopyWith<$Res> {
+  __$$CommandDtoImplCopyWithImpl(
+      _$CommandDtoImpl _value, $Res Function(_$CommandDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,7 +92,7 @@ class __$$_CommandDtoCopyWithImpl<$Res>
     Object? commandId = null,
     Object? name = null,
   }) {
-    return _then(_$_CommandDto(
+    return _then(_$CommandDtoImpl(
       commandId: null == commandId
           ? _value.commandId
           : commandId // ignore: cast_nullable_to_non_nullable
@@ -107,11 +107,11 @@ class __$$_CommandDtoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_CommandDto implements _CommandDto {
-  const _$_CommandDto({required this.commandId, required this.name});
+class _$CommandDtoImpl implements _CommandDto {
+  const _$CommandDtoImpl({required this.commandId, required this.name});
 
-  factory _$_CommandDto.fromJson(Map<String, dynamic> json) =>
-      _$$_CommandDtoFromJson(json);
+  factory _$CommandDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CommandDtoImplFromJson(json);
 
   @override
   final int commandId;
@@ -127,7 +127,7 @@ class _$_CommandDto implements _CommandDto {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CommandDto &&
+            other is _$CommandDtoImpl &&
             (identical(other.commandId, commandId) ||
                 other.commandId == commandId) &&
             (identical(other.name, name) || other.name == name));
@@ -140,12 +140,12 @@ class _$_CommandDto implements _CommandDto {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CommandDtoCopyWith<_$_CommandDto> get copyWith =>
-      __$$_CommandDtoCopyWithImpl<_$_CommandDto>(this, _$identity);
+  _$$CommandDtoImplCopyWith<_$CommandDtoImpl> get copyWith =>
+      __$$CommandDtoImplCopyWithImpl<_$CommandDtoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CommandDtoToJson(
+    return _$$CommandDtoImplToJson(
       this,
     );
   }
@@ -154,10 +154,10 @@ class _$_CommandDto implements _CommandDto {
 abstract class _CommandDto implements CommandDto {
   const factory _CommandDto(
       {required final int commandId,
-      required final String name}) = _$_CommandDto;
+      required final String name}) = _$CommandDtoImpl;
 
   factory _CommandDto.fromJson(Map<String, dynamic> json) =
-      _$_CommandDto.fromJson;
+      _$CommandDtoImpl.fromJson;
 
   @override
   int get commandId;
@@ -165,6 +165,6 @@ abstract class _CommandDto implements CommandDto {
   String get name;
   @override
   @JsonKey(ignore: true)
-  _$$_CommandDtoCopyWith<_$_CommandDto> get copyWith =>
+  _$$CommandDtoImplCopyWith<_$CommandDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

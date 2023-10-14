@@ -73,11 +73,11 @@ class _$GameAnswerCopyWithImpl<$Res, $Val extends GameAnswer>
 }
 
 /// @nodoc
-abstract class _$$_GameAnswerCopyWith<$Res>
+abstract class _$$GameAnswerImplCopyWith<$Res>
     implements $GameAnswerCopyWith<$Res> {
-  factory _$$_GameAnswerCopyWith(
-          _$_GameAnswer value, $Res Function(_$_GameAnswer) then) =
-      __$$_GameAnswerCopyWithImpl<$Res>;
+  factory _$$GameAnswerImplCopyWith(
+          _$GameAnswerImpl value, $Res Function(_$GameAnswerImpl) then) =
+      __$$GameAnswerImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Word word, GameAnswerType type});
@@ -87,11 +87,11 @@ abstract class _$$_GameAnswerCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_GameAnswerCopyWithImpl<$Res>
-    extends _$GameAnswerCopyWithImpl<$Res, _$_GameAnswer>
-    implements _$$_GameAnswerCopyWith<$Res> {
-  __$$_GameAnswerCopyWithImpl(
-      _$_GameAnswer _value, $Res Function(_$_GameAnswer) _then)
+class __$$GameAnswerImplCopyWithImpl<$Res>
+    extends _$GameAnswerCopyWithImpl<$Res, _$GameAnswerImpl>
+    implements _$$GameAnswerImplCopyWith<$Res> {
+  __$$GameAnswerImplCopyWithImpl(
+      _$GameAnswerImpl _value, $Res Function(_$GameAnswerImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -100,7 +100,7 @@ class __$$_GameAnswerCopyWithImpl<$Res>
     Object? word = null,
     Object? type = null,
   }) {
-    return _then(_$_GameAnswer(
+    return _then(_$GameAnswerImpl(
       word: null == word
           ? _value.word
           : word // ignore: cast_nullable_to_non_nullable
@@ -115,8 +115,8 @@ class __$$_GameAnswerCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_GameAnswer implements _GameAnswer {
-  const _$_GameAnswer({required this.word, required this.type});
+class _$GameAnswerImpl implements _GameAnswer {
+  const _$GameAnswerImpl({required this.word, required this.type});
 
   @override
   final Word word;
@@ -132,7 +132,7 @@ class _$_GameAnswer implements _GameAnswer {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GameAnswer &&
+            other is _$GameAnswerImpl &&
             (identical(other.word, word) || other.word == word) &&
             (identical(other.type, type) || other.type == type));
   }
@@ -143,14 +143,14 @@ class _$_GameAnswer implements _GameAnswer {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GameAnswerCopyWith<_$_GameAnswer> get copyWith =>
-      __$$_GameAnswerCopyWithImpl<_$_GameAnswer>(this, _$identity);
+  _$$GameAnswerImplCopyWith<_$GameAnswerImpl> get copyWith =>
+      __$$GameAnswerImplCopyWithImpl<_$GameAnswerImpl>(this, _$identity);
 }
 
 abstract class _GameAnswer implements GameAnswer {
   const factory _GameAnswer(
       {required final Word word,
-      required final GameAnswerType type}) = _$_GameAnswer;
+      required final GameAnswerType type}) = _$GameAnswerImpl;
 
   @override
   Word get word;
@@ -158,6 +158,6 @@ abstract class _GameAnswer implements GameAnswer {
   GameAnswerType get type;
   @override
   @JsonKey(ignore: true)
-  _$$_GameAnswerCopyWith<_$_GameAnswer> get copyWith =>
+  _$$GameAnswerImplCopyWith<_$GameAnswerImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

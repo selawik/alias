@@ -1,4 +1,4 @@
-import 'package:alias/src/feature/commands/domain/models/command_entity.dart';
+import 'package:alias/src/feature/commands/domain/entity/command_entity.dart';
 import 'package:alias/src/feature/commands/domain/repository/commands_repository.dart';
 
 final List<CommandEntity> mockCommands = [

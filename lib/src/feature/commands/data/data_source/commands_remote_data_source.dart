@@ -1,8 +1,11 @@
 import 'package:alias/src/core/constants/firebase_data_store_collections.dart';
-import 'package:alias/src/feature/commands/data/data_source/commands_data_source.dart';
-import 'package:alias/src/feature/commands/data/models/command_dto.dart';
+import 'package:alias/src/feature/commands/data/dto/command_dto.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:injectable/injectable.dart';
+
+abstract interface class CommandsRemoteDataSource {
+  Future<List<CommandDto>> loadAllCommands();
+}
 
 @Injectable(as: CommandsRemoteDataSource)
 class FirebaseCommandsDataSource implements CommandsRemoteDataSource {

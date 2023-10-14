@@ -69,25 +69,25 @@ class _$ThemeEventCopyWithImpl<$Res, $Val extends ThemeEvent>
 }
 
 /// @nodoc
-abstract class _$$_ThemeSwitchedCopyWith<$Res> {
-  factory _$$_ThemeSwitchedCopyWith(
-          _$_ThemeSwitched value, $Res Function(_$_ThemeSwitched) then) =
-      __$$_ThemeSwitchedCopyWithImpl<$Res>;
+abstract class _$$ThemeSwitchedImplCopyWith<$Res> {
+  factory _$$ThemeSwitchedImplCopyWith(
+          _$ThemeSwitchedImpl value, $Res Function(_$ThemeSwitchedImpl) then) =
+      __$$ThemeSwitchedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_ThemeSwitchedCopyWithImpl<$Res>
-    extends _$ThemeEventCopyWithImpl<$Res, _$_ThemeSwitched>
-    implements _$$_ThemeSwitchedCopyWith<$Res> {
-  __$$_ThemeSwitchedCopyWithImpl(
-      _$_ThemeSwitched _value, $Res Function(_$_ThemeSwitched) _then)
+class __$$ThemeSwitchedImplCopyWithImpl<$Res>
+    extends _$ThemeEventCopyWithImpl<$Res, _$ThemeSwitchedImpl>
+    implements _$$ThemeSwitchedImplCopyWith<$Res> {
+  __$$ThemeSwitchedImplCopyWithImpl(
+      _$ThemeSwitchedImpl _value, $Res Function(_$ThemeSwitchedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_ThemeSwitched implements _ThemeSwitched {
-  const _$_ThemeSwitched();
+class _$ThemeSwitchedImpl implements _ThemeSwitched {
+  const _$ThemeSwitchedImpl();
 
   @override
   String toString() {
@@ -97,7 +97,7 @@ class _$_ThemeSwitched implements _ThemeSwitched {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_ThemeSwitched);
+        (other.runtimeType == runtimeType && other is _$ThemeSwitchedImpl);
   }
 
   @override
@@ -161,7 +161,7 @@ class _$_ThemeSwitched implements _ThemeSwitched {
 }
 
 abstract class _ThemeSwitched implements ThemeEvent {
-  const factory _ThemeSwitched() = _$_ThemeSwitched;
+  const factory _ThemeSwitched() = _$ThemeSwitchedImpl;
 }
 
 /// @nodoc
@@ -239,19 +239,21 @@ class _$ThemeStateCopyWithImpl<$Res, $Val extends ThemeState>
 }
 
 /// @nodoc
-abstract class _$$_ReadyCopyWith<$Res> implements $ThemeStateCopyWith<$Res> {
-  factory _$$_ReadyCopyWith(_$_Ready value, $Res Function(_$_Ready) then) =
-      __$$_ReadyCopyWithImpl<$Res>;
+abstract class _$$ReadyImplCopyWith<$Res> implements $ThemeStateCopyWith<$Res> {
+  factory _$$ReadyImplCopyWith(
+          _$ReadyImpl value, $Res Function(_$ReadyImpl) then) =
+      __$$ReadyImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool isDarkThemeEnabled});
 }
 
 /// @nodoc
-class __$$_ReadyCopyWithImpl<$Res>
-    extends _$ThemeStateCopyWithImpl<$Res, _$_Ready>
-    implements _$$_ReadyCopyWith<$Res> {
-  __$$_ReadyCopyWithImpl(_$_Ready _value, $Res Function(_$_Ready) _then)
+class __$$ReadyImplCopyWithImpl<$Res>
+    extends _$ThemeStateCopyWithImpl<$Res, _$ReadyImpl>
+    implements _$$ReadyImplCopyWith<$Res> {
+  __$$ReadyImplCopyWithImpl(
+      _$ReadyImpl _value, $Res Function(_$ReadyImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -259,7 +261,7 @@ class __$$_ReadyCopyWithImpl<$Res>
   $Res call({
     Object? isDarkThemeEnabled = null,
   }) {
-    return _then(_$_Ready(
+    return _then(_$ReadyImpl(
       isDarkThemeEnabled: null == isDarkThemeEnabled
           ? _value.isDarkThemeEnabled
           : isDarkThemeEnabled // ignore: cast_nullable_to_non_nullable
@@ -270,8 +272,8 @@ class __$$_ReadyCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Ready extends _Ready {
-  const _$_Ready({required this.isDarkThemeEnabled}) : super._();
+class _$ReadyImpl extends _Ready {
+  const _$ReadyImpl({required this.isDarkThemeEnabled}) : super._();
 
   @override
   final bool isDarkThemeEnabled;
@@ -285,7 +287,7 @@ class _$_Ready extends _Ready {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Ready &&
+            other is _$ReadyImpl &&
             (identical(other.isDarkThemeEnabled, isDarkThemeEnabled) ||
                 other.isDarkThemeEnabled == isDarkThemeEnabled));
   }
@@ -296,8 +298,8 @@ class _$_Ready extends _Ready {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ReadyCopyWith<_$_Ready> get copyWith =>
-      __$$_ReadyCopyWithImpl<_$_Ready>(this, _$identity);
+  _$$ReadyImplCopyWith<_$ReadyImpl> get copyWith =>
+      __$$ReadyImplCopyWithImpl<_$ReadyImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -357,13 +359,13 @@ class _$_Ready extends _Ready {
 }
 
 abstract class _Ready extends ThemeState {
-  const factory _Ready({required final bool isDarkThemeEnabled}) = _$_Ready;
+  const factory _Ready({required final bool isDarkThemeEnabled}) = _$ReadyImpl;
   const _Ready._() : super._();
 
   @override
   bool get isDarkThemeEnabled;
   @override
   @JsonKey(ignore: true)
-  _$$_ReadyCopyWith<_$_Ready> get copyWith =>
+  _$$ReadyImplCopyWith<_$ReadyImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

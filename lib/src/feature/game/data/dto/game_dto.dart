@@ -1,5 +1,5 @@
-import 'package:alias/src/feature/game_settings/domain/model/binary_selector_type.dart';
-import 'package:alias/src/feature/game_settings/domain/model/command_move_selector_type.dart';
+import 'package:alias/src/feature/game_settings/domain/entity/binary_selector_type.dart';
+import 'package:alias/src/feature/game_settings/domain/entity/command_move_selector_type.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'game_dto.freezed.dart';

@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:alias/src/core/database/database.dart';
 import 'package:alias/src/core/database/tables/played_word.dart';
-import 'package:alias/src/feature/categories/domain/models/category.dart';
+import 'package:alias/src/feature/categories/domain/entity/category.dart';
 import 'package:drift/drift.dart';
 
 part 'played_word_dao.g.dart';

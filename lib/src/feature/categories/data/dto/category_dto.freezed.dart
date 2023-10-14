@@ -91,11 +91,11 @@ class _$CategoryDtoCopyWithImpl<$Res, $Val extends CategoryDto>
 }
 
 /// @nodoc
-abstract class _$$_CategoryDtoCopyWith<$Res>
+abstract class _$$CategoryDtoImplCopyWith<$Res>
     implements $CategoryDtoCopyWith<$Res> {
-  factory _$$_CategoryDtoCopyWith(
-          _$_CategoryDto value, $Res Function(_$_CategoryDto) then) =
-      __$$_CategoryDtoCopyWithImpl<$Res>;
+  factory _$$CategoryDtoImplCopyWith(
+          _$CategoryDtoImpl value, $Res Function(_$CategoryDtoImpl) then) =
+      __$$CategoryDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -107,11 +107,11 @@ abstract class _$$_CategoryDtoCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_CategoryDtoCopyWithImpl<$Res>
-    extends _$CategoryDtoCopyWithImpl<$Res, _$_CategoryDto>
-    implements _$$_CategoryDtoCopyWith<$Res> {
-  __$$_CategoryDtoCopyWithImpl(
-      _$_CategoryDto _value, $Res Function(_$_CategoryDto) _then)
+class __$$CategoryDtoImplCopyWithImpl<$Res>
+    extends _$CategoryDtoCopyWithImpl<$Res, _$CategoryDtoImpl>
+    implements _$$CategoryDtoImplCopyWith<$Res> {
+  __$$CategoryDtoImplCopyWithImpl(
+      _$CategoryDtoImpl _value, $Res Function(_$CategoryDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -123,7 +123,7 @@ class __$$_CategoryDtoCopyWithImpl<$Res>
     Object? wordsCount = null,
     Object? fileUrl = freezed,
   }) {
-    return _then(_$_CategoryDto(
+    return _then(_$CategoryDtoImpl(
       categoryId: null == categoryId
           ? _value.categoryId
           : categoryId // ignore: cast_nullable_to_non_nullable
@@ -150,16 +150,16 @@ class __$$_CategoryDtoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_CategoryDto implements _CategoryDto {
-  const _$_CategoryDto(
+class _$CategoryDtoImpl implements _CategoryDto {
+  const _$CategoryDtoImpl(
       {required this.categoryId,
       required this.name,
       this.fileName,
       this.wordsCount = 0,
       this.fileUrl});
 
-  factory _$_CategoryDto.fromJson(Map<String, dynamic> json) =>
-      _$$_CategoryDtoFromJson(json);
+  factory _$CategoryDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CategoryDtoImplFromJson(json);
 
   @override
   final int categoryId;
@@ -182,7 +182,7 @@ class _$_CategoryDto implements _CategoryDto {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CategoryDto &&
+            other is _$CategoryDtoImpl &&
             (identical(other.categoryId, categoryId) ||
                 other.categoryId == categoryId) &&
             (identical(other.name, name) || other.name == name) &&
@@ -201,12 +201,12 @@ class _$_CategoryDto implements _CategoryDto {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CategoryDtoCopyWith<_$_CategoryDto> get copyWith =>
-      __$$_CategoryDtoCopyWithImpl<_$_CategoryDto>(this, _$identity);
+  _$$CategoryDtoImplCopyWith<_$CategoryDtoImpl> get copyWith =>
+      __$$CategoryDtoImplCopyWithImpl<_$CategoryDtoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CategoryDtoToJson(
+    return _$$CategoryDtoImplToJson(
       this,
     );
   }
@@ -218,10 +218,10 @@ abstract class _CategoryDto implements CategoryDto {
       required final String name,
       final String? fileName,
       final int wordsCount,
-      final String? fileUrl}) = _$_CategoryDto;
+      final String? fileUrl}) = _$CategoryDtoImpl;
 
   factory _CategoryDto.fromJson(Map<String, dynamic> json) =
-      _$_CategoryDto.fromJson;
+      _$CategoryDtoImpl.fromJson;
 
   @override
   int get categoryId;
@@ -235,6 +235,6 @@ abstract class _CategoryDto implements CategoryDto {
   String? get fileUrl;
   @override
   @JsonKey(ignore: true)
-  _$$_CategoryDtoCopyWith<_$_CategoryDto> get copyWith =>
+  _$$CategoryDtoImplCopyWith<_$CategoryDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

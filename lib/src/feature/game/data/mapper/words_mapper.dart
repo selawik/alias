@@ -1,6 +1,6 @@
 import 'package:alias/src/core/mapper/mapper.dart';
-import 'package:alias/src/feature/game/data/model/word_dto.dart';
-import 'package:alias/src/feature/game/domain/model/word.dart';
+import 'package:alias/src/feature/game/data/dto/word_dto.dart';
+import 'package:alias/src/feature/game/domain/entity/word.dart';
 import 'package:injectable/injectable.dart';
 
 @injectable

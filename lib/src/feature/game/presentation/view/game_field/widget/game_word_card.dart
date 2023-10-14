@@ -1,4 +1,4 @@
-import 'package:alias/src/feature/game/domain/model/word.dart';
+import 'package:alias/src/feature/game/domain/entity/word.dart';
 import 'package:alias/src/feature/game/presentation/bloc/game_bloc/game_bloc.dart';
 import 'package:alias/src/feature/game/presentation/view/game_field/widget/game_main_circle_widget.dart';
 import 'package:flutter/material.dart';

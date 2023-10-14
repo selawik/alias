@@ -1,4 +1,4 @@
-import 'package:alias/src/feature/commands/domain/models/command_entity.dart';
+import 'package:alias/src/feature/commands/domain/entity/command_entity.dart';
 import 'package:alias/src/feature/commands/presentation/view/widget/command_list_item.dart';
 import 'package:flutter/material.dart';
 

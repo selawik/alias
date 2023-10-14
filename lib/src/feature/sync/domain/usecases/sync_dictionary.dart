@@ -1,9 +1,9 @@
 import 'dart:developer';
 
 import 'package:alias/src/core/error/failure.dart';
-import 'package:alias/src/feature/categories/domain/models/category.dart';
-import 'package:alias/src/feature/commands/domain/models/command_entity.dart';
-import 'package:alias/src/feature/game/domain/model/word.dart';
+import 'package:alias/src/feature/categories/domain/entity/category.dart';
+import 'package:alias/src/feature/commands/domain/entity/command_entity.dart';
+import 'package:alias/src/feature/game/domain/entity/word.dart';
 import 'package:alias/src/feature/sync/domain/repository/dictionary_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';

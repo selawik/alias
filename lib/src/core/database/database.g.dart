@@ -23,9 +23,10 @@ class $CategoryTableTable extends CategoryTable
   @override
   List<GeneratedColumn> get $columns => [categoryId, name];
   @override
-  String get aliasedName => _alias ?? 'category_table';
+  String get aliasedName => _alias ?? actualTableName;
   @override
-  String get actualTableName => 'category_table';
+  String get actualTableName => $name;
+  static const String $name = 'category_table';
   @override
   VerificationContext validateIntegrity(Insertable<CategoryDbEntity> instance,
       {bool isInserting = false}) {
@@ -131,30 +132,36 @@ class CategoryDbEntity extends DataClass
 class CategoryTableCompanion extends UpdateCompanion<CategoryDbEntity> {
   final Value<int> categoryId;
   final Value<String> name;
+  final Value<int> rowid;
   const CategoryTableCompanion({
     this.categoryId = const Value.absent(),
     this.name = const Value.absent(),
+    this.rowid = const Value.absent(),
   });
   CategoryTableCompanion.insert({
     required int categoryId,
     required String name,
+    this.rowid = const Value.absent(),
   })  : categoryId = Value(categoryId),
         name = Value(name);
   static Insertable<CategoryDbEntity> custom({
     Expression<int>? categoryId,
     Expression<String>? name,
+    Expression<int>? rowid,
   }) {
     return RawValuesInsertable({
       if (categoryId != null) 'category_id': categoryId,
       if (name != null) 'name': name,
+      if (rowid != null) 'rowid': rowid,
     });
   }
 
   CategoryTableCompanion copyWith(
-      {Value<int>? categoryId, Value<String>? name}) {
+      {Value<int>? categoryId, Value<String>? name, Value<int>? rowid}) {
     return CategoryTableCompanion(
       categoryId: categoryId ?? this.categoryId,
       name: name ?? this.name,
+      rowid: rowid ?? this.rowid,
     );
   }
 
@@ -167,6 +174,9 @@ class CategoryTableCompanion extends UpdateCompanion<CategoryDbEntity> {
     if (name.present) {
       map['name'] = Variable<String>(name.value);
     }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
     return map;
   }
 
@@ -174,7 +184,8 @@ class CategoryTableCompanion extends UpdateCompanion<CategoryDbEntity> {
   String toString() {
     return (StringBuffer('CategoryTableCompanion(')
           ..write('categoryId: $categoryId, ')
-          ..write('name: $name')
+          ..write('name: $name, ')
+          ..write('rowid: $rowid')
           ..write(')'))
         .toString();
   }
@@ -208,9 +219,10 @@ class $PlayedWordTable extends PlayedWord
   @override
   List<GeneratedColumn> get $columns => [playedWordId, categoryId, name];
   @override
-  String get aliasedName => _alias ?? 'played_word';
+  String get aliasedName => _alias ?? actualTableName;
   @override
-  String get actualTableName => 'played_word';
+  String get actualTableName => $name;
+  static const String $name = 'played_word';
   @override
   VerificationContext validateIntegrity(
       Insertable<PlayedWordsDbEntity> instance,
@@ -340,15 +352,18 @@ class PlayedWordCompanion extends UpdateCompanion<PlayedWordsDbEntity> {
   final Value<int> playedWordId;
   final Value<int> categoryId;
   final Value<String> name;
+  final Value<int> rowid;
   const PlayedWordCompanion({
     this.playedWordId = const Value.absent(),
     this.categoryId = const Value.absent(),
     this.name = const Value.absent(),
+    this.rowid = const Value.absent(),
   });
   PlayedWordCompanion.insert({
     required int playedWordId,
     required int categoryId,
     required String name,
+    this.rowid = const Value.absent(),
   })  : playedWordId = Value(playedWordId),
         categoryId = Value(categoryId),
         name = Value(name);
@@ -356,20 +371,26 @@ class PlayedWordCompanion extends UpdateCompanion<PlayedWordsDbEntity> {
     Expression<int>? playedWordId,
     Expression<int>? categoryId,
     Expression<String>? name,
+    Expression<int>? rowid,
   }) {
     return RawValuesInsertable({
       if (playedWordId != null) 'played_word_id': playedWordId,
       if (categoryId != null) 'category_id': categoryId,
       if (name != null) 'name': name,
+      if (rowid != null) 'rowid': rowid,
     });
   }
 
   PlayedWordCompanion copyWith(
-      {Value<int>? playedWordId, Value<int>? categoryId, Value<String>? name}) {
+      {Value<int>? playedWordId,
+      Value<int>? categoryId,
+      Value<String>? name,
+      Value<int>? rowid}) {
     return PlayedWordCompanion(
       playedWordId: playedWordId ?? this.playedWordId,
       categoryId: categoryId ?? this.categoryId,
       name: name ?? this.name,
+      rowid: rowid ?? this.rowid,
     );
   }
 
@@ -385,6 +406,9 @@ class PlayedWordCompanion extends UpdateCompanion<PlayedWordsDbEntity> {
     if (name.present) {
       map['name'] = Variable<String>(name.value);
     }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
     return map;
   }
 
@@ -393,7 +417,8 @@ class PlayedWordCompanion extends UpdateCompanion<PlayedWordsDbEntity> {
     return (StringBuffer('PlayedWordCompanion(')
           ..write('playedWordId: $playedWordId, ')
           ..write('categoryId: $categoryId, ')
-          ..write('name: $name')
+          ..write('name: $name, ')
+          ..write('rowid: $rowid')
           ..write(')'))
         .toString();
   }
@@ -462,9 +487,10 @@ class $GameTableTable extends GameTable
         moveDuration
       ];
   @override
-  String get aliasedName => _alias ?? 'game_table';
+  String get aliasedName => _alias ?? actualTableName;
   @override
-  String get actualTableName => 'game_table';
+  String get actualTableName => $name;
+  static const String $name = 'game_table';
   @override
   VerificationContext validateIntegrity(Insertable<GameDbEntity> instance,
       {bool isInserting = false}) {
@@ -789,9 +815,10 @@ class $WordsTableTable extends WordsTable
   @override
   List<GeneratedColumn> get $columns => [wordId, categoryId, name];
   @override
-  String get aliasedName => _alias ?? 'words_table';
+  String get aliasedName => _alias ?? actualTableName;
   @override
-  String get actualTableName => 'words_table';
+  String get actualTableName => $name;
+  static const String $name = 'words_table';
   @override
   VerificationContext validateIntegrity(Insertable<WordDbEntity> instance,
       {bool isInserting = false}) {
@@ -914,15 +941,18 @@ class WordsTableCompanion extends UpdateCompanion<WordDbEntity> {
   final Value<int> wordId;
   final Value<int> categoryId;
   final Value<String> name;
+  final Value<int> rowid;
   const WordsTableCompanion({
     this.wordId = const Value.absent(),
     this.categoryId = const Value.absent(),
     this.name = const Value.absent(),
+    this.rowid = const Value.absent(),
   });
   WordsTableCompanion.insert({
     required int wordId,
     required int categoryId,
     required String name,
+    this.rowid = const Value.absent(),
   })  : wordId = Value(wordId),
         categoryId = Value(categoryId),
         name = Value(name);
@@ -930,20 +960,26 @@ class WordsTableCompanion extends UpdateCompanion<WordDbEntity> {
     Expression<int>? wordId,
     Expression<int>? categoryId,
     Expression<String>? name,
+    Expression<int>? rowid,
   }) {
     return RawValuesInsertable({
       if (wordId != null) 'word_id': wordId,
       if (categoryId != null) 'category_id': categoryId,
       if (name != null) 'name': name,
+      if (rowid != null) 'rowid': rowid,
     });
   }
 
   WordsTableCompanion copyWith(
-      {Value<int>? wordId, Value<int>? categoryId, Value<String>? name}) {
+      {Value<int>? wordId,
+      Value<int>? categoryId,
+      Value<String>? name,
+      Value<int>? rowid}) {
     return WordsTableCompanion(
       wordId: wordId ?? this.wordId,
       categoryId: categoryId ?? this.categoryId,
       name: name ?? this.name,
+      rowid: rowid ?? this.rowid,
     );
   }
 
@@ -959,6 +995,9 @@ class WordsTableCompanion extends UpdateCompanion<WordDbEntity> {
     if (name.present) {
       map['name'] = Variable<String>(name.value);
     }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
     return map;
   }
 
@@ -967,7 +1006,8 @@ class WordsTableCompanion extends UpdateCompanion<WordDbEntity> {
     return (StringBuffer('WordsTableCompanion(')
           ..write('wordId: $wordId, ')
           ..write('categoryId: $categoryId, ')
-          ..write('name: $name')
+          ..write('name: $name, ')
+          ..write('rowid: $rowid')
           ..write(')'))
         .toString();
   }
@@ -993,9 +1033,10 @@ class $CommandTableTable extends CommandTable
   @override
   List<GeneratedColumn> get $columns => [commandId, name];
   @override
-  String get aliasedName => _alias ?? 'command_table';
+  String get aliasedName => _alias ?? actualTableName;
   @override
-  String get actualTableName => 'command_table';
+  String get actualTableName => $name;
+  static const String $name = 'command_table';
   @override
   VerificationContext validateIntegrity(Insertable<CommandDbEntity> instance,
       {bool isInserting = false}) {
@@ -1097,29 +1138,36 @@ class CommandDbEntity extends DataClass implements Insertable<CommandDbEntity> {
 class CommandTableCompanion extends UpdateCompanion<CommandDbEntity> {
   final Value<int> commandId;
   final Value<String> name;
+  final Value<int> rowid;
   const CommandTableCompanion({
     this.commandId = const Value.absent(),
     this.name = const Value.absent(),
+    this.rowid = const Value.absent(),
   });
   CommandTableCompanion.insert({
     required int commandId,
     required String name,
+    this.rowid = const Value.absent(),
   })  : commandId = Value(commandId),
         name = Value(name);
   static Insertable<CommandDbEntity> custom({
     Expression<int>? commandId,
     Expression<String>? name,
+    Expression<int>? rowid,
   }) {
     return RawValuesInsertable({
       if (commandId != null) 'command_id': commandId,
       if (name != null) 'name': name,
+      if (rowid != null) 'rowid': rowid,
     });
   }
 
-  CommandTableCompanion copyWith({Value<int>? commandId, Value<String>? name}) {
+  CommandTableCompanion copyWith(
+      {Value<int>? commandId, Value<String>? name, Value<int>? rowid}) {
     return CommandTableCompanion(
       commandId: commandId ?? this.commandId,
       name: name ?? this.name,
+      rowid: rowid ?? this.rowid,
     );
   }
 
@@ -1132,6 +1180,9 @@ class CommandTableCompanion extends UpdateCompanion<CommandDbEntity> {
     if (name.present) {
       map['name'] = Variable<String>(name.value);
     }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
     return map;
   }
 
@@ -1139,7 +1190,8 @@ class CommandTableCompanion extends UpdateCompanion<CommandDbEntity> {
   String toString() {
     return (StringBuffer('CommandTableCompanion(')
           ..write('commandId: $commandId, ')
-          ..write('name: $name')
+          ..write('name: $name, ')
+          ..write('rowid: $rowid')
           ..write(')'))
         .toString();
   }

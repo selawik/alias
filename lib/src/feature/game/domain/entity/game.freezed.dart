@@ -55,18 +55,20 @@ class _$GameCopyWithImpl<$Res, $Val extends Game>
 }
 
 /// @nodoc
-abstract class _$$_GameCopyWith<$Res> implements $GameCopyWith<$Res> {
-  factory _$$_GameCopyWith(_$_Game value, $Res Function(_$_Game) then) =
-      __$$_GameCopyWithImpl<$Res>;
+abstract class _$$GameImplCopyWith<$Res> implements $GameCopyWith<$Res> {
+  factory _$$GameImplCopyWith(
+          _$GameImpl value, $Res Function(_$GameImpl) then) =
+      __$$GameImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int nextPlayingCommandId});
 }
 
 /// @nodoc
-class __$$_GameCopyWithImpl<$Res> extends _$GameCopyWithImpl<$Res, _$_Game>
-    implements _$$_GameCopyWith<$Res> {
-  __$$_GameCopyWithImpl(_$_Game _value, $Res Function(_$_Game) _then)
+class __$$GameImplCopyWithImpl<$Res>
+    extends _$GameCopyWithImpl<$Res, _$GameImpl>
+    implements _$$GameImplCopyWith<$Res> {
+  __$$GameImplCopyWithImpl(_$GameImpl _value, $Res Function(_$GameImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -74,7 +76,7 @@ class __$$_GameCopyWithImpl<$Res> extends _$GameCopyWithImpl<$Res, _$_Game>
   $Res call({
     Object? nextPlayingCommandId = null,
   }) {
-    return _then(_$_Game(
+    return _then(_$GameImpl(
       nextPlayingCommandId: null == nextPlayingCommandId
           ? _value.nextPlayingCommandId
           : nextPlayingCommandId // ignore: cast_nullable_to_non_nullable
@@ -85,8 +87,8 @@ class __$$_GameCopyWithImpl<$Res> extends _$GameCopyWithImpl<$Res, _$_Game>
 
 /// @nodoc
 
-class _$_Game implements _Game {
-  const _$_Game({required this.nextPlayingCommandId});
+class _$GameImpl implements _Game {
+  const _$GameImpl({required this.nextPlayingCommandId});
 
   @override
   final int nextPlayingCommandId;
@@ -100,7 +102,7 @@ class _$_Game implements _Game {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Game &&
+            other is _$GameImpl &&
             (identical(other.nextPlayingCommandId, nextPlayingCommandId) ||
                 other.nextPlayingCommandId == nextPlayingCommandId));
   }
@@ -111,16 +113,17 @@ class _$_Game implements _Game {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GameCopyWith<_$_Game> get copyWith =>
-      __$$_GameCopyWithImpl<_$_Game>(this, _$identity);
+  _$$GameImplCopyWith<_$GameImpl> get copyWith =>
+      __$$GameImplCopyWithImpl<_$GameImpl>(this, _$identity);
 }
 
 abstract class _Game implements Game {
-  const factory _Game({required final int nextPlayingCommandId}) = _$_Game;
+  const factory _Game({required final int nextPlayingCommandId}) = _$GameImpl;
 
   @override
   int get nextPlayingCommandId;
   @override
   @JsonKey(ignore: true)
-  _$$_GameCopyWith<_$_Game> get copyWith => throw _privateConstructorUsedError;
+  _$$GameImplCopyWith<_$GameImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

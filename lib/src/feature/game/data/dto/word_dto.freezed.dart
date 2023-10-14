@@ -72,20 +72,21 @@ class _$WordDtoCopyWithImpl<$Res, $Val extends WordDto>
 }
 
 /// @nodoc
-abstract class _$$_WordDtoCopyWith<$Res> implements $WordDtoCopyWith<$Res> {
-  factory _$$_WordDtoCopyWith(
-          _$_WordDto value, $Res Function(_$_WordDto) then) =
-      __$$_WordDtoCopyWithImpl<$Res>;
+abstract class _$$WordDtoImplCopyWith<$Res> implements $WordDtoCopyWith<$Res> {
+  factory _$$WordDtoImplCopyWith(
+          _$WordDtoImpl value, $Res Function(_$WordDtoImpl) then) =
+      __$$WordDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int wordId, String name, int categoryId});
 }
 
 /// @nodoc
-class __$$_WordDtoCopyWithImpl<$Res>
-    extends _$WordDtoCopyWithImpl<$Res, _$_WordDto>
-    implements _$$_WordDtoCopyWith<$Res> {
-  __$$_WordDtoCopyWithImpl(_$_WordDto _value, $Res Function(_$_WordDto) _then)
+class __$$WordDtoImplCopyWithImpl<$Res>
+    extends _$WordDtoCopyWithImpl<$Res, _$WordDtoImpl>
+    implements _$$WordDtoImplCopyWith<$Res> {
+  __$$WordDtoImplCopyWithImpl(
+      _$WordDtoImpl _value, $Res Function(_$WordDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -95,7 +96,7 @@ class __$$_WordDtoCopyWithImpl<$Res>
     Object? name = null,
     Object? categoryId = null,
   }) {
-    return _then(_$_WordDto(
+    return _then(_$WordDtoImpl(
       wordId: null == wordId
           ? _value.wordId
           : wordId // ignore: cast_nullable_to_non_nullable
@@ -114,12 +115,12 @@ class __$$_WordDtoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_WordDto implements _WordDto {
-  const _$_WordDto(
+class _$WordDtoImpl implements _WordDto {
+  const _$WordDtoImpl(
       {required this.wordId, required this.name, required this.categoryId});
 
-  factory _$_WordDto.fromJson(Map<String, dynamic> json) =>
-      _$$_WordDtoFromJson(json);
+  factory _$WordDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$WordDtoImplFromJson(json);
 
   @override
   final int wordId;
@@ -137,7 +138,7 @@ class _$_WordDto implements _WordDto {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_WordDto &&
+            other is _$WordDtoImpl &&
             (identical(other.wordId, wordId) || other.wordId == wordId) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.categoryId, categoryId) ||
@@ -151,12 +152,12 @@ class _$_WordDto implements _WordDto {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_WordDtoCopyWith<_$_WordDto> get copyWith =>
-      __$$_WordDtoCopyWithImpl<_$_WordDto>(this, _$identity);
+  _$$WordDtoImplCopyWith<_$WordDtoImpl> get copyWith =>
+      __$$WordDtoImplCopyWithImpl<_$WordDtoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_WordDtoToJson(
+    return _$$WordDtoImplToJson(
       this,
     );
   }
@@ -166,9 +167,9 @@ abstract class _WordDto implements WordDto {
   const factory _WordDto(
       {required final int wordId,
       required final String name,
-      required final int categoryId}) = _$_WordDto;
+      required final int categoryId}) = _$WordDtoImpl;
 
-  factory _WordDto.fromJson(Map<String, dynamic> json) = _$_WordDto.fromJson;
+  factory _WordDto.fromJson(Map<String, dynamic> json) = _$WordDtoImpl.fromJson;
 
   @override
   int get wordId;
@@ -178,6 +179,6 @@ abstract class _WordDto implements WordDto {
   int get categoryId;
   @override
   @JsonKey(ignore: true)
-  _$$_WordDtoCopyWith<_$_WordDto> get copyWith =>
+  _$$WordDtoImplCopyWith<_$WordDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

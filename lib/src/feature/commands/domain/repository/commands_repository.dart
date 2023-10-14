@@ -1,7 +1,7 @@
-import 'package:alias/src/feature/commands/data/data_source/commands_data_source.dart';
+import 'package:alias/src/feature/commands/data/data_source/commands_remote_data_source.dart';
 import 'package:alias/src/feature/commands/data/data_source/commands_local_data_source.dart';
 import 'package:alias/src/feature/commands/data/mapper/command_mapper.dart';
-import 'package:alias/src/feature/commands/domain/models/command_entity.dart';
+import 'package:alias/src/feature/commands/domain/entity/command_entity.dart';
 import 'package:injectable/injectable.dart';
 
 abstract interface class ICommandsRepository {

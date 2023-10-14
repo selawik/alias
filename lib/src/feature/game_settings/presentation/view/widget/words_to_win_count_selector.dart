@@ -1,6 +1,6 @@
 import 'package:alias/src/core/constants/app_colors.dart';
 import 'package:alias/src/core/theme/theme_builder.dart';
-import 'package:alias/src/feature/game_settings/domain/model/words_to_win.dart';
+import 'package:alias/src/feature/game_settings/domain/entity/words_to_win.dart';
 import 'package:alias/src/feature/game_settings/presentation/bloc/game_settings_bloc.dart';
 import 'package:alias/src/feature/theming/presentation/bloc/theme_bloc.dart';
 import 'package:flutter/material.dart';

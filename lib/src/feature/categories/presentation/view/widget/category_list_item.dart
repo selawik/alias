@@ -3,7 +3,7 @@ import 'package:alias/src/core/constants/assets_catalog.dart';
 import 'package:alias/src/core/injection.dart' as di;
 import 'package:alias/src/core/router/app_router.dart';
 import 'package:alias/src/core/theme/theme_builder.dart';
-import 'package:alias/src/feature/categories/domain/models/category.dart';
+import 'package:alias/src/feature/categories/domain/entity/category.dart';
 import 'package:alias/src/feature/game/presentation/bloc/game_bloc/game_bloc.dart';
 import 'package:alias/src/feature/theming/presentation/bloc/theme_bloc.dart';
 import 'package:flutter/material.dart';

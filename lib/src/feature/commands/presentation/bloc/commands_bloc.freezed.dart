@@ -81,25 +81,25 @@ class _$CommandsEventCopyWithImpl<$Res, $Val extends CommandsEvent>
 }
 
 /// @nodoc
-abstract class _$$_LoadCommandsCopyWith<$Res> {
-  factory _$$_LoadCommandsCopyWith(
-          _$_LoadCommands value, $Res Function(_$_LoadCommands) then) =
-      __$$_LoadCommandsCopyWithImpl<$Res>;
+abstract class _$$LoadCommandsImplCopyWith<$Res> {
+  factory _$$LoadCommandsImplCopyWith(
+          _$LoadCommandsImpl value, $Res Function(_$LoadCommandsImpl) then) =
+      __$$LoadCommandsImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_LoadCommandsCopyWithImpl<$Res>
-    extends _$CommandsEventCopyWithImpl<$Res, _$_LoadCommands>
-    implements _$$_LoadCommandsCopyWith<$Res> {
-  __$$_LoadCommandsCopyWithImpl(
-      _$_LoadCommands _value, $Res Function(_$_LoadCommands) _then)
+class __$$LoadCommandsImplCopyWithImpl<$Res>
+    extends _$CommandsEventCopyWithImpl<$Res, _$LoadCommandsImpl>
+    implements _$$LoadCommandsImplCopyWith<$Res> {
+  __$$LoadCommandsImplCopyWithImpl(
+      _$LoadCommandsImpl _value, $Res Function(_$LoadCommandsImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_LoadCommands implements _LoadCommands {
-  const _$_LoadCommands();
+class _$LoadCommandsImpl implements _LoadCommands {
+  const _$LoadCommandsImpl();
 
   @override
   String toString() {
@@ -109,7 +109,7 @@ class _$_LoadCommands implements _LoadCommands {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_LoadCommands);
+        (other.runtimeType == runtimeType && other is _$LoadCommandsImpl);
   }
 
   @override
@@ -185,29 +185,29 @@ class _$_LoadCommands implements _LoadCommands {
 }
 
 abstract class _LoadCommands implements CommandsEvent {
-  const factory _LoadCommands() = _$_LoadCommands;
+  const factory _LoadCommands() = _$LoadCommandsImpl;
 }
 
 /// @nodoc
-abstract class _$$_AddCommandCopyWith<$Res> {
-  factory _$$_AddCommandCopyWith(
-          _$_AddCommand value, $Res Function(_$_AddCommand) then) =
-      __$$_AddCommandCopyWithImpl<$Res>;
+abstract class _$$AddCommandImplCopyWith<$Res> {
+  factory _$$AddCommandImplCopyWith(
+          _$AddCommandImpl value, $Res Function(_$AddCommandImpl) then) =
+      __$$AddCommandImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_AddCommandCopyWithImpl<$Res>
-    extends _$CommandsEventCopyWithImpl<$Res, _$_AddCommand>
-    implements _$$_AddCommandCopyWith<$Res> {
-  __$$_AddCommandCopyWithImpl(
-      _$_AddCommand _value, $Res Function(_$_AddCommand) _then)
+class __$$AddCommandImplCopyWithImpl<$Res>
+    extends _$CommandsEventCopyWithImpl<$Res, _$AddCommandImpl>
+    implements _$$AddCommandImplCopyWith<$Res> {
+  __$$AddCommandImplCopyWithImpl(
+      _$AddCommandImpl _value, $Res Function(_$AddCommandImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_AddCommand implements _AddCommand {
-  const _$_AddCommand();
+class _$AddCommandImpl implements _AddCommand {
+  const _$AddCommandImpl();
 
   @override
   String toString() {
@@ -217,7 +217,7 @@ class _$_AddCommand implements _AddCommand {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_AddCommand);
+        (other.runtimeType == runtimeType && other is _$AddCommandImpl);
   }
 
   @override
@@ -293,14 +293,14 @@ class _$_AddCommand implements _AddCommand {
 }
 
 abstract class _AddCommand implements CommandsEvent {
-  const factory _AddCommand() = _$_AddCommand;
+  const factory _AddCommand() = _$AddCommandImpl;
 }
 
 /// @nodoc
-abstract class _$$_RemoveCommandCopyWith<$Res> {
-  factory _$$_RemoveCommandCopyWith(
-          _$_RemoveCommand value, $Res Function(_$_RemoveCommand) then) =
-      __$$_RemoveCommandCopyWithImpl<$Res>;
+abstract class _$$RemoveCommandImplCopyWith<$Res> {
+  factory _$$RemoveCommandImplCopyWith(
+          _$RemoveCommandImpl value, $Res Function(_$RemoveCommandImpl) then) =
+      __$$RemoveCommandImplCopyWithImpl<$Res>;
   @useResult
   $Res call({CommandEntity command});
 
@@ -308,11 +308,11 @@ abstract class _$$_RemoveCommandCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_RemoveCommandCopyWithImpl<$Res>
-    extends _$CommandsEventCopyWithImpl<$Res, _$_RemoveCommand>
-    implements _$$_RemoveCommandCopyWith<$Res> {
-  __$$_RemoveCommandCopyWithImpl(
-      _$_RemoveCommand _value, $Res Function(_$_RemoveCommand) _then)
+class __$$RemoveCommandImplCopyWithImpl<$Res>
+    extends _$CommandsEventCopyWithImpl<$Res, _$RemoveCommandImpl>
+    implements _$$RemoveCommandImplCopyWith<$Res> {
+  __$$RemoveCommandImplCopyWithImpl(
+      _$RemoveCommandImpl _value, $Res Function(_$RemoveCommandImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -320,7 +320,7 @@ class __$$_RemoveCommandCopyWithImpl<$Res>
   $Res call({
     Object? command = null,
   }) {
-    return _then(_$_RemoveCommand(
+    return _then(_$RemoveCommandImpl(
       command: null == command
           ? _value.command
           : command // ignore: cast_nullable_to_non_nullable
@@ -339,8 +339,8 @@ class __$$_RemoveCommandCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_RemoveCommand implements _RemoveCommand {
-  const _$_RemoveCommand({required this.command});
+class _$RemoveCommandImpl implements _RemoveCommand {
+  const _$RemoveCommandImpl({required this.command});
 
   @override
   final CommandEntity command;
@@ -354,7 +354,7 @@ class _$_RemoveCommand implements _RemoveCommand {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_RemoveCommand &&
+            other is _$RemoveCommandImpl &&
             (identical(other.command, command) || other.command == command));
   }
 
@@ -364,8 +364,8 @@ class _$_RemoveCommand implements _RemoveCommand {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RemoveCommandCopyWith<_$_RemoveCommand> get copyWith =>
-      __$$_RemoveCommandCopyWithImpl<_$_RemoveCommand>(this, _$identity);
+  _$$RemoveCommandImplCopyWith<_$RemoveCommandImpl> get copyWith =>
+      __$$RemoveCommandImplCopyWithImpl<_$RemoveCommandImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -438,11 +438,11 @@ class _$_RemoveCommand implements _RemoveCommand {
 
 abstract class _RemoveCommand implements CommandsEvent {
   const factory _RemoveCommand({required final CommandEntity command}) =
-      _$_RemoveCommand;
+      _$RemoveCommandImpl;
 
   CommandEntity get command;
   @JsonKey(ignore: true)
-  _$$_RemoveCommandCopyWith<_$_RemoveCommand> get copyWith =>
+  _$$RemoveCommandImplCopyWith<_$RemoveCommandImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -519,24 +519,25 @@ class _$CommandsStateCopyWithImpl<$Res, $Val extends CommandsState>
 }
 
 /// @nodoc
-abstract class _$$_LoadingCopyWith<$Res> {
-  factory _$$_LoadingCopyWith(
-          _$_Loading value, $Res Function(_$_Loading) then) =
-      __$$_LoadingCopyWithImpl<$Res>;
+abstract class _$$LoadingImplCopyWith<$Res> {
+  factory _$$LoadingImplCopyWith(
+          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
+      __$$LoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_LoadingCopyWithImpl<$Res>
-    extends _$CommandsStateCopyWithImpl<$Res, _$_Loading>
-    implements _$$_LoadingCopyWith<$Res> {
-  __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
+class __$$LoadingImplCopyWithImpl<$Res>
+    extends _$CommandsStateCopyWithImpl<$Res, _$LoadingImpl>
+    implements _$$LoadingImplCopyWith<$Res> {
+  __$$LoadingImplCopyWithImpl(
+      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Loading extends _Loading {
-  const _$_Loading() : super._();
+class _$LoadingImpl extends _Loading {
+  const _$LoadingImpl() : super._();
 
   @override
   String toString() {
@@ -546,7 +547,7 @@ class _$_Loading extends _Loading {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Loading);
+        (other.runtimeType == runtimeType && other is _$LoadingImpl);
   }
 
   @override
@@ -628,23 +629,25 @@ class _$_Loading extends _Loading {
 }
 
 abstract class _Loading extends CommandsState {
-  const factory _Loading() = _$_Loading;
+  const factory _Loading() = _$LoadingImpl;
   const _Loading._() : super._();
 }
 
 /// @nodoc
-abstract class _$$_LoadedCopyWith<$Res> {
-  factory _$$_LoadedCopyWith(_$_Loaded value, $Res Function(_$_Loaded) then) =
-      __$$_LoadedCopyWithImpl<$Res>;
+abstract class _$$LoadedImplCopyWith<$Res> {
+  factory _$$LoadedImplCopyWith(
+          _$LoadedImpl value, $Res Function(_$LoadedImpl) then) =
+      __$$LoadedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Set<CommandEntity> addedCommands, Set<CommandEntity> allCommands});
 }
 
 /// @nodoc
-class __$$_LoadedCopyWithImpl<$Res>
-    extends _$CommandsStateCopyWithImpl<$Res, _$_Loaded>
-    implements _$$_LoadedCopyWith<$Res> {
-  __$$_LoadedCopyWithImpl(_$_Loaded _value, $Res Function(_$_Loaded) _then)
+class __$$LoadedImplCopyWithImpl<$Res>
+    extends _$CommandsStateCopyWithImpl<$Res, _$LoadedImpl>
+    implements _$$LoadedImplCopyWith<$Res> {
+  __$$LoadedImplCopyWithImpl(
+      _$LoadedImpl _value, $Res Function(_$LoadedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -653,7 +656,7 @@ class __$$_LoadedCopyWithImpl<$Res>
     Object? addedCommands = null,
     Object? allCommands = null,
   }) {
-    return _then(_$_Loaded(
+    return _then(_$LoadedImpl(
       addedCommands: null == addedCommands
           ? _value._addedCommands
           : addedCommands // ignore: cast_nullable_to_non_nullable
@@ -668,8 +671,8 @@ class __$$_LoadedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Loaded extends _Loaded {
-  const _$_Loaded(
+class _$LoadedImpl extends _Loaded {
+  const _$LoadedImpl(
       {required final Set<CommandEntity> addedCommands,
       required final Set<CommandEntity> allCommands})
       : _addedCommands = addedCommands,
@@ -701,7 +704,7 @@ class _$_Loaded extends _Loaded {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Loaded &&
+            other is _$LoadedImpl &&
             const DeepCollectionEquality()
                 .equals(other._addedCommands, _addedCommands) &&
             const DeepCollectionEquality()
@@ -717,8 +720,8 @@ class _$_Loaded extends _Loaded {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LoadedCopyWith<_$_Loaded> get copyWith =>
-      __$$_LoadedCopyWithImpl<_$_Loaded>(this, _$identity);
+  _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
+      __$$LoadedImplCopyWithImpl<_$LoadedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -798,29 +801,31 @@ class _$_Loaded extends _Loaded {
 abstract class _Loaded extends CommandsState {
   const factory _Loaded(
       {required final Set<CommandEntity> addedCommands,
-      required final Set<CommandEntity> allCommands}) = _$_Loaded;
+      required final Set<CommandEntity> allCommands}) = _$LoadedImpl;
   const _Loaded._() : super._();
 
   Set<CommandEntity> get addedCommands;
   Set<CommandEntity> get allCommands;
   @JsonKey(ignore: true)
-  _$$_LoadedCopyWith<_$_Loaded> get copyWith =>
+  _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_ErrorCopyWith<$Res> {
-  factory _$$_ErrorCopyWith(_$_Error value, $Res Function(_$_Error) then) =
-      __$$_ErrorCopyWithImpl<$Res>;
+abstract class _$$ErrorImplCopyWith<$Res> {
+  factory _$$ErrorImplCopyWith(
+          _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
+      __$$ErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String message});
 }
 
 /// @nodoc
-class __$$_ErrorCopyWithImpl<$Res>
-    extends _$CommandsStateCopyWithImpl<$Res, _$_Error>
-    implements _$$_ErrorCopyWith<$Res> {
-  __$$_ErrorCopyWithImpl(_$_Error _value, $Res Function(_$_Error) _then)
+class __$$ErrorImplCopyWithImpl<$Res>
+    extends _$CommandsStateCopyWithImpl<$Res, _$ErrorImpl>
+    implements _$$ErrorImplCopyWith<$Res> {
+  __$$ErrorImplCopyWithImpl(
+      _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -828,7 +833,7 @@ class __$$_ErrorCopyWithImpl<$Res>
   $Res call({
     Object? message = null,
   }) {
-    return _then(_$_Error(
+    return _then(_$ErrorImpl(
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -839,8 +844,8 @@ class __$$_ErrorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Error extends _Error {
-  const _$_Error({required this.message}) : super._();
+class _$ErrorImpl extends _Error {
+  const _$ErrorImpl({required this.message}) : super._();
 
   @override
   final String message;
@@ -854,7 +859,7 @@ class _$_Error extends _Error {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Error &&
+            other is _$ErrorImpl &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -864,8 +869,8 @@ class _$_Error extends _Error {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ErrorCopyWith<_$_Error> get copyWith =>
-      __$$_ErrorCopyWithImpl<_$_Error>(this, _$identity);
+  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
+      __$$ErrorImplCopyWithImpl<_$ErrorImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -943,11 +948,11 @@ class _$_Error extends _Error {
 }
 
 abstract class _Error extends CommandsState {
-  const factory _Error({required final String message}) = _$_Error;
+  const factory _Error({required final String message}) = _$ErrorImpl;
   const _Error._() : super._();
 
   String get message;
   @JsonKey(ignore: true)
-  _$$_ErrorCopyWith<_$_Error> get copyWith =>
+  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

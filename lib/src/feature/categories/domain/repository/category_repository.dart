@@ -1,7 +1,7 @@
 import 'package:alias/src/feature/categories/data/data_source/category_local_data_source.dart';
 import 'package:alias/src/feature/categories/data/data_source/category_remote_data_source.dart';
 import 'package:alias/src/feature/categories/data/mapper/category_mapper.dart';
-import 'package:alias/src/feature/categories/domain/models/category.dart';
+import 'package:alias/src/feature/categories/domain/entity/category.dart';
 import 'package:injectable/injectable.dart';
 
 abstract interface class ICategoryRepository {

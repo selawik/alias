@@ -1,6 +1,6 @@
-import 'package:alias/src/feature/game_settings/domain/model/binary_selector_type.dart';
-import 'package:alias/src/feature/game_settings/domain/model/command_move_selector_type.dart';
-import 'package:alias/src/feature/game_settings/domain/model/words_to_win.dart';
+import 'package:alias/src/feature/game_settings/domain/entity/binary_selector_type.dart';
+import 'package:alias/src/feature/game_settings/domain/entity/command_move_selector_type.dart';
+import 'package:alias/src/feature/game_settings/domain/entity/words_to_win.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -27,7 +27,9 @@ class GameSettingsBloc extends Bloc<GameSettingsEvent, GameSettingsState> {
   }
 
   void _onPenaltyModeChanged(
-      _PenaltyModeChanged event, Emitter<GameSettingsState> emit) {
+    _PenaltyModeChanged event,
+    Emitter<GameSettingsState> emit,
+  ) {
     final newState = GameSettingsState.ready(
       time: state.time,
       lastWordMode: state.lastWordMode,
@@ -39,7 +41,9 @@ class GameSettingsBloc extends Bloc<GameSettingsEvent, GameSettingsState> {
   }
 
   void _onLastWordModeChanged(
-      _LastWordModeChanged event, Emitter<GameSettingsState> emit) {
+    _LastWordModeChanged event,
+    Emitter<GameSettingsState> emit,
+  ) {
     final newState = GameSettingsState.ready(
       time: state.time,
       lastWordMode: event.mode,
@@ -51,7 +55,9 @@ class GameSettingsBloc extends Bloc<GameSettingsEvent, GameSettingsState> {
   }
 
   void _onMoveTimeChanged(
-      _MoveTimeChanged event, Emitter<GameSettingsState> emit) {
+    _MoveTimeChanged event,
+    Emitter<GameSettingsState> emit,
+  ) {
     final newState = GameSettingsState.ready(
       time: event.moveTime,
       lastWordMode: state.lastWordMode,
@@ -63,7 +69,9 @@ class GameSettingsBloc extends Bloc<GameSettingsEvent, GameSettingsState> {
   }
 
   void _onWordsToWinChanged(
-      _WordsToWinChanged event, Emitter<GameSettingsState> emit) {
+    _WordsToWinChanged event,
+    Emitter<GameSettingsState> emit,
+  ) {
     final newState = GameSettingsState.ready(
       time: state.time,
       lastWordMode: state.lastWordMode,

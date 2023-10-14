@@ -81,25 +81,25 @@ class _$AnswerEventCopyWithImpl<$Res, $Val extends AnswerEvent>
 }
 
 /// @nodoc
-abstract class _$$_PlayCountAnimationCopyWith<$Res> {
-  factory _$$_PlayCountAnimationCopyWith(_$_PlayCountAnimation value,
-          $Res Function(_$_PlayCountAnimation) then) =
-      __$$_PlayCountAnimationCopyWithImpl<$Res>;
+abstract class _$$PlayCountAnimationImplCopyWith<$Res> {
+  factory _$$PlayCountAnimationImplCopyWith(_$PlayCountAnimationImpl value,
+          $Res Function(_$PlayCountAnimationImpl) then) =
+      __$$PlayCountAnimationImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_PlayCountAnimationCopyWithImpl<$Res>
-    extends _$AnswerEventCopyWithImpl<$Res, _$_PlayCountAnimation>
-    implements _$$_PlayCountAnimationCopyWith<$Res> {
-  __$$_PlayCountAnimationCopyWithImpl(
-      _$_PlayCountAnimation _value, $Res Function(_$_PlayCountAnimation) _then)
+class __$$PlayCountAnimationImplCopyWithImpl<$Res>
+    extends _$AnswerEventCopyWithImpl<$Res, _$PlayCountAnimationImpl>
+    implements _$$PlayCountAnimationImplCopyWith<$Res> {
+  __$$PlayCountAnimationImplCopyWithImpl(_$PlayCountAnimationImpl _value,
+      $Res Function(_$PlayCountAnimationImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_PlayCountAnimation implements _PlayCountAnimation {
-  const _$_PlayCountAnimation();
+class _$PlayCountAnimationImpl implements _PlayCountAnimation {
+  const _$PlayCountAnimationImpl();
 
   @override
   String toString() {
@@ -109,7 +109,7 @@ class _$_PlayCountAnimation implements _PlayCountAnimation {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_PlayCountAnimation);
+        (other.runtimeType == runtimeType && other is _$PlayCountAnimationImpl);
   }
 
   @override
@@ -185,29 +185,29 @@ class _$_PlayCountAnimation implements _PlayCountAnimation {
 }
 
 abstract class _PlayCountAnimation implements AnswerEvent {
-  const factory _PlayCountAnimation() = _$_PlayCountAnimation;
+  const factory _PlayCountAnimation() = _$PlayCountAnimationImpl;
 }
 
 /// @nodoc
-abstract class _$$_PlaySkipAnimationCopyWith<$Res> {
-  factory _$$_PlaySkipAnimationCopyWith(_$_PlaySkipAnimation value,
-          $Res Function(_$_PlaySkipAnimation) then) =
-      __$$_PlaySkipAnimationCopyWithImpl<$Res>;
+abstract class _$$PlaySkipAnimationImplCopyWith<$Res> {
+  factory _$$PlaySkipAnimationImplCopyWith(_$PlaySkipAnimationImpl value,
+          $Res Function(_$PlaySkipAnimationImpl) then) =
+      __$$PlaySkipAnimationImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_PlaySkipAnimationCopyWithImpl<$Res>
-    extends _$AnswerEventCopyWithImpl<$Res, _$_PlaySkipAnimation>
-    implements _$$_PlaySkipAnimationCopyWith<$Res> {
-  __$$_PlaySkipAnimationCopyWithImpl(
-      _$_PlaySkipAnimation _value, $Res Function(_$_PlaySkipAnimation) _then)
+class __$$PlaySkipAnimationImplCopyWithImpl<$Res>
+    extends _$AnswerEventCopyWithImpl<$Res, _$PlaySkipAnimationImpl>
+    implements _$$PlaySkipAnimationImplCopyWith<$Res> {
+  __$$PlaySkipAnimationImplCopyWithImpl(_$PlaySkipAnimationImpl _value,
+      $Res Function(_$PlaySkipAnimationImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_PlaySkipAnimation implements _PlaySkipAnimation {
-  const _$_PlaySkipAnimation();
+class _$PlaySkipAnimationImpl implements _PlaySkipAnimation {
+  const _$PlaySkipAnimationImpl();
 
   @override
   String toString() {
@@ -217,7 +217,7 @@ class _$_PlaySkipAnimation implements _PlaySkipAnimation {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_PlaySkipAnimation);
+        (other.runtimeType == runtimeType && other is _$PlaySkipAnimationImpl);
   }
 
   @override
@@ -293,27 +293,29 @@ class _$_PlaySkipAnimation implements _PlaySkipAnimation {
 }
 
 abstract class _PlaySkipAnimation implements AnswerEvent {
-  const factory _PlaySkipAnimation() = _$_PlaySkipAnimation;
+  const factory _PlaySkipAnimation() = _$PlaySkipAnimationImpl;
 }
 
 /// @nodoc
-abstract class _$$_ResetCopyWith<$Res> {
-  factory _$$_ResetCopyWith(_$_Reset value, $Res Function(_$_Reset) then) =
-      __$$_ResetCopyWithImpl<$Res>;
+abstract class _$$ResetImplCopyWith<$Res> {
+  factory _$$ResetImplCopyWith(
+          _$ResetImpl value, $Res Function(_$ResetImpl) then) =
+      __$$ResetImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_ResetCopyWithImpl<$Res>
-    extends _$AnswerEventCopyWithImpl<$Res, _$_Reset>
-    implements _$$_ResetCopyWith<$Res> {
-  __$$_ResetCopyWithImpl(_$_Reset _value, $Res Function(_$_Reset) _then)
+class __$$ResetImplCopyWithImpl<$Res>
+    extends _$AnswerEventCopyWithImpl<$Res, _$ResetImpl>
+    implements _$$ResetImplCopyWith<$Res> {
+  __$$ResetImplCopyWithImpl(
+      _$ResetImpl _value, $Res Function(_$ResetImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Reset implements _Reset {
-  const _$_Reset();
+class _$ResetImpl implements _Reset {
+  const _$ResetImpl();
 
   @override
   String toString() {
@@ -323,7 +325,7 @@ class _$_Reset implements _Reset {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Reset);
+        (other.runtimeType == runtimeType && other is _$ResetImpl);
   }
 
   @override
@@ -399,7 +401,7 @@ class _$_Reset implements _Reset {
 }
 
 abstract class _Reset implements AnswerEvent {
-  const factory _Reset() = _$_Reset;
+  const factory _Reset() = _$ResetImpl;
 }
 
 /// @nodoc
@@ -469,24 +471,25 @@ class _$AnswerStateCopyWithImpl<$Res, $Val extends AnswerState>
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+abstract class _$$InitialImplCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$AnswerStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$AnswerStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial();
+class _$InitialImpl implements _Initial {
+  const _$InitialImpl();
 
   @override
   String toString() {
@@ -496,7 +499,7 @@ class _$_Initial implements _Initial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
   }
 
   @override
@@ -572,29 +575,29 @@ class _$_Initial implements _Initial {
 }
 
 abstract class _Initial implements AnswerState {
-  const factory _Initial() = _$_Initial;
+  const factory _Initial() = _$InitialImpl;
 }
 
 /// @nodoc
-abstract class _$$_SkippingCopyWith<$Res> {
-  factory _$$_SkippingCopyWith(
-          _$_Skipping value, $Res Function(_$_Skipping) then) =
-      __$$_SkippingCopyWithImpl<$Res>;
+abstract class _$$SkippingImplCopyWith<$Res> {
+  factory _$$SkippingImplCopyWith(
+          _$SkippingImpl value, $Res Function(_$SkippingImpl) then) =
+      __$$SkippingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_SkippingCopyWithImpl<$Res>
-    extends _$AnswerStateCopyWithImpl<$Res, _$_Skipping>
-    implements _$$_SkippingCopyWith<$Res> {
-  __$$_SkippingCopyWithImpl(
-      _$_Skipping _value, $Res Function(_$_Skipping) _then)
+class __$$SkippingImplCopyWithImpl<$Res>
+    extends _$AnswerStateCopyWithImpl<$Res, _$SkippingImpl>
+    implements _$$SkippingImplCopyWith<$Res> {
+  __$$SkippingImplCopyWithImpl(
+      _$SkippingImpl _value, $Res Function(_$SkippingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Skipping implements _Skipping {
-  const _$_Skipping();
+class _$SkippingImpl implements _Skipping {
+  const _$SkippingImpl();
 
   @override
   String toString() {
@@ -604,7 +607,7 @@ class _$_Skipping implements _Skipping {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Skipping);
+        (other.runtimeType == runtimeType && other is _$SkippingImpl);
   }
 
   @override
@@ -680,29 +683,29 @@ class _$_Skipping implements _Skipping {
 }
 
 abstract class _Skipping implements AnswerState {
-  const factory _Skipping() = _$_Skipping;
+  const factory _Skipping() = _$SkippingImpl;
 }
 
 /// @nodoc
-abstract class _$$_CountingCopyWith<$Res> {
-  factory _$$_CountingCopyWith(
-          _$_Counting value, $Res Function(_$_Counting) then) =
-      __$$_CountingCopyWithImpl<$Res>;
+abstract class _$$CountingImplCopyWith<$Res> {
+  factory _$$CountingImplCopyWith(
+          _$CountingImpl value, $Res Function(_$CountingImpl) then) =
+      __$$CountingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_CountingCopyWithImpl<$Res>
-    extends _$AnswerStateCopyWithImpl<$Res, _$_Counting>
-    implements _$$_CountingCopyWith<$Res> {
-  __$$_CountingCopyWithImpl(
-      _$_Counting _value, $Res Function(_$_Counting) _then)
+class __$$CountingImplCopyWithImpl<$Res>
+    extends _$AnswerStateCopyWithImpl<$Res, _$CountingImpl>
+    implements _$$CountingImplCopyWith<$Res> {
+  __$$CountingImplCopyWithImpl(
+      _$CountingImpl _value, $Res Function(_$CountingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Counting implements _Counting {
-  const _$_Counting();
+class _$CountingImpl implements _Counting {
+  const _$CountingImpl();
 
   @override
   String toString() {
@@ -712,7 +715,7 @@ class _$_Counting implements _Counting {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Counting);
+        (other.runtimeType == runtimeType && other is _$CountingImpl);
   }
 
   @override
@@ -788,5 +791,5 @@ class _$_Counting implements _Counting {
 }
 
 abstract class _Counting implements AnswerState {
-  const factory _Counting() = _$_Counting;
+  const factory _Counting() = _$CountingImpl;
 }

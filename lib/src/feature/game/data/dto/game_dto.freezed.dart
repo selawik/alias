@@ -84,10 +84,10 @@ class _$GameDtoCopyWithImpl<$Res, $Val extends GameDto>
 }
 
 /// @nodoc
-abstract class _$$_GameDtoCopyWith<$Res> implements $GameDtoCopyWith<$Res> {
-  factory _$$_GameDtoCopyWith(
-          _$_GameDto value, $Res Function(_$_GameDto) then) =
-      __$$_GameDtoCopyWithImpl<$Res>;
+abstract class _$$GameDtoImplCopyWith<$Res> implements $GameDtoCopyWith<$Res> {
+  factory _$$GameDtoImplCopyWith(
+          _$GameDtoImpl value, $Res Function(_$GameDtoImpl) then) =
+      __$$GameDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -99,10 +99,11 @@ abstract class _$$_GameDtoCopyWith<$Res> implements $GameDtoCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_GameDtoCopyWithImpl<$Res>
-    extends _$GameDtoCopyWithImpl<$Res, _$_GameDto>
-    implements _$$_GameDtoCopyWith<$Res> {
-  __$$_GameDtoCopyWithImpl(_$_GameDto _value, $Res Function(_$_GameDto) _then)
+class __$$GameDtoImplCopyWithImpl<$Res>
+    extends _$GameDtoCopyWithImpl<$Res, _$GameDtoImpl>
+    implements _$$GameDtoImplCopyWith<$Res> {
+  __$$GameDtoImplCopyWithImpl(
+      _$GameDtoImpl _value, $Res Function(_$GameDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -114,7 +115,7 @@ class __$$_GameDtoCopyWithImpl<$Res>
     Object? moveTime = null,
     Object? categoryId = null,
   }) {
-    return _then(_$_GameDto(
+    return _then(_$GameDtoImpl(
       nextPlayingCommandId: null == nextPlayingCommandId
           ? _value.nextPlayingCommandId
           : nextPlayingCommandId // ignore: cast_nullable_to_non_nullable
@@ -141,8 +142,8 @@ class __$$_GameDtoCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_GameDto implements _GameDto {
-  const _$_GameDto(
+class _$GameDtoImpl implements _GameDto {
+  const _$GameDtoImpl(
       {required this.nextPlayingCommandId,
       required this.lastWordMode,
       required this.penaltyMode,
@@ -169,7 +170,7 @@ class _$_GameDto implements _GameDto {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GameDto &&
+            other is _$GameDtoImpl &&
             (identical(other.nextPlayingCommandId, nextPlayingCommandId) ||
                 other.nextPlayingCommandId == nextPlayingCommandId) &&
             (identical(other.lastWordMode, lastWordMode) ||
@@ -189,8 +190,8 @@ class _$_GameDto implements _GameDto {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GameDtoCopyWith<_$_GameDto> get copyWith =>
-      __$$_GameDtoCopyWithImpl<_$_GameDto>(this, _$identity);
+  _$$GameDtoImplCopyWith<_$GameDtoImpl> get copyWith =>
+      __$$GameDtoImplCopyWithImpl<_$GameDtoImpl>(this, _$identity);
 }
 
 abstract class _GameDto implements GameDto {
@@ -199,7 +200,7 @@ abstract class _GameDto implements GameDto {
       required final BinarySelectorMode lastWordMode,
       required final BinarySelectorMode penaltyMode,
       required final CommandMoveMode moveTime,
-      required final int categoryId}) = _$_GameDto;
+      required final int categoryId}) = _$GameDtoImpl;
 
   @override
   int get nextPlayingCommandId;
@@ -213,6 +214,6 @@ abstract class _GameDto implements GameDto {
   int get categoryId;
   @override
   @JsonKey(ignore: true)
-  _$$_GameDtoCopyWith<_$_GameDto> get copyWith =>
+  _$$GameDtoImplCopyWith<_$GameDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

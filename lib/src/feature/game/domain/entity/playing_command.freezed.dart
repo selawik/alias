@@ -75,22 +75,22 @@ class _$PlayingCommandCopyWithImpl<$Res, $Val extends PlayingCommand>
 }
 
 /// @nodoc
-abstract class _$$_PlayingCommandCopyWith<$Res>
+abstract class _$$PlayingCommandImplCopyWith<$Res>
     implements $PlayingCommandCopyWith<$Res> {
-  factory _$$_PlayingCommandCopyWith(
-          _$_PlayingCommand value, $Res Function(_$_PlayingCommand) then) =
-      __$$_PlayingCommandCopyWithImpl<$Res>;
+  factory _$$PlayingCommandImplCopyWith(_$PlayingCommandImpl value,
+          $Res Function(_$PlayingCommandImpl) then) =
+      __$$PlayingCommandImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int commandId, String name, int score, int playedRoundCount});
 }
 
 /// @nodoc
-class __$$_PlayingCommandCopyWithImpl<$Res>
-    extends _$PlayingCommandCopyWithImpl<$Res, _$_PlayingCommand>
-    implements _$$_PlayingCommandCopyWith<$Res> {
-  __$$_PlayingCommandCopyWithImpl(
-      _$_PlayingCommand _value, $Res Function(_$_PlayingCommand) _then)
+class __$$PlayingCommandImplCopyWithImpl<$Res>
+    extends _$PlayingCommandCopyWithImpl<$Res, _$PlayingCommandImpl>
+    implements _$$PlayingCommandImplCopyWith<$Res> {
+  __$$PlayingCommandImplCopyWithImpl(
+      _$PlayingCommandImpl _value, $Res Function(_$PlayingCommandImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -101,7 +101,7 @@ class __$$_PlayingCommandCopyWithImpl<$Res>
     Object? score = null,
     Object? playedRoundCount = null,
   }) {
-    return _then(_$_PlayingCommand(
+    return _then(_$PlayingCommandImpl(
       commandId: null == commandId
           ? _value.commandId
           : commandId // ignore: cast_nullable_to_non_nullable
@@ -124,8 +124,8 @@ class __$$_PlayingCommandCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PlayingCommand implements _PlayingCommand {
-  const _$_PlayingCommand(
+class _$PlayingCommandImpl implements _PlayingCommand {
+  const _$PlayingCommandImpl(
       {required this.commandId,
       required this.name,
       this.score = 0,
@@ -151,7 +151,7 @@ class _$_PlayingCommand implements _PlayingCommand {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PlayingCommand &&
+            other is _$PlayingCommandImpl &&
             (identical(other.commandId, commandId) ||
                 other.commandId == commandId) &&
             (identical(other.name, name) || other.name == name) &&
@@ -167,8 +167,9 @@ class _$_PlayingCommand implements _PlayingCommand {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PlayingCommandCopyWith<_$_PlayingCommand> get copyWith =>
-      __$$_PlayingCommandCopyWithImpl<_$_PlayingCommand>(this, _$identity);
+  _$$PlayingCommandImplCopyWith<_$PlayingCommandImpl> get copyWith =>
+      __$$PlayingCommandImplCopyWithImpl<_$PlayingCommandImpl>(
+          this, _$identity);
 }
 
 abstract class _PlayingCommand implements PlayingCommand {
@@ -176,7 +177,7 @@ abstract class _PlayingCommand implements PlayingCommand {
       {required final int commandId,
       required final String name,
       final int score,
-      final int playedRoundCount}) = _$_PlayingCommand;
+      final int playedRoundCount}) = _$PlayingCommandImpl;
 
   @override
   int get commandId;
@@ -188,6 +189,6 @@ abstract class _PlayingCommand implements PlayingCommand {
   int get playedRoundCount;
   @override
   @JsonKey(ignore: true)
-  _$$_PlayingCommandCopyWith<_$_PlayingCommand> get copyWith =>
+  _$$PlayingCommandImplCopyWith<_$PlayingCommandImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,6 +1,6 @@
 import 'package:alias/src/core/mapper/mapper.dart';
-import 'package:alias/src/feature/categories/data/models/category_dto.dart';
-import 'package:alias/src/feature/categories/domain/models/category.dart';
+import 'package:alias/src/feature/categories/data/dto/category_dto.dart';
+import 'package:alias/src/feature/categories/domain/entity/category.dart';
 import 'package:injectable/injectable.dart';
 
 @injectable

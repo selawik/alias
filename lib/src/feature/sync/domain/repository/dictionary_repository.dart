@@ -2,11 +2,11 @@ import 'dart:developer';
 
 import 'package:alias/src/core/error/failure.dart';
 import 'package:alias/src/feature/categories/data/mapper/category_mapper.dart';
-import 'package:alias/src/feature/categories/domain/models/category.dart';
+import 'package:alias/src/feature/categories/domain/entity/category.dart';
 import 'package:alias/src/feature/commands/data/mapper/command_mapper.dart';
-import 'package:alias/src/feature/commands/domain/models/command_entity.dart';
+import 'package:alias/src/feature/commands/domain/entity/command_entity.dart';
 import 'package:alias/src/feature/game/data/mapper/words_mapper.dart';
-import 'package:alias/src/feature/game/domain/model/word.dart';
+import 'package:alias/src/feature/game/domain/entity/word.dart';
 import 'package:alias/src/feature/sync/data/data_source/dictionary_local_data_source.dart';
 import 'package:alias/src/feature/sync/data/data_source/dictionary_remote_data_source.dart';
 import 'package:dartz/dartz.dart';
@@ -21,8 +21,9 @@ abstract class DictionaryRepository {
     int? startFromId,
   });
 
-  Future<Either<Failure, Iterable<CommandEntity>>> loadCommands(
-      {int? startFromId});
+  Future<Either<Failure, Iterable<CommandEntity>>> loadCommands({
+    int? startFromId,
+  });
 
   Future<Either<Failure, int?>> loadLastLocalCategoryId();
 
@@ -40,8 +41,9 @@ abstract class DictionaryRepository {
 
   Future<Either<Failure, void>> saveWords({required List<Word> words});
 
-  Future<Either<Failure, void>> saveCommands(
-      {required List<CommandEntity> commands});
+  Future<Either<Failure, void>> saveCommands({
+    required List<CommandEntity> commands,
+  });
 }
 
 @Injectable(as: DictionaryRepository)

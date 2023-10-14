@@ -1,15 +1,15 @@
 import 'dart:developer';
 
 import 'package:alias/src/core/error/failure.dart';
-import 'package:alias/src/feature/categories/domain/models/category.dart';
+import 'package:alias/src/feature/categories/domain/entity/category.dart';
 import 'package:alias/src/feature/game/data/data_source/words_local_data_source.dart';
 import 'package:alias/src/feature/game/data/data_source/words_remote_data_source.dart';
+import 'package:alias/src/feature/game/data/dto/game_dto.dart';
 import 'package:alias/src/feature/game/data/mapper/words_mapper.dart';
-import 'package:alias/src/feature/game/data/model/game_dto.dart';
-import 'package:alias/src/feature/game/domain/model/game.dart';
-import 'package:alias/src/feature/game/domain/model/game_settings.dart';
-import 'package:alias/src/feature/game/domain/model/playing_command.dart';
-import 'package:alias/src/feature/game/domain/model/word.dart';
+import 'package:alias/src/feature/game/domain/entity/game.dart';
+import 'package:alias/src/feature/game/domain/entity/game_settings.dart';
+import 'package:alias/src/feature/game/domain/entity/playing_command.dart';
+import 'package:alias/src/feature/game/domain/entity/word.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 

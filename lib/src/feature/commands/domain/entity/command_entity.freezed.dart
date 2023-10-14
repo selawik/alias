@@ -63,22 +63,22 @@ class _$CommandEntityCopyWithImpl<$Res, $Val extends CommandEntity>
 }
 
 /// @nodoc
-abstract class _$$_CommandEntityCopyWith<$Res>
+abstract class _$$CommandEntityImplCopyWith<$Res>
     implements $CommandEntityCopyWith<$Res> {
-  factory _$$_CommandEntityCopyWith(
-          _$_CommandEntity value, $Res Function(_$_CommandEntity) then) =
-      __$$_CommandEntityCopyWithImpl<$Res>;
+  factory _$$CommandEntityImplCopyWith(
+          _$CommandEntityImpl value, $Res Function(_$CommandEntityImpl) then) =
+      __$$CommandEntityImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int commandId, String name});
 }
 
 /// @nodoc
-class __$$_CommandEntityCopyWithImpl<$Res>
-    extends _$CommandEntityCopyWithImpl<$Res, _$_CommandEntity>
-    implements _$$_CommandEntityCopyWith<$Res> {
-  __$$_CommandEntityCopyWithImpl(
-      _$_CommandEntity _value, $Res Function(_$_CommandEntity) _then)
+class __$$CommandEntityImplCopyWithImpl<$Res>
+    extends _$CommandEntityCopyWithImpl<$Res, _$CommandEntityImpl>
+    implements _$$CommandEntityImplCopyWith<$Res> {
+  __$$CommandEntityImplCopyWithImpl(
+      _$CommandEntityImpl _value, $Res Function(_$CommandEntityImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -87,7 +87,7 @@ class __$$_CommandEntityCopyWithImpl<$Res>
     Object? commandId = null,
     Object? name = null,
   }) {
-    return _then(_$_CommandEntity(
+    return _then(_$CommandEntityImpl(
       commandId: null == commandId
           ? _value.commandId
           : commandId // ignore: cast_nullable_to_non_nullable
@@ -102,8 +102,8 @@ class __$$_CommandEntityCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_CommandEntity implements _CommandEntity {
-  const _$_CommandEntity({required this.commandId, required this.name});
+class _$CommandEntityImpl implements _CommandEntity {
+  const _$CommandEntityImpl({required this.commandId, required this.name});
 
   @override
   final int commandId;
@@ -119,7 +119,7 @@ class _$_CommandEntity implements _CommandEntity {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CommandEntity &&
+            other is _$CommandEntityImpl &&
             (identical(other.commandId, commandId) ||
                 other.commandId == commandId) &&
             (identical(other.name, name) || other.name == name));
@@ -131,14 +131,14 @@ class _$_CommandEntity implements _CommandEntity {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CommandEntityCopyWith<_$_CommandEntity> get copyWith =>
-      __$$_CommandEntityCopyWithImpl<_$_CommandEntity>(this, _$identity);
+  _$$CommandEntityImplCopyWith<_$CommandEntityImpl> get copyWith =>
+      __$$CommandEntityImplCopyWithImpl<_$CommandEntityImpl>(this, _$identity);
 }
 
 abstract class _CommandEntity implements CommandEntity {
   const factory _CommandEntity(
       {required final int commandId,
-      required final String name}) = _$_CommandEntity;
+      required final String name}) = _$CommandEntityImpl;
 
   @override
   int get commandId;
@@ -146,6 +146,6 @@ abstract class _CommandEntity implements CommandEntity {
   String get name;
   @override
   @JsonKey(ignore: true)
-  _$$_CommandEntityCopyWith<_$_CommandEntity> get copyWith =>
+  _$$CommandEntityImplCopyWith<_$CommandEntityImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
