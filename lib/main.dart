@@ -3,6 +3,7 @@ import 'dart:developer';
 
 import 'package:alias/firebase_options.dart';
 import 'package:alias/src/core/application.dart';
+import 'package:alias/src/core/bloc/app_bloc_observer.dart';
 import 'package:alias/src/core/injection.dart' as di;
 import 'package:alias/src/feature/game/presentation/bloc/game_bloc/game_bloc.dart';
 import 'package:alias/src/feature/sync/presentation/bloc/dictionary_bloc.dart';
@@ -34,6 +35,8 @@ void main() async {
       final themeBloc = di.locator.get<ThemeBloc>(
         param1: brightness == Brightness.dark,
       );
+
+      Bloc.observer = AppBlocObserver();
 
       runApp(
         MultiBlocProvider(
