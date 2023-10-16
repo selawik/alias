@@ -9,6 +9,7 @@ import 'package:alias/src/feature/game/presentation/bloc/game_bloc/game_bloc.dar
 import 'package:alias/src/feature/sync/presentation/bloc/dictionary_bloc.dart';
 import 'package:alias/src/feature/theming/presentation/bloc/theme_bloc.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -38,6 +39,9 @@ void main() async {
 
       Bloc.observer = AppBlocObserver();
 
+      FlutterError.onError =
+          FirebaseCrashlytics.instance.recordFlutterFatalError;
+
       runApp(
         MultiBlocProvider(
           providers: [
@@ -60,6 +64,8 @@ void main() async {
         error.toString(),
         stackTrace: stackTrace,
       );
+
+      FirebaseCrashlytics.instance.recordError(error, stackTrace);
     },
   );
 }

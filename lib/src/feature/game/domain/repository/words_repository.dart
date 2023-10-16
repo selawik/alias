@@ -26,8 +26,9 @@ abstract interface class WordsRepository {
 
   Future<Either<Failure, Game?>> loadUnfinishedGame();
 
-  Future<Either<Failure, void>> savePlayedWords(
-      {required List<WordEntity> words});
+  Future<Either<Failure, void>> savePlayedWords({
+    required List<WordEntity> words,
+  });
 
   Future<Either<Failure, void>> saveStartedGame({
     required List<PlayingCommand> commands,
