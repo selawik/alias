@@ -15,7 +15,7 @@ class SaveStartedGame {
   Future<Either<Failure, void>> execute({
     required List<PlayingCommand> commands,
     required GameSettings gameSettings,
-    required Category category,
+    required CategoryEntity category,
   }) async {
     return repository.saveStartedGame(
       category: category,

@@ -10,7 +10,8 @@ class SavePlayedWords {
 
   SavePlayedWords({required this.repository});
 
-  Future<Either<Failure, void>> execute({required List<Word> words}) async {
+  Future<Either<Failure, void>> execute(
+      {required List<WordEntity> words}) async {
     return repository.savePlayedWords(words: words);
   }
 }

@@ -19,7 +19,7 @@ mixin _$GameEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function(Category category) initializeCategory,
+    required TResult Function(CategoryEntity category) initializeCategory,
     required TResult Function(List<CommandEntity> commands) initializeCommands,
     required TResult Function(GameSettings gameSettings) initializeSettings,
     required TResult Function() startGame,
@@ -38,7 +38,7 @@ mixin _$GameEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function(Category category)? initializeCategory,
+    TResult? Function(CategoryEntity category)? initializeCategory,
     TResult? Function(List<CommandEntity> commands)? initializeCommands,
     TResult? Function(GameSettings gameSettings)? initializeSettings,
     TResult? Function()? startGame,
@@ -57,7 +57,7 @@ mixin _$GameEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function(Category category)? initializeCategory,
+    TResult Function(CategoryEntity category)? initializeCategory,
     TResult Function(List<CommandEntity> commands)? initializeCommands,
     TResult Function(GameSettings gameSettings)? initializeSettings,
     TResult Function()? startGame,
@@ -189,7 +189,7 @@ class _$InitImpl implements _Init {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function(Category category) initializeCategory,
+    required TResult Function(CategoryEntity category) initializeCategory,
     required TResult Function(List<CommandEntity> commands) initializeCommands,
     required TResult Function(GameSettings gameSettings) initializeSettings,
     required TResult Function() startGame,
@@ -211,7 +211,7 @@ class _$InitImpl implements _Init {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function(Category category)? initializeCategory,
+    TResult? Function(CategoryEntity category)? initializeCategory,
     TResult? Function(List<CommandEntity> commands)? initializeCommands,
     TResult? Function(GameSettings gameSettings)? initializeSettings,
     TResult? Function()? startGame,
@@ -233,7 +233,7 @@ class _$InitImpl implements _Init {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function(Category category)? initializeCategory,
+    TResult Function(CategoryEntity category)? initializeCategory,
     TResult Function(List<CommandEntity> commands)? initializeCommands,
     TResult Function(GameSettings gameSettings)? initializeSettings,
     TResult Function()? startGame,
@@ -336,9 +336,9 @@ abstract class _$$InitializeCategoryImplCopyWith<$Res> {
           $Res Function(_$InitializeCategoryImpl) then) =
       __$$InitializeCategoryImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({Category category});
+  $Res call({CategoryEntity category});
 
-  $CategoryCopyWith<$Res> get category;
+  $CategoryEntityCopyWith<$Res> get category;
 }
 
 /// @nodoc
@@ -358,14 +358,14 @@ class __$$InitializeCategoryImplCopyWithImpl<$Res>
       category: null == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as Category,
+              as CategoryEntity,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $CategoryCopyWith<$Res> get category {
-    return $CategoryCopyWith<$Res>(_value.category, (value) {
+  $CategoryEntityCopyWith<$Res> get category {
+    return $CategoryEntityCopyWith<$Res>(_value.category, (value) {
       return _then(_value.copyWith(category: value));
     });
   }
@@ -377,7 +377,7 @@ class _$InitializeCategoryImpl implements _InitializeCategory {
   const _$InitializeCategoryImpl({required this.category});
 
   @override
-  final Category category;
+  final CategoryEntity category;
 
   @override
   String toString() {
@@ -407,7 +407,7 @@ class _$InitializeCategoryImpl implements _InitializeCategory {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function(Category category) initializeCategory,
+    required TResult Function(CategoryEntity category) initializeCategory,
     required TResult Function(List<CommandEntity> commands) initializeCommands,
     required TResult Function(GameSettings gameSettings) initializeSettings,
     required TResult Function() startGame,
@@ -429,7 +429,7 @@ class _$InitializeCategoryImpl implements _InitializeCategory {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function(Category category)? initializeCategory,
+    TResult? Function(CategoryEntity category)? initializeCategory,
     TResult? Function(List<CommandEntity> commands)? initializeCommands,
     TResult? Function(GameSettings gameSettings)? initializeSettings,
     TResult? Function()? startGame,
@@ -451,7 +451,7 @@ class _$InitializeCategoryImpl implements _InitializeCategory {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function(Category category)? initializeCategory,
+    TResult Function(CategoryEntity category)? initializeCategory,
     TResult Function(List<CommandEntity> commands)? initializeCommands,
     TResult Function(GameSettings gameSettings)? initializeSettings,
     TResult Function()? startGame,
@@ -545,10 +545,10 @@ class _$InitializeCategoryImpl implements _InitializeCategory {
 }
 
 abstract class _InitializeCategory implements GameEvent {
-  const factory _InitializeCategory({required final Category category}) =
+  const factory _InitializeCategory({required final CategoryEntity category}) =
       _$InitializeCategoryImpl;
 
-  Category get category;
+  CategoryEntity get category;
   @JsonKey(ignore: true)
   _$$InitializeCategoryImplCopyWith<_$InitializeCategoryImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -627,7 +627,7 @@ class _$InitializeCommandsImpl implements _InitializeCommands {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function(Category category) initializeCategory,
+    required TResult Function(CategoryEntity category) initializeCategory,
     required TResult Function(List<CommandEntity> commands) initializeCommands,
     required TResult Function(GameSettings gameSettings) initializeSettings,
     required TResult Function() startGame,
@@ -649,7 +649,7 @@ class _$InitializeCommandsImpl implements _InitializeCommands {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function(Category category)? initializeCategory,
+    TResult? Function(CategoryEntity category)? initializeCategory,
     TResult? Function(List<CommandEntity> commands)? initializeCommands,
     TResult? Function(GameSettings gameSettings)? initializeSettings,
     TResult? Function()? startGame,
@@ -671,7 +671,7 @@ class _$InitializeCommandsImpl implements _InitializeCommands {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function(Category category)? initializeCategory,
+    TResult Function(CategoryEntity category)? initializeCategory,
     TResult Function(List<CommandEntity> commands)? initializeCommands,
     TResult Function(GameSettings gameSettings)? initializeSettings,
     TResult Function()? startGame,
@@ -841,7 +841,7 @@ class _$InitializeSettingsImpl implements _InitializeSettings {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function(Category category) initializeCategory,
+    required TResult Function(CategoryEntity category) initializeCategory,
     required TResult Function(List<CommandEntity> commands) initializeCommands,
     required TResult Function(GameSettings gameSettings) initializeSettings,
     required TResult Function() startGame,
@@ -863,7 +863,7 @@ class _$InitializeSettingsImpl implements _InitializeSettings {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function(Category category)? initializeCategory,
+    TResult? Function(CategoryEntity category)? initializeCategory,
     TResult? Function(List<CommandEntity> commands)? initializeCommands,
     TResult? Function(GameSettings gameSettings)? initializeSettings,
     TResult? Function()? startGame,
@@ -885,7 +885,7 @@ class _$InitializeSettingsImpl implements _InitializeSettings {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function(Category category)? initializeCategory,
+    TResult Function(CategoryEntity category)? initializeCategory,
     TResult Function(List<CommandEntity> commands)? initializeCommands,
     TResult Function(GameSettings gameSettings)? initializeSettings,
     TResult Function()? startGame,
@@ -1027,7 +1027,7 @@ class _$StartGameImpl implements _StartGame {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function(Category category) initializeCategory,
+    required TResult Function(CategoryEntity category) initializeCategory,
     required TResult Function(List<CommandEntity> commands) initializeCommands,
     required TResult Function(GameSettings gameSettings) initializeSettings,
     required TResult Function() startGame,
@@ -1049,7 +1049,7 @@ class _$StartGameImpl implements _StartGame {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function(Category category)? initializeCategory,
+    TResult? Function(CategoryEntity category)? initializeCategory,
     TResult? Function(List<CommandEntity> commands)? initializeCommands,
     TResult? Function(GameSettings gameSettings)? initializeSettings,
     TResult? Function()? startGame,
@@ -1071,7 +1071,7 @@ class _$StartGameImpl implements _StartGame {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function(Category category)? initializeCategory,
+    TResult Function(CategoryEntity category)? initializeCategory,
     TResult Function(List<CommandEntity> commands)? initializeCommands,
     TResult Function(GameSettings gameSettings)? initializeSettings,
     TResult Function()? startGame,
@@ -1207,7 +1207,7 @@ class _$PauseGameImpl implements _PauseGame {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function(Category category) initializeCategory,
+    required TResult Function(CategoryEntity category) initializeCategory,
     required TResult Function(List<CommandEntity> commands) initializeCommands,
     required TResult Function(GameSettings gameSettings) initializeSettings,
     required TResult Function() startGame,
@@ -1229,7 +1229,7 @@ class _$PauseGameImpl implements _PauseGame {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function(Category category)? initializeCategory,
+    TResult? Function(CategoryEntity category)? initializeCategory,
     TResult? Function(List<CommandEntity> commands)? initializeCommands,
     TResult? Function(GameSettings gameSettings)? initializeSettings,
     TResult? Function()? startGame,
@@ -1251,7 +1251,7 @@ class _$PauseGameImpl implements _PauseGame {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function(Category category)? initializeCategory,
+    TResult Function(CategoryEntity category)? initializeCategory,
     TResult Function(List<CommandEntity> commands)? initializeCommands,
     TResult Function(GameSettings gameSettings)? initializeSettings,
     TResult Function()? startGame,
@@ -1387,7 +1387,7 @@ class _$ResumeGameImpl implements _ResumeGame {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function(Category category) initializeCategory,
+    required TResult Function(CategoryEntity category) initializeCategory,
     required TResult Function(List<CommandEntity> commands) initializeCommands,
     required TResult Function(GameSettings gameSettings) initializeSettings,
     required TResult Function() startGame,
@@ -1409,7 +1409,7 @@ class _$ResumeGameImpl implements _ResumeGame {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function(Category category)? initializeCategory,
+    TResult? Function(CategoryEntity category)? initializeCategory,
     TResult? Function(List<CommandEntity> commands)? initializeCommands,
     TResult? Function(GameSettings gameSettings)? initializeSettings,
     TResult? Function()? startGame,
@@ -1431,7 +1431,7 @@ class _$ResumeGameImpl implements _ResumeGame {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function(Category category)? initializeCategory,
+    TResult Function(CategoryEntity category)? initializeCategory,
     TResult Function(List<CommandEntity> commands)? initializeCommands,
     TResult Function(GameSettings gameSettings)? initializeSettings,
     TResult Function()? startGame,
@@ -1567,7 +1567,7 @@ class _$TimeIsLeftImpl implements _TimeIsLeft {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function(Category category) initializeCategory,
+    required TResult Function(CategoryEntity category) initializeCategory,
     required TResult Function(List<CommandEntity> commands) initializeCommands,
     required TResult Function(GameSettings gameSettings) initializeSettings,
     required TResult Function() startGame,
@@ -1589,7 +1589,7 @@ class _$TimeIsLeftImpl implements _TimeIsLeft {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function(Category category)? initializeCategory,
+    TResult? Function(CategoryEntity category)? initializeCategory,
     TResult? Function(List<CommandEntity> commands)? initializeCommands,
     TResult? Function(GameSettings gameSettings)? initializeSettings,
     TResult? Function()? startGame,
@@ -1611,7 +1611,7 @@ class _$TimeIsLeftImpl implements _TimeIsLeft {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function(Category category)? initializeCategory,
+    TResult Function(CategoryEntity category)? initializeCategory,
     TResult Function(List<CommandEntity> commands)? initializeCommands,
     TResult Function(GameSettings gameSettings)? initializeSettings,
     TResult Function()? startGame,
@@ -1747,7 +1747,7 @@ class _$SkipWordImpl implements _SkipWord {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function(Category category) initializeCategory,
+    required TResult Function(CategoryEntity category) initializeCategory,
     required TResult Function(List<CommandEntity> commands) initializeCommands,
     required TResult Function(GameSettings gameSettings) initializeSettings,
     required TResult Function() startGame,
@@ -1769,7 +1769,7 @@ class _$SkipWordImpl implements _SkipWord {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function(Category category)? initializeCategory,
+    TResult? Function(CategoryEntity category)? initializeCategory,
     TResult? Function(List<CommandEntity> commands)? initializeCommands,
     TResult? Function(GameSettings gameSettings)? initializeSettings,
     TResult? Function()? startGame,
@@ -1791,7 +1791,7 @@ class _$SkipWordImpl implements _SkipWord {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function(Category category)? initializeCategory,
+    TResult Function(CategoryEntity category)? initializeCategory,
     TResult Function(List<CommandEntity> commands)? initializeCommands,
     TResult Function(GameSettings gameSettings)? initializeSettings,
     TResult Function()? startGame,
@@ -1927,7 +1927,7 @@ class _$CountWordImpl implements _CountWord {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function(Category category) initializeCategory,
+    required TResult Function(CategoryEntity category) initializeCategory,
     required TResult Function(List<CommandEntity> commands) initializeCommands,
     required TResult Function(GameSettings gameSettings) initializeSettings,
     required TResult Function() startGame,
@@ -1949,7 +1949,7 @@ class _$CountWordImpl implements _CountWord {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function(Category category)? initializeCategory,
+    TResult? Function(CategoryEntity category)? initializeCategory,
     TResult? Function(List<CommandEntity> commands)? initializeCommands,
     TResult? Function(GameSettings gameSettings)? initializeSettings,
     TResult? Function()? startGame,
@@ -1971,7 +1971,7 @@ class _$CountWordImpl implements _CountWord {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function(Category category)? initializeCategory,
+    TResult Function(CategoryEntity category)? initializeCategory,
     TResult Function(List<CommandEntity> commands)? initializeCommands,
     TResult Function(GameSettings gameSettings)? initializeSettings,
     TResult Function()? startGame,
@@ -2143,7 +2143,7 @@ class _$ChangeAnswerImpl implements _ChangeAnswer {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function(Category category) initializeCategory,
+    required TResult Function(CategoryEntity category) initializeCategory,
     required TResult Function(List<CommandEntity> commands) initializeCommands,
     required TResult Function(GameSettings gameSettings) initializeSettings,
     required TResult Function() startGame,
@@ -2165,7 +2165,7 @@ class _$ChangeAnswerImpl implements _ChangeAnswer {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function(Category category)? initializeCategory,
+    TResult? Function(CategoryEntity category)? initializeCategory,
     TResult? Function(List<CommandEntity> commands)? initializeCommands,
     TResult? Function(GameSettings gameSettings)? initializeSettings,
     TResult? Function()? startGame,
@@ -2187,7 +2187,7 @@ class _$ChangeAnswerImpl implements _ChangeAnswer {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function(Category category)? initializeCategory,
+    TResult Function(CategoryEntity category)? initializeCategory,
     TResult Function(List<CommandEntity> commands)? initializeCommands,
     TResult Function(GameSettings gameSettings)? initializeSettings,
     TResult Function()? startGame,
@@ -2329,7 +2329,7 @@ class _$MoveResultWatchedImpl implements _MoveResultWatched {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function(Category category) initializeCategory,
+    required TResult Function(CategoryEntity category) initializeCategory,
     required TResult Function(List<CommandEntity> commands) initializeCommands,
     required TResult Function(GameSettings gameSettings) initializeSettings,
     required TResult Function() startGame,
@@ -2351,7 +2351,7 @@ class _$MoveResultWatchedImpl implements _MoveResultWatched {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function(Category category)? initializeCategory,
+    TResult? Function(CategoryEntity category)? initializeCategory,
     TResult? Function(List<CommandEntity> commands)? initializeCommands,
     TResult? Function(GameSettings gameSettings)? initializeSettings,
     TResult? Function()? startGame,
@@ -2373,7 +2373,7 @@ class _$MoveResultWatchedImpl implements _MoveResultWatched {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function(Category category)? initializeCategory,
+    TResult Function(CategoryEntity category)? initializeCategory,
     TResult Function(List<CommandEntity> commands)? initializeCommands,
     TResult Function(GameSettings gameSettings)? initializeSettings,
     TResult Function()? startGame,
@@ -2509,7 +2509,7 @@ class _$ResetGameImpl implements _ResetGame {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function(Category category) initializeCategory,
+    required TResult Function(CategoryEntity category) initializeCategory,
     required TResult Function(List<CommandEntity> commands) initializeCommands,
     required TResult Function(GameSettings gameSettings) initializeSettings,
     required TResult Function() startGame,
@@ -2531,7 +2531,7 @@ class _$ResetGameImpl implements _ResetGame {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function(Category category)? initializeCategory,
+    TResult? Function(CategoryEntity category)? initializeCategory,
     TResult? Function(List<CommandEntity> commands)? initializeCommands,
     TResult? Function(GameSettings gameSettings)? initializeSettings,
     TResult? Function()? startGame,
@@ -2553,7 +2553,7 @@ class _$ResetGameImpl implements _ResetGame {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function(Category category)? initializeCategory,
+    TResult Function(CategoryEntity category)? initializeCategory,
     TResult Function(List<CommandEntity> commands)? initializeCommands,
     TResult Function(GameSettings gameSettings)? initializeSettings,
     TResult Function()? startGame,
@@ -2689,7 +2689,7 @@ class _$ResetGameHistoryImpl implements _ResetGameHistory {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function(Category category) initializeCategory,
+    required TResult Function(CategoryEntity category) initializeCategory,
     required TResult Function(List<CommandEntity> commands) initializeCommands,
     required TResult Function(GameSettings gameSettings) initializeSettings,
     required TResult Function() startGame,
@@ -2711,7 +2711,7 @@ class _$ResetGameHistoryImpl implements _ResetGameHistory {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function(Category category)? initializeCategory,
+    TResult? Function(CategoryEntity category)? initializeCategory,
     TResult? Function(List<CommandEntity> commands)? initializeCommands,
     TResult? Function(GameSettings gameSettings)? initializeSettings,
     TResult? Function()? startGame,
@@ -2733,7 +2733,7 @@ class _$ResetGameHistoryImpl implements _ResetGameHistory {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function(Category category)? initializeCategory,
+    TResult Function(CategoryEntity category)? initializeCategory,
     TResult Function(List<CommandEntity> commands)? initializeCommands,
     TResult Function(GameSettings gameSettings)? initializeSettings,
     TResult Function()? startGame,
@@ -2869,7 +2869,7 @@ class _$ResetLastGameImpl implements _ResetLastGame {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function(Category category) initializeCategory,
+    required TResult Function(CategoryEntity category) initializeCategory,
     required TResult Function(List<CommandEntity> commands) initializeCommands,
     required TResult Function(GameSettings gameSettings) initializeSettings,
     required TResult Function() startGame,
@@ -2891,7 +2891,7 @@ class _$ResetLastGameImpl implements _ResetLastGame {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function(Category category)? initializeCategory,
+    TResult? Function(CategoryEntity category)? initializeCategory,
     TResult? Function(List<CommandEntity> commands)? initializeCommands,
     TResult? Function(GameSettings gameSettings)? initializeSettings,
     TResult? Function()? startGame,
@@ -2913,7 +2913,7 @@ class _$ResetLastGameImpl implements _ResetLastGame {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function(Category category)? initializeCategory,
+    TResult Function(CategoryEntity category)? initializeCategory,
     TResult Function(List<CommandEntity> commands)? initializeCommands,
     TResult Function(GameSettings gameSettings)? initializeSettings,
     TResult Function()? startGame,
@@ -3020,10 +3020,10 @@ mixin _$GameState {
     required TResult Function(GameSettings settings,
             List<PlayingCommand> commands, PlayingCommand playingCommand)
         gameIsReady,
-    required TResult Function(Word word) waitingForAnswer,
-    required TResult Function(Word skippingWord) skippingWord,
+    required TResult Function(WordEntity word) waitingForAnswer,
+    required TResult Function(WordEntity skippingWord) skippingWord,
     required TResult Function() gamePaused,
-    required TResult Function(Word word) lastWord,
+    required TResult Function(WordEntity word) lastWord,
     required TResult Function(
             PlayingCommand command, List<GameAnswer> answers, int commandScore)
         commandMoveIsOver,
@@ -3038,10 +3038,10 @@ mixin _$GameState {
     TResult? Function(GameSettings settings, List<PlayingCommand> commands,
             PlayingCommand playingCommand)?
         gameIsReady,
-    TResult? Function(Word word)? waitingForAnswer,
-    TResult? Function(Word skippingWord)? skippingWord,
+    TResult? Function(WordEntity word)? waitingForAnswer,
+    TResult? Function(WordEntity skippingWord)? skippingWord,
     TResult? Function()? gamePaused,
-    TResult? Function(Word word)? lastWord,
+    TResult? Function(WordEntity word)? lastWord,
     TResult? Function(
             PlayingCommand command, List<GameAnswer> answers, int commandScore)?
         commandMoveIsOver,
@@ -3056,10 +3056,10 @@ mixin _$GameState {
     TResult Function(GameSettings settings, List<PlayingCommand> commands,
             PlayingCommand playingCommand)?
         gameIsReady,
-    TResult Function(Word word)? waitingForAnswer,
-    TResult Function(Word skippingWord)? skippingWord,
+    TResult Function(WordEntity word)? waitingForAnswer,
+    TResult Function(WordEntity skippingWord)? skippingWord,
     TResult Function()? gamePaused,
-    TResult Function(Word word)? lastWord,
+    TResult Function(WordEntity word)? lastWord,
     TResult Function(
             PlayingCommand command, List<GameAnswer> answers, int commandScore)?
         commandMoveIsOver,
@@ -3214,10 +3214,10 @@ class _$WaitingForConfigImpl implements _WaitingForConfig {
     required TResult Function(GameSettings settings,
             List<PlayingCommand> commands, PlayingCommand playingCommand)
         gameIsReady,
-    required TResult Function(Word word) waitingForAnswer,
-    required TResult Function(Word skippingWord) skippingWord,
+    required TResult Function(WordEntity word) waitingForAnswer,
+    required TResult Function(WordEntity skippingWord) skippingWord,
     required TResult Function() gamePaused,
-    required TResult Function(Word word) lastWord,
+    required TResult Function(WordEntity word) lastWord,
     required TResult Function(
             PlayingCommand command, List<GameAnswer> answers, int commandScore)
         commandMoveIsOver,
@@ -3235,10 +3235,10 @@ class _$WaitingForConfigImpl implements _WaitingForConfig {
     TResult? Function(GameSettings settings, List<PlayingCommand> commands,
             PlayingCommand playingCommand)?
         gameIsReady,
-    TResult? Function(Word word)? waitingForAnswer,
-    TResult? Function(Word skippingWord)? skippingWord,
+    TResult? Function(WordEntity word)? waitingForAnswer,
+    TResult? Function(WordEntity skippingWord)? skippingWord,
     TResult? Function()? gamePaused,
-    TResult? Function(Word word)? lastWord,
+    TResult? Function(WordEntity word)? lastWord,
     TResult? Function(
             PlayingCommand command, List<GameAnswer> answers, int commandScore)?
         commandMoveIsOver,
@@ -3256,10 +3256,10 @@ class _$WaitingForConfigImpl implements _WaitingForConfig {
     TResult Function(GameSettings settings, List<PlayingCommand> commands,
             PlayingCommand playingCommand)?
         gameIsReady,
-    TResult Function(Word word)? waitingForAnswer,
-    TResult Function(Word skippingWord)? skippingWord,
+    TResult Function(WordEntity word)? waitingForAnswer,
+    TResult Function(WordEntity skippingWord)? skippingWord,
     TResult Function()? gamePaused,
-    TResult Function(Word word)? lastWord,
+    TResult Function(WordEntity word)? lastWord,
     TResult Function(
             PlayingCommand command, List<GameAnswer> answers, int commandScore)?
         commandMoveIsOver,
@@ -3381,10 +3381,10 @@ class _$WordsIsLoadingImpl implements _WordsIsLoading {
     required TResult Function(GameSettings settings,
             List<PlayingCommand> commands, PlayingCommand playingCommand)
         gameIsReady,
-    required TResult Function(Word word) waitingForAnswer,
-    required TResult Function(Word skippingWord) skippingWord,
+    required TResult Function(WordEntity word) waitingForAnswer,
+    required TResult Function(WordEntity skippingWord) skippingWord,
     required TResult Function() gamePaused,
-    required TResult Function(Word word) lastWord,
+    required TResult Function(WordEntity word) lastWord,
     required TResult Function(
             PlayingCommand command, List<GameAnswer> answers, int commandScore)
         commandMoveIsOver,
@@ -3402,10 +3402,10 @@ class _$WordsIsLoadingImpl implements _WordsIsLoading {
     TResult? Function(GameSettings settings, List<PlayingCommand> commands,
             PlayingCommand playingCommand)?
         gameIsReady,
-    TResult? Function(Word word)? waitingForAnswer,
-    TResult? Function(Word skippingWord)? skippingWord,
+    TResult? Function(WordEntity word)? waitingForAnswer,
+    TResult? Function(WordEntity skippingWord)? skippingWord,
     TResult? Function()? gamePaused,
-    TResult? Function(Word word)? lastWord,
+    TResult? Function(WordEntity word)? lastWord,
     TResult? Function(
             PlayingCommand command, List<GameAnswer> answers, int commandScore)?
         commandMoveIsOver,
@@ -3423,10 +3423,10 @@ class _$WordsIsLoadingImpl implements _WordsIsLoading {
     TResult Function(GameSettings settings, List<PlayingCommand> commands,
             PlayingCommand playingCommand)?
         gameIsReady,
-    TResult Function(Word word)? waitingForAnswer,
-    TResult Function(Word skippingWord)? skippingWord,
+    TResult Function(WordEntity word)? waitingForAnswer,
+    TResult Function(WordEntity skippingWord)? skippingWord,
     TResult Function()? gamePaused,
-    TResult Function(Word word)? lastWord,
+    TResult Function(WordEntity word)? lastWord,
     TResult Function(
             PlayingCommand command, List<GameAnswer> answers, int commandScore)?
         commandMoveIsOver,
@@ -3543,10 +3543,10 @@ class _$NoWordsImpl implements _NoWords {
     required TResult Function(GameSettings settings,
             List<PlayingCommand> commands, PlayingCommand playingCommand)
         gameIsReady,
-    required TResult Function(Word word) waitingForAnswer,
-    required TResult Function(Word skippingWord) skippingWord,
+    required TResult Function(WordEntity word) waitingForAnswer,
+    required TResult Function(WordEntity skippingWord) skippingWord,
     required TResult Function() gamePaused,
-    required TResult Function(Word word) lastWord,
+    required TResult Function(WordEntity word) lastWord,
     required TResult Function(
             PlayingCommand command, List<GameAnswer> answers, int commandScore)
         commandMoveIsOver,
@@ -3564,10 +3564,10 @@ class _$NoWordsImpl implements _NoWords {
     TResult? Function(GameSettings settings, List<PlayingCommand> commands,
             PlayingCommand playingCommand)?
         gameIsReady,
-    TResult? Function(Word word)? waitingForAnswer,
-    TResult? Function(Word skippingWord)? skippingWord,
+    TResult? Function(WordEntity word)? waitingForAnswer,
+    TResult? Function(WordEntity skippingWord)? skippingWord,
     TResult? Function()? gamePaused,
-    TResult? Function(Word word)? lastWord,
+    TResult? Function(WordEntity word)? lastWord,
     TResult? Function(
             PlayingCommand command, List<GameAnswer> answers, int commandScore)?
         commandMoveIsOver,
@@ -3585,10 +3585,10 @@ class _$NoWordsImpl implements _NoWords {
     TResult Function(GameSettings settings, List<PlayingCommand> commands,
             PlayingCommand playingCommand)?
         gameIsReady,
-    TResult Function(Word word)? waitingForAnswer,
-    TResult Function(Word skippingWord)? skippingWord,
+    TResult Function(WordEntity word)? waitingForAnswer,
+    TResult Function(WordEntity skippingWord)? skippingWord,
     TResult Function()? gamePaused,
-    TResult Function(Word word)? lastWord,
+    TResult Function(WordEntity word)? lastWord,
     TResult Function(
             PlayingCommand command, List<GameAnswer> answers, int commandScore)?
         commandMoveIsOver,
@@ -3773,10 +3773,10 @@ class _$GameIsReadyImpl implements _GameIsReady {
     required TResult Function(GameSettings settings,
             List<PlayingCommand> commands, PlayingCommand playingCommand)
         gameIsReady,
-    required TResult Function(Word word) waitingForAnswer,
-    required TResult Function(Word skippingWord) skippingWord,
+    required TResult Function(WordEntity word) waitingForAnswer,
+    required TResult Function(WordEntity skippingWord) skippingWord,
     required TResult Function() gamePaused,
-    required TResult Function(Word word) lastWord,
+    required TResult Function(WordEntity word) lastWord,
     required TResult Function(
             PlayingCommand command, List<GameAnswer> answers, int commandScore)
         commandMoveIsOver,
@@ -3794,10 +3794,10 @@ class _$GameIsReadyImpl implements _GameIsReady {
     TResult? Function(GameSettings settings, List<PlayingCommand> commands,
             PlayingCommand playingCommand)?
         gameIsReady,
-    TResult? Function(Word word)? waitingForAnswer,
-    TResult? Function(Word skippingWord)? skippingWord,
+    TResult? Function(WordEntity word)? waitingForAnswer,
+    TResult? Function(WordEntity skippingWord)? skippingWord,
     TResult? Function()? gamePaused,
-    TResult? Function(Word word)? lastWord,
+    TResult? Function(WordEntity word)? lastWord,
     TResult? Function(
             PlayingCommand command, List<GameAnswer> answers, int commandScore)?
         commandMoveIsOver,
@@ -3815,10 +3815,10 @@ class _$GameIsReadyImpl implements _GameIsReady {
     TResult Function(GameSettings settings, List<PlayingCommand> commands,
             PlayingCommand playingCommand)?
         gameIsReady,
-    TResult Function(Word word)? waitingForAnswer,
-    TResult Function(Word skippingWord)? skippingWord,
+    TResult Function(WordEntity word)? waitingForAnswer,
+    TResult Function(WordEntity skippingWord)? skippingWord,
     TResult Function()? gamePaused,
-    TResult Function(Word word)? lastWord,
+    TResult Function(WordEntity word)? lastWord,
     TResult Function(
             PlayingCommand command, List<GameAnswer> answers, int commandScore)?
         commandMoveIsOver,
@@ -3907,9 +3907,9 @@ abstract class _$$WaitingForAnswerImplCopyWith<$Res> {
           $Res Function(_$WaitingForAnswerImpl) then) =
       __$$WaitingForAnswerImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({Word word});
+  $Res call({WordEntity word});
 
-  $WordCopyWith<$Res> get word;
+  $WordEntityCopyWith<$Res> get word;
 }
 
 /// @nodoc
@@ -3929,14 +3929,14 @@ class __$$WaitingForAnswerImplCopyWithImpl<$Res>
       word: null == word
           ? _value.word
           : word // ignore: cast_nullable_to_non_nullable
-              as Word,
+              as WordEntity,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $WordCopyWith<$Res> get word {
-    return $WordCopyWith<$Res>(_value.word, (value) {
+  $WordEntityCopyWith<$Res> get word {
+    return $WordEntityCopyWith<$Res>(_value.word, (value) {
       return _then(_value.copyWith(word: value));
     });
   }
@@ -3948,7 +3948,7 @@ class _$WaitingForAnswerImpl implements _WaitingForAnswer {
   const _$WaitingForAnswerImpl({required this.word});
 
   @override
-  final Word word;
+  final WordEntity word;
 
   @override
   String toString() {
@@ -3982,10 +3982,10 @@ class _$WaitingForAnswerImpl implements _WaitingForAnswer {
     required TResult Function(GameSettings settings,
             List<PlayingCommand> commands, PlayingCommand playingCommand)
         gameIsReady,
-    required TResult Function(Word word) waitingForAnswer,
-    required TResult Function(Word skippingWord) skippingWord,
+    required TResult Function(WordEntity word) waitingForAnswer,
+    required TResult Function(WordEntity skippingWord) skippingWord,
     required TResult Function() gamePaused,
-    required TResult Function(Word word) lastWord,
+    required TResult Function(WordEntity word) lastWord,
     required TResult Function(
             PlayingCommand command, List<GameAnswer> answers, int commandScore)
         commandMoveIsOver,
@@ -4003,10 +4003,10 @@ class _$WaitingForAnswerImpl implements _WaitingForAnswer {
     TResult? Function(GameSettings settings, List<PlayingCommand> commands,
             PlayingCommand playingCommand)?
         gameIsReady,
-    TResult? Function(Word word)? waitingForAnswer,
-    TResult? Function(Word skippingWord)? skippingWord,
+    TResult? Function(WordEntity word)? waitingForAnswer,
+    TResult? Function(WordEntity skippingWord)? skippingWord,
     TResult? Function()? gamePaused,
-    TResult? Function(Word word)? lastWord,
+    TResult? Function(WordEntity word)? lastWord,
     TResult? Function(
             PlayingCommand command, List<GameAnswer> answers, int commandScore)?
         commandMoveIsOver,
@@ -4024,10 +4024,10 @@ class _$WaitingForAnswerImpl implements _WaitingForAnswer {
     TResult Function(GameSettings settings, List<PlayingCommand> commands,
             PlayingCommand playingCommand)?
         gameIsReady,
-    TResult Function(Word word)? waitingForAnswer,
-    TResult Function(Word skippingWord)? skippingWord,
+    TResult Function(WordEntity word)? waitingForAnswer,
+    TResult Function(WordEntity skippingWord)? skippingWord,
     TResult Function()? gamePaused,
-    TResult Function(Word word)? lastWord,
+    TResult Function(WordEntity word)? lastWord,
     TResult Function(
             PlayingCommand command, List<GameAnswer> answers, int commandScore)?
         commandMoveIsOver,
@@ -4097,10 +4097,10 @@ class _$WaitingForAnswerImpl implements _WaitingForAnswer {
 }
 
 abstract class _WaitingForAnswer implements GameState {
-  const factory _WaitingForAnswer({required final Word word}) =
+  const factory _WaitingForAnswer({required final WordEntity word}) =
       _$WaitingForAnswerImpl;
 
-  Word get word;
+  WordEntity get word;
   @JsonKey(ignore: true)
   _$$WaitingForAnswerImplCopyWith<_$WaitingForAnswerImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -4112,9 +4112,9 @@ abstract class _$$SkippingWordImplCopyWith<$Res> {
           _$SkippingWordImpl value, $Res Function(_$SkippingWordImpl) then) =
       __$$SkippingWordImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({Word skippingWord});
+  $Res call({WordEntity skippingWord});
 
-  $WordCopyWith<$Res> get skippingWord;
+  $WordEntityCopyWith<$Res> get skippingWord;
 }
 
 /// @nodoc
@@ -4134,14 +4134,14 @@ class __$$SkippingWordImplCopyWithImpl<$Res>
       skippingWord: null == skippingWord
           ? _value.skippingWord
           : skippingWord // ignore: cast_nullable_to_non_nullable
-              as Word,
+              as WordEntity,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $WordCopyWith<$Res> get skippingWord {
-    return $WordCopyWith<$Res>(_value.skippingWord, (value) {
+  $WordEntityCopyWith<$Res> get skippingWord {
+    return $WordEntityCopyWith<$Res>(_value.skippingWord, (value) {
       return _then(_value.copyWith(skippingWord: value));
     });
   }
@@ -4153,7 +4153,7 @@ class _$SkippingWordImpl implements _SkippingWord {
   const _$SkippingWordImpl({required this.skippingWord});
 
   @override
-  final Word skippingWord;
+  final WordEntity skippingWord;
 
   @override
   String toString() {
@@ -4187,10 +4187,10 @@ class _$SkippingWordImpl implements _SkippingWord {
     required TResult Function(GameSettings settings,
             List<PlayingCommand> commands, PlayingCommand playingCommand)
         gameIsReady,
-    required TResult Function(Word word) waitingForAnswer,
-    required TResult Function(Word skippingWord) skippingWord,
+    required TResult Function(WordEntity word) waitingForAnswer,
+    required TResult Function(WordEntity skippingWord) skippingWord,
     required TResult Function() gamePaused,
-    required TResult Function(Word word) lastWord,
+    required TResult Function(WordEntity word) lastWord,
     required TResult Function(
             PlayingCommand command, List<GameAnswer> answers, int commandScore)
         commandMoveIsOver,
@@ -4208,10 +4208,10 @@ class _$SkippingWordImpl implements _SkippingWord {
     TResult? Function(GameSettings settings, List<PlayingCommand> commands,
             PlayingCommand playingCommand)?
         gameIsReady,
-    TResult? Function(Word word)? waitingForAnswer,
-    TResult? Function(Word skippingWord)? skippingWord,
+    TResult? Function(WordEntity word)? waitingForAnswer,
+    TResult? Function(WordEntity skippingWord)? skippingWord,
     TResult? Function()? gamePaused,
-    TResult? Function(Word word)? lastWord,
+    TResult? Function(WordEntity word)? lastWord,
     TResult? Function(
             PlayingCommand command, List<GameAnswer> answers, int commandScore)?
         commandMoveIsOver,
@@ -4229,10 +4229,10 @@ class _$SkippingWordImpl implements _SkippingWord {
     TResult Function(GameSettings settings, List<PlayingCommand> commands,
             PlayingCommand playingCommand)?
         gameIsReady,
-    TResult Function(Word word)? waitingForAnswer,
-    TResult Function(Word skippingWord)? skippingWord,
+    TResult Function(WordEntity word)? waitingForAnswer,
+    TResult Function(WordEntity skippingWord)? skippingWord,
     TResult Function()? gamePaused,
-    TResult Function(Word word)? lastWord,
+    TResult Function(WordEntity word)? lastWord,
     TResult Function(
             PlayingCommand command, List<GameAnswer> answers, int commandScore)?
         commandMoveIsOver,
@@ -4302,10 +4302,10 @@ class _$SkippingWordImpl implements _SkippingWord {
 }
 
 abstract class _SkippingWord implements GameState {
-  const factory _SkippingWord({required final Word skippingWord}) =
+  const factory _SkippingWord({required final WordEntity skippingWord}) =
       _$SkippingWordImpl;
 
-  Word get skippingWord;
+  WordEntity get skippingWord;
   @JsonKey(ignore: true)
   _$$SkippingWordImplCopyWith<_$SkippingWordImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -4355,10 +4355,10 @@ class _$GamePausedImpl implements _GamePaused {
     required TResult Function(GameSettings settings,
             List<PlayingCommand> commands, PlayingCommand playingCommand)
         gameIsReady,
-    required TResult Function(Word word) waitingForAnswer,
-    required TResult Function(Word skippingWord) skippingWord,
+    required TResult Function(WordEntity word) waitingForAnswer,
+    required TResult Function(WordEntity skippingWord) skippingWord,
     required TResult Function() gamePaused,
-    required TResult Function(Word word) lastWord,
+    required TResult Function(WordEntity word) lastWord,
     required TResult Function(
             PlayingCommand command, List<GameAnswer> answers, int commandScore)
         commandMoveIsOver,
@@ -4376,10 +4376,10 @@ class _$GamePausedImpl implements _GamePaused {
     TResult? Function(GameSettings settings, List<PlayingCommand> commands,
             PlayingCommand playingCommand)?
         gameIsReady,
-    TResult? Function(Word word)? waitingForAnswer,
-    TResult? Function(Word skippingWord)? skippingWord,
+    TResult? Function(WordEntity word)? waitingForAnswer,
+    TResult? Function(WordEntity skippingWord)? skippingWord,
     TResult? Function()? gamePaused,
-    TResult? Function(Word word)? lastWord,
+    TResult? Function(WordEntity word)? lastWord,
     TResult? Function(
             PlayingCommand command, List<GameAnswer> answers, int commandScore)?
         commandMoveIsOver,
@@ -4397,10 +4397,10 @@ class _$GamePausedImpl implements _GamePaused {
     TResult Function(GameSettings settings, List<PlayingCommand> commands,
             PlayingCommand playingCommand)?
         gameIsReady,
-    TResult Function(Word word)? waitingForAnswer,
-    TResult Function(Word skippingWord)? skippingWord,
+    TResult Function(WordEntity word)? waitingForAnswer,
+    TResult Function(WordEntity skippingWord)? skippingWord,
     TResult Function()? gamePaused,
-    TResult Function(Word word)? lastWord,
+    TResult Function(WordEntity word)? lastWord,
     TResult Function(
             PlayingCommand command, List<GameAnswer> answers, int commandScore)?
         commandMoveIsOver,
@@ -4479,9 +4479,9 @@ abstract class _$$LastWordImplCopyWith<$Res> {
           _$LastWordImpl value, $Res Function(_$LastWordImpl) then) =
       __$$LastWordImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({Word word});
+  $Res call({WordEntity word});
 
-  $WordCopyWith<$Res> get word;
+  $WordEntityCopyWith<$Res> get word;
 }
 
 /// @nodoc
@@ -4501,14 +4501,14 @@ class __$$LastWordImplCopyWithImpl<$Res>
       word: null == word
           ? _value.word
           : word // ignore: cast_nullable_to_non_nullable
-              as Word,
+              as WordEntity,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $WordCopyWith<$Res> get word {
-    return $WordCopyWith<$Res>(_value.word, (value) {
+  $WordEntityCopyWith<$Res> get word {
+    return $WordEntityCopyWith<$Res>(_value.word, (value) {
       return _then(_value.copyWith(word: value));
     });
   }
@@ -4520,7 +4520,7 @@ class _$LastWordImpl implements _LastWord {
   const _$LastWordImpl({required this.word});
 
   @override
-  final Word word;
+  final WordEntity word;
 
   @override
   String toString() {
@@ -4553,10 +4553,10 @@ class _$LastWordImpl implements _LastWord {
     required TResult Function(GameSettings settings,
             List<PlayingCommand> commands, PlayingCommand playingCommand)
         gameIsReady,
-    required TResult Function(Word word) waitingForAnswer,
-    required TResult Function(Word skippingWord) skippingWord,
+    required TResult Function(WordEntity word) waitingForAnswer,
+    required TResult Function(WordEntity skippingWord) skippingWord,
     required TResult Function() gamePaused,
-    required TResult Function(Word word) lastWord,
+    required TResult Function(WordEntity word) lastWord,
     required TResult Function(
             PlayingCommand command, List<GameAnswer> answers, int commandScore)
         commandMoveIsOver,
@@ -4574,10 +4574,10 @@ class _$LastWordImpl implements _LastWord {
     TResult? Function(GameSettings settings, List<PlayingCommand> commands,
             PlayingCommand playingCommand)?
         gameIsReady,
-    TResult? Function(Word word)? waitingForAnswer,
-    TResult? Function(Word skippingWord)? skippingWord,
+    TResult? Function(WordEntity word)? waitingForAnswer,
+    TResult? Function(WordEntity skippingWord)? skippingWord,
     TResult? Function()? gamePaused,
-    TResult? Function(Word word)? lastWord,
+    TResult? Function(WordEntity word)? lastWord,
     TResult? Function(
             PlayingCommand command, List<GameAnswer> answers, int commandScore)?
         commandMoveIsOver,
@@ -4595,10 +4595,10 @@ class _$LastWordImpl implements _LastWord {
     TResult Function(GameSettings settings, List<PlayingCommand> commands,
             PlayingCommand playingCommand)?
         gameIsReady,
-    TResult Function(Word word)? waitingForAnswer,
-    TResult Function(Word skippingWord)? skippingWord,
+    TResult Function(WordEntity word)? waitingForAnswer,
+    TResult Function(WordEntity skippingWord)? skippingWord,
     TResult Function()? gamePaused,
-    TResult Function(Word word)? lastWord,
+    TResult Function(WordEntity word)? lastWord,
     TResult Function(
             PlayingCommand command, List<GameAnswer> answers, int commandScore)?
         commandMoveIsOver,
@@ -4668,9 +4668,9 @@ class _$LastWordImpl implements _LastWord {
 }
 
 abstract class _LastWord implements GameState {
-  const factory _LastWord({required final Word word}) = _$LastWordImpl;
+  const factory _LastWord({required final WordEntity word}) = _$LastWordImpl;
 
-  Word get word;
+  WordEntity get word;
   @JsonKey(ignore: true)
   _$$LastWordImplCopyWith<_$LastWordImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -4786,10 +4786,10 @@ class _$CommandMoveIsOverImpl implements _CommandMoveIsOver {
     required TResult Function(GameSettings settings,
             List<PlayingCommand> commands, PlayingCommand playingCommand)
         gameIsReady,
-    required TResult Function(Word word) waitingForAnswer,
-    required TResult Function(Word skippingWord) skippingWord,
+    required TResult Function(WordEntity word) waitingForAnswer,
+    required TResult Function(WordEntity skippingWord) skippingWord,
     required TResult Function() gamePaused,
-    required TResult Function(Word word) lastWord,
+    required TResult Function(WordEntity word) lastWord,
     required TResult Function(
             PlayingCommand command, List<GameAnswer> answers, int commandScore)
         commandMoveIsOver,
@@ -4807,10 +4807,10 @@ class _$CommandMoveIsOverImpl implements _CommandMoveIsOver {
     TResult? Function(GameSettings settings, List<PlayingCommand> commands,
             PlayingCommand playingCommand)?
         gameIsReady,
-    TResult? Function(Word word)? waitingForAnswer,
-    TResult? Function(Word skippingWord)? skippingWord,
+    TResult? Function(WordEntity word)? waitingForAnswer,
+    TResult? Function(WordEntity skippingWord)? skippingWord,
     TResult? Function()? gamePaused,
-    TResult? Function(Word word)? lastWord,
+    TResult? Function(WordEntity word)? lastWord,
     TResult? Function(
             PlayingCommand command, List<GameAnswer> answers, int commandScore)?
         commandMoveIsOver,
@@ -4828,10 +4828,10 @@ class _$CommandMoveIsOverImpl implements _CommandMoveIsOver {
     TResult Function(GameSettings settings, List<PlayingCommand> commands,
             PlayingCommand playingCommand)?
         gameIsReady,
-    TResult Function(Word word)? waitingForAnswer,
-    TResult Function(Word skippingWord)? skippingWord,
+    TResult Function(WordEntity word)? waitingForAnswer,
+    TResult Function(WordEntity skippingWord)? skippingWord,
     TResult Function()? gamePaused,
-    TResult Function(Word word)? lastWord,
+    TResult Function(WordEntity word)? lastWord,
     TResult Function(
             PlayingCommand command, List<GameAnswer> answers, int commandScore)?
         commandMoveIsOver,
@@ -4991,10 +4991,10 @@ class _$GameOverImpl implements _GameOver {
     required TResult Function(GameSettings settings,
             List<PlayingCommand> commands, PlayingCommand playingCommand)
         gameIsReady,
-    required TResult Function(Word word) waitingForAnswer,
-    required TResult Function(Word skippingWord) skippingWord,
+    required TResult Function(WordEntity word) waitingForAnswer,
+    required TResult Function(WordEntity skippingWord) skippingWord,
     required TResult Function() gamePaused,
-    required TResult Function(Word word) lastWord,
+    required TResult Function(WordEntity word) lastWord,
     required TResult Function(
             PlayingCommand command, List<GameAnswer> answers, int commandScore)
         commandMoveIsOver,
@@ -5012,10 +5012,10 @@ class _$GameOverImpl implements _GameOver {
     TResult? Function(GameSettings settings, List<PlayingCommand> commands,
             PlayingCommand playingCommand)?
         gameIsReady,
-    TResult? Function(Word word)? waitingForAnswer,
-    TResult? Function(Word skippingWord)? skippingWord,
+    TResult? Function(WordEntity word)? waitingForAnswer,
+    TResult? Function(WordEntity skippingWord)? skippingWord,
     TResult? Function()? gamePaused,
-    TResult? Function(Word word)? lastWord,
+    TResult? Function(WordEntity word)? lastWord,
     TResult? Function(
             PlayingCommand command, List<GameAnswer> answers, int commandScore)?
         commandMoveIsOver,
@@ -5033,10 +5033,10 @@ class _$GameOverImpl implements _GameOver {
     TResult Function(GameSettings settings, List<PlayingCommand> commands,
             PlayingCommand playingCommand)?
         gameIsReady,
-    TResult Function(Word word)? waitingForAnswer,
-    TResult Function(Word skippingWord)? skippingWord,
+    TResult Function(WordEntity word)? waitingForAnswer,
+    TResult Function(WordEntity skippingWord)? skippingWord,
     TResult Function()? gamePaused,
-    TResult Function(Word word)? lastWord,
+    TResult Function(WordEntity word)? lastWord,
     TResult Function(
             PlayingCommand command, List<GameAnswer> answers, int commandScore)?
         commandMoveIsOver,

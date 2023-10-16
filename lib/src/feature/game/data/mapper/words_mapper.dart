@@ -4,10 +4,10 @@ import 'package:alias/src/feature/game/domain/entity/word.dart';
 import 'package:injectable/injectable.dart';
 
 @injectable
-class WordsMapper implements Mapper<Word, WordDto> {
+class WordsMapper implements Mapper<WordEntity, WordDto> {
   @override
-  Word mapToEntity(WordDto type) {
-    return Word(
+  WordEntity mapToEntity(WordDto type) {
+    return WordEntity(
       wordId: type.wordId,
       name: type.name,
       categoryId: type.categoryId,
@@ -15,7 +15,7 @@ class WordsMapper implements Mapper<Word, WordDto> {
   }
 
   @override
-  WordDto mapToDto(Word type) {
+  WordDto mapToDto(WordEntity type) {
     return WordDto(
       wordId: type.wordId,
       name: type.name,

@@ -13,12 +13,12 @@ class LoadWords {
 
   LoadWords({required this.repository});
 
-  Future<Either<Failure, List<Word>>> execute({
-    required Category category,
+  Future<Either<Failure, List<WordEntity>>> execute({
+    required CategoryEntity category,
     required int commandsCount,
     required BinarySelectorMode penaltyMode,
     required CommandMoveMode moveTime,
-    Iterable<Word>? playedWords,
+    Iterable<WordEntity>? playedWords,
   }) async {
     var wordsCount = penaltyMode.isEnabled
         ? commandsCount * 80 + (commandsCount * 20)

@@ -5,7 +5,7 @@ import 'package:alias/src/feature/categories/domain/entity/category.dart';
 import 'package:injectable/injectable.dart';
 
 abstract interface class ICategoryRepository {
-  Future<List<Category>> loadCategories();
+  Future<List<CategoryEntity>> loadCategories();
 }
 
 @Injectable(as: ICategoryRepository)
@@ -23,10 +23,10 @@ class CategoryRepositoryImpl implements ICategoryRepository {
         _localDataSource = localDataSource;
 
   @override
-  Future<List<Category>> loadCategories() async {
+  Future<List<CategoryEntity>> loadCategories() async {
     final categoriesDto = await _localDataSource.loadAllCategories();
 
-    final categories = <Category>[];
+    final categories = <CategoryEntity>[];
 
     for (final categoryDto in categoriesDto) {
       final categoryWordsCount =

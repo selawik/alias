@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class GameWordCard extends StatelessWidget {
-  final Word word;
+  final WordEntity word;
 
   const GameWordCard({
     required this.word,

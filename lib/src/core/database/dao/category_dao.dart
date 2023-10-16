@@ -18,7 +18,7 @@ class CategoryDao extends DatabaseAccessor<Database> with _$CategoryDaoMixin {
       return null;
     }
 
-    return categories.last.categoryId;
+    return categories.lastOrNull?.categoryId;
   }
 
   Future<void> saveCategories(List<CategoryTableCompanion> categories) async {

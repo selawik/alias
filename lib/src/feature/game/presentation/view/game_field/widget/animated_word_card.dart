@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AnimatedWordCard extends StatefulWidget {
-  final Word word;
+  final WordEntity word;
 
   const AnimatedWordCard({
     required this.word,

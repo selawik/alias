@@ -19,12 +19,12 @@ part 'game_state.dart';
 class GameBloc extends Bloc<GameEvent, GameState> {
   final WordsUseCasesFacade _wordsUseCasesFacade;
 
-  late Category _category;
+  late CategoryEntity _category;
   late GameSettings _settings;
 
-  List<Word> _words = [];
+  List<WordEntity> _words = [];
 
-  final List<Word> _countWords = [];
+  final List<WordEntity> _countWords = [];
 
   List<GameAnswer> _answers = [];
 
@@ -111,7 +111,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     ));
   }
 
-  Future<Iterable<Word>?> _loadPlayedWords() async {
+  Future<Iterable<WordEntity>?> _loadPlayedWords() async {
     final result =
         await _wordsUseCasesFacade.loadPlayedWords(category: _category);
 

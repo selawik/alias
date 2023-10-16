@@ -18,7 +18,7 @@ class CommandDao extends DatabaseAccessor<Database> with _$CommandDaoMixin {
       return null;
     }
 
-    return commands.last.commandId;
+    return commands.lastOrNull?.commandId;
   }
 
   Future<void> saveCommands(Iterable<CommandTableCompanion> categories) async {

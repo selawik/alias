@@ -15,27 +15,29 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$Word {
+mixin _$WordEntity {
   int get wordId => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   int get categoryId => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $WordCopyWith<Word> get copyWith => throw _privateConstructorUsedError;
+  $WordEntityCopyWith<WordEntity> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $WordCopyWith<$Res> {
-  factory $WordCopyWith(Word value, $Res Function(Word) then) =
-      _$WordCopyWithImpl<$Res, Word>;
+abstract class $WordEntityCopyWith<$Res> {
+  factory $WordEntityCopyWith(
+          WordEntity value, $Res Function(WordEntity) then) =
+      _$WordEntityCopyWithImpl<$Res, WordEntity>;
   @useResult
   $Res call({int wordId, String name, int categoryId});
 }
 
 /// @nodoc
-class _$WordCopyWithImpl<$Res, $Val extends Word>
-    implements $WordCopyWith<$Res> {
-  _$WordCopyWithImpl(this._value, this._then);
+class _$WordEntityCopyWithImpl<$Res, $Val extends WordEntity>
+    implements $WordEntityCopyWith<$Res> {
+  _$WordEntityCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -67,20 +69,22 @@ class _$WordCopyWithImpl<$Res, $Val extends Word>
 }
 
 /// @nodoc
-abstract class _$$WordImplCopyWith<$Res> implements $WordCopyWith<$Res> {
-  factory _$$WordImplCopyWith(
-          _$WordImpl value, $Res Function(_$WordImpl) then) =
-      __$$WordImplCopyWithImpl<$Res>;
+abstract class _$$WordEntityImplCopyWith<$Res>
+    implements $WordEntityCopyWith<$Res> {
+  factory _$$WordEntityImplCopyWith(
+          _$WordEntityImpl value, $Res Function(_$WordEntityImpl) then) =
+      __$$WordEntityImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int wordId, String name, int categoryId});
 }
 
 /// @nodoc
-class __$$WordImplCopyWithImpl<$Res>
-    extends _$WordCopyWithImpl<$Res, _$WordImpl>
-    implements _$$WordImplCopyWith<$Res> {
-  __$$WordImplCopyWithImpl(_$WordImpl _value, $Res Function(_$WordImpl) _then)
+class __$$WordEntityImplCopyWithImpl<$Res>
+    extends _$WordEntityCopyWithImpl<$Res, _$WordEntityImpl>
+    implements _$$WordEntityImplCopyWith<$Res> {
+  __$$WordEntityImplCopyWithImpl(
+      _$WordEntityImpl _value, $Res Function(_$WordEntityImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -90,7 +94,7 @@ class __$$WordImplCopyWithImpl<$Res>
     Object? name = null,
     Object? categoryId = null,
   }) {
-    return _then(_$WordImpl(
+    return _then(_$WordEntityImpl(
       wordId: null == wordId
           ? _value.wordId
           : wordId // ignore: cast_nullable_to_non_nullable
@@ -109,8 +113,8 @@ class __$$WordImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$WordImpl implements _Word {
-  const _$WordImpl(
+class _$WordEntityImpl implements _WordEntity {
+  const _$WordEntityImpl(
       {required this.wordId, required this.name, required this.categoryId});
 
   @override
@@ -122,14 +126,14 @@ class _$WordImpl implements _Word {
 
   @override
   String toString() {
-    return 'Word(wordId: $wordId, name: $name, categoryId: $categoryId)';
+    return 'WordEntity(wordId: $wordId, name: $name, categoryId: $categoryId)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$WordImpl &&
+            other is _$WordEntityImpl &&
             (identical(other.wordId, wordId) || other.wordId == wordId) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.categoryId, categoryId) ||
@@ -142,15 +146,15 @@ class _$WordImpl implements _Word {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$WordImplCopyWith<_$WordImpl> get copyWith =>
-      __$$WordImplCopyWithImpl<_$WordImpl>(this, _$identity);
+  _$$WordEntityImplCopyWith<_$WordEntityImpl> get copyWith =>
+      __$$WordEntityImplCopyWithImpl<_$WordEntityImpl>(this, _$identity);
 }
 
-abstract class _Word implements Word {
-  const factory _Word(
+abstract class _WordEntity implements WordEntity {
+  const factory _WordEntity(
       {required final int wordId,
       required final String name,
-      required final int categoryId}) = _$WordImpl;
+      required final int categoryId}) = _$WordEntityImpl;
 
   @override
   int get wordId;
@@ -160,6 +164,6 @@ abstract class _Word implements Word {
   int get categoryId;
   @override
   @JsonKey(ignore: true)
-  _$$WordImplCopyWith<_$WordImpl> get copyWith =>
+  _$$WordEntityImplCopyWith<_$WordEntityImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

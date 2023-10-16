@@ -6,9 +6,10 @@ import 'package:alias/src/feature/game/domain/entity/word.dart';
 import 'package:injectable/injectable.dart';
 
 abstract interface class WordsLocalDataSource {
-  Future<void> savePlayedWords({required List<Word> words});
+  Future<void> savePlayedWords({required List<WordEntity> words});
 
-  Future<Iterable<Word>> loadPlayedWords({required Category category});
+  Future<Iterable<WordEntity>> loadPlayedWords(
+      {required CategoryEntity category});
 
   Future<void> resetGameHistory();
 
@@ -33,7 +34,7 @@ class DriftLocalDataSource implements WordsLocalDataSource {
       : _dbProvider = dbProvider;
 
   @override
-  Future<void> savePlayedWords({required List<Word> words}) async {
+  Future<void> savePlayedWords({required List<WordEntity> words}) async {
     await _dbProvider.insertPlayedWords(playedWords: words);
   }
 
@@ -83,7 +84,8 @@ class DriftLocalDataSource implements WordsLocalDataSource {
   }
 
   @override
-  Future<List<Word>> loadPlayedWords({required Category category}) async {
+  Future<List<WordEntity>> loadPlayedWords(
+      {required CategoryEntity category}) async {
     return _dbProvider.loadPlayedWords(category: category);
   }
 }

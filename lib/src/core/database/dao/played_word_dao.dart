@@ -13,7 +13,7 @@ class PlayedWordDao extends DatabaseAccessor<Database>
   PlayedWordDao(Database db) : super(db);
 
   Future<List<PlayedWordsDbEntity>> getPlayedWordsOfCategory(
-      Category category) async {
+      CategoryEntity category) async {
     return (select(playedWord)
           ..where((tbl) => tbl.categoryId.equals(category.categoryId)))
         .get();

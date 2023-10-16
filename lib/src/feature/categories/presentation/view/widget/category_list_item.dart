@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CategoryListItem extends StatelessWidget {
-  final Category category;
+  final CategoryEntity category;
 
   const CategoryListItem({
     required this.category,
@@ -75,7 +75,7 @@ class CategoryListItem extends StatelessWidget {
     );
   }
 
-  void _onListItemTap(BuildContext context, Category category) {
+  void _onListItemTap(BuildContext context, CategoryEntity category) {
     final router = di.locator.get<AppRouter>();
 
     BlocProvider.of<GameBloc>(context).add(

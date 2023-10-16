@@ -4,24 +4,24 @@ import 'package:alias/src/feature/categories/domain/entity/category.dart';
 import 'package:injectable/injectable.dart';
 
 @injectable
-class CategoryMapper implements Mapper<Category, CategoryDto> {
+class CategoryMapper implements Mapper<CategoryEntity, CategoryDto> {
   @override
-  Category mapToEntity(CategoryDto type) {
-    return Category(
-      name: type.name,
-      categoryId: type.categoryId,
-      fileUrl: type.fileUrl ?? '',
-      wordsCount: type.wordsCount,
+  CategoryEntity mapToEntity(CategoryDto dto) {
+    return CategoryEntity(
+      name: dto.name,
+      categoryId: dto.categoryId,
+      fileUrl: dto.fileUrl ?? '',
+      wordsCount: dto.wordsCount,
     );
   }
 
   @override
-  CategoryDto mapToDto(Category type) {
+  CategoryDto mapToDto(CategoryEntity entity) {
     return CategoryDto(
-      name: type.name,
-      categoryId: type.categoryId,
-      fileName: type.fileUrl,
-      wordsCount: type.wordsCount,
+      name: entity.name,
+      categoryId: entity.categoryId,
+      fileName: entity.fileUrl,
+      wordsCount: entity.wordsCount,
     );
   }
 }

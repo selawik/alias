@@ -3,7 +3,7 @@ import 'package:alias/src/feature/categories/presentation/view/widget/category_l
 import 'package:flutter/material.dart';
 
 class CategoryList extends StatelessWidget {
-  final List<Category> categories;
+  final List<CategoryEntity> categories;
 
   const CategoryList({
     required this.categories,

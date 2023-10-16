@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$GameAnswer {
-  Word get word => throw _privateConstructorUsedError;
+  WordEntity get word => throw _privateConstructorUsedError;
   GameAnswerType get type => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -30,9 +30,9 @@ abstract class $GameAnswerCopyWith<$Res> {
           GameAnswer value, $Res Function(GameAnswer) then) =
       _$GameAnswerCopyWithImpl<$Res, GameAnswer>;
   @useResult
-  $Res call({Word word, GameAnswerType type});
+  $Res call({WordEntity word, GameAnswerType type});
 
-  $WordCopyWith<$Res> get word;
+  $WordEntityCopyWith<$Res> get word;
 }
 
 /// @nodoc
@@ -55,7 +55,7 @@ class _$GameAnswerCopyWithImpl<$Res, $Val extends GameAnswer>
       word: null == word
           ? _value.word
           : word // ignore: cast_nullable_to_non_nullable
-              as Word,
+              as WordEntity,
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -65,8 +65,8 @@ class _$GameAnswerCopyWithImpl<$Res, $Val extends GameAnswer>
 
   @override
   @pragma('vm:prefer-inline')
-  $WordCopyWith<$Res> get word {
-    return $WordCopyWith<$Res>(_value.word, (value) {
+  $WordEntityCopyWith<$Res> get word {
+    return $WordEntityCopyWith<$Res>(_value.word, (value) {
       return _then(_value.copyWith(word: value) as $Val);
     });
   }
@@ -80,10 +80,10 @@ abstract class _$$GameAnswerImplCopyWith<$Res>
       __$$GameAnswerImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Word word, GameAnswerType type});
+  $Res call({WordEntity word, GameAnswerType type});
 
   @override
-  $WordCopyWith<$Res> get word;
+  $WordEntityCopyWith<$Res> get word;
 }
 
 /// @nodoc
@@ -104,7 +104,7 @@ class __$$GameAnswerImplCopyWithImpl<$Res>
       word: null == word
           ? _value.word
           : word // ignore: cast_nullable_to_non_nullable
-              as Word,
+              as WordEntity,
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -119,7 +119,7 @@ class _$GameAnswerImpl implements _GameAnswer {
   const _$GameAnswerImpl({required this.word, required this.type});
 
   @override
-  final Word word;
+  final WordEntity word;
   @override
   final GameAnswerType type;
 
@@ -149,11 +149,11 @@ class _$GameAnswerImpl implements _GameAnswer {
 
 abstract class _GameAnswer implements GameAnswer {
   const factory _GameAnswer(
-      {required final Word word,
+      {required final WordEntity word,
       required final GameAnswerType type}) = _$GameAnswerImpl;
 
   @override
-  Word get word;
+  WordEntity get word;
   @override
   GameAnswerType get type;
   @override

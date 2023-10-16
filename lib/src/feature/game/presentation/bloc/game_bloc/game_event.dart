@@ -4,8 +4,8 @@ part of 'game_bloc.dart';
 class GameEvent with _$GameEvent {
   const factory GameEvent.init() = _Init;
 
-  const factory GameEvent.initializeCategory({required Category category}) =
-      _InitializeCategory;
+  const factory GameEvent.initializeCategory(
+      {required CategoryEntity category}) = _InitializeCategory;
 
   const factory GameEvent.initializeCommands({
     required List<CommandEntity> commands,

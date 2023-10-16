@@ -14,15 +14,15 @@ class GameState with _$GameState {
     required PlayingCommand playingCommand,
   }) = _GameIsReady;
 
-  const factory GameState.waitingForAnswer({required Word word}) =
+  const factory GameState.waitingForAnswer({required WordEntity word}) =
       _WaitingForAnswer;
 
-  const factory GameState.skippingWord({required Word skippingWord}) =
+  const factory GameState.skippingWord({required WordEntity skippingWord}) =
       _SkippingWord;
 
   const factory GameState.gamePaused() = _GamePaused;
 
-  const factory GameState.lastWord({required Word word}) = _LastWord;
+  const factory GameState.lastWord({required WordEntity word}) = _LastWord;
 
   const factory GameState.commandMoveIsOver({
     required PlayingCommand command,

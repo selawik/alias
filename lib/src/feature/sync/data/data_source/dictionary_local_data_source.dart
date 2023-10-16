@@ -1,15 +1,16 @@
 import 'package:alias/src/core/database/db_provider.dart';
-import 'package:alias/src/feature/categories/data/dto/category_dto.dart';
-import 'package:alias/src/feature/commands/data/dto/command_dto.dart';
-import 'package:alias/src/feature/game/data/dto/word_dto.dart';
+import 'package:alias/src/feature/categories/domain/entity/category.dart';
+import 'package:alias/src/feature/commands/domain/entity/command_entity.dart';
+import 'package:alias/src/feature/game/domain/entity/word.dart';
+import 'package:alias/src/feature/sync/data/data_source/mapper/dictionary_mapper_facade.dart';
 import 'package:injectable/injectable.dart';
 
 abstract interface class DictionaryLocalDataSource {
-  Future<void> saveWords({required List<WordDto> words});
+  Future<void> saveWords({required List<WordEntity> words});
 
-  Future<void> saveCommands({required Iterable<CommandDto> commands});
+  Future<void> saveCommands({required List<CommandEntity> commands});
 
-  Future<void> saveCategories({required Iterable<CategoryDto> categories});
+  Future<void> saveCategories({required List<CategoryEntity> categories});
 
   Future<int?> loadLastCategoryId();
 
@@ -21,23 +22,28 @@ abstract interface class DictionaryLocalDataSource {
 @Injectable(as: DictionaryLocalDataSource)
 class DriftDictionaryDataSource implements DictionaryLocalDataSource {
   final DbProvider _dbProvider;
+  final DictionaryMapperFacade _mapperFacade;
 
-  DriftDictionaryDataSource(DbProvider dbProvider) : _dbProvider = dbProvider;
+  DriftDictionaryDataSource(
+    DbProvider dbProvider,
+    DictionaryMapperFacade mapperFacade,
+  )   : _dbProvider = dbProvider,
+        _mapperFacade = mapperFacade;
 
   @override
-  Future<void> saveWords({required List<WordDto> words}) async {
+  Future<void> saveWords({required List<WordEntity> words}) async {
     return _dbProvider.saveWords(words: words);
   }
 
   @override
   Future<void> saveCategories({
-    required Iterable<CategoryDto> categories,
+    required List<CategoryEntity> categories,
   }) async {
     return _dbProvider.saveCategories(categories);
   }
 
   @override
-  Future<void> saveCommands({required Iterable<CommandDto> commands}) async {
+  Future<void> saveCommands({required List<CommandEntity> commands}) async {
     return _dbProvider.saveCommands(commands);
   }
 

@@ -170,18 +170,21 @@ mixin _$DictionaryState {
   TResult when<TResult extends Object?>({
     required TResult Function() isLoading,
     required TResult Function() sync,
+    required TResult Function(String reason) syncError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? isLoading,
     TResult? Function()? sync,
+    TResult? Function(String reason)? syncError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? isLoading,
     TResult Function()? sync,
+    TResult Function(String reason)? syncError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -189,18 +192,21 @@ mixin _$DictionaryState {
   TResult map<TResult extends Object?>({
     required TResult Function(_IsLoading value) isLoading,
     required TResult Function(_Sync value) sync,
+    required TResult Function(_SyncError value) syncError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_IsLoading value)? isLoading,
     TResult? Function(_Sync value)? sync,
+    TResult? Function(_SyncError value)? syncError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_IsLoading value)? isLoading,
     TResult Function(_Sync value)? sync,
+    TResult Function(_SyncError value)? syncError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -264,6 +270,7 @@ class _$IsLoadingImpl implements _IsLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() isLoading,
     required TResult Function() sync,
+    required TResult Function(String reason) syncError,
   }) {
     return isLoading();
   }
@@ -273,6 +280,7 @@ class _$IsLoadingImpl implements _IsLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? isLoading,
     TResult? Function()? sync,
+    TResult? Function(String reason)? syncError,
   }) {
     return isLoading?.call();
   }
@@ -282,6 +290,7 @@ class _$IsLoadingImpl implements _IsLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? isLoading,
     TResult Function()? sync,
+    TResult Function(String reason)? syncError,
     required TResult orElse(),
   }) {
     if (isLoading != null) {
@@ -295,6 +304,7 @@ class _$IsLoadingImpl implements _IsLoading {
   TResult map<TResult extends Object?>({
     required TResult Function(_IsLoading value) isLoading,
     required TResult Function(_Sync value) sync,
+    required TResult Function(_SyncError value) syncError,
   }) {
     return isLoading(this);
   }
@@ -304,6 +314,7 @@ class _$IsLoadingImpl implements _IsLoading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_IsLoading value)? isLoading,
     TResult? Function(_Sync value)? sync,
+    TResult? Function(_SyncError value)? syncError,
   }) {
     return isLoading?.call(this);
   }
@@ -313,6 +324,7 @@ class _$IsLoadingImpl implements _IsLoading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_IsLoading value)? isLoading,
     TResult Function(_Sync value)? sync,
+    TResult Function(_SyncError value)? syncError,
     required TResult orElse(),
   }) {
     if (isLoading != null) {
@@ -365,6 +377,7 @@ class _$SyncImpl implements _Sync {
   TResult when<TResult extends Object?>({
     required TResult Function() isLoading,
     required TResult Function() sync,
+    required TResult Function(String reason) syncError,
   }) {
     return sync();
   }
@@ -374,6 +387,7 @@ class _$SyncImpl implements _Sync {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? isLoading,
     TResult? Function()? sync,
+    TResult? Function(String reason)? syncError,
   }) {
     return sync?.call();
   }
@@ -383,6 +397,7 @@ class _$SyncImpl implements _Sync {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? isLoading,
     TResult Function()? sync,
+    TResult Function(String reason)? syncError,
     required TResult orElse(),
   }) {
     if (sync != null) {
@@ -396,6 +411,7 @@ class _$SyncImpl implements _Sync {
   TResult map<TResult extends Object?>({
     required TResult Function(_IsLoading value) isLoading,
     required TResult Function(_Sync value) sync,
+    required TResult Function(_SyncError value) syncError,
   }) {
     return sync(this);
   }
@@ -405,6 +421,7 @@ class _$SyncImpl implements _Sync {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_IsLoading value)? isLoading,
     TResult? Function(_Sync value)? sync,
+    TResult? Function(_SyncError value)? syncError,
   }) {
     return sync?.call(this);
   }
@@ -414,6 +431,7 @@ class _$SyncImpl implements _Sync {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_IsLoading value)? isLoading,
     TResult Function(_Sync value)? sync,
+    TResult Function(_SyncError value)? syncError,
     required TResult orElse(),
   }) {
     if (sync != null) {
@@ -425,4 +443,143 @@ class _$SyncImpl implements _Sync {
 
 abstract class _Sync implements DictionaryState {
   const factory _Sync() = _$SyncImpl;
+}
+
+/// @nodoc
+abstract class _$$SyncErrorImplCopyWith<$Res> {
+  factory _$$SyncErrorImplCopyWith(
+          _$SyncErrorImpl value, $Res Function(_$SyncErrorImpl) then) =
+      __$$SyncErrorImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String reason});
+}
+
+/// @nodoc
+class __$$SyncErrorImplCopyWithImpl<$Res>
+    extends _$DictionaryStateCopyWithImpl<$Res, _$SyncErrorImpl>
+    implements _$$SyncErrorImplCopyWith<$Res> {
+  __$$SyncErrorImplCopyWithImpl(
+      _$SyncErrorImpl _value, $Res Function(_$SyncErrorImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? reason = null,
+  }) {
+    return _then(_$SyncErrorImpl(
+      reason: null == reason
+          ? _value.reason
+          : reason // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SyncErrorImpl implements _SyncError {
+  const _$SyncErrorImpl({required this.reason});
+
+  @override
+  final String reason;
+
+  @override
+  String toString() {
+    return 'DictionaryState.syncError(reason: $reason)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SyncErrorImpl &&
+            (identical(other.reason, reason) || other.reason == reason));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, reason);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SyncErrorImplCopyWith<_$SyncErrorImpl> get copyWith =>
+      __$$SyncErrorImplCopyWithImpl<_$SyncErrorImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() isLoading,
+    required TResult Function() sync,
+    required TResult Function(String reason) syncError,
+  }) {
+    return syncError(reason);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? isLoading,
+    TResult? Function()? sync,
+    TResult? Function(String reason)? syncError,
+  }) {
+    return syncError?.call(reason);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? isLoading,
+    TResult Function()? sync,
+    TResult Function(String reason)? syncError,
+    required TResult orElse(),
+  }) {
+    if (syncError != null) {
+      return syncError(reason);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_IsLoading value) isLoading,
+    required TResult Function(_Sync value) sync,
+    required TResult Function(_SyncError value) syncError,
+  }) {
+    return syncError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_IsLoading value)? isLoading,
+    TResult? Function(_Sync value)? sync,
+    TResult? Function(_SyncError value)? syncError,
+  }) {
+    return syncError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_IsLoading value)? isLoading,
+    TResult Function(_Sync value)? sync,
+    TResult Function(_SyncError value)? syncError,
+    required TResult orElse(),
+  }) {
+    if (syncError != null) {
+      return syncError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SyncError implements DictionaryState {
+  const factory _SyncError({required final String reason}) = _$SyncErrorImpl;
+
+  String get reason;
+  @JsonKey(ignore: true)
+  _$$SyncErrorImplCopyWith<_$SyncErrorImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

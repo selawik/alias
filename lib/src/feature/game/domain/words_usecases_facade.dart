@@ -42,12 +42,12 @@ class WordsUseCasesFacade {
         _saveStartedGame = saveStartedGame,
         _resetUnfinishedGame = resetUnfinishedGame;
 
-  Future<Either<Failure, List<Word>>> loadWords({
-    required Category category,
+  Future<Either<Failure, List<WordEntity>>> loadWords({
+    required CategoryEntity category,
     required int commandsCount,
     required BinarySelectorMode penaltyMode,
     required CommandMoveMode moveTime,
-    Iterable<Word>? playedWords,
+    Iterable<WordEntity>? playedWords,
   }) async {
     return _loadWords.execute(
       category: category,
@@ -59,15 +59,15 @@ class WordsUseCasesFacade {
   }
 
   Future<Future<Either<dynamic, void>>> savePlayedWords({
-    required List<Word> words,
+    required List<WordEntity> words,
   }) async {
     return _savePlayedWords.execute(
       words: words,
     );
   }
 
-  Future<Either<Failure, Iterable<Word>>> loadPlayedWords({
-    required Category category,
+  Future<Either<Failure, Iterable<WordEntity>>> loadPlayedWords({
+    required CategoryEntity category,
   }) async {
     return _getPlayedWords.execute(
       category: category,
@@ -88,7 +88,7 @@ class WordsUseCasesFacade {
 
   Future<Either<Failure, void>> saveStartedGame({
     required GameSettings settings,
-    required Category category,
+    required CategoryEntity category,
     required List<PlayingCommand> commands,
   }) async {
     return _saveStartedGame.execute(

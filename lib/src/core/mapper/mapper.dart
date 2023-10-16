@@ -1,5 +1,5 @@
-abstract class Mapper<Model, Dto> {
-  Model mapToEntity(Dto type);
+abstract class Mapper<Entity, Dto> {
+  Entity mapToEntity(Dto dto);
 
-  Dto mapToDto(Model type);
+  Dto mapToDto(Entity entity);
 }

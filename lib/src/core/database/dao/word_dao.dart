@@ -18,7 +18,7 @@ class WordDao extends DatabaseAccessor<Database> with _$WordDaoMixin {
       return null;
     }
 
-    return words.last.wordId;
+    return words.lastOrNull?.wordId;
   }
 
   Future<void> saveWords({required List<WordsTableCompanion> words}) async {

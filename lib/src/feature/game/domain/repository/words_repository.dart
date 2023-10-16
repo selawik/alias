@@ -14,24 +14,25 @@ import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
 abstract interface class WordsRepository {
-  Future<Either<Failure, List<Word>>> loadWords({
-    required Category category,
+  Future<Either<Failure, List<WordEntity>>> loadWords({
+    required CategoryEntity category,
     required int wordCount,
-    Iterable<Word>? playedWords,
+    Iterable<WordEntity>? playedWords,
   });
 
-  Future<Either<Failure, Iterable<Word>>> loadPlayedWords({
-    required Category category,
+  Future<Either<Failure, Iterable<WordEntity>>> loadPlayedWords({
+    required CategoryEntity category,
   });
 
   Future<Either<Failure, Game?>> loadUnfinishedGame();
 
-  Future<Either<Failure, void>> savePlayedWords({required List<Word> words});
+  Future<Either<Failure, void>> savePlayedWords(
+      {required List<WordEntity> words});
 
   Future<Either<Failure, void>> saveStartedGame({
     required List<PlayingCommand> commands,
     required GameSettings gameSettings,
-    required Category category,
+    required CategoryEntity category,
   });
 
   Future<Either<Failure, void>> resetGameHistory();
@@ -55,7 +56,7 @@ class WordsRepositoryImpl implements WordsRepository {
 
   @override
   Future<Either<Failure, void>> savePlayedWords({
-    required List<Word> words,
+    required List<WordEntity> words,
   }) async {
     try {
       return Right(await _localDataSource.savePlayedWords(words: words));
@@ -69,7 +70,7 @@ class WordsRepositoryImpl implements WordsRepository {
   Future<Either<Failure, void>> saveStartedGame({
     required List<PlayingCommand> commands,
     required GameSettings gameSettings,
-    required Category category,
+    required CategoryEntity category,
   }) async {
     try {
       final gameDto = GameDto(
@@ -126,8 +127,8 @@ class WordsRepositoryImpl implements WordsRepository {
   }
 
   @override
-  Future<Either<Failure, Iterable<Word>>> loadPlayedWords({
-    required Category category,
+  Future<Either<Failure, Iterable<WordEntity>>> loadPlayedWords({
+    required CategoryEntity category,
   }) async {
     try {
       return Right(await _localDataSource.loadPlayedWords(category: category));
@@ -138,10 +139,10 @@ class WordsRepositoryImpl implements WordsRepository {
   }
 
   @override
-  Future<Either<Failure, List<Word>>> loadWords({
-    required Category category,
+  Future<Either<Failure, List<WordEntity>>> loadWords({
+    required CategoryEntity category,
     required int wordCount,
-    Iterable<Word>? playedWords,
+    Iterable<WordEntity>? playedWords,
   }) async {
     try {
       final playedWordIds = playedWords?.map((e) => e.wordId).toList();

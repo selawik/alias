@@ -17,7 +17,7 @@ enum GameAnswerType {
 @freezed
 class GameAnswer with _$GameAnswer {
   const factory GameAnswer({
-    required Word word,
+    required WordEntity word,
     required GameAnswerType type,
   }) = _GameAnswer;
 }

@@ -5,7 +5,7 @@ sealed class CategoriesState {}
 class CategoriesIsLoading extends CategoriesState {}
 
 class CategoriesLoaded extends CategoriesState {
-  final List<Category> categories;
+  final List<CategoryEntity> categories;
 
   CategoriesLoaded({required this.categories});
 }
