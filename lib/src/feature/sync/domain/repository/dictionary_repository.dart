@@ -3,7 +3,6 @@ import 'dart:developer';
 import 'package:alias/src/feature/sync/data/data_source/dictionary_local_data_source.dart';
 import 'package:alias/src/feature/sync/data/data_source/dictionary_remote_data_source.dart';
 import 'package:alias/src/feature/sync/domain/errors/errors.dart';
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:injectable/injectable.dart';
 
 abstract class DictionaryRepository {

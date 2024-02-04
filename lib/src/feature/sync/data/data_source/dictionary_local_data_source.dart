@@ -2,7 +2,6 @@ import 'package:alias/src/core/database/db_provider.dart';
 import 'package:alias/src/feature/categories/domain/entity/category.dart';
 import 'package:alias/src/feature/commands/domain/entity/command_entity.dart';
 import 'package:alias/src/feature/game/domain/entity/word.dart';
-import 'package:alias/src/feature/sync/data/data_source/mapper/dictionary_mapper_facade.dart';
 import 'package:injectable/injectable.dart';
 
 abstract interface class DictionaryLocalDataSource {
@@ -22,13 +21,10 @@ abstract interface class DictionaryLocalDataSource {
 @Injectable(as: DictionaryLocalDataSource)
 class DriftDictionaryDataSource implements DictionaryLocalDataSource {
   final DbProvider _dbProvider;
-  final DictionaryMapperFacade _mapperFacade;
 
   DriftDictionaryDataSource(
     DbProvider dbProvider,
-    DictionaryMapperFacade mapperFacade,
-  )   : _dbProvider = dbProvider,
-        _mapperFacade = mapperFacade;
+  ) : _dbProvider = dbProvider;
 
   @override
   Future<void> saveWords({required List<WordEntity> words}) async {

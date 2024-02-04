@@ -13,7 +13,6 @@ import 'package:alias/src/feature/game/domain/usecases/save_played_words.dart';
 import 'package:alias/src/feature/game/domain/usecases/save_started_game.dart';
 import 'package:alias/src/feature/game_settings/domain/entity/binary_selector_type.dart';
 import 'package:alias/src/feature/game_settings/domain/entity/command_move_selector_type.dart';
-import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable()

@@ -1,6 +1,5 @@
 import 'dart:developer';
 
-import 'package:alias/src/core/error/failure.dart';
 import 'package:alias/src/feature/categories/domain/entity/category.dart';
 import 'package:alias/src/feature/game/data/data_source/words_local_data_source.dart';
 import 'package:alias/src/feature/game/data/data_source/words_remote_data_source.dart';
@@ -10,35 +9,34 @@ import 'package:alias/src/feature/game/domain/entity/game.dart';
 import 'package:alias/src/feature/game/domain/entity/game_settings.dart';
 import 'package:alias/src/feature/game/domain/entity/playing_command.dart';
 import 'package:alias/src/feature/game/domain/entity/word.dart';
-import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
 abstract interface class WordsRepository {
-  Future<Either<Failure, List<WordEntity>>> loadWords({
+  Future<List<WordEntity>> loadWords({
     required CategoryEntity category,
     required int wordCount,
     Iterable<WordEntity>? playedWords,
   });
 
-  Future<Either<Failure, Iterable<WordEntity>>> loadPlayedWords({
+  Future<Iterable<WordEntity>> loadPlayedWords({
     required CategoryEntity category,
   });
 
-  Future<Either<Failure, Game?>> loadUnfinishedGame();
+  Future<Game?> loadUnfinishedGame();
 
-  Future<Either<Failure, void>> savePlayedWords({
+  Future<void> savePlayedWords({
     required List<WordEntity> words,
   });
 
-  Future<Either<Failure, void>> saveStartedGame({
+  Future<void> saveStartedGame({
     required List<PlayingCommand> commands,
     required GameSettings gameSettings,
     required CategoryEntity category,
   });
 
-  Future<Either<Failure, void>> resetGameHistory();
+  Future<void> resetGameHistory();
 
-  Future<Either<Failure, void>> resetUnfinishedGame();
+  Future<void> resetUnfinishedGame();
 }
 
 @Injectable(as: WordsRepository)
@@ -56,19 +54,19 @@ class WordsRepositoryImpl implements WordsRepository {
         _remoteDataSource = remoteDataSource;
 
   @override
-  Future<Either<Failure, void>> savePlayedWords({
+  Future<void> savePlayedWords({
     required List<WordEntity> words,
   }) async {
     try {
-      return Right(await _localDataSource.savePlayedWords(words: words));
+      return await _localDataSource.savePlayedWords(words: words);
     } on Exception catch (e, stacktrace) {
       log(e.toString(), stackTrace: stacktrace);
-      return Left(DatabaseFailure(e.toString()));
+      Error.throwWithStackTrace(e, stacktrace);
     }
   }
 
   @override
-  Future<Either<Failure, void>> saveStartedGame({
+  Future<void> saveStartedGame({
     required List<PlayingCommand> commands,
     required GameSettings gameSettings,
     required CategoryEntity category,
@@ -83,64 +81,62 @@ class WordsRepositoryImpl implements WordsRepository {
       );
 
       await _localDataSource.saveStartedGame(game: gameDto);
-
-      return const Right(null);
     } on Exception catch (e, stacktrace) {
       log(e.toString(), stackTrace: stacktrace);
-      return Left(DatabaseFailure(e.toString()));
+      Error.throwWithStackTrace(e, stacktrace);
     }
   }
 
   @override
-  Future<Either<Failure, void>> resetGameHistory() async {
+  Future<void> resetGameHistory() async {
     try {
-      return Right(await _localDataSource.resetGameHistory());
+      return await _localDataSource.resetGameHistory();
     } on Exception catch (e, stacktrace) {
       log(e.toString(), stackTrace: stacktrace);
-      return Left(DatabaseFailure(e.toString()));
+      Error.throwWithStackTrace(e, stacktrace);
     }
   }
 
   @override
-  Future<Either<Failure, void>> resetUnfinishedGame() async {
+  Future<void> resetUnfinishedGame() async {
     try {
-      return Right(await _localDataSource.resetUnfinishedGame());
+      return await _localDataSource.resetUnfinishedGame();
     } on Exception catch (e, stacktrace) {
       log(e.toString(), stackTrace: stacktrace);
-      return Left(DatabaseFailure(e.toString()));
+      rethrow;
     }
   }
 
   @override
-  Future<Either<Failure, Game?>> loadUnfinishedGame() async {
+  Future<Game?> loadUnfinishedGame() async {
     try {
       final gameDto = await _localDataSource.loadUnfinishedGame();
 
       if (gameDto != null) {
-        return Right(Game(nextPlayingCommandId: gameDto.nextPlayingCommandId));
+        return Game(nextPlayingCommandId: gameDto.nextPlayingCommandId);
       }
 
-      return const Right(null);
+      return null;
     } on Exception catch (e, stacktrace) {
       log(e.toString(), stackTrace: stacktrace);
-      return Left(DatabaseFailure(e.toString()));
+      Error.throwWithStackTrace(e, stacktrace);
     }
   }
 
   @override
-  Future<Either<Failure, Iterable<WordEntity>>> loadPlayedWords({
+  Future<Iterable<WordEntity>> loadPlayedWords({
     required CategoryEntity category,
   }) async {
     try {
-      return Right(await _localDataSource.loadPlayedWords(category: category));
+      return await _localDataSource.loadPlayedWords(category: category);
     } on Exception catch (e, stacktrace) {
       log(e.toString(), stackTrace: stacktrace);
-      return Left(DatabaseFailure(e.toString()));
+      Error.throwWithStackTrace(e, stacktrace);
     }
   }
 
   @override
-  Future<Either<Failure, List<WordEntity>>> loadWords({
+  Future<List<WordEntity>> loadWords({
     required CategoryEntity category,
     required int wordCount,
     Iterable<WordEntity>? playedWords,
@@ -162,10 +158,10 @@ class WordsRepositoryImpl implements WordsRepository {
 
       final words = result.map(_mapper.mapToEntity).toList();
 
-      return Right(words);
+      return words;
     } on Exception catch (e, stacktrace) {
       log(e.toString(), stackTrace: stacktrace);
-      return const Left(ServerFailure('error'));
+      Error.throwWithStackTrace(e, stacktrace);
     }
   }
 }
